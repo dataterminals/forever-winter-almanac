@@ -1,0 +1,3717 @@
+{
+ "source": "theforeverwinter.wiki.gg - Weapon Attachments (Text Only)",
+ "generated_note": "Community wiki data. Muzzle/Suppressed compat is per mount subtype; other categories are section-wide.",
+ "classOrder": [
+  "Pistol",
+  "SMG",
+  "Rifle",
+  "Marksman & Sniper",
+  "LMG / HMG",
+  "Shotgun",
+  "Special / Launcher",
+  "Other"
+ ],
+ "categories": [
+  {
+   "code": "MZD",
+   "name": "Muzzle Devices",
+   "note": "Compatible with weapons that feature at least one  with a Muzzle Device slot",
+   "section_compatible": [],
+   "count": 17
+  },
+  {
+   "code": "SMZD",
+   "name": "Suppressed Muzzle Devices",
+   "note": "Compatible with weapons that feature at least one  with a Muzzle Device slot",
+   "section_compatible": [],
+   "count": 6
+  },
+  {
+   "code": "FGR",
+   "name": "Foregrips",
+   "note": "Compatible with(all weapons that feature at least one  with a Forgrip slot):",
+   "section_compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ],
+   "count": 17
+  },
+  {
+   "code": "FLL",
+   "name": "Rail Flashlights",
+   "note": "Compatible with(all weapons that feature at least one  with at least one Picatinny slot):",
+   "section_compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ],
+   "count": 3
+  },
+  {
+   "code": "LAM",
+   "name": "Rail Laser Sights",
+   "note": "Compatible with (all weapons that feature at least one  with at least one Picatinny slot):",
+   "section_compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ],
+   "count": 3
+  },
+  {
+   "code": "OPT",
+   "name": "Optics",
+   "note": "Compatible with(all weapons that feature at least one  with a Sight slot):",
+   "section_compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ],
+   "count": 17
+  },
+  {
+   "code": "SCP",
+   "name": "Scopes",
+   "note": "Compatible with (all weapons that feature at least one  with a Sight slot, with the exception of: ,  & ):",
+   "section_compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ],
+   "count": 5
+  }
+ ],
+ "attachments": [
+  {
+   "id": "MZD:Muzzle Dev. A",
+   "name": "Muzzle Dev. A",
+   "category": "MZD",
+   "subtype": "ATTMD1",
+   "buy": "257",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.00",
+   "stability": "-0.00",
+   "zoom": null,
+   "default_on": [
+    "APC9 Pro"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "APC9 Pro",
+    "G-L 19",
+    "PM-9",
+    "PP-19 Vityaz",
+    "R8",
+    "Spectre M4",
+    "USP",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. B",
+   "name": "Muzzle Dev. B",
+   "category": "MZD",
+   "subtype": "ATTMD2",
+   "buy": "257",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.00",
+   "stability": "-0.00",
+   "zoom": null,
+   "default_on": [
+    "S12"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "AA12",
+    "S12",
+    "USAS-12",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. C",
+   "name": "Muzzle Dev. C",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "188",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [
+    "AK"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. D",
+   "name": "Muzzle Dev. D",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "768",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. E",
+   "name": "Muzzle Dev. E",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "869",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [
+    "G36"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. F",
+   "name": "Muzzle Dev. F",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "941",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [
+    "SAW"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. G",
+   "name": "Muzzle Dev. G",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "360",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [
+    "M4A1",
+    "RPK"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. H",
+   "name": "Muzzle Dev. H",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "428",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. I",
+   "name": "Muzzle Dev. I",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "528",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. J",
+   "name": "Muzzle Dev. J",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "600",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. K",
+   "name": "Muzzle Dev. K",
+   "category": "MZD",
+   "subtype": "ATTMD3",
+   "buy": "701",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. L",
+   "name": "Muzzle Dev. L",
+   "category": "MZD",
+   "subtype": "ATTMD4",
+   "buy": "188",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.01",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "MG34",
+    "R11 RSASS",
+    "SA58",
+    "SVD"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. M",
+   "name": "Muzzle Dev. M",
+   "category": "MZD",
+   "subtype": "ATTMD4",
+   "buy": "257",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.01",
+   "zoom": null,
+   "default_on": [
+    "SA58"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "MG34",
+    "R11 RSASS",
+    "SA58",
+    "SVD"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. N",
+   "name": "Muzzle Dev. N",
+   "category": "MZD",
+   "subtype": "ATTMD4",
+   "buy": "428",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.01",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "MG34",
+    "R11 RSASS",
+    "SA58",
+    "SVD"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. O",
+   "name": "Muzzle Dev. O",
+   "category": "MZD",
+   "subtype": "ATTMD4",
+   "buy": "528",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.01",
+   "zoom": null,
+   "default_on": [
+    "R11 RSASS"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "MG34",
+    "R11 RSASS",
+    "SA58",
+    "SVD"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. P",
+   "name": "Muzzle Dev. P",
+   "category": "MZD",
+   "subtype": "ATTMD5",
+   "buy": "188",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.02",
+   "stability": "-0.03",
+   "zoom": null,
+   "default_on": [
+    "SCAR"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "GM6",
+    "NTW-20",
+    "SCAR"
+   ]
+  },
+  {
+   "id": "MZD:Muzzle Dev. Q",
+   "name": "Muzzle Dev. Q",
+   "category": "MZD",
+   "subtype": "ATTMD5",
+   "buy": "257",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.02",
+   "stability": "-0.03",
+   "zoom": null,
+   "default_on": [
+    "GM6"
+   ],
+   "suppressed": false,
+   "compatible": [
+    "GM6",
+    "NTW-20",
+    "SCAR"
+   ]
+  },
+  {
+   "id": "SMZD:Sup. Muzzle Dev. A",
+   "name": "Sup. Muzzle Dev. A",
+   "category": "SMZD",
+   "subtype": "ATTMD1",
+   "buy": "941",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.00",
+   "stability": "-0.00",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": true,
+   "compatible": [
+    "87 Target",
+    "APC9 Pro",
+    "G-L 19",
+    "PM-9",
+    "PP-19 Vityaz",
+    "R8",
+    "Spectre M4",
+    "USP",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "SMZD:Sup. Muzzle Dev. B",
+   "name": "Sup. Muzzle Dev. B",
+   "category": "SMZD",
+   "subtype": "ATTMD3",
+   "buy": "257",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": true,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "SMZD:Sup. Muzzle Dev. C",
+   "name": "Sup. Muzzle Dev. C",
+   "category": "SMZD",
+   "subtype": "ATTMD3",
+   "buy": "768",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": true,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "SMZD:Sup. Muzzle Dev. D",
+   "name": "Sup. Muzzle Dev. D",
+   "category": "SMZD",
+   "subtype": "ATTMD3",
+   "buy": "869",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": true,
+   "compatible": [
+    "AK",
+    "G36",
+    "M4A1",
+    "M60",
+    "RPD",
+    "RPK",
+    "SAW"
+   ]
+  },
+  {
+   "id": "SMZD:Sup. Muzzle Dev. E",
+   "name": "Sup. Muzzle Dev. E",
+   "category": "SMZD",
+   "subtype": "ATTMD4",
+   "buy": "360",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.01",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": true,
+   "compatible": [
+    "MG34",
+    "R11 RSASS",
+    "SA58",
+    "SVD"
+   ]
+  },
+  {
+   "id": "SMZD:Sup. Muzzle Dev. F",
+   "name": "Sup. Muzzle Dev. F",
+   "category": "SMZD",
+   "subtype": "ATTMD4",
+   "buy": "600",
+   "sell": null,
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.01",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": true,
+   "compatible": [
+    "MG34",
+    "R11 RSASS",
+    "SA58",
+    "SVD"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip A",
+   "name": "Foregrip A",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "216",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip B",
+   "name": "Foregrip B",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "696",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip C",
+   "name": "Foregrip C",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "812",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip D",
+   "name": "Foregrip D",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "893",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip E",
+   "name": "Foregrip E",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "1008",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip F",
+   "name": "Foregrip F",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "1088",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip G",
+   "name": "Foregrip G",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "216",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip H",
+   "name": "Foregrip H",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "416",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip I",
+   "name": "Foregrip I",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "416",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip J",
+   "name": "Foregrip J",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "893",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip K",
+   "name": "Foregrip K",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "1008",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip L",
+   "name": "Foregrip L",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "1088",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip M",
+   "name": "Foregrip M",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "216",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip N",
+   "name": "Foregrip N",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "416",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip O",
+   "name": "Foregrip O",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "416",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip P",
+   "name": "Foregrip P",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "497",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FGR:Foregrip Q",
+   "name": "Foregrip Q",
+   "category": "FGR",
+   "subtype": "PICFGR",
+   "buy": "612",
+   "sell": null,
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.16",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SCAR",
+    "SVD",
+    "VEPR-12"
+   ]
+  },
+  {
+   "id": "FLL:Rail Flashlight A",
+   "name": "Rail Flashlight A",
+   "category": "FLL",
+   "subtype": "PICFLL",
+   "buy": "176",
+   "sell": "176",
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.00",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "FLL:Rail Flashlight B",
+   "name": "Rail Flashlight B",
+   "category": "FLL",
+   "subtype": "PICFLL",
+   "buy": "245",
+   "sell": "245",
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.00",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "FLL:Rail Flashlight C",
+   "name": "Rail Flashlight C",
+   "category": "FLL",
+   "subtype": "PICFLL",
+   "buy": "336",
+   "sell": "336",
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.01",
+   "stability": "-0.00",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "LAM:Rail Laser Sight A",
+   "name": "Rail Laser Sight A",
+   "category": "LAM",
+   "subtype": "PICLAM",
+   "buy": "500",
+   "sell": "500",
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "LAM:Rail Laser Sight B",
+   "name": "Rail Laser Sight B",
+   "category": "LAM",
+   "subtype": "PICLAM",
+   "buy": "564",
+   "sell": "564",
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "LAM:Rail Laser Sight C",
+   "name": "Rail Laser Sight C",
+   "category": "LAM",
+   "subtype": "PICLAM",
+   "buy": "660",
+   "sell": "660",
+   "loyalty": "1 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "C96",
+    "G-L 19",
+    "G36",
+    "GM6",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "Spectre M4",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Vtex",
+   "name": "Vtex",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "1157cr",
+   "sell": "848cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Sfox Queenkiller",
+   "name": "Sfox Queenkiller",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "1068cr",
+   "sell": "783cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Vtex V",
+   "name": "Vtex V",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "948cr",
+   "sell": "695cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Tri M",
+   "name": "Tri M",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "860cr",
+   "sell": "631cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:ET HWS EXP",
+   "name": "ET HWS EXP",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "860cr",
+   "sell": "631cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:P Arms 3P",
+   "name": "P Arms 3P",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "737cr",
+   "sell": "540cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:ET XP2",
+   "name": "ET XP2",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "737cr",
+   "sell": "540cr",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Spook",
+   "name": "Spook",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "653cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Zeni-B P6",
+   "name": "Zeni-B P6",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "653cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Vtex Raz Gen 2",
+   "name": "Vtex Raz Gen 2",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "528cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Aimp Micro",
+   "name": "Aimp Micro",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "528cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Aimp H2",
+   "name": "Aimp H2",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "440cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Stein R",
+   "name": "Stein R",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "440cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:ET EFX",
+   "name": "ET EFX",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "317cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:H-sun",
+   "name": "H-sun",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "317cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:E-TECH XP",
+   "name": "E-TECH XP",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "233cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "OPT:Vtex Strike",
+   "name": "Vtex Strike",
+   "category": "OPT",
+   "subtype": null,
+   "buy": "233cr",
+   "sell": "-",
+   "loyalty": "2 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": null,
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Grenade Launcher",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "M79 Sawed-off",
+    "MG34",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "SCP:ACG 2x",
+   "name": "ACG 2x",
+   "category": "SCP",
+   "subtype": null,
+   "buy": "663cr",
+   "sell": "-",
+   "loyalty": "3 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": "2x",
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "SCP:SIGS Cheers 2x",
+   "name": "SIGS Cheers 2x",
+   "category": "SCP",
+   "subtype": null,
+   "buy": "977cr",
+   "sell": "-",
+   "loyalty": "3 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": "2x",
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "SCP:Vtex Spit 3x",
+   "name": "Vtex Spit 3x",
+   "category": "SCP",
+   "subtype": null,
+   "buy": "1100cr",
+   "sell": "807cr",
+   "loyalty": "3 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": "3x",
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "SCP:TrueAimer 4x",
+   "name": "TrueAimer 4x",
+   "category": "SCP",
+   "subtype": null,
+   "buy": "1193cr",
+   "sell": "875cr",
+   "loyalty": "3 - Aramaki, Grillo",
+   "accuracy": "+0.05",
+   "stability": "-0.07",
+   "zoom": "4x",
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "87 Target",
+    "AK",
+    "APC9 Pro",
+    "G36",
+    "GM6",
+    "Kriss Vector 45",
+    "M16",
+    "M4A1",
+    "P90",
+    "PP-19 Vityaz",
+    "PPSH-41",
+    "R11 RSASS",
+    "RPK",
+    "SA58",
+    "SAW",
+    "SCAR",
+    "SVD",
+    "VEPR-12",
+    "VKS VYKHLOP"
+   ]
+  },
+  {
+   "id": "SCP:Image",
+   "name": "Image",
+   "category": "SCP",
+   "subtype": null,
+   "buy": "Type",
+   "sell": "0cr",
+   "loyalty": "0cr",
+   "accuracy": "Aramaki, Grillo (0)",
+   "stability": "+0",
+   "zoom": "-0",
+   "default_on": [],
+   "suppressed": false,
+   "compatible": [
+    "Gun"
+   ]
+  }
+ ],
+ "weapons": [
+  {
+   "name": "87 Target",
+   "class": "Pistol",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 29
+  },
+  {
+   "name": "AA12",
+   "class": "Shotgun",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. B"
+    ]
+   },
+   "total": 1
+  },
+  {
+   "name": "AK",
+   "class": "Rifle",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 56
+  },
+  {
+   "name": "APC9 Pro",
+   "class": "SMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 46
+  },
+  {
+   "name": "C96",
+   "class": "Pistol",
+   "byCategory": {
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ]
+   },
+   "total": 6
+  },
+  {
+   "name": "G-L 19",
+   "class": "Pistol",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ]
+   },
+   "total": 8
+  },
+  {
+   "name": "G36",
+   "class": "Rifle",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 56
+  },
+  {
+   "name": "GM6",
+   "class": "Marksman & Sniper",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. P",
+     "Muzzle Dev. Q"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 46
+  },
+  {
+   "name": "Grenade Launcher",
+   "class": "Special / Launcher",
+   "byCategory": {
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ]
+   },
+   "total": 17
+  },
+  {
+   "name": "Gun",
+   "class": "Other",
+   "byCategory": {
+    "SCP": [
+     "Image"
+    ]
+   },
+   "total": 1
+  },
+  {
+   "name": "Kriss Vector 45",
+   "class": "SMG",
+   "byCategory": {
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 21
+  },
+  {
+   "name": "M16",
+   "class": "Rifle",
+   "byCategory": {
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 44
+  },
+  {
+   "name": "M4A1",
+   "class": "Rifle",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 56
+  },
+  {
+   "name": "M60",
+   "class": "LMG / HMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ]
+   },
+   "total": 12
+  },
+  {
+   "name": "M79 Sawed-off",
+   "class": "Shotgun",
+   "byCategory": {
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ]
+   },
+   "total": 17
+  },
+  {
+   "name": "MG34",
+   "class": "LMG / HMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. L",
+     "Muzzle Dev. M",
+     "Muzzle Dev. N",
+     "Muzzle Dev. O"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. E",
+     "Sup. Muzzle Dev. F"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ]
+   },
+   "total": 23
+  },
+  {
+   "name": "NTW-20",
+   "class": "Marksman & Sniper",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. P",
+     "Muzzle Dev. Q"
+    ]
+   },
+   "total": 2
+  },
+  {
+   "name": "P90",
+   "class": "SMG",
+   "byCategory": {
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 27
+  },
+  {
+   "name": "PM-9",
+   "class": "Pistol",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ]
+   },
+   "total": 2
+  },
+  {
+   "name": "PP-19 Vityaz",
+   "class": "SMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 46
+  },
+  {
+   "name": "PPSH-41",
+   "class": "SMG",
+   "byCategory": {
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 44
+  },
+  {
+   "name": "R11 RSASS",
+   "class": "Marksman & Sniper",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. L",
+     "Muzzle Dev. M",
+     "Muzzle Dev. N",
+     "Muzzle Dev. O"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. E",
+     "Sup. Muzzle Dev. F"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 50
+  },
+  {
+   "name": "R8",
+   "class": "Pistol",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ]
+   },
+   "total": 2
+  },
+  {
+   "name": "RPD",
+   "class": "LMG / HMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ]
+   },
+   "total": 12
+  },
+  {
+   "name": "RPK",
+   "class": "LMG / HMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 56
+  },
+  {
+   "name": "S12",
+   "class": "Shotgun",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. B"
+    ]
+   },
+   "total": 1
+  },
+  {
+   "name": "SA58",
+   "class": "Rifle",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. L",
+     "Muzzle Dev. M",
+     "Muzzle Dev. N",
+     "Muzzle Dev. O"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. E",
+     "Sup. Muzzle Dev. F"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 50
+  },
+  {
+   "name": "SAW",
+   "class": "LMG / HMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. C",
+     "Muzzle Dev. D",
+     "Muzzle Dev. E",
+     "Muzzle Dev. F",
+     "Muzzle Dev. G",
+     "Muzzle Dev. H",
+     "Muzzle Dev. I",
+     "Muzzle Dev. J",
+     "Muzzle Dev. K"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. B",
+     "Sup. Muzzle Dev. C",
+     "Sup. Muzzle Dev. D"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 39
+  },
+  {
+   "name": "SCAR",
+   "class": "Rifle",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. P",
+     "Muzzle Dev. Q"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 46
+  },
+  {
+   "name": "SVD",
+   "class": "Marksman & Sniper",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. L",
+     "Muzzle Dev. M",
+     "Muzzle Dev. N",
+     "Muzzle Dev. O"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. E",
+     "Sup. Muzzle Dev. F"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 50
+  },
+  {
+   "name": "Spectre M4",
+   "class": "SMG",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ]
+   },
+   "total": 8
+  },
+  {
+   "name": "USAS-12",
+   "class": "Shotgun",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. B"
+    ]
+   },
+   "total": 1
+  },
+  {
+   "name": "USP",
+   "class": "Pistol",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ]
+   },
+   "total": 2
+  },
+  {
+   "name": "VEPR-12",
+   "class": "Shotgun",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. B"
+    ],
+    "FGR": [
+     "Foregrip A",
+     "Foregrip B",
+     "Foregrip C",
+     "Foregrip D",
+     "Foregrip E",
+     "Foregrip F",
+     "Foregrip G",
+     "Foregrip H",
+     "Foregrip I",
+     "Foregrip J",
+     "Foregrip K",
+     "Foregrip L",
+     "Foregrip M",
+     "Foregrip N",
+     "Foregrip O",
+     "Foregrip P",
+     "Foregrip Q"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 45
+  },
+  {
+   "name": "VKS VYKHLOP",
+   "class": "Marksman & Sniper",
+   "byCategory": {
+    "MZD": [
+     "Muzzle Dev. A"
+    ],
+    "SMZD": [
+     "Sup. Muzzle Dev. A"
+    ],
+    "FLL": [
+     "Rail Flashlight A",
+     "Rail Flashlight B",
+     "Rail Flashlight C"
+    ],
+    "LAM": [
+     "Rail Laser Sight A",
+     "Rail Laser Sight B",
+     "Rail Laser Sight C"
+    ],
+    "OPT": [
+     "Vtex",
+     "Sfox Queenkiller",
+     "Vtex V",
+     "Tri M",
+     "ET HWS EXP",
+     "P Arms 3P",
+     "ET XP2",
+     "Spook",
+     "Zeni-B P6",
+     "Vtex Raz Gen 2",
+     "Aimp Micro",
+     "Aimp H2",
+     "Stein R",
+     "ET EFX",
+     "H-sun",
+     "E-TECH XP",
+     "Vtex Strike"
+    ],
+    "SCP": [
+     "ACG 2x",
+     "SIGS Cheers 2x",
+     "Vtex Spit 3x",
+     "TrueAimer 4x"
+    ]
+   },
+   "total": 29
+  }
+ ]
+}

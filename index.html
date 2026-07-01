@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Forever Winter Gunsmith</title>
+  <meta name="description" content="Which attachments fit which weapons in The Forever Winter." />
+  <meta name="theme-color" content="#161612" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icons/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="assets/icons/icon-192.png" alt="" width="36" height="36" />
+      <div class="brand-txt">
+        <h1>Forever&nbsp;Winter Gunsmith</h1>
+        <p class="tagline">what fits what &mdash; the game won&rsquo;t tell you</p>
+      </div>
+    </div>
+    <button id="installBtn" class="install" hidden>Install</button>
+  </header>
+
+  <div class="searchwrap">
+    <input id="search" type="search" inputmode="search" autocomplete="off"
+           placeholder="Search a weapon or attachment&hellip;" aria-label="Search" />
+    <button id="searchClear" class="searchclear" aria-label="Clear search" hidden>&times;</button>
+  </div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="weapons" role="tab">Weapons</button>
+    <button class="tab" data-tab="attachments" role="tab">Attachments</button>
+    <button class="tab" data-tab="muzzles" role="tab">Muzzle&nbsp;guide</button>
+  </nav>
+
+  <main id="view" class="view"><!-- rendered by app.js --></main>
+
+  <footer class="foot">
+    <span id="stats"></span>
+    <span>Data: <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">theforeverwinter.wiki.gg</a> + game files. Community data &mdash; may lag patches.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

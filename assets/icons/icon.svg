@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="FW Gunsmith">
+  <rect width="512" height="512" fill="#161612"/>
+  <rect x="31" y="31" width="450" height="450" rx="51" fill="#262822"/>
+  <g fill="none" stroke="#d3b05c" stroke-width="9">
+    <circle cx="256" cy="256" r="118"/>
+    <path d="M256 74v90 M256 348v90 M74 256h90 M348 256h90"/>
+  </g>
+  <circle cx="256" cy="256" r="10" fill="#96b45a"/>
+  <text x="256" y="430" text-anchor="middle" font-family="Consolas,monospace" font-weight="700"
+        font-size="104" fill="#96b45a">FW</text>
+</svg>
