@@ -85,7 +85,8 @@ function render() {
   if (state.tab === "weapons") renderWeapons();
   else if (state.tab === "attachments") renderAttachments();
   else if (state.tab === "muzzles") renderMuzzles();
-  else renderStats();
+  else if (state.tab === "stats") renderStats();
+  else renderDetection();
 }
 const match = (name) => !state.q || name.toLowerCase().includes(state.q);
 
@@ -314,6 +315,91 @@ function renderStats() {
       currently non-functional.
     </div>
     <p class="legend">Sources: <a href="https://theforeverwinter.wiki.gg/wiki/Weapons" target="_blank" rel="noopener">Weapons</a> &amp; <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">Weapon Attachments</a> wiki pages + community testing. Mechanics are WIP and stats are flagged unreliable by the devs — verify in the shooting range.</p>
+  </div>`;
+}
+
+/* ---------- detection / stealth tab ---------- */
+let DET = null;
+async function renderDetection() {
+  view.classList.remove("detail-open");
+  if (!DET) {
+    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading detection data…</div>`;
+    try { DET = await (await fetch("data/detection.json", { cache: "no-cache" })).json(); }
+    catch (e) { view.innerHTML = `<p class="empty">Could not load detection data.<br><small>${esc(e.message)}</small></p>`; return; }
+  }
+  const D = DET;
+  const gm = D.globalModel;
+  const num = (v) => (v === null || v === undefined) ? "—" : v;
+  const mrow = (m) => {
+    const good = m.acc >= 1 && m.decay <= 1;
+    const bad = m.acc < 1 || m.decay > 1;
+    const cls = good ? "ok" : (bad ? "bad" : "");
+    const tag = good ? "stealthier" : (bad ? "easier to spot" : "mixed");
+    return `<tr><td>${esc(m.factor)}</td><td class="${cls}">${tag}</td><td>${esc(m.effect)}</td></tr>`;
+  };
+  const erow = (e) => `<tr title="${esc(e.notes)}">
+      <td>${esc(e.name)}<div class="esub">${esc(e.class)}</div></td>
+      <td>${e.visionFar ? `${num(e.visionNear)} → ${num(e.visionFar)} m` : "—"}</td>
+      <td>${e.coneH ? e.coneH + "°" : "—"}</td>
+      <td>${e.hearing ? e.hearing + " m" : "—"}</td>
+      <td>${e.esp ? esc(e.esp) : "—"}</td></tr>`;
+  const nmax = Math.max(...D.noise.map((n) => n.radius || 0.1));
+  const nrow = (n) => {
+    const pct = Math.max(2, Math.round((Math.log10((n.radius || 0.5) + 1) / Math.log10(nmax + 1)) * 100));
+    return `<div class="noise-row"><span class="noise-name">${esc(n.action)}</span>
+      <span class="noise-bar"><span style="width:${pct}%"></span></span>
+      <span class="noise-val">${n.radius === 0 ? esc(n.label || "silent") : (n.label ? esc(n.label) : n.radius + " m")}</span></div>`;
+  };
+
+  view.innerHTML = `<div class="guide">
+    <div class="callout" style="margin-top:16px"><b>Datamined from the game's own AI, not the forums.</b>
+      These are the real numbers behind how enemies detect you — sight, sound, and the through-wall "sixth sense".
+      Ranges are converted to metres.</div>
+
+    <div class="card">
+      <div class="section" style="margin-top:0"><h3>The six ways they sense you</h3></div>
+      ${D.senses.map((s) => `<div class="gdef"><span class="term">${esc(s.name)}</span><span>${esc(s.desc)}</span></div>`).join("")}
+    </div>
+
+    <div class="card">
+      <div class="section" style="margin-top:0"><h3>Per-enemy senses <span class="c">hover a row for tactics</span></h3></div>
+      <div class="gtable-wrap"><table class="gtable">
+        <thead><tr><th>Enemy</th><th>Vision (near→far)</th><th>Cone</th><th>Hearing</th><th>ESP</th></tr></thead>
+        <tbody>${D.enemies.map(erow).join("")}</tbody>
+      </table></div>
+      <p class="gnote">Vision is a line-of-sight cone; you build detection faster up close (near range) than at the edge (far range). ESP ignores walls. "∞" = effectively omniscient at range (turrets, Hunter-Killers).</p>
+    </div>
+
+    <div class="card">
+      <div class="section" style="margin-top:0"><h3>What makes <em>you</em> visible</h3></div>
+      <div class="gtable-wrap"><table class="gtable">
+        <thead><tr><th>Factor</th><th>Effect</th><th>What it does</th></tr></thead>
+        <tbody>${D.modifiers.map(mrow).join("")}</tbody>
+      </table></div>
+      <p class="gnote">${esc(D.note)}</p>
+    </div>
+
+    <div class="card">
+      <div class="section" style="margin-top:0"><h3>Noise you make (audible radius)</h3></div>
+      <div class="noise-list">${D.noise.map(nrow).join("")}</div>
+      <p class="gnote">Crouch-moving emits <b>no</b> noise event at all. Sprinting is ~3× louder than walking; a single gunshot is heard 75–100 m away.</p>
+    </div>
+
+    <div class="card">
+      <div class="section" style="margin-top:0"><h3>Timing &amp; memory</h3></div>
+      <div class="statgrid">
+        <div class="stat"><div class="k">Confirm a target</div><div class="v">${esc(gm.identifyTime)}</div></div>
+        <div class="stat"><div class="k">Lose you — Rookies</div><div class="v">${esc(gm.lostTarget["Rookies"])}</div></div>
+        <div class="stat"><div class="k">Lose you — Career</div><div class="v">${esc(gm.lostTarget["Career Soldiers"])}</div></div>
+        <div class="stat"><div class="k">Lose you — Special Forces</div><div class="v">${esc(gm.lostTarget["Special Forces"])}</div></div>
+        <div class="stat"><div class="k">Search last-known</div><div class="v">${esc(gm.hiddenSearch)}</div></div>
+        <div class="stat"><div class="k">Area stays hot</div><div class="v">${esc(gm.alertnessCooldown)}</div></div>
+      </div>
+      <p class="gnote">${esc(gm.alertnessNote)}</p>
+      <div class="callout"><b>Squad transference.</b> ${esc(D.transference.desc)}</div>
+    </div>
+
+    <p class="legend">Method: decoded from the shipping game's <code>FWAI</code> awareness assets (vision/hearing/ESP sensor definitions, noise events, transference) via a UE4SS type mapping + CUE4Parse. Ranges: Unreal units ÷100 = metres. Modifier directions verified against in-game roles (crouch stealthier, shooting louder).</p>
   </div>`;
 }
 

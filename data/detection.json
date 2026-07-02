@@ -1,0 +1,65 @@
+{
+  "source": "Datamined from the shipping game (FWAI awareness system) via a UE4SS usmap + CUE4Parse. Ranges converted from Unreal units (cm) to metres.",
+  "note": "Vision modifiers act on accumulation TIME: AccumulationMultiplier > 1 = slower to detect (stealthier); DecayMultiplier < 1 = forgotten faster (stealthier).",
+  "globalModel": {
+    "identifyTime": "0.5 s",
+    "identifyNote": "Once a sensor has you, it takes ~0.5 s to confirm you as a target (all enemy tiers).",
+    "aggroReeval": "5 s (±1)",
+    "investigateReeval": "1 s",
+    "hiddenSearch": "10 s",
+    "lostTarget": { "Rookies": "10 s", "Career Soldiers": "30 s", "Special Forces": "40 s" },
+    "alertnessCooldown": "80 s",
+    "alertnessNote": "After an alert, the faction stays agitated for ~80 s before settling — disengaging and waiting works, but takes longer than most expect."
+  },
+  "senses": [
+    { "name": "Vision", "code": "sight", "desc": "A line-of-sight cone with a near and far range. You accumulate detection faster up close; the cone has a horizontal and a vertical half-angle, so height matters too." },
+    { "name": "Hearing", "code": "ears", "desc": "A cylinder (radius + half-height) that picks up graded noise events. Different actions emit different noise radii; the enemy hears you if you're inside both the noise's reach and their hearing radius." },
+    { "name": "ESP", "code": "esp", "desc": "A through-wall proximity sense — no line-of-sight needed. This is the real 'sixth sense'. Most units scale a base radius by a multiplier; turrets & Hunter-Killers are effectively omniscient at range." },
+    { "name": "Damage", "code": "hit", "desc": "Taking a hit registers you immediately." },
+    { "name": "Intuition", "code": "gut", "desc": "A soft, faction-based 'something's off' sense used by larger units." },
+    { "name": "Transference", "code": "squad", "desc": "How one enemy's awareness spreads to its allies — the reason a whole squad turns when one spots you." }
+  ],
+  "enemies": [
+    { "name": "Soldier (standard)", "class": "Infantry", "visionNear": 14, "visionFar": 40, "coneH": 134, "coneV": 79, "accNear": 1.2, "accFar": 2.75, "hearing": 11.5, "esp": "base", "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed." },
+    { "name": "Europa Sniper", "class": "Marksman", "visionNear": 14, "visionFar": 80, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 2.75, "hearing": 11.5, "esp": null, "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines." },
+    { "name": "Stalker", "class": "Euruska", "visionNear": 10, "visionFar": 60, "coneH": 176, "coneV": 120, "accNear": 1.2, "accFar": 4.33, "hearing": 40, "esp": "×2", "notes": "Exceptional hearing (40 m) and a tall vertical cone; doubles its ESP radius. Built to hunt." },
+    { "name": "Mech", "class": "Heavy", "visionNear": 14, "visionFar": 400, "coneH": 176, "coneV": 79, "accNear": 4.0, "accFar": 9.0, "hearing": 15, "esp": "×3", "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits." },
+    { "name": "Hunter-Killer (EOD)", "class": "HK", "visionNear": 100, "visionFar": 200, "coneH": 360, "coneV": 360, "accNear": 0.1, "accFar": 0.1, "hearing": 11.5, "esp": "∞", "notes": "360° vision to 200 m with a 0.1 s lock and effectively infinite ESP. If an HK is near, you are found. Break line of sight and leave." },
+    { "name": "Scav Turret", "class": "Turret", "visionNear": 200, "visionFar": 200, "coneH": 360, "coneV": 360, "accNear": 0.1, "accFar": 0.1, "hearing": null, "esp": "∞", "notes": "360°, 200 m, instant. Stay behind hard cover." },
+    { "name": "Drone", "class": "Air", "visionNear": 30, "visionFar": 60, "coneH": 90, "coneV": 120, "accNear": 1.2, "accFar": 9.0, "hearing": null, "esp": null, "notes": "Narrow 90° cone but wide vertical arc — it looks down well." },
+    { "name": "Chopper", "class": "Air", "visionNear": 80, "visionFar": 108, "coneH": 90, "coneV": 120, "accNear": 12.0, "accFar": 18.0, "hearing": 5.75, "esp": null, "notes": "Long range but very slow to lock (12–18 s) — you can cross gaps between its sweeps." },
+    { "name": "Tank", "class": "Vehicle", "visionNear": 10, "visionFar": 108, "coneH": 150, "coneV": 150, "accNear": 4.0, "accFar": 9.0, "hearing": null, "esp": null, "notes": "Wide arc, long range, slow build." },
+    { "name": "BlindMother", "class": "Boss", "visionNear": null, "visionFar": null, "coneH": null, "coneV": null, "accNear": null, "accFar": null, "hearing": 30, "esp": null, "notes": "Runs on hearing — a 30 m listen radius with an instant lock. Move slow and quiet; do not sprint near her." },
+    { "name": "Shield Guy", "class": "Infantry", "visionNear": 14, "visionFar": 40, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 2.0, "hearing": 11.5, "esp": null, "notes": "Soldier-range vision in a wide arc." }
+  ],
+  "modifiers": [
+    { "factor": "Crouch", "acc": 2.0, "decay": 0.5, "effect": "Detected 2× slower and forgotten 2× faster. The strongest stealth lever for vision — and crouch-moving is silent." },
+    { "factor": "Shooting / “violent”", "acc": 0.5, "decay": 2.0, "effect": "Detected twice as fast and remembered twice as long. Every shot makes you far easier to find." },
+    { "factor": "In a tunnel", "acc": 1.3, "decay": 0.9, "effect": "Roughly 1.1–1.5× slower to detect and forgotten a bit faster." },
+    { "factor": "Stealth Rig", "acc": 1.2, "decay": 0.8, "effect": "Gear bonus: 1.2× slower to detect and forgotten faster." },
+    { "factor": "Gunhead (character)", "acc": 0.9, "decay": 1.0, "effect": "Spotted fastest of the cast — the big, bulky build." },
+    { "factor": "BagMan (character)", "acc": 0.95, "decay": 1.0, "effect": "Slightly easier to spot." },
+    { "factor": "Girl / Shaman (character)", "acc": 1.06, "decay": 1.0, "effect": "The stealthiest baseline characters." },
+    { "factor": "New-player grace", "acc": 1.4, "decay": 0.7, "effect": "Starter characters are detected 1.25–1.5× slower — a hidden newbie buffer." }
+  ],
+  "noise": [
+    { "action": "Crouch-move", "radius": 0, "label": "silent" },
+    { "action": "Walk", "radius": 2.5 },
+    { "action": "Gunhead walk", "radius": 3.0 },
+    { "action": "Looting", "radius": 4.0 },
+    { "action": "Gunhead sprint", "radius": 6.0 },
+    { "action": "Sprint", "radius": 7.5 },
+    { "action": "Loud action", "radius": 8.0 },
+    { "action": "Grenade / very loud", "radius": 50.0 },
+    { "action": "Gunfire (rifle)", "radius": 75.0 },
+    { "action": "Gunfire (LMG/shotgun)", "radius": 100.0 },
+    { "action": "Max / radar fail", "radius": 200.0 },
+    { "action": "NoiseMaker decoy", "radius": 1000.0, "label": "1000 m — map-wide distraction" }
+  ],
+  "transference": {
+    "degrees": 2,
+    "primary": 20,
+    "secondary": 9,
+    "desc": "When one enemy detects you, allies within 20 m are alerted, and it chains up to 2 hops (each secondary hop reaches 9 m). Water Thieves are worse — up to 10 hops. This is why breaking one contact isn't enough once a squad is onto you."
+  }
+}

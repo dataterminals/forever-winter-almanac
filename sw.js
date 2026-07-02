@@ -1,10 +1,11 @@
-const CACHE = "fw-gunsmith-v6";
+const CACHE = "fw-gunsmith-v7";
 const ASSETS = [
   "./",
   "index.html",
   "app.css",
   "app.js",
   "data/attachments.json",
+  "data/detection.json",
   "manifest.webmanifest",
   "assets/icons/icon-192.png",
   "assets/icons/icon-512.png",
@@ -27,7 +28,7 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
-  if (url.pathname.endsWith("attachments.json")) {
+  if (url.pathname.endsWith(".json")) {
     e.respondWith(
       fetch(req).then((r) => { const cp = r.clone(); caches.open(CACHE).then((c) => c.put(req, cp)); return r; }).catch(() => caches.match(req))
     );

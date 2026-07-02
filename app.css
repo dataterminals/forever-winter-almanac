@@ -175,6 +175,16 @@ a { color: var(--gold); }
 .gtable td:first-child { font-weight: 600; white-space: nowrap; }
 .gtable td.ok { color: var(--olive); font-weight: 700; }
 .gtable td.bad { color: var(--rust); font-weight: 700; }
+.gtable .esub { font-size: 10.5px; color: var(--dim); font-weight: 400; margin-top: 1px; }
+
+/* detection: noise bars */
+.noise-list { display: flex; flex-direction: column; gap: 5px; margin: 4px 0; }
+.noise-row { display: grid; grid-template-columns: 130px 1fr 132px; gap: 10px; align-items: center; font-size: 13px; }
+.noise-name { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.noise-bar { height: 8px; background: var(--bg2); border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.noise-bar > span { display: block; height: 100%; background: var(--rust); }
+.noise-val { color: var(--muted); font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .noise-row { grid-template-columns: 92px 1fr 78px; gap: 7px; font-size: 12px; } }
 
 .foot { max-width: var(--maxw); margin: 0 auto; padding: 18px 16px calc(28px + env(safe-area-inset-bottom));
   color: var(--dim); font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;
@@ -184,6 +194,9 @@ a { color: var(--gold); }
 /* ---- mobile ---- */
 @media (max-width: 720px) {
   .panes { grid-template-columns: 1fr; }
+  .tabs { overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex: 1 0 auto; }
   .gdef { grid-template-columns: 1fr; gap: 1px; }
   .gdef .term { margin-top: 2px; }
   .brand h1 { font-size: 14px; white-space: normal; }
