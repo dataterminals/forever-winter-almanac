@@ -21,16 +21,19 @@
   ],
   "enemies": [
     { "name": "Soldier (standard)", "class": "Infantry", "visionNear": 14, "visionFar": 40, "coneH": 134, "coneV": 79, "accNear": 1.2, "accFar": 2.75, "hearing": 11.5, "esp": "base", "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed." },
-    { "name": "Europa Sniper", "class": "Marksman", "visionNear": 14, "visionFar": 80, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 2.75, "hearing": 11.5, "esp": null, "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines." },
+    { "name": "Europa Sniper", "class": "Marksman", "visionNear": 14, "visionFar": 80, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 2.75, "hearing": 11.5, "esp": null, "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines. (The 'Deadly Sniper' variant shares this exact profile.)" },
+    { "name": "Overwatch Sniper", "class": "Marksman", "visionNear": 14, "visionFar": 40, "coneH": 134, "coneV": 79, "accNear": 1.0, "accFar": 2.29, "hearing": 11.5, "esp": null, "notes": "A fixed overwatch/quest sniper — only soldier range, but the fastest near-lock in the game (1.0 s inside 14 m). It commits before a grunt would, so don't hold still in its arc." },
     { "name": "Stalker", "class": "Euruska", "visionNear": 10, "visionFar": 60, "coneH": 176, "coneV": 120, "accNear": 1.2, "accFar": 4.33, "hearing": 40, "esp": "×2", "notes": "Exceptional hearing (40 m) and a tall vertical cone; doubles its ESP radius. Built to hunt." },
     { "name": "Mech", "class": "Heavy", "visionNear": 14, "visionFar": 400, "coneH": 176, "coneV": 79, "accNear": 4.0, "accFar": 9.0, "hearing": 15, "esp": "×3", "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits." },
     { "name": "Hunter-Killer (EOD)", "class": "HK", "visionNear": 100, "visionFar": 200, "coneH": 360, "coneV": 360, "accNear": 0.1, "accFar": 0.1, "hearing": 11.5, "esp": "∞", "notes": "360° vision to 200 m with a 0.1 s lock and effectively infinite ESP. If an HK is near, you are found. Break line of sight and leave." },
     { "name": "Scav Turret", "class": "Turret", "visionNear": 200, "visionFar": 200, "coneH": 360, "coneV": 360, "accNear": 0.1, "accFar": 0.1, "hearing": null, "esp": "∞", "notes": "360°, 200 m, instant. Stay behind hard cover." },
+    { "name": "Turret (emplaced)", "class": "Turret", "visionNear": 14, "visionFar": 40, "coneH": 195, "coneV": 79, "accNear": 1.2, "accFar": 2.75, "hearing": null, "esp": "×4.5", "notes": "The ordinary mounted turret — not the Scav 360° one. A wide 195° arc to 40 m at a soldier's lock speed, plus a 4.5× ESP bubble that sees through walls up close. Come at it from behind, or from well past 40 m." },
     { "name": "Drone", "class": "Air", "visionNear": 30, "visionFar": 60, "coneH": 90, "coneV": 120, "accNear": 1.2, "accFar": 9.0, "hearing": null, "esp": null, "notes": "Narrow 90° cone but wide vertical arc — it looks down well." },
     { "name": "Chopper", "class": "Air", "visionNear": 80, "visionFar": 108, "coneH": 90, "coneV": 120, "accNear": 12.0, "accFar": 18.0, "hearing": 5.75, "esp": null, "notes": "Long range but very slow to lock (12–18 s) — you can cross gaps between its sweeps." },
     { "name": "Tank", "class": "Vehicle", "visionNear": 10, "visionFar": 108, "coneH": 150, "coneV": 150, "accNear": 4.0, "accFar": 9.0, "hearing": null, "esp": null, "notes": "Wide arc, long range, slow build." },
-    { "name": "BlindMother", "class": "Boss", "visionNear": null, "visionFar": null, "coneH": null, "coneV": null, "accNear": null, "accFar": null, "hearing": 30, "esp": null, "notes": "Runs on hearing — a 30 m listen radius with an instant lock. Move slow and quiet; do not sprint near her." },
-    { "name": "Shield Guy", "class": "Infantry", "visionNear": 14, "visionFar": 40, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 2.0, "hearing": 11.5, "esp": null, "notes": "Soldier-range vision in a wide arc." }
+    { "name": "BlindMother", "class": "Boss", "visionNear": null, "visionFar": null, "coneH": null, "coneV": null, "accNear": null, "accFar": null, "hearing": 30, "esp": null, "notes": "Runs on hearing — a 30 m listen radius with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a long, flat vision cone in the files, but it builds so slowly it never matters — the fight is entirely about noise.)" },
+    { "name": "Shield Guy", "class": "Infantry", "visionNear": 14, "visionFar": 40, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 2.0, "hearing": 11.5, "esp": null, "notes": "Soldier-range vision in a wide arc." },
+    { "name": "Opal (Eurasia elite)", "class": "Eurasia", "visionNear": 14, "visionFar": 40, "coneH": 176, "coneV": 79, "accNear": 1.2, "accFar": 1.5, "hearing": 11.5, "esp": "base", "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer." }
   ],
   "modifiers": [
     { "factor": "Crouch", "acc": 2.0, "decay": 0.5, "effect": "Detected 2× slower and forgotten 2× faster. The strongest stealth lever for vision — and crouch-moving is silent." },
@@ -74,6 +77,7 @@
     ],
     "behavior": [
       { "k": "Deploy delay", "v": "~15 s after you trip a threshold" },
+      { "k": "Counters are collective", "v": "the 30 crates / 55,000 damage are totalled across the whole raid team server-side, not per-player — one greedy squadmate can call them down on everyone" },
       { "k": "Then", "v": "keep coming every ~5 s — 'they will not stop coming'" },
       { "k": "Spawn point", "v": "just out of your line of sight, danger-close" },
       { "k": "The unit", "v": "Europa EOD Hunter-Killer — 360° vision, 0.1 s lock, ∞ ESP" }
