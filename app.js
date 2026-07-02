@@ -28,6 +28,12 @@ const WSTAT_ROWS = [
   ["weight", "Weight", (v) => v + " kg"],
   ["value", "Base value", (v) => Number(v).toLocaleString() + " cr"],
 ];
+// stats the game computes on the fly (no stored field) — flagged with a * + hover note
+const WSTAT_NOTES = {
+  accuracy: "Not a stored value — the game derives it from the bullet-spread (dispersion) system. Higher = tighter grouping, and it's the handling stat worth chasing. The number shown is an aggregate the devs flag as WIP.",
+  stability: "Not a stored value — Stability is the input to the weapon's dispersion curves: higher makes your spread grow slower and recover faster (tighter sustained fire). It does not affect recoil kick.",
+  recoil: "Not a stored value — a compound of hidden wrist + arm recoil shown as one number. Believed to drive camera shake only (it doesn't move your point of aim), and it's often wrong once the weapon is modified.",
+};
 
 const $ = (s, r = document) => r.querySelector(s);
 const view = $("#view");
@@ -189,11 +195,14 @@ function weaponDetail(w) {
       <span class="badge">${w.total} attachments</span></div>`;
   const ws = WEAPONS && WEAPONS[w.name.toLowerCase()];
   if (ws) {
-    const rows = WSTAT_ROWS.filter(([k]) => ws[k] != null)
-      .map(([k, label, fmt]) => `<div class="stat${k === "accuracy" || k === "magazine" ? " key" : ""}"><div class="k">${label}</div><div class="v">${esc(String(fmt(ws[k])))}</div></div>`).join("");
+    const rows = WSTAT_ROWS.filter(([k]) => ws[k] != null).map(([k, label, fmt]) => {
+      const note = WSTAT_NOTES[k];
+      const mark = note ? ` <span class="statnote" tabindex="0" role="note" aria-label="${esc(label + ": " + note)}">*<span class="tip">${esc(note)}</span></span>` : "";
+      return `<div class="stat${k === "accuracy" || k === "magazine" ? " key" : ""}"><div class="k">${esc(label)}${mark}</div><div class="v">${esc(String(fmt(ws[k])))}</div></div>`;
+    }).join("");
     if (rows) html += `<div class="statgrid">${rows}</div>`;
     if (ws.ammo) html += `<p class="legend"><b>Ammo:</b> ${esc(ws.ammo)}</p>`;
-    html += `<p class="legend">Community stats (WIP) &mdash; <b>Accuracy</b> and <b>Magazine</b> are the ones that visibly matter (see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
+    html += `<p class="legend"><b>Accuracy</b> &amp; <b>Magazine</b> matter most. Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they really measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
   }
   if (st) {
     html += `<div class="callout"><b>Muzzle mount: ${st} &mdash; ${esc(SUBTYPE_LABEL[st] || "")}.</b>

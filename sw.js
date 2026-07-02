@@ -6,7 +6,7 @@
      working offline afterwards.
    - The Maps tab's "Save all maps offline" button posts SAVE_ALL to warm the
      entire image cache up front. */
-const VERSION = "fw-almanac-v2";
+const VERSION = "fw-almanac-v3";
 const SHELL = VERSION + "-shell";
 const IMG = VERSION + "-img";
 

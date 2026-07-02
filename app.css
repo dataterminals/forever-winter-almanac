@@ -144,6 +144,22 @@ a { color: var(--gold); }
 .stat.key { border-color: #6a5a2c; }
 .stat.key .v { color: var(--gold); }
 
+/* asterisk note on derived stats (accuracy / stability / recoil) */
+.statnote { position: relative; color: var(--gold); font-weight: 700; cursor: help; }
+.statnote > .tip {
+  position: absolute; left: 0; top: 150%; z-index: 40;
+  width: max-content; max-width: min(250px, 74vw);
+  background: var(--panel2); color: var(--text); font-weight: 400;
+  text-transform: none; letter-spacing: 0; text-align: left;
+  border: 1px solid var(--line2); border-radius: 8px; padding: 8px 11px;
+  font-size: 12px; line-height: 1.5; box-shadow: 0 10px 26px rgba(0,0,0,.55);
+  opacity: 0; visibility: hidden; transform: translateY(-3px);
+  transition: opacity .12s ease, transform .12s ease; pointer-events: none;
+}
+.statnote:hover > .tip, .statnote:focus > .tip, .statnote:focus-within > .tip {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+
 .req { color: var(--gold); font-weight: 700; margin-left: 1px; }
 .legend { color: var(--muted); font-size: 12px; margin: 12px 0 0; }
 .legend .req { margin-right: 4px; }
