@@ -61,5 +61,24 @@
     "primary": 20,
     "secondary": 9,
     "desc": "When one enemy detects you, allies within 20 m are alerted, and it chains up to 2 hops (each secondary hop reaches 9 m). Water Thieves are worse — up to 10 hops. This is why breaking one contact isn't enough once a squad is onto you."
+  },
+  "hunterKillers": {
+    "intro": "Hunter-Killers aren't random and there's no hidden 'wanted level' — a spawn controller watches your raid activity and deploys them the moment you cross ANY one of these thresholds. It's an anti-greed / objective mechanic.",
+    "triggers": [
+      { "label": "Open 30 loot containers", "detail": "Pure looting greed. A heavier second wave triggers at 40." },
+      { "label": "Deal 55,000 total damage", "detail": "Fighting/killing too much. Second wave at 75,000." },
+      { "label": "Carry 4× of a quest item", "detail": "HIND Nav Comp, Teddy Bear, Water Map, Battle Plans, God Sniper Rifle, DataCache, Neuro Uplink, and many more." },
+      { "label": "Hoard IFF chips", "detail": "18× tier-1, 9× tier-2, or just 2× tier-3 (any faction)." },
+      { "label": "Carry 4× water day-supplies", "detail": "Grabbing a lot of water flags you." },
+      { "label": "Scan a boss for its Codex", "detail": "A single Codex entry does it: Grabber, Medium Mech, Mother Courage, Rat King, Toothy, Orga, Opal, Shield Officer." }
+    ],
+    "behavior": [
+      { "k": "Deploy delay", "v": "~15 s after you trip a threshold" },
+      { "k": "Then", "v": "keep coming every ~5 s — 'they will not stop coming'" },
+      { "k": "Spawn point", "v": "just out of your line of sight, danger-close" },
+      { "k": "The unit", "v": "Europa EOD Hunter-Killer — 360° vision, 0.1 s lock, ∞ ESP" }
+    ],
+    "questNote": "This is the quest link: several quest objective items — and boss-codex scans — are themselves on the trigger list, so a quest that 'requires HKs' really means 'do the objective, then survive them.' To summon them on purpose, opening ~30 crates is the most controllable method.",
+    "escalation": "Once they're out, killing an Opal or Shield-Officer Hunter-Killer spawns more of that type — the 'kill one, more come' loop."
   }
 }

@@ -1,4 +1,4 @@
-const CACHE = "fw-gunsmith-v7";
+const CACHE = "fw-gunsmith-v8";
 const ASSETS = [
   "./",
   "index.html",

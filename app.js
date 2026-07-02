@@ -370,6 +370,17 @@ async function renderDetection() {
       <p class="gnote">Vision is a line-of-sight cone; you build detection faster up close (near range) than at the edge (far range). ESP ignores walls. "∞" = effectively omniscient at range (turrets, Hunter-Killers).</p>
     </div>
 
+    ${D.hunterKillers ? `<div class="card" id="hunterkillers">
+      <div class="section" style="margin-top:0"><h3>Hunter-Killers: how you summon them <span class="badge gold">datamined</span></h3></div>
+      <p class="gnote">${esc(D.hunterKillers.intro)}</p>
+      <div class="section"><h3 style="color:var(--rust)">Any one of these trips it</h3></div>
+      ${D.hunterKillers.triggers.map((t) => `<div class="gdef"><span class="term">${esc(t.label)}</span><span>${esc(t.detail)}</span></div>`).join("")}
+      <div class="section"><h3>What happens when it trips</h3></div>
+      ${D.hunterKillers.behavior.map((b) => `<div class="gdef"><span class="term">${esc(b.k)}</span><span>${esc(b.v)}</span></div>`).join("")}
+      <div class="callout" style="border-left-color:var(--rust)"><b>Quest link.</b> ${esc(D.hunterKillers.questNote)}</div>
+      <p class="gnote">${esc(D.hunterKillers.escalation)}</p>
+    </div>` : ""}
+
     <div class="card">
       <div class="section" style="margin-top:0"><h3>What makes <em>you</em> visible</h3></div>
       <div class="gtable-wrap"><table class="gtable">
