@@ -1,7 +1,7 @@
 {
-  "name": "Forever Winter Gunsmith",
-  "short_name": "FW Gunsmith",
-  "description": "Which attachments and parts fit which weapons in The Forever Winter.",
+  "name": "Forever Winter Almanac",
+  "short_name": "FW Almanac",
+  "description": "Maps, weapon & attachment compatibility, and datamined enemy intel for The Forever Winter — offline and installable.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

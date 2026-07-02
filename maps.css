@@ -1,0 +1,230 @@
+/* Forever Winter Almanac — Maps tab.
+   The whole map atlas lives inside #tab-maps.maps-app. Every rule is scoped to
+   .maps-app so the maps palette + layout can't leak into the document-style
+   tabs (Weapons/Attachments/…), and the maps :root vars are scoped too because
+   several names (--bg/--panel/--line/--text/--muted) collide with app.css. */
+
+/* ===== shell integration (unscoped) ===== */
+#tab-maps { display: none; }
+body.maps-active { overflow: hidden; }
+body.maps-active #view,
+body.maps-active .searchwrap,
+body.maps-active .foot { display: none; }
+body.maps-active #tab-maps {
+  display: flex; flex-direction: column;
+  position: fixed; left: 0; right: 0; bottom: 0;
+  top: var(--maps-top, 104px);
+  z-index: 5;
+}
+
+/* ===== scoped map-atlas styles ===== */
+.maps-app {
+  --bg: #121313;
+  --panel: #1b1d1d;
+  --panel-2: #232626;
+  --line: #313535;
+  --text: #e7e9e7;
+  --muted: #9aa0a0;
+  --accent: #c9a227;       /* brass / ammo yellow */
+  --accent-dim: #8a7320;
+  --danger: #b5503a;
+  --shadow: 0 8px 28px rgba(0,0,0,.55);
+  --header-h: 46px;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+.maps-app button { font-family: inherit; }
+.maps-app a { color: var(--accent); }
+
+/* ---------- toolbar (replaces the old maps header) ---------- */
+.maps-app .maps-toolbar {
+  height: var(--header-h); flex: none;
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 12px;
+  background: linear-gradient(180deg, #1f2120, #161817);
+  border-bottom: 1px solid var(--line);
+  position: relative; z-index: 1200;
+}
+.maps-app .iconbtn {
+  background: var(--panel-2); color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px;
+  height: 32px; padding: 0 12px; cursor: pointer; display: inline-flex;
+  align-items: center; gap: 6px; font-size: 13px;
+}
+.maps-app .iconbtn:hover { border-color: var(--accent-dim); }
+.maps-app .iconbtn.active { border-color: var(--accent); color: var(--accent); }
+
+.maps-app #current-map { font-weight: 600; margin-left: 4px; }
+.maps-app #current-map .type { color: var(--muted); font-weight: 400; font-size: 12px; text-transform: capitalize; }
+
+.maps-app #map-search-wrap { margin-left: auto; position: relative; width: min(340px, 42vw); }
+.maps-app #map-search {
+  width: 100%; height: 32px; padding: 0 10px;
+  background: var(--panel-2); color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px; outline: none;
+}
+.maps-app #map-search:focus { border-color: var(--accent); }
+.maps-app #map-search-results {
+  position: absolute; top: 36px; left: 0; right: 0; max-height: 60vh; overflow: auto;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: var(--shadow); display: none;
+}
+.maps-app #map-search-results.show { display: block; }
+.maps-app .sr-item { padding: 8px 10px; cursor: pointer; border-bottom: 1px solid var(--line); display: flex; gap: 8px; align-items: center; }
+.maps-app .sr-item:last-child { border-bottom: 0; }
+.maps-app .sr-item:hover, .maps-app .sr-item.active { background: var(--panel-2); }
+.maps-app .sr-item img { width: 20px; height: 20px; object-fit: contain; flex: 0 0 20px; }
+.maps-app .sr-item .t { font-size: 13px; }
+.maps-app .sr-item .g { color: var(--muted); font-size: 11px; }
+
+/* ---------- stage / map ---------- */
+.maps-app #stage { position: relative; flex: 1; min-height: 0; }
+.maps-app #map { position: absolute; inset: 0; background: #1a1a1a; }
+
+.maps-app .panel {
+  position: absolute; top: 0; bottom: 0; width: 300px;
+  background: var(--panel); border-right: 1px solid var(--line);
+  z-index: 1000; display: flex; flex-direction: column;
+  transition: transform .22s ease;
+}
+.maps-app #maps-panel { left: 0; }
+.maps-app #layers-panel { right: 0; left: auto; border-right: 0; border-left: 1px solid var(--line); }
+.maps-app #maps-panel.collapsed { transform: translateX(-101%); }
+.maps-app #layers-panel.collapsed { transform: translateX(101%); }
+
+.maps-app .panel-head {
+  padding: 10px 12px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+  font-weight: 600;
+}
+.maps-app .panel-head .count { color: var(--muted); font-weight: 400; font-size: 12px; }
+.maps-app .panel-body { overflow: auto; padding: 6px; flex: 1; }
+.maps-app .panel-foot { padding: 8px; border-top: 1px solid var(--line); }
+.maps-app .offline-btn {
+  width: 100%; background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
+  border-radius: 6px; padding: 8px; cursor: pointer; font-size: 13px;
+}
+.maps-app .offline-btn:hover { border-color: var(--accent); color: var(--accent); }
+.maps-app .offline-btn:disabled { opacity: .6; cursor: default; }
+.maps-app .offline-status { color: var(--muted); font-size: 11px; margin-top: 6px; min-height: 14px; text-align: center; }
+
+/* Maps list */
+.maps-app .map-group-title {
+  color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: .6px;
+  padding: 12px 8px 4px;
+}
+.maps-app .map-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px; border-radius: 6px; cursor: pointer; color: var(--text);
+}
+.maps-app .map-item:hover { background: var(--panel-2); }
+.maps-app .map-item.active { background: var(--accent); color: #1a1a1a; font-weight: 600; }
+.maps-app .map-item .mk { font-size: 11px; color: var(--muted); }
+.maps-app .map-item.active .mk { color: #4a3f10; }
+
+/* Layers list */
+.maps-app .bg-switch { padding: 8px; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 6px; }
+.maps-app .bg-switch label {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 12px;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 5px;
+  padding: 4px 8px; cursor: pointer;
+}
+.maps-app .bg-switch input { accent-color: var(--accent); }
+.maps-app .layer-tools { display: flex; gap: 6px; padding: 8px; border-bottom: 1px solid var(--line); }
+.maps-app .layer-tools button {
+  flex: 1; background: var(--panel-2); color: var(--text); border: 1px solid var(--line);
+  border-radius: 5px; padding: 5px; cursor: pointer; font-size: 12px;
+}
+.maps-app .layer-tools button:hover { border-color: var(--accent-dim); }
+.maps-app .layer-item {
+  display: flex; align-items: center; gap: 9px; padding: 6px 8px; border-radius: 6px; cursor: pointer;
+}
+.maps-app .layer-item:hover { background: var(--panel-2); }
+.maps-app .layer-item input { accent-color: var(--accent); width: 16px; height: 16px; flex: 0 0 16px; }
+.maps-app .layer-item img { width: 22px; height: 22px; object-fit: contain; flex: 0 0 22px; filter: drop-shadow(0 1px 1px rgba(0,0,0,.6)); }
+.maps-app .layer-item .name { flex: 1; font-size: 13px; }
+.maps-app .layer-item .cnt { color: var(--muted); font-size: 11px; }
+.maps-app .layer-item.off .name { color: var(--muted); }
+
+/* Marker icons + popups */
+.maps-app .fw-marker { image-rendering: auto; filter: drop-shadow(0 1px 2px rgba(0,0,0,.7)); }
+.maps-app .fw-pop { max-width: 250px; }
+.maps-app .fw-pop-title { font-weight: 700; margin-bottom: 4px; color: var(--text); }
+.maps-app .fw-pop-img { width: 100%; border-radius: 6px; margin: 4px 0; display: block; border: 1px solid var(--line); }
+.maps-app .fw-pop-desc { color: #d7dad7; font-size: 13px; margin: 4px 0; }
+.maps-app .fw-pop-cat { color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+.maps-app .fw-pop-link { display: inline-block; margin-top: 4px; font-size: 12px; }
+
+/* Leaflet dark popup theming */
+.maps-app .leaflet-popup-content-wrapper, .maps-app .leaflet-popup-tip { background: var(--panel); color: var(--text); box-shadow: var(--shadow); }
+.maps-app .leaflet-popup-content { margin: 10px 12px; }
+.maps-app .leaflet-container { background: #1a1a1a; font: inherit; }
+.maps-app .leaflet-bar a { background: var(--panel-2); color: var(--text); border-bottom-color: var(--line); }
+.maps-app .leaflet-bar a:hover { background: var(--panel); }
+.maps-app .leaflet-tooltip {
+  background: rgba(20,22,22,.92); border: 1px solid var(--line); color: var(--text);
+  box-shadow: none; font-size: 12px;
+}
+.maps-app .leaflet-tooltip::before { display: none; }
+
+/* Floating reset/help bottom-left */
+.maps-app #fab { position: absolute; left: 12px; bottom: 16px; z-index: 900; display: flex; gap: 8px; }
+.maps-app #fab .iconbtn { background: rgba(27,29,29,.9); }
+
+/* Loading / empty states */
+.maps-app #loading {
+  position: absolute; inset: 0; display: none; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px; color: var(--muted); z-index: 1100; pointer-events: none;
+}
+.maps-app #loading.show { display: flex; }
+.maps-app .spinner {
+  width: 30px; height: 30px; border: 3px solid var(--line); border-top-color: var(--accent);
+  border-radius: 50%; animation: fwmaps-spin .8s linear infinite;
+}
+@keyframes fwmaps-spin { to { transform: rotate(360deg); } }
+
+.maps-app #scrim { position: absolute; inset: 0; background: rgba(0,0,0,.45); z-index: 950; display: none; }
+.maps-app #scrim.show { display: block; }
+
+/* Measure tool */
+.maps-app #map.measuring { cursor: crosshair; }
+.maps-app #measure-readout {
+  position: absolute; left: 12px; bottom: 56px; z-index: 900;
+  background: rgba(20,22,22,.92); border: 1px solid var(--accent-dim); border-radius: 6px;
+  padding: 6px 10px; font-size: 12px; color: var(--text); box-shadow: var(--shadow);
+  pointer-events: none; max-width: 60vw;
+}
+.maps-app #measure-readout b { color: var(--accent); }
+.maps-app .measure-vertex {
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+  border: 2px solid #1a1a1a; box-shadow: 0 0 4px rgba(0,0,0,.8);
+}
+
+/* Lion-in-a-tank emoji ticker — bottom-right, seamless scrolling marquee.
+   The strip background matches the emoji's own near-black (#070709) and the
+   26px background-size width == the scroll distance, so it loops cleanly. */
+.maps-app #lion-ticker {
+  position: absolute; right: 10px; bottom: 8px; z-index: 800; pointer-events: none;
+  width: 156px; height: 32px; border-radius: 5px;
+  background-color: #070709;
+  background-image: url("assets/img/lion_tank.png");
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  background-size: 26px 28px;
+  border: 1px solid rgba(255, 200, 90, .22);
+  box-shadow: 0 0 8px rgba(0,0,0,.5), inset 0 0 14px rgba(0,0,0,.6);
+  opacity: .92;
+  image-rendering: auto;
+  animation: fwmaps-lion 1.2s linear infinite;
+}
+@keyframes fwmaps-lion { from { background-position-x: 0; } to { background-position-x: -26px; } }
+@media (prefers-reduced-motion: reduce) { .maps-app #lion-ticker { animation: none; } }
+@media (max-width: 760px) { .maps-app #lion-ticker { width: 120px; height: 28px; bottom: 6px; } }
+
+/* ---------- mobile ---------- */
+@media (max-width: 760px) {
+  .maps-app .panel { width: min(86vw, 340px); box-shadow: var(--shadow); }
+  .maps-app #map-search-wrap { width: 44vw; }
+  .maps-app #current-map { display: none; }
+}

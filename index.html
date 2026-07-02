@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Forever Winter Gunsmith</title>
-  <meta name="description" content="Which attachments fit which weapons in The Forever Winter." />
+  <title>Forever Winter Almanac</title>
+  <meta name="description" content="Maps, weapon &amp; attachment compatibility, and datamined enemy intel for The Forever Winter — offline and installable." />
   <meta name="theme-color" content="#161612" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/icons/favicon.png" />
@@ -12,14 +12,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="maps.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
       <img class="logo" src="assets/icons/icon-192.png" alt="" width="36" height="36" />
       <div class="brand-txt">
-        <h1>Forever&nbsp;Winter Gunsmith</h1>
-        <p class="tagline">what fits what &mdash; the game won&rsquo;t tell you</p>
+        <h1>Forever&nbsp;Winter Almanac</h1>
+        <p class="tagline">maps, guns &amp; enemy intel &mdash; the game won&rsquo;t tell you</p>
       </div>
     </div>
     <button id="installBtn" class="install" hidden>Install</button>
@@ -37,15 +38,74 @@
     <button class="tab" data-tab="muzzles" role="tab">Muzzles</button>
     <button class="tab" data-tab="stats" role="tab">Stats</button>
     <button class="tab" data-tab="detection" role="tab">Detection</button>
+    <button class="tab" data-tab="maps" role="tab">Maps</button>
   </nav>
 
   <main id="view" class="view"><!-- rendered by app.js --></main>
 
+  <!-- Maps tab: full-bleed Leaflet atlas. Hidden until the Maps tab is active;
+       Leaflet + FWMaps boot lazily on first open (see app.js / maps.js). -->
+  <section id="tab-maps" class="maps-app">
+    <div class="maps-toolbar">
+      <button class="iconbtn" id="toggle-maps" title="Browse maps (M)">&#9776; Maps</button>
+      <div id="current-map"></div>
+      <div id="map-search-wrap">
+        <input id="map-search" type="search" placeholder="Search markers on this map&hellip;" autocomplete="off" spellcheck="false">
+        <div id="map-search-results"></div>
+      </div>
+      <button class="iconbtn" id="toggle-layers" title="Layers (L)">Layers &#9662;</button>
+    </div>
+
+    <div id="stage">
+      <div id="map"></div>
+
+      <aside class="panel collapsed" id="maps-panel">
+        <div class="panel-head">
+          <span>Maps <span class="count" id="maps-count"></span></span>
+          <button class="iconbtn" id="close-maps" style="height:26px;padding:0 8px">&#10005;</button>
+        </div>
+        <div class="panel-body" id="maps-list"></div>
+        <div class="panel-foot">
+          <button id="save-offline" class="offline-btn" title="Download all map images so the app works with no internet">&#10515; Save all maps offline</button>
+          <div id="offline-status" class="offline-status"></div>
+        </div>
+      </aside>
+
+      <aside class="panel collapsed" id="layers-panel">
+        <div class="panel-head">
+          <span>Layers <span class="count" id="layers-count"></span></span>
+          <button class="iconbtn" id="close-layers" style="height:26px;padding:0 8px">&#10005;</button>
+        </div>
+        <div id="bg-switch" class="bg-switch" hidden></div>
+        <div class="layer-tools">
+          <button id="layers-all">Show all</button>
+          <button id="layers-none">Hide all</button>
+          <button id="layers-default">Defaults</button>
+        </div>
+        <div class="panel-body" id="layers-list"></div>
+      </aside>
+
+      <div id="scrim"></div>
+
+      <div id="fab">
+        <button class="iconbtn" id="reset-view" title="Fit map to screen">&#10530; Fit</button>
+        <button class="iconbtn" id="measure-btn" title="Measure distance (click points; Esc/right-click clears)">&#128207; Measure</button>
+      </div>
+
+      <div id="measure-readout" hidden></div>
+
+      <div id="lion-ticker" aria-hidden="true" title="for foxgirl from liongirl &#9829;"></div>
+
+      <div id="loading"><div class="spinner"></div><div id="loading-text">Loading&hellip;</div></div>
+    </div>
+  </section>
+
   <footer class="foot">
     <span id="stats"></span>
-    <span>Data: <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">theforeverwinter.wiki.gg</a> + game files. Community data &mdash; may lag patches.</span>
+    <span>Data: <a href="https://theforeverwinter.wiki.gg" target="_blank" rel="noopener">theforeverwinter.wiki.gg</a> + game files. Community data &mdash; may lag patches.</span>
   </footer>
 
   <script src="app.js"></script>
+  <script src="maps.js"></script>
 </body>
 </html>

@@ -54,7 +54,8 @@ function wireChrome() {
       state.tab = b.dataset.tab;
       view.classList.remove("detail-open");
       syncTabs();
-      render();
+      if (state.tab === "maps") activateMaps();
+      else { deactivateMaps(); render(); }
       window.scrollTo({ top: 0 });
     })
   );
@@ -80,8 +81,54 @@ function wireChrome() {
 function syncTabs() { document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b.dataset.tab === state.tab)); }
 function openDetail() { view.classList.add("detail-open"); render(); window.scrollTo({ top: 0 }); }
 
+/* ---------- maps tab: lazy Leaflet + hand off to the FWMaps module ---------- */
+let mapsBooted = false, leafletPromise = null;
+
+function ensureLeaflet() {
+  if (window.L) return Promise.resolve();
+  if (leafletPromise) return leafletPromise;
+  leafletPromise = new Promise((resolve, reject) => {
+    const css = document.createElement("link");
+    css.rel = "stylesheet"; css.href = "assets/vendor/leaflet.css";
+    document.head.appendChild(css);
+    const s = document.createElement("script");
+    s.src = "assets/vendor/leaflet.js";
+    s.onload = () => resolve();
+    s.onerror = () => reject(new Error("Leaflet failed to load"));
+    document.head.appendChild(s);
+  });
+  return leafletPromise;
+}
+
+function positionMaps() {
+  // Pin the full-bleed atlas just below the top bar + tab strip. The weapon
+  // searchwrap is hidden in maps mode, so the tab strip's bottom is the top edge.
+  window.scrollTo(0, 0);
+  const tabs = document.querySelector(".tabs");
+  document.documentElement.style.setProperty("--maps-top", Math.round(tabs.getBoundingClientRect().bottom) + "px");
+}
+
+async function activateMaps() {
+  document.body.classList.add("maps-active");
+  positionMaps();
+  try {
+    await ensureLeaflet();
+    if (!mapsBooted) { await window.FWMaps.init(); mapsBooted = true; } // guard AFTER success so a failed first boot stays retryable
+    window.FWMaps.invalidateSize();
+  } catch (e) {
+    const lt = document.getElementById("loading-text"), l = document.getElementById("loading");
+    if (lt) lt.textContent = "Map failed to load: " + e.message;
+    if (l) l.classList.add("show");
+  }
+}
+
+function deactivateMaps() { document.body.classList.remove("maps-active"); }
+
+window.addEventListener("resize", () => { if (document.body.classList.contains("maps-active")) positionMaps(); });
+
 /* ---------- render dispatch ---------- */
 function render() {
+  if (state.tab === "maps") return; // the Maps tab is driven by activateMaps(), not #view
   if (state.tab === "weapons") renderWeapons();
   else if (state.tab === "attachments") renderAttachments();
   else if (state.tab === "muzzles") renderMuzzles();
@@ -422,6 +469,10 @@ window.addEventListener("beforeinstallprompt", (e) => {
   b.onclick = async () => { b.hidden = true; deferredPrompt.prompt(); deferredPrompt = null; };
 });
 window.addEventListener("appinstalled", () => ($("#installBtn").hidden = true));
-function registerSW() { if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {}); }
+function registerSW() {
+  // Skip on localhost so cache-first serving doesn't shadow live dev edits.
+  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
+  if ("serviceWorker" in navigator && !local) navigator.serviceWorker.register("sw.js").catch(() => {});
+}
 
 init();
