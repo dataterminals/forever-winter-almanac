@@ -136,6 +136,10 @@ a { color: var(--gold); }
 .chip.static { cursor: default; }
 .chip.static:hover { border-color: var(--line2); color: var(--text); }
 .chip small { color: var(--dim); margin-left: 5px; }
+.chip.part { cursor: default; display: inline-flex; align-items: center; gap: 6px; }
+.chip.part:hover { border-color: var(--line2); color: var(--text); }
+.chip .lvl { font-size: 10px; color: var(--dim); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 0 5px; }
+.chip .cap { font-size: 10.5px; color: var(--gold); font-variant-numeric: tabular-nums; }
 
 .statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-top: 12px; }
 .stat { background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }

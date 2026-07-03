@@ -1,0 +1,7138 @@
+{
+ "source": "theforeverwinter.wiki.gg — Category:Weapon parts",
+ "note": "Structural parts (barrels/handguards/magazines/stocks/grips/uppers) are weapon-specific and unlock at the listed weapon level. Some also unlock an attachment slot (e.g. a suppressor or optic). Community wiki data — may lag patches.",
+ "slotOrder": [
+  "Upper assembly",
+  "Barrel",
+  "Handguard",
+  "Magazine",
+  "Stock",
+  "Grip",
+  "Charging handle",
+  "Front sight",
+  "Gas Tube",
+  "Rear sight",
+  "Trigger"
+ ],
+ "byWeapon": {
+  "AA12": {
+   "Handguard": [
+    {
+     "name": "AA-12 Handguard",
+     "short": "AA-12",
+     "level": 5,
+     "buy": 12000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "AA12 Shotgun Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 8
+     },
+     "buy": 3000
+    },
+    {
+     "name": "AA12 Shotgun Magazine B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "mag": 32
+     },
+     "buy": 24000
+    }
+   ]
+  },
+  "AK": {
+   "Barrel": [
+    {
+     "name": "AK Barrel B",
+     "short": "B",
+     "level": 17,
+     "effects": {
+      "acc": 0.02525,
+      "recoil": -0.03125
+     },
+     "buy": 12000
+    },
+    {
+     "name": "AK Barrel C",
+     "short": "C",
+     "level": 23,
+     "effects": {
+      "acc": 0.055,
+      "recoil": -0.05
+     },
+     "buy": 9000
+    }
+   ],
+   "Gas Tube": [
+    {
+     "name": "Kala Gas Tube B",
+     "short": "B",
+     "level": 0,
+     "effects": {
+      "stab": 0.02925,
+      "recoil": -0.02725
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Gas Tube C",
+     "short": "C",
+     "level": 0,
+     "effects": {
+      "stab": 0.06,
+      "recoil": -0.0515
+     },
+     "buy": 9000
+    },
+    {
+     "name": "Kala Gas Tube E",
+     "short": "E",
+     "level": 0,
+     "effects": {
+      "stab": 0.124,
+      "recoil": -0.116
+     },
+     "buy": 18000
+    }
+   ],
+   "Grip": [
+    {
+     "name": "Kala Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Kala Grip A-1",
+     "short": "A-1",
+     "level": 1,
+     "effects": {
+      "acc": 0.02725,
+      "stab": 0.02975,
+      "recoil": -0.03
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Kala Grip A-2",
+     "short": "A-2",
+     "level": 1,
+     "effects": {
+      "acc": 0.028,
+      "stab": 0.027,
+      "recoil": -0.02575
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Kala Grip B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.02925,
+      "stab": 0.02825,
+      "recoil": -0.02525
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Grip C",
+     "short": "C",
+     "level": 7,
+     "effects": {
+      "acc": 0.061,
+      "stab": 0.0565,
+      "recoil": -0.055
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Grip D",
+     "short": "D",
+     "level": 13,
+     "effects": {
+      "acc": 0.093,
+      "stab": 0.08925,
+      "recoil": -0.0795
+     },
+     "buy": 18000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "Kala Handguard H",
+     "short": "H",
+     "level": 0,
+     "effects": {
+      "acc": 0.217,
+      "stab": 0.21525,
+      "recoil": -0.17675
+     },
+     "buy": 13000
+    },
+    {
+     "name": "Kala Handguard I",
+     "short": "I",
+     "level": 0,
+     "effects": {
+      "acc": 0.1925,
+      "stab": 0.2135,
+      "recoil": -0.203
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Handguard J",
+     "short": "J",
+     "level": 0,
+     "effects": {
+      "acc": 0.21875,
+      "stab": 0.189,
+      "recoil": -0.19425
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Handguard B",
+     "short": "B",
+     "level": 9,
+     "effects": {
+      "acc": 0.0265,
+      "stab": 0.0275,
+      "recoil": -0.02925
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Handguard B-1",
+     "short": "B-1",
+     "level": 9,
+     "effects": {
+      "acc": 0.0575,
+      "stab": 0.055,
+      "recoil": -0.0615
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Handguard B-2",
+     "short": "B-2",
+     "level": 9,
+     "effects": {
+      "acc": 0.061,
+      "stab": 0.053,
+      "recoil": -0.055
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Handguard C",
+     "short": "C",
+     "level": 33,
+     "effects": {
+      "acc": 0.0915,
+      "stab": 0.078,
+      "recoil": -0.078
+     },
+     "buy": 9000
+    },
+    {
+     "name": "Kala Handguard F",
+     "short": "F",
+     "level": 43,
+     "effects": {
+      "acc": 0.1845,
+      "stab": 0.1515,
+      "recoil": -0.18
+     },
+     "buy": 24000
+    },
+    {
+     "name": "Kala Handguard G",
+     "short": "G",
+     "level": 45,
+     "effects": {
+      "acc": 0.203,
+      "stab": 0.18375,
+      "recoil": -0.175
+     },
+     "buy": 30000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "Kala Magazine I",
+     "short": "I",
+     "level": 0,
+     "effects": {
+      "mag": 100
+     },
+     "buy": 24000
+    },
+    {
+     "name": "Kala Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Kala Magazine B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Magazine C",
+     "short": "C",
+     "level": 15,
+     "effects": {
+      "mag": 60
+     },
+     "buy": 9000
+    },
+    {
+     "name": "Kala Magazine D",
+     "short": "D",
+     "level": 21,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Magazine E",
+     "short": "E",
+     "level": 31,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 18000
+    },
+    {
+     "name": "Kala Magazine E-1",
+     "short": "E-1",
+     "level": 31,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 18000
+    },
+    {
+     "name": "Kala Magazine F",
+     "short": "F",
+     "level": 35,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 24000
+    },
+    {
+     "name": "Kala Magazine G",
+     "short": "G",
+     "level": 41,
+     "effects": {
+      "mag": 10
+     },
+     "buy": 30000
+    },
+    {
+     "name": "Kala Magazine H",
+     "short": "H",
+     "level": 47,
+     "effects": {
+      "mag": 95
+     },
+     "buy": 36000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "Kala Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Kala Stock B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.02975,
+      "stab": 0.02625,
+      "recoil": -0.027
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Stock B-1",
+     "short": "B-1",
+     "level": 11,
+     "effects": {
+      "acc": 0.02625,
+      "stab": 0.029,
+      "recoil": -0.02525
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Stock B-2",
+     "short": "B-2",
+     "level": 11,
+     "effects": {
+      "acc": 0.02925,
+      "stab": 0.02875,
+      "recoil": -0.027
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Stock C",
+     "short": "C",
+     "level": 19,
+     "effects": {
+      "acc": 0.0625,
+      "stab": 0.059,
+      "recoil": -0.061
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Stock C-1",
+     "short": "C-1",
+     "level": 19,
+     "effects": {
+      "acc": 0.05,
+      "stab": 0.057,
+      "recoil": -0.062
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Stock C-2",
+     "short": "C-2",
+     "level": 19,
+     "effects": {
+      "acc": 0.061,
+      "stab": 0.0605,
+      "recoil": -0.0555
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Stock D",
+     "short": "D",
+     "level": 25,
+     "effects": {
+      "acc": 0.081,
+      "stab": 0.0885,
+      "recoil": -0.09225
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Stock E",
+     "short": "E",
+     "level": 29,
+     "effects": {
+      "acc": 0.121,
+      "stab": 0.116,
+      "recoil": -0.1
+     },
+     "buy": 18000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "Kala Upper Assembly A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Kala Upper Assembly B",
+     "short": "B",
+     "level": 1,
+     "buy": 15000
+    }
+   ]
+  },
+  "RPK": {
+   "Barrel": [
+    {
+     "name": "AK Barrel C",
+     "short": "C",
+     "level": 23,
+     "effects": {
+      "acc": 0.055,
+      "recoil": -0.05
+     },
+     "buy": 9000
+    }
+   ],
+   "Gas Tube": [
+    {
+     "name": "Kala Gas Tube B",
+     "short": "B",
+     "level": 0,
+     "effects": {
+      "stab": 0.02925,
+      "recoil": -0.02725
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Gas Tube C",
+     "short": "C",
+     "level": 0,
+     "effects": {
+      "stab": 0.06,
+      "recoil": -0.0515
+     },
+     "buy": 9000
+    },
+    {
+     "name": "Kala Gas Tube D",
+     "short": "D",
+     "level": 0,
+     "effects": {
+      "stab": 0.07725,
+      "recoil": -0.0885
+     },
+     "buy": 15000
+    }
+   ],
+   "Grip": [
+    {
+     "name": "Kala Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Kala Grip A-1",
+     "short": "A-1",
+     "level": 1,
+     "effects": {
+      "acc": 0.02725,
+      "stab": 0.02975,
+      "recoil": -0.03
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Kala Grip A-2",
+     "short": "A-2",
+     "level": 1,
+     "effects": {
+      "acc": 0.028,
+      "stab": 0.027,
+      "recoil": -0.02575
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Kala Grip B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.02925,
+      "stab": 0.02825,
+      "recoil": -0.02525
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Grip C",
+     "short": "C",
+     "level": 7,
+     "effects": {
+      "acc": 0.061,
+      "stab": 0.0565,
+      "recoil": -0.055
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Grip D",
+     "short": "D",
+     "level": 13,
+     "effects": {
+      "acc": 0.093,
+      "stab": 0.08925,
+      "recoil": -0.0795
+     },
+     "buy": 18000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "Kala Handguard B",
+     "short": "B",
+     "level": 9,
+     "effects": {
+      "acc": 0.0265,
+      "stab": 0.0275,
+      "recoil": -0.02925
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Handguard B-1",
+     "short": "B-1",
+     "level": 9,
+     "effects": {
+      "acc": 0.0575,
+      "stab": 0.055,
+      "recoil": -0.0615
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Handguard B-2",
+     "short": "B-2",
+     "level": 9,
+     "effects": {
+      "acc": 0.061,
+      "stab": 0.053,
+      "recoil": -0.055
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Handguard C",
+     "short": "C",
+     "level": 33,
+     "effects": {
+      "acc": 0.0915,
+      "stab": 0.078,
+      "recoil": -0.078
+     },
+     "buy": 9000
+    },
+    {
+     "name": "Kala Handguard D",
+     "short": "D",
+     "level": 37,
+     "effects": {
+      "acc": 0.115,
+      "stab": 0.112,
+      "recoil": -0.117
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Handguard E",
+     "short": "E",
+     "level": 39,
+     "effects": {
+      "acc": 0.1375,
+      "stab": 0.14625,
+      "recoil": -0.1375
+     },
+     "buy": 18000
+    },
+    {
+     "name": "Kala Handguard F",
+     "short": "F",
+     "level": 43,
+     "effects": {
+      "acc": 0.1845,
+      "stab": 0.1515,
+      "recoil": -0.18
+     },
+     "buy": 24000
+    },
+    {
+     "name": "Kala Handguard G",
+     "short": "G",
+     "level": 45,
+     "effects": {
+      "acc": 0.203,
+      "stab": 0.18375,
+      "recoil": -0.175
+     },
+     "buy": 30000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "Kala Magazine I",
+     "short": "I",
+     "level": 0,
+     "effects": {
+      "mag": 100
+     },
+     "buy": 24000
+    },
+    {
+     "name": "Kala Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Kala Magazine B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Magazine C",
+     "short": "C",
+     "level": 15,
+     "effects": {
+      "mag": 60
+     },
+     "buy": 9000
+    },
+    {
+     "name": "Kala Magazine D",
+     "short": "D",
+     "level": 21,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Magazine E",
+     "short": "E",
+     "level": 31,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 18000
+    },
+    {
+     "name": "Kala Magazine E-1",
+     "short": "E-1",
+     "level": 31,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 18000
+    },
+    {
+     "name": "Kala Magazine F",
+     "short": "F",
+     "level": 35,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 24000
+    },
+    {
+     "name": "Kala Magazine G",
+     "short": "G",
+     "level": 41,
+     "effects": {
+      "mag": 10
+     },
+     "buy": 30000
+    },
+    {
+     "name": "Kala Magazine H",
+     "short": "H",
+     "level": 47,
+     "effects": {
+      "mag": 95
+     },
+     "buy": 36000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "Kala Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Kala Stock B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.02975,
+      "stab": 0.02625,
+      "recoil": -0.027
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Stock B-1",
+     "short": "B-1",
+     "level": 11,
+     "effects": {
+      "acc": 0.02625,
+      "stab": 0.029,
+      "recoil": -0.02525
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Stock B-2",
+     "short": "B-2",
+     "level": 11,
+     "effects": {
+      "acc": 0.02925,
+      "stab": 0.02875,
+      "recoil": -0.027
+     },
+     "buy": 6000
+    },
+    {
+     "name": "Kala Stock C",
+     "short": "C",
+     "level": 19,
+     "effects": {
+      "acc": 0.0625,
+      "stab": 0.059,
+      "recoil": -0.061
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Stock C-1",
+     "short": "C-1",
+     "level": 19,
+     "effects": {
+      "acc": 0.05,
+      "stab": 0.057,
+      "recoil": -0.062
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Stock C-2",
+     "short": "C-2",
+     "level": 19,
+     "effects": {
+      "acc": 0.061,
+      "stab": 0.0605,
+      "recoil": -0.0555
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Kala Stock D",
+     "short": "D",
+     "level": 25,
+     "effects": {
+      "acc": 0.081,
+      "stab": 0.0885,
+      "recoil": -0.09225
+     },
+     "buy": 15000
+    },
+    {
+     "name": "Kala Stock E",
+     "short": "E",
+     "level": 29,
+     "effects": {
+      "acc": 0.121,
+      "stab": 0.116,
+      "recoil": -0.1
+     },
+     "buy": 18000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "Kala Upper Assembly A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Kala Upper Assembly B",
+     "short": "B",
+     "level": 1,
+     "buy": 15000
+    }
+   ]
+  },
+  "APC9 Pro": {
+   "Barrel": [
+    {
+     "name": "APC9 Pro Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "APC9 Pro Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.08833298,
+      "recoil": -0.10333292
+     },
+     "buy": 12000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "APC9 Pro Stock A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "acc": 0.0371875,
+      "stab": 0.043125,
+      "recoil": -0.03975
+     },
+     "buy": 3000
+    }
+   ]
+  },
+  "C96": {
+   "Upper assembly": [
+    {
+     "name": "C96 Pistol Receiver A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "C96 Pistol Receiver B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.029,
+      "recoil": -0.026
+     },
+     "buy": 12000
+    }
+   ]
+  },
+  "G-L 19": {
+   "Magazine": [
+    {
+     "name": "G-L 19 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 15
+     },
+     "buy": 3000
+    },
+    {
+     "name": "G-L 19 Magazine B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "mag": 50
+     },
+     "buy": 18000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "G-L 19 Upper Assmbly A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "G-L 19 Upper Assmbly B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.02525,
+      "stab": 0.02875,
+      "recoil": -0.02775
+     },
+     "buy": 9000
+    },
+    {
+     "name": "G-L 19 Upper Assmbly C",
+     "short": "C",
+     "level": 7,
+     "effects": {
+      "acc": 0.057,
+      "stab": 0.053,
+      "recoil": -0.05
+     },
+     "buy": 15000
+    }
+   ]
+  },
+  "G36": {
+   "Barrel": [
+    {
+     "name": "G36 Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "G36 Barrel B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.026,
+      "stab": 0.02625,
+      "recoil": -0.02775
+     },
+     "buy": 12000
+    },
+    {
+     "name": "G36 Barrel C",
+     "short": "C",
+     "level": 13,
+     "effects": {
+      "acc": 0.0595,
+      "stab": 0.0525,
+      "recoil": -0.056
+     },
+     "buy": 18000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "G36 Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "G36 Handguard B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.0305,
+      "recoil": -0.02775
+     },
+     "buy": 12000
+    },
+    {
+     "name": "G36 Handguard C",
+     "short": "C",
+     "level": 9,
+     "effects": {
+      "acc": 0.0625,
+      "stab": 0.055,
+      "recoil": -0.0525
+     },
+     "buy": 15000
+    },
+    {
+     "name": "G36 Handguard D",
+     "short": "D",
+     "level": 15,
+     "effects": {
+      "acc": 0.0915,
+      "stab": 0.078,
+      "recoil": -0.075
+     },
+     "buy": 18000
+    },
+    {
+     "name": "G36 Handguard E",
+     "short": "E",
+     "level": 19,
+     "effects": {
+      "acc": 0.104,
+      "stab": 0.119,
+      "recoil": -0.124
+     },
+     "buy": 24000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "G36 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 3000
+    },
+    {
+     "name": "G36 Magazine B",
+     "short": "B",
+     "level": 23,
+     "effects": {
+      "mag": 40
+     },
+     "buy": 12000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "G36 Receiver A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "G36 Receiver B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "acc": 0.02775,
+      "stab": 0.02875,
+      "recoil": -0.02875
+     },
+     "buy": 12000
+    },
+    {
+     "name": "G36 Receiver C",
+     "short": "C",
+     "level": 17,
+     "effects": {
+      "acc": 0.055,
+      "stab": 0.051,
+      "recoil": -0.051
+     },
+     "buy": 15000
+    },
+    {
+     "name": "G36 Receiver D",
+     "short": "D",
+     "level": 21,
+     "effects": {
+      "acc": 0.0765,
+      "stab": 0.07575,
+      "recoil": -0.08625
+     },
+     "buy": 18000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "G36 Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "G36 Stock B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.0575,
+      "stab": 0.053,
+      "recoil": -0.0545
+     },
+     "buy": 15000
+    }
+   ]
+  },
+  "CLAW": {
+   "Magazine": [
+    {
+     "name": "HK CAWS Magazine B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "mag": 25
+     },
+     "buy": 18000
+    }
+   ]
+  },
+  "Kriss Vector 45": {
+   "Handguard": [
+    {
+     "name": "Kriss Vector Handguard A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "Kriss Vector Handguard B",
+     "short": "B",
+     "level": 5,
+     "buy": 15000
+    }
+   ]
+  },
+  "M16": {
+   "Barrel": [
+    {
+     "name": "M16 Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    }
+   ],
+   "Gas Tube": [
+    {
+     "name": "M16 Gas Tube A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M16 Gas Tube B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "stab": 0.02875,
+      "recoil": -0.0305
+     },
+     "buy": 12000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "M16 Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M16 Handguard B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.02875,
+      "recoil": -0.02925
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M16 Handguard C",
+     "short": "C",
+     "level": 13,
+     "effects": {
+      "acc": 0.058,
+      "stab": 0.0625,
+      "recoil": -0.058
+     },
+     "buy": 9000
+    },
+    {
+     "name": "M16 Handguard D",
+     "short": "D",
+     "level": 21,
+     "effects": {
+      "acc": 0.078,
+      "stab": 0.0795,
+      "recoil": -0.08025
+     },
+     "buy": 15000
+    },
+    {
+     "name": "M16 Handguard E",
+     "short": "E",
+     "level": 23,
+     "effects": {
+      "acc": 0.122,
+      "stab": 0.104,
+      "recoil": -0.123
+     },
+     "buy": 18000
+    },
+    {
+     "name": "M16 Handguard F",
+     "short": "F",
+     "level": 25,
+     "effects": {
+      "acc": 0.135,
+      "stab": 0.155,
+      "recoil": -0.1375
+     },
+     "buy": 18000
+    },
+    {
+     "name": "M16 Handguard G",
+     "short": "G",
+     "level": 27,
+     "effects": {
+      "acc": 0.1575,
+      "stab": 0.1665,
+      "recoil": -0.162
+     },
+     "buy": 24000
+    },
+    {
+     "name": "M16 Handguard H",
+     "short": "H",
+     "level": 29,
+     "effects": {
+      "acc": 0.1995,
+      "stab": 0.20125,
+      "recoil": -0.17675
+     },
+     "buy": 24000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "M16 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 20
+     },
+     "buy": 3000
+    },
+    {
+     "name": "M16 Magazine B",
+     "short": "B",
+     "level": 31,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 12000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "M16 Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M16 Stock B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.0285,
+      "stab": 0.0285,
+      "recoil": -0.02675
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M16 Stock C",
+     "short": "C",
+     "level": 17,
+     "effects": {
+      "acc": 0.0625,
+      "stab": 0.061,
+      "recoil": -0.0515
+     },
+     "buy": 18000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "M16 Upper Assmbly A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M16 Upper Assmbly B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "acc": 0.026,
+      "stab": 0.02875,
+      "recoil": -0.0295
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M16 Upper Assmbly C",
+     "short": "C",
+     "level": 19,
+     "effects": {
+      "acc": 0.0535,
+      "stab": 0.062,
+      "recoil": -0.052,
+      "fov": 37.5
+     },
+     "buy": 15000
+    }
+   ]
+  },
+  "M4A1": {
+   "Barrel": [
+    {
+     "name": "M4A1 Barrel",
+     "short": "M4A1",
+     "level": 0,
+     "effects": {
+      "acc": 0.102,
+      "recoil": -0.124
+     },
+     "buy": 6000
+    },
+    {
+     "name": "M4A1 Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M4A1 Barrel B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.0575,
+      "recoil": -0.0575
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M4A1 Barrel C",
+     "short": "C",
+     "level": 19,
+     "effects": {
+      "acc": 0.115,
+      "recoil": -0.1
+     },
+     "buy": 15000
+    }
+   ],
+   "Charging handle": [
+    {
+     "name": "M4A1 Charging Handle A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M4A1 Charging Handle B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.02675,
+      "stab": 0.02775,
+      "recoil": -0.03125
+     },
+     "buy": 9000
+    },
+    {
+     "name": "M4A1 Charging Handle C",
+     "short": "C",
+     "level": 9,
+     "effects": {
+      "acc": 0.0525,
+      "stab": 0.059,
+      "recoil": -0.0545
+     },
+     "buy": 15000
+    }
+   ],
+   "Gas Tube": [
+    {
+     "name": "M4A1 Gas Tube",
+     "short": "M4A1",
+     "level": 0,
+     "effects": {
+      "stab": 0.053,
+      "recoil": -0.0615
+     },
+     "buy": 4000
+    },
+    {
+     "name": "M4A1 Gas Tube A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M4A1 Gas Tube B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "stab": 0.03025,
+      "recoil": -0.03125
+     },
+     "buy": 9000
+    },
+    {
+     "name": "M4A1 Gas Tube C",
+     "short": "C",
+     "level": 13,
+     "effects": {
+      "stab": 0.056,
+      "recoil": -0.0555
+     },
+     "buy": 15000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "M4A1 Handguard Upgrade B",
+     "short": "B",
+     "level": 0,
+     "effects": {
+      "acc": 0.15125,
+      "stab": 0.15,
+      "recoil": -0.15625
+     },
+     "buy": 8000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade C",
+     "short": "C",
+     "level": 0,
+     "effects": {
+      "acc": 0.1325,
+      "stab": 0.1475,
+      "recoil": -0.1375
+     },
+     "buy": 9000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade D",
+     "short": "D",
+     "level": 0,
+     "effects": {
+      "acc": 0.15375,
+      "stab": 0.14625,
+      "recoil": -0.13125
+     },
+     "buy": 10000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade E",
+     "short": "E",
+     "level": 0,
+     "effects": {
+      "acc": 0.1375,
+      "stab": 0.1425,
+      "recoil": -0.15375
+     },
+     "buy": 11000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade F",
+     "short": "F",
+     "level": 0,
+     "effects": {
+      "acc": 0.14875,
+      "stab": 0.1425,
+      "recoil": -0.12625
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade G",
+     "short": "G",
+     "level": 0,
+     "effects": {
+      "acc": 0.1275,
+      "stab": 0.1325,
+      "recoil": -0.155
+     },
+     "buy": 13000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade H",
+     "short": "H",
+     "level": 0,
+     "effects": {
+      "acc": 0.14125,
+      "stab": 0.1275,
+      "recoil": -0.13125
+     },
+     "buy": 4000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade I",
+     "short": "I",
+     "level": 0,
+     "effects": {
+      "acc": 0.1275,
+      "stab": 0.1525,
+      "recoil": -0.125
+     },
+     "buy": 5000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade J",
+     "short": "J",
+     "level": 0,
+     "effects": {
+      "acc": 0.14375,
+      "stab": 0.1425,
+      "recoil": -0.15625
+     },
+     "buy": 6000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade K",
+     "short": "K",
+     "level": 0,
+     "effects": {
+      "acc": 0.145,
+      "stab": 0.125,
+      "recoil": -0.15
+     },
+     "buy": 7000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade L",
+     "short": "L",
+     "level": 0,
+     "effects": {
+      "acc": 0.14875,
+      "stab": 0.12625,
+      "recoil": -0.1425
+     },
+     "buy": 8000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade M",
+     "short": "M",
+     "level": 0,
+     "effects": {
+      "acc": 0.125,
+      "stab": 0.14625,
+      "recoil": -0.1525
+     },
+     "buy": 9000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade N",
+     "short": "N",
+     "level": 0,
+     "effects": {
+      "acc": 0.125,
+      "stab": 0.13125,
+      "recoil": -0.15625
+     },
+     "buy": 10000
+    },
+    {
+     "name": "M4A1 Handguard Upgrade O",
+     "short": "O",
+     "level": 0,
+     "effects": {
+      "acc": 0.13625,
+      "stab": 0.14125,
+      "recoil": -0.1475
+     },
+     "buy": 11000
+    },
+    {
+     "name": "NSN Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "NSN Handguard D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Handguard B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.02775,
+      "stab": 0.025,
+      "recoil": -0.02725
+     },
+     "buy": 9000
+    },
+    {
+     "name": "NSN Handguard C",
+     "short": "C",
+     "level": 21,
+     "effects": {
+      "acc": 0.0525,
+      "stab": 0.056,
+      "recoil": -0.051
+     },
+     "buy": 15000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "M4A1 Magazine",
+     "short": "M4A1",
+     "level": 0,
+     "buy": 15000
+    },
+    {
+     "name": "M4A1 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 3000
+    },
+    {
+     "name": "M4A1 Magazine B",
+     "short": "B",
+     "level": 31,
+     "effects": {
+      "mag": 60
+     },
+     "buy": 24000
+    }
+   ],
+   "Grip": [
+    {
+     "name": "M4A1 Pistol Grip A",
+     "short": "A",
+     "level": 0,
+     "effects": {
+      "acc": 0.05,
+      "stab": 0.061,
+      "recoil": -0.057
+     },
+     "buy": 11000
+    },
+    {
+     "name": "M4A1 Pistol Grip B",
+     "short": "B",
+     "level": 0,
+     "effects": {
+      "acc": 0.05,
+      "stab": 0.0585,
+      "recoil": -0.0625
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M4A1 Pistol Grip C",
+     "short": "C",
+     "level": 0,
+     "effects": {
+      "acc": 0.0605,
+      "stab": 0.0525,
+      "recoil": -0.054
+     },
+     "buy": 13000
+    },
+    {
+     "name": "NSN Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 12000
+    },
+    {
+     "name": "NSN Grip D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Grip E",
+     "short": "E",
+     "level": 1,
+     "buy": 12000
+    },
+    {
+     "name": "NSN Grip B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.02625,
+      "recoil": -0.028
+     },
+     "buy": 15000
+    },
+    {
+     "name": "NSN Grip C",
+     "short": "C",
+     "level": 23,
+     "effects": {
+      "acc": 0.0575,
+      "stab": 0.05,
+      "recoil": -0.053
+     },
+     "buy": 18000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "M4A1 Receiver A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M4A1 Receiver B",
+     "short": "B",
+     "level": 27,
+     "effects": {
+      "acc": 0.02775,
+      "stab": 0.028,
+      "recoil": -0.02525
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M4A1 Receiver C",
+     "short": "C",
+     "level": 29,
+     "effects": {
+      "acc": 0.053,
+      "stab": 0.0525,
+      "recoil": -0.0545
+     },
+     "buy": 18000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "M4A1 Stock A",
+     "short": "A",
+     "level": 0,
+     "effects": {
+      "acc": 0.05,
+      "stab": 0.0625,
+      "recoil": -0.0555
+     },
+     "buy": 7000
+    },
+    {
+     "name": "M4A1 Stock B",
+     "short": "B",
+     "level": 0,
+     "effects": {
+      "acc": 0.08475,
+      "stab": 0.087,
+      "recoil": -0.09
+     },
+     "buy": 8000
+    },
+    {
+     "name": "M4A1 Stock C",
+     "short": "C",
+     "level": 0,
+     "effects": {
+      "acc": 0.07875,
+      "stab": 0.0915,
+      "recoil": -0.081
+     },
+     "buy": 9000
+    },
+    {
+     "name": "M4A1 Stock D",
+     "short": "D",
+     "level": 0,
+     "effects": {
+      "acc": 0.07725,
+      "stab": 0.0765,
+      "recoil": -0.08175
+     },
+     "buy": 10000
+    },
+    {
+     "name": "M4A1 Stock E",
+     "short": "E",
+     "level": 0,
+     "effects": {
+      "acc": 0.0885,
+      "stab": 0.0795,
+      "recoil": -0.093
+     },
+     "buy": 11000
+    },
+    {
+     "name": "M4A1 Stock F",
+     "short": "F",
+     "level": 0,
+     "effects": {
+      "acc": 0.09375,
+      "stab": 0.0795,
+      "recoil": -0.07575
+     },
+     "buy": 12000
+    },
+    {
+     "name": "NSN Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "NSN Stock D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Stock B",
+     "short": "B",
+     "level": 17,
+     "effects": {
+      "acc": 0.02875,
+      "stab": 0.0285,
+      "recoil": -0.025
+     },
+     "buy": 12000
+    },
+    {
+     "name": "NSN Stock C",
+     "short": "C",
+     "level": 25,
+     "effects": {
+      "acc": 0.0605,
+      "stab": 0.0595,
+      "recoil": -0.053
+     },
+     "buy": 18000
+    }
+   ]
+  },
+  "M60": {
+   "Handguard": [
+    {
+     "name": "M60 Handguard A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "M60 Handguard B",
+     "short": "B",
+     "level": 5,
+     "buy": 9000
+    }
+   ]
+  },
+  "M79 Sawed-off": {
+   "Barrel": [
+    {
+     "name": "M79 Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.028,
+      "stab": 0.03025,
+      "recoil": -0.0255
+     },
+     "buy": 12000
+    }
+   ],
+   "Front sight": [
+    {
+     "name": "M79 Front Sight A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Front Sight B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "acc": 0.02925,
+      "stab": 0.02775,
+      "recoil": -0.0275
+     },
+     "buy": 12000
+    }
+   ],
+   "Grip": [
+    {
+     "name": "M79 Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Grip B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.02725,
+      "stab": 0.0285,
+      "recoil": -0.029
+     },
+     "buy": 12000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "M79 Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Handguard B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.02675,
+      "stab": 0.03025,
+      "recoil": -0.0265
+     },
+     "buy": 12000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "M79 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 1
+     },
+     "buy": 3000
+    },
+    {
+     "name": "M79 Magazine B",
+     "short": "B",
+     "level": 9,
+     "effects": {
+      "mag": 1
+     },
+     "buy": 15000
+    }
+   ],
+   "Rear sight": [
+    {
+     "name": "M79 Rear Sight A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Sight A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Rear Sight B",
+     "short": "B",
+     "level": 13,
+     "effects": {
+      "acc": 0.0515,
+      "stab": 0.053,
+      "recoil": -0.051,
+      "rof": 0.1
+     },
+     "buy": 12000
+    },
+    {
+     "name": "M79 Sight B",
+     "short": "B",
+     "level": 13,
+     "effects": {
+      "acc": 0.0515,
+      "stab": 0.053,
+      "recoil": -0.051,
+      "rof": 0.1
+     },
+     "buy": 12000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "M79 Receiver A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Receiver B",
+     "short": "B",
+     "level": 17,
+     "effects": {
+      "acc": 0.03,
+      "stab": 0.0255,
+      "recoil": -0.029
+     },
+     "buy": 12000
+    }
+   ],
+   "Trigger": [
+    {
+     "name": "M79 Trigger A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "M79 Trigger B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "stab": 0.028,
+      "recoil": -0.03075,
+      "rof": 0.05
+     },
+     "buy": 12000
+    }
+   ]
+  },
+  "R11 RSASS": {
+   "Grip": [
+    {
+     "name": "NSN Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 12000
+    },
+    {
+     "name": "NSN Grip D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Grip E",
+     "short": "E",
+     "level": 1,
+     "buy": 12000
+    },
+    {
+     "name": "NSN Grip B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.02625,
+      "recoil": -0.028
+     },
+     "buy": 15000
+    },
+    {
+     "name": "NSN Grip C",
+     "short": "C",
+     "level": 23,
+     "effects": {
+      "acc": 0.0575,
+      "stab": 0.05,
+      "recoil": -0.053
+     },
+     "buy": 18000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "NSN Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "NSN Handguard D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Handguard B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.02775,
+      "stab": 0.025,
+      "recoil": -0.02725
+     },
+     "buy": 9000
+    },
+    {
+     "name": "NSN Handguard C",
+     "short": "C",
+     "level": 21,
+     "effects": {
+      "acc": 0.0525,
+      "stab": 0.056,
+      "recoil": -0.051
+     },
+     "buy": 15000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "NSN Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "NSN Stock D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Stock B",
+     "short": "B",
+     "level": 17,
+     "effects": {
+      "acc": 0.02875,
+      "stab": 0.0285,
+      "recoil": -0.025
+     },
+     "buy": 12000
+    },
+    {
+     "name": "NSN Stock C",
+     "short": "C",
+     "level": 25,
+     "effects": {
+      "acc": 0.0605,
+      "stab": 0.0595,
+      "recoil": -0.053
+     },
+     "buy": 18000
+    }
+   ]
+  },
+  "USAS-12": {
+   "Grip": [
+    {
+     "name": "NSN Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 12000
+    },
+    {
+     "name": "NSN Grip D",
+     "short": "D",
+     "level": 1,
+     "buy": 15000
+    },
+    {
+     "name": "NSN Grip E",
+     "short": "E",
+     "level": 1,
+     "buy": 12000
+    },
+    {
+     "name": "NSN Grip B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.02625,
+      "recoil": -0.028
+     },
+     "buy": 15000
+    }
+   ],
+   "Barrel": [
+    {
+     "name": "USAS-12 Shotgun Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "USAS-12 Shotgun Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.02675,
+      "stab": 0.02725,
+      "recoil": -0.0255
+     },
+     "buy": 12000
+    },
+    {
+     "name": "USAS-12 Shotgun Barrel C",
+     "short": "C",
+     "level": 5,
+     "effects": {
+      "acc": 0.0535,
+      "stab": 0.054,
+      "recoil": -0.057
+     },
+     "buy": 18000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "USAS-12 Shotgun Handguard B",
+     "short": "B",
+     "level": 6,
+     "buy": 12000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "USAS-12 Shotgun Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 12
+     },
+     "buy": 3000
+    },
+    {
+     "name": "USAS-12 Shotgun Magazine B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "mag": 20
+     },
+     "buy": 24000
+    },
+    {
+     "name": "USAS-12 Shotgun Magazine C",
+     "short": "C",
+     "level": 9,
+     "effects": {
+      "mag": 8
+     },
+     "buy": 15000
+    }
+   ]
+  },
+  "PM-9": {
+   "Barrel": [
+    {
+     "name": "PM-9 Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PM-9 Barrel B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "acc": 0.08999964,
+      "recoil": -0.09333296
+     },
+     "buy": 12000
+    },
+    {
+     "name": "PM-9 Barrel C",
+     "short": "C",
+     "level": 7,
+     "effects": {
+      "acc": 0.15,
+      "recoil": -0.125
+     },
+     "buy": 18000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "PM-9 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 20
+     },
+     "buy": 3000
+    },
+    {
+     "name": "PM-9 Magazine B",
+     "short": "B",
+     "level": 9,
+     "effects": {
+      "mag": 50
+     },
+     "buy": 15000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "PM-9 Upper Assembly A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "PM-9 Upper Assembly B",
+     "short": "B",
+     "level": 11,
+     "buy": 12000
+    }
+   ]
+  },
+  "PP-19 Vityaz": {
+   "Barrel": [
+    {
+     "name": "PP-19 Vityaz Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Barrel B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.10166626,
+      "recoil": -0.09249963
+     },
+     "buy": 15000
+    }
+   ],
+   "Grip": [
+    {
+     "name": "PP-19 Vityaz Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Grip B",
+     "short": "B",
+     "level": 9,
+     "effects": {
+      "acc": 0.0265,
+      "stab": 0.02925,
+      "recoil": -0.028
+     },
+     "buy": 9000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "PP-19 Vityaz Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Handguard B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "acc": 0.0285,
+      "stab": 0.0285,
+      "recoil": -0.02625
+     },
+     "buy": 15000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "PP-19 Vityaz Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 30
+     },
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Magazine B",
+     "short": "B",
+     "level": 17,
+     "effects": {
+      "mag": 45
+     },
+     "buy": 9000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "PP-19 Vityaz Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Stock B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "acc": 0.066875,
+      "stab": 0.043125,
+      "recoil": -0.068125
+     },
+     "buy": 9000
+    }
+   ],
+   "Trigger": [
+    {
+     "name": "PP-19 Vityaz Trigger A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Trigger B",
+     "short": "B",
+     "level": 13,
+     "effects": {
+      "stab": 0.02675,
+      "recoil": -0.03125,
+      "rof": 0.05
+     },
+     "buy": 9000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "PP-19 Vityaz Upper Assembly A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "PP-19 Vityaz Upper Assembly B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "stab": 0.031,
+      "recoil": -0.03075,
+      "rof": 0.05
+     },
+     "buy": 15000
+    }
+   ]
+  },
+  "RPD": {
+   "Barrel": [
+    {
+     "name": "RPD Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "RPD Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.08749965,
+      "recoil": -0.08833298
+     },
+     "buy": 4000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "RPD Barrel C",
+     "short": "C",
+     "level": 1,
+     "buy": 4000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "RPD Handguard A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "RPD Handguard B",
+     "short": "B",
+     "level": 5,
+     "buy": 9000
+    }
+   ]
+  },
+  "S12": {
+   "Barrel": [
+    {
+     "name": "S12 Shotgun Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "S12 Shotgun Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.0255,
+      "stab": 0.02925,
+      "recoil": -0.02925
+     },
+     "buy": 12000
+    },
+    {
+     "name": "S12 Shotgun Barrel C",
+     "short": "C",
+     "level": 5,
+     "effects": {
+      "acc": 0.0615,
+      "stab": 0.055,
+      "recoil": -0.05
+     },
+     "buy": 18000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "S12 Shotgun Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 6
+     },
+     "buy": 3000
+    },
+    {
+     "name": "S12 Shotgun Magazine B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "mag": 4
+     },
+     "buy": 12000
+    },
+    {
+     "name": "S12 Shotgun Magazine C",
+     "short": "C",
+     "level": 9,
+     "effects": {
+      "mag": 9
+     },
+     "buy": 18000
+    }
+   ]
+  },
+  "SA58": {
+   "Barrel": [
+    {
+     "name": "SA58 Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SA58 Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.0565,
+      "recoil": -0.051
+     },
+     "buy": 15000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "SA58 Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 20
+     },
+     "buy": 3000
+    },
+    {
+     "name": "SA58 Magazine B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "mag": 50
+     },
+     "buy": 24000
+    }
+   ]
+  },
+  "SAW": {
+   "Barrel": [
+    {
+     "name": "SAW Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SAW Barrel B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.025,
+      "stab": 0.02925,
+      "recoil": -0.02525
+     },
+     "buy": 9000
+    }
+   ],
+   "Gas Tube": [
+    {
+     "name": "SAW Gas Tube A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SAW Gas Tube B",
+     "short": "B",
+     "level": 5,
+     "effects": {
+      "stab": 0.028,
+      "recoil": -0.02625
+     },
+     "buy": 12000
+    }
+   ],
+   "Grip": [
+    {
+     "name": "SAW Grip A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SAW Grip B",
+     "short": "B",
+     "level": 13,
+     "effects": {
+      "acc": 0.027,
+      "stab": 0.03025,
+      "recoil": -0.02625
+     },
+     "buy": 9000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "SAW Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SAW Handguard D",
+     "short": "D",
+     "level": 6,
+     "buy": 9000
+    },
+    {
+     "name": "SAW Handguard B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.028,
+      "stab": 0.028,
+      "recoil": -0.02875
+     },
+     "buy": 12000
+    },
+    {
+     "name": "SAW Handguard C",
+     "short": "C",
+     "level": 9,
+     "effects": {
+      "acc": 0.055,
+      "stab": 0.0555,
+      "recoil": -0.056
+     },
+     "buy": 15000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "SAW Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 200
+     },
+     "buy": 3000
+    },
+    {
+     "name": "SAW Magazine B",
+     "short": "B",
+     "level": 11,
+     "effects": {
+      "mag": 300
+     },
+     "buy": 24000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "SAW Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SAW Stock B",
+     "short": "B",
+     "level": 15,
+     "effects": {
+      "acc": 0.065,
+      "stab": 0.045375,
+      "recoil": -0.07375
+     },
+     "buy": 9000
+    }
+   ]
+  },
+  "SCAR": {
+   "Barrel": [
+    {
+     "name": "SCAR Barrel A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "SCAR Barrel B",
+     "short": "B",
+     "level": 1,
+     "effects": {
+      "acc": 0.028,
+      "stab": 0.02675,
+      "recoil": -0.02575
+     },
+     "buy": 4000
+    },
+    {
+     "name": "SCAR Barrel C",
+     "short": "C",
+     "level": 3,
+     "effects": {
+      "acc": 0.051,
+      "stab": 0.056,
+      "recoil": -0.0625
+     },
+     "buy": 5000
+    },
+    {
+     "name": "SCAR Barrel D",
+     "short": "D",
+     "level": 9,
+     "effects": {
+      "acc": 0.075,
+      "stab": 0.0915,
+      "recoil": -0.0765
+     },
+     "buy": 6000
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "SCAR Handguard B",
+     "short": "B",
+     "level": 0,
+     "effects": {
+      "acc": 0.03125,
+      "stab": 0.0285,
+      "recoil": -0.0305
+     },
+     "buy": 5000
+    },
+    {
+     "name": "SCAR Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 4000
+    },
+    {
+     "name": "SCAR Handguard C",
+     "short": "C",
+     "level": 5,
+     "effects": {
+      "acc": 0.051,
+      "stab": 0.053,
+      "recoil": -0.055
+     },
+     "buy": 6000
+    },
+    {
+     "name": "SCAR Handguard D",
+     "short": "D",
+     "level": 11,
+     "effects": {
+      "acc": 0.075,
+      "stab": 0.0885,
+      "recoil": -0.09
+     },
+     "buy": 7000
+    },
+    {
+     "name": "SCAR Handgaurd E",
+     "short": "E",
+     "level": 13,
+     "effects": {
+      "acc": 0.112,
+      "stab": 0.119,
+      "recoil": -0.116
+     },
+     "buy": 8000
+    },
+    {
+     "name": "SCAR Handguard F",
+     "short": "F",
+     "level": 15,
+     "effects": {
+      "acc": 0.15,
+      "stab": 0.14375,
+      "recoil": -0.14
+     },
+     "buy": 9000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "SCAR Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 8
+     },
+     "buy": 3000
+    },
+    {
+     "name": "SCAR Magazine D",
+     "short": "D",
+     "level": 7,
+     "effects": {
+      "mag": 8
+     },
+     "buy": 15000
+    },
+    {
+     "name": "SCAR Magazine B",
+     "short": "B",
+     "level": 17,
+     "effects": {
+      "mag": 20
+     },
+     "buy": 24000
+    },
+    {
+     "name": "SCAR Magazine C",
+     "short": "C",
+     "level": 19,
+     "effects": {
+      "mag": 50
+     },
+     "buy": 24000
+    }
+   ]
+  },
+  "SOG": {
+   "Upper assembly": [
+    {
+     "name": "SOG Receiver A",
+     "short": "A",
+     "level": 1,
+     "buy": 1000
+    },
+    {
+     "name": "SOG Receiver B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.0295,
+      "stab": 0.03125,
+      "recoil": -0.029
+     },
+     "buy": 2000
+    }
+   ]
+  },
+  "SVD": {
+   "Barrel": [
+    {
+     "name": "SVD Barrel A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SVD Barrel B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "acc": 0.027,
+      "recoil": -0.02675
+     },
+     "buy": 12000
+    },
+    {
+     "name": "SVD Barrel C",
+     "short": "C",
+     "level": 11,
+     "effects": {
+      "acc": 0.062,
+      "recoil": -0.05
+     },
+     "buy": 15000
+    },
+    {
+     "name": "SVD Barrel D",
+     "short": "D",
+     "level": 13,
+     "effects": {
+      "acc": 0.078,
+      "recoil": -0.081
+     },
+     "buy": 18000
+    }
+   ],
+   "Stock": [
+    {
+     "name": "SVD Stock A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SVD Stock B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.0285,
+      "stab": 0.02775,
+      "recoil": -0.03
+     },
+     "buy": 9000
+    }
+   ],
+   "Upper assembly": [
+    {
+     "name": "SVD Upper Assmbly A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "SVD Upper Assmbly B",
+     "short": "B",
+     "level": 9,
+     "effects": {
+      "acc": 0.02575,
+      "stab": 0.02675,
+      "recoil": -0.02725,
+      "fov": 33.0
+     },
+     "buy": 12000
+    },
+    {
+     "name": "SVD Upper Assmbly C",
+     "short": "C",
+     "level": 15,
+     "effects": {
+      "acc": 0.054,
+      "stab": 0.0605,
+      "recoil": -0.054
+     },
+     "buy": 9000
+    },
+    {
+     "name": "SVD Upper Assmbly D",
+     "short": "D",
+     "level": 17,
+     "effects": {
+      "acc": 0.08775,
+      "stab": 0.0915,
+      "recoil": -0.087
+     },
+     "buy": 15000
+    },
+    {
+     "name": "SVD Upper Assmbly E",
+     "short": "E",
+     "level": 19,
+     "effects": {
+      "acc": 0.117,
+      "stab": 0.115,
+      "recoil": -0.115
+     },
+     "buy": 18000
+    },
+    {
+     "name": "SVD Upper Assmbly F",
+     "short": "F",
+     "level": 21,
+     "effects": {
+      "acc": 0.14625,
+      "stab": 0.15625,
+      "recoil": -0.1425
+     },
+     "buy": 24000
+    }
+   ]
+  },
+  "Spectre M4": {
+   "Handguard": [
+    {
+     "name": "Spectre M4 Handguard",
+     "short": "Spectre M4",
+     "level": 5,
+     "buy": 12000
+    }
+   ]
+  },
+  "TKB-0146": {
+   "Handguard": [
+    {
+     "name": "TKB-0146 Handguard A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "TKB-0146 Handguard B",
+     "short": "B",
+     "level": 5,
+     "buy": 9000
+    }
+   ]
+  },
+  "87 Target": {
+   "Magazine": [
+    {
+     "name": "Target Pistol Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 12
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Target Pistol Magazine B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "mag": 15
+     },
+     "buy": 13000
+    }
+   ]
+  },
+  "VH-Ambi 2": {
+   "Upper assembly": [
+    {
+     "name": "VHS2 Upper Assembly B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.027,
+      "stab": 0.0295,
+      "recoil": -0.026,
+      "fov": 45.0
+     },
+     "buy": 2000
+    }
+   ]
+  },
+  "VKS VYKHLOP": {
+   "Front sight": [
+    {
+     "name": "VKS Front Sight",
+     "short": "VKS",
+     "level": 0,
+     "buy": 0
+    }
+   ],
+   "Handguard": [
+    {
+     "name": "VKS Handguard A",
+     "short": "A",
+     "level": 0,
+     "buy": 3000
+    },
+    {
+     "name": "VKS Handguard B",
+     "short": "B",
+     "level": 3,
+     "buy": 15000
+    }
+   ]
+  },
+  "VEPR-12": {
+   "Handguard": [
+    {
+     "name": "Vepr-12 Shotgun Handguard A",
+     "short": "A",
+     "level": 1,
+     "buy": 3000
+    },
+    {
+     "name": "Vepr-12 Shotgun Handguard B",
+     "short": "B",
+     "level": 3,
+     "effects": {
+      "acc": 0.025,
+      "stab": 0.02525,
+      "recoil": -0.03025
+     },
+     "buy": 12000
+    },
+    {
+     "name": "Vepr-12 Shotgun Handguard C",
+     "short": "C",
+     "level": 5,
+     "effects": {
+      "acc": 0.0525,
+      "stab": 0.0555,
+      "recoil": -0.0525
+     },
+     "buy": 18000
+    }
+   ],
+   "Magazine": [
+    {
+     "name": "Vepr-12 Shotgun Magazine A",
+     "short": "A",
+     "level": 1,
+     "effects": {
+      "mag": 10
+     },
+     "buy": 3000
+    },
+    {
+     "name": "Vepr-12 Shotgun Magazine B",
+     "short": "B",
+     "level": 7,
+     "effects": {
+      "mag": 25
+     },
+     "buy": 24000
+    }
+   ]
+  },
+  "WLT MPL": {
+   "Handguard": [
+    {
+     "name": "Walther MPL Handguard",
+     "short": "Walther MPL",
+     "level": 3,
+     "buy": 12000
+    }
+   ]
+  }
+ },
+ "parts": [
+  {
+   "name": "AA-12 Handguard",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "AA12"
+   ],
+   "internal": "WPN_SHG05_HGD_01_1"
+  },
+  {
+   "name": "AA12 Shotgun Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 8
+   },
+   "compatible": [
+    "AA12"
+   ],
+   "internal": "WPN_SHG05_MAG_12G_01"
+  },
+  {
+   "name": "AA12 Shotgun Magazine B",
+   "slot": "Magazine",
+   "level": 3,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 32
+   },
+   "compatible": [
+    "AA12"
+   ],
+   "internal": "WPN_SHG05_MAG_12G_02"
+  },
+  {
+   "name": "AK Barrel B",
+   "slot": "Barrel",
+   "level": 17,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02525,
+    "recoil": -0.03125
+   },
+   "compatible": [
+    "AK"
+   ],
+   "internal": "WPN_RFL01_BRL_02"
+  },
+  {
+   "name": "AK Barrel C",
+   "slot": "Barrel",
+   "level": 23,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.055,
+    "recoil": -0.05
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_BRL_03"
+  },
+  {
+   "name": "APC9 Pro Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "APC9 Pro"
+   ],
+   "internal": "WPN_SMG05_BRL_01"
+  },
+  {
+   "name": "APC9 Pro Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.08833298,
+    "recoil": -0.10333292
+   },
+   "compatible": [
+    "APC9 Pro"
+   ],
+   "internal": "WPN_SMG05_BRL_02"
+  },
+  {
+   "name": "APC9 Pro Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0371875,
+    "stab": 0.043125,
+    "recoil": -0.03975
+   },
+   "compatible": [
+    "APC9 Pro"
+   ],
+   "internal": "WPN_SMG05_STK_01"
+  },
+  {
+   "name": "C96 Pistol Receiver A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "C96"
+   ],
+   "internal": "WPN_PST04_UPP_01"
+  },
+  {
+   "name": "C96 Pistol Receiver B",
+   "slot": "Upper assembly",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0295,
+    "stab": 0.029,
+    "recoil": -0.026
+   },
+   "compatible": [
+    "C96"
+   ],
+   "internal": "WPN_PST04_UPP_02"
+  },
+  {
+   "name": "G-L 19 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 15
+   },
+   "compatible": [
+    "G-L 19"
+   ],
+   "internal": "WPN_PST10_MAG_919_01"
+  },
+  {
+   "name": "G-L 19 Magazine B",
+   "slot": "Magazine",
+   "level": 5,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 50
+   },
+   "compatible": [
+    "G-L 19"
+   ],
+   "internal": "WPN_PST10_MAG_919_02"
+  },
+  {
+   "name": "G-L 19 Upper Assmbly A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "G-L 19"
+   ],
+   "internal": "WPN_PST10_UPP_01"
+  },
+  {
+   "name": "G-L 19 Upper Assmbly B",
+   "slot": "Upper assembly",
+   "level": 3,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02525,
+    "stab": 0.02875,
+    "recoil": -0.02775
+   },
+   "compatible": [
+    "G-L 19"
+   ],
+   "internal": "WPN_PST10_UPP_02"
+  },
+  {
+   "name": "G-L 19 Upper Assmbly C",
+   "slot": "Upper assembly",
+   "level": 7,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.057,
+    "stab": 0.053,
+    "recoil": -0.05
+   },
+   "compatible": [
+    "G-L 19"
+   ],
+   "internal": "WPN_PST10_UPP_03"
+  },
+  {
+   "name": "G36 Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_BRL_01"
+  },
+  {
+   "name": "G36 Barrel B",
+   "slot": "Barrel",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.026,
+    "stab": 0.02625,
+    "recoil": -0.02775
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_BRL_02"
+  },
+  {
+   "name": "G36 Barrel C",
+   "slot": "Barrel",
+   "level": 13,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0595,
+    "stab": 0.0525,
+    "recoil": -0.056
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_BRL_03"
+  },
+  {
+   "name": "G36 Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_HGD_01"
+  },
+  {
+   "name": "G36 Handguard B",
+   "slot": "Handguard",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0295,
+    "stab": 0.0305,
+    "recoil": -0.02775
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_HGD_02"
+  },
+  {
+   "name": "G36 Handguard C",
+   "slot": "Handguard",
+   "level": 9,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0625,
+    "stab": 0.055,
+    "recoil": -0.0525
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_HGD_03"
+  },
+  {
+   "name": "G36 Handguard D",
+   "slot": "Handguard",
+   "level": 15,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0915,
+    "stab": 0.078,
+    "recoil": -0.075
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_HGD_04"
+  },
+  {
+   "name": "G36 Handguard E",
+   "slot": "Handguard",
+   "level": 19,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.104,
+    "stab": 0.119,
+    "recoil": -0.124
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_HGD_05"
+  },
+  {
+   "name": "G36 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_MAG_556_01"
+  },
+  {
+   "name": "G36 Magazine B",
+   "slot": "Magazine",
+   "level": 23,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 40
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_MAG_556_02"
+  },
+  {
+   "name": "G36 Receiver A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_UPP_01"
+  },
+  {
+   "name": "G36 Receiver B",
+   "slot": "Upper assembly",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02775,
+    "stab": 0.02875,
+    "recoil": -0.02875
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_UPP_02"
+  },
+  {
+   "name": "G36 Receiver C",
+   "slot": "Upper assembly",
+   "level": 17,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.055,
+    "stab": 0.051,
+    "recoil": -0.051
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_UPP_03"
+  },
+  {
+   "name": "G36 Receiver D",
+   "slot": "Upper assembly",
+   "level": 21,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0765,
+    "stab": 0.07575,
+    "recoil": -0.08625
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_UPP_04"
+  },
+  {
+   "name": "G36 Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_STK_01"
+  },
+  {
+   "name": "G36 Stock B",
+   "slot": "Stock",
+   "level": 11,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0575,
+    "stab": 0.053,
+    "recoil": -0.0545
+   },
+   "compatible": [
+    "G36"
+   ],
+   "internal": "WPN_RFL16_STK_02"
+  },
+  {
+   "name": "HK CAWS Magazine B",
+   "slot": "Magazine",
+   "level": 7,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 25
+   },
+   "compatible": [
+    "CLAW"
+   ],
+   "internal": "WPN_SHG06_MAG_12G_02"
+  },
+  {
+   "name": "Kala Gas Tube B",
+   "slot": "Gas Tube",
+   "level": 0,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.02925,
+    "recoil": -0.02725
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_GAS_02"
+  },
+  {
+   "name": "Kala Gas Tube C",
+   "slot": "Gas Tube",
+   "level": 0,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.06,
+    "recoil": -0.0515
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_GAS_03"
+  },
+  {
+   "name": "Kala Gas Tube D",
+   "slot": "Gas Tube",
+   "level": 0,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.07725,
+    "recoil": -0.0885
+   },
+   "compatible": [
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_GAS_04"
+  },
+  {
+   "name": "Kala Gas Tube E",
+   "slot": "Gas Tube",
+   "level": 0,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.124,
+    "recoil": -0.116
+   },
+   "compatible": [
+    "AK"
+   ],
+   "internal": "WPN_RFL01_GAS_05"
+  },
+  {
+   "name": "Kala Grip A",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_PGR_01"
+  },
+  {
+   "name": "Kala Grip A-1",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02725,
+    "stab": 0.02975,
+    "recoil": -0.03
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_PGR_01A"
+  },
+  {
+   "name": "Kala Grip A-2",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.028,
+    "stab": 0.027,
+    "recoil": -0.02575
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_PGR_01B"
+  },
+  {
+   "name": "Kala Grip B",
+   "slot": "Grip",
+   "level": 3,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02925,
+    "stab": 0.02825,
+    "recoil": -0.02525
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_PGR_02"
+  },
+  {
+   "name": "Kala Grip C",
+   "slot": "Grip",
+   "level": 7,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.061,
+    "stab": 0.0565,
+    "recoil": -0.055
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_PGR_03"
+  },
+  {
+   "name": "Kala Grip D",
+   "slot": "Grip",
+   "level": 13,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.093,
+    "stab": 0.08925,
+    "recoil": -0.0795
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_PGR_04"
+  },
+  {
+   "name": "Kala Handguard B",
+   "slot": "Handguard",
+   "level": 9,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0265,
+    "stab": 0.0275,
+    "recoil": -0.02925
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_02"
+  },
+  {
+   "name": "Kala Handguard B-1",
+   "slot": "Handguard",
+   "level": 9,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0575,
+    "stab": 0.055,
+    "recoil": -0.0615
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_02A"
+  },
+  {
+   "name": "Kala Handguard B-2",
+   "slot": "Handguard",
+   "level": 9,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.061,
+    "stab": 0.053,
+    "recoil": -0.055
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_02B"
+  },
+  {
+   "name": "Kala Handguard C",
+   "slot": "Handguard",
+   "level": 33,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0915,
+    "stab": 0.078,
+    "recoil": -0.078
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_03"
+  },
+  {
+   "name": "Kala Handguard D",
+   "slot": "Handguard",
+   "level": 37,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.115,
+    "stab": 0.112,
+    "recoil": -0.117
+   },
+   "compatible": [
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_04"
+  },
+  {
+   "name": "Kala Handguard E",
+   "slot": "Handguard",
+   "level": 39,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1375,
+    "stab": 0.14625,
+    "recoil": -0.1375
+   },
+   "compatible": [
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_05"
+  },
+  {
+   "name": "Kala Handguard F",
+   "slot": "Handguard",
+   "level": 43,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1845,
+    "stab": 0.1515,
+    "recoil": -0.18
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_06"
+  },
+  {
+   "name": "Kala Handguard G",
+   "slot": "Handguard",
+   "level": 45,
+   "buy": 30000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.203,
+    "stab": 0.18375,
+    "recoil": -0.175
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_HGD_07"
+  },
+  {
+   "name": "Kala Handguard H",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 13000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.217,
+    "stab": 0.21525,
+    "recoil": -0.17675
+   },
+   "compatible": [
+    "AK"
+   ],
+   "internal": "WPN_RFL01_HGD_10"
+  },
+  {
+   "name": "Kala Handguard I",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1925,
+    "stab": 0.2135,
+    "recoil": -0.203
+   },
+   "compatible": [
+    "AK"
+   ],
+   "internal": "WPN_RFL01_HGD09"
+  },
+  {
+   "name": "Kala Handguard J",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.21875,
+    "stab": 0.189,
+    "recoil": -0.19425
+   },
+   "compatible": [
+    "AK"
+   ],
+   "internal": "WPN_RFL01_HGD11"
+  },
+  {
+   "name": "Kala Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_01"
+  },
+  {
+   "name": "Kala Magazine B",
+   "slot": "Magazine",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 40
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_02"
+  },
+  {
+   "name": "Kala Magazine C",
+   "slot": "Magazine",
+   "level": 15,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 60
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_03"
+  },
+  {
+   "name": "Kala Magazine D",
+   "slot": "Magazine",
+   "level": 21,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_04"
+  },
+  {
+   "name": "Kala Magazine E",
+   "slot": "Magazine",
+   "level": 31,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 40
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_05"
+  },
+  {
+   "name": "Kala Magazine E-1",
+   "slot": "Magazine",
+   "level": 31,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 40
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_05A"
+  },
+  {
+   "name": "Kala Magazine F",
+   "slot": "Magazine",
+   "level": 35,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_06"
+  },
+  {
+   "name": "Kala Magazine G",
+   "slot": "Magazine",
+   "level": 41,
+   "buy": 30000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 10
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_07"
+  },
+  {
+   "name": "Kala Magazine H",
+   "slot": "Magazine",
+   "level": 47,
+   "buy": 36000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 95
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_08"
+  },
+  {
+   "name": "Kala Magazine I",
+   "slot": "Magazine",
+   "level": 0,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 100
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_MAG_545_10"
+  },
+  {
+   "name": "Kala Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_01"
+  },
+  {
+   "name": "Kala Stock B",
+   "slot": "Stock",
+   "level": 11,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02975,
+    "stab": 0.02625,
+    "recoil": -0.027
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_02"
+  },
+  {
+   "name": "Kala Stock B-1",
+   "slot": "Stock",
+   "level": 11,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02625,
+    "stab": 0.029,
+    "recoil": -0.02525
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_02A"
+  },
+  {
+   "name": "Kala Stock B-2",
+   "slot": "Stock",
+   "level": 11,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02925,
+    "stab": 0.02875,
+    "recoil": -0.027
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_02B"
+  },
+  {
+   "name": "Kala Stock C",
+   "slot": "Stock",
+   "level": 19,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0625,
+    "stab": 0.059,
+    "recoil": -0.061
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_03"
+  },
+  {
+   "name": "Kala Stock C-1",
+   "slot": "Stock",
+   "level": 19,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.05,
+    "stab": 0.057,
+    "recoil": -0.062
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_03A"
+  },
+  {
+   "name": "Kala Stock C-2",
+   "slot": "Stock",
+   "level": 19,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.061,
+    "stab": 0.0605,
+    "recoil": -0.0555
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_03B"
+  },
+  {
+   "name": "Kala Stock D",
+   "slot": "Stock",
+   "level": 25,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.081,
+    "stab": 0.0885,
+    "recoil": -0.09225
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_04"
+  },
+  {
+   "name": "Kala Stock E",
+   "slot": "Stock",
+   "level": 29,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.121,
+    "stab": 0.116,
+    "recoil": -0.1
+   },
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_STK_05"
+  },
+  {
+   "name": "Kala Upper Assembly A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_UPP_01"
+  },
+  {
+   "name": "Kala Upper Assembly B",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "AK",
+    "RPK"
+   ],
+   "internal": "WPN_RFL01_UPP_02"
+  },
+  {
+   "name": "Kriss Vector Handguard A",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "Kriss Vector 45"
+   ],
+   "internal": "WPN_SMG01_HGD_01"
+  },
+  {
+   "name": "Kriss Vector Handguard B",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "Kriss Vector 45"
+   ],
+   "internal": "WPN_SMG01_HGD_01_1"
+  },
+  {
+   "name": "M16 Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_BRL_01"
+  },
+  {
+   "name": "M16 Gas Tube A",
+   "slot": "Gas Tube",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_GAS_01"
+  },
+  {
+   "name": "M16 Gas Tube B",
+   "slot": "Gas Tube",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.02875,
+    "recoil": -0.0305
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_GAS_02"
+  },
+  {
+   "name": "M16 Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_01"
+  },
+  {
+   "name": "M16 Handguard B",
+   "slot": "Handguard",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0295,
+    "stab": 0.02875,
+    "recoil": -0.02925
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_02"
+  },
+  {
+   "name": "M16 Handguard C",
+   "slot": "Handguard",
+   "level": 13,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.058,
+    "stab": 0.0625,
+    "recoil": -0.058
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_03"
+  },
+  {
+   "name": "M16 Handguard D",
+   "slot": "Handguard",
+   "level": 21,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.078,
+    "stab": 0.0795,
+    "recoil": -0.08025
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_04"
+  },
+  {
+   "name": "M16 Handguard E",
+   "slot": "Handguard",
+   "level": 23,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.122,
+    "stab": 0.104,
+    "recoil": -0.123
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_05"
+  },
+  {
+   "name": "M16 Handguard F",
+   "slot": "Handguard",
+   "level": 25,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.135,
+    "stab": 0.155,
+    "recoil": -0.1375
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_06"
+  },
+  {
+   "name": "M16 Handguard G",
+   "slot": "Handguard",
+   "level": 27,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1575,
+    "stab": 0.1665,
+    "recoil": -0.162
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_07"
+  },
+  {
+   "name": "M16 Handguard H",
+   "slot": "Handguard",
+   "level": 29,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1995,
+    "stab": 0.20125,
+    "recoil": -0.17675
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_HGD_08"
+  },
+  {
+   "name": "M16 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 20
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_MAG_556_01"
+  },
+  {
+   "name": "M16 Magazine B",
+   "slot": "Magazine",
+   "level": 31,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_MAG_556_02"
+  },
+  {
+   "name": "M16 Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_STK_01"
+  },
+  {
+   "name": "M16 Stock B",
+   "slot": "Stock",
+   "level": 11,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0285,
+    "stab": 0.0285,
+    "recoil": -0.02675
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_STK_02"
+  },
+  {
+   "name": "M16 Stock C",
+   "slot": "Stock",
+   "level": 17,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0625,
+    "stab": 0.061,
+    "recoil": -0.0515
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_STK_03"
+  },
+  {
+   "name": "M16 Upper Assmbly A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_UPP_01"
+  },
+  {
+   "name": "M16 Upper Assmbly B",
+   "slot": "Upper assembly",
+   "level": 15,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.026,
+    "stab": 0.02875,
+    "recoil": -0.0295
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_UPP_02"
+  },
+  {
+   "name": "M16 Upper Assmbly C",
+   "slot": "Upper assembly",
+   "level": 19,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0535,
+    "stab": 0.062,
+    "recoil": -0.052,
+    "fov": 37.5
+   },
+   "compatible": [
+    "M16"
+   ],
+   "internal": "WPN_RFL23_UPP_03"
+  },
+  {
+   "name": "M4A1 Barrel",
+   "slot": "Barrel",
+   "level": 0,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.102,
+    "recoil": -0.124
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_BRL_04"
+  },
+  {
+   "name": "M4A1 Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_BRL_01"
+  },
+  {
+   "name": "M4A1 Barrel B",
+   "slot": "Barrel",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0575,
+    "recoil": -0.0575
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_BRL_02"
+  },
+  {
+   "name": "M4A1 Barrel C",
+   "slot": "Barrel",
+   "level": 19,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.115,
+    "recoil": -0.1
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_BRL_03"
+  },
+  {
+   "name": "M4A1 Charging Handle A",
+   "slot": "Charging handle",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_CHG_01"
+  },
+  {
+   "name": "M4A1 Charging Handle B",
+   "slot": "Charging handle",
+   "level": 3,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02675,
+    "stab": 0.02775,
+    "recoil": -0.03125
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_CHG_02"
+  },
+  {
+   "name": "M4A1 Charging Handle C",
+   "slot": "Charging handle",
+   "level": 9,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0525,
+    "stab": 0.059,
+    "recoil": -0.0545
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_CHG_03"
+  },
+  {
+   "name": "M4A1 Gas Tube",
+   "slot": "Gas Tube",
+   "level": 0,
+   "buy": 4000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.053,
+    "recoil": -0.0615
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_GAS_04"
+  },
+  {
+   "name": "M4A1 Gas Tube A",
+   "slot": "Gas Tube",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_GAS_01"
+  },
+  {
+   "name": "M4A1 Gas Tube B",
+   "slot": "Gas Tube",
+   "level": 5,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.03025,
+    "recoil": -0.03125
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_GAS_02"
+  },
+  {
+   "name": "M4A1 Gas Tube C",
+   "slot": "Gas Tube",
+   "level": 13,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.056,
+    "recoil": -0.0555
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_GAS_03"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade B",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 8000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.15125,
+    "stab": 0.15,
+    "recoil": -0.15625
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_05"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade C",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1325,
+    "stab": 0.1475,
+    "recoil": -0.1375
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_06"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade D",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 10000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.15375,
+    "stab": 0.14625,
+    "recoil": -0.13125
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_07"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade E",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 11000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1375,
+    "stab": 0.1425,
+    "recoil": -0.15375
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_08"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade F",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.14875,
+    "stab": 0.1425,
+    "recoil": -0.12625
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_09"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade G",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 13000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1275,
+    "stab": 0.1325,
+    "recoil": -0.155
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_10"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade H",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 4000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.14125,
+    "stab": 0.1275,
+    "recoil": -0.13125
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_11"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade I",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 5000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.1275,
+    "stab": 0.1525,
+    "recoil": -0.125
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_12"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade J",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.14375,
+    "stab": 0.1425,
+    "recoil": -0.15625
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_13"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade K",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 7000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.145,
+    "stab": 0.125,
+    "recoil": -0.15
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_14"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade L",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 8000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.14875,
+    "stab": 0.12625,
+    "recoil": -0.1425
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_15"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade M",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.125,
+    "stab": 0.14625,
+    "recoil": -0.1525
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_16"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade N",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 10000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.125,
+    "stab": 0.13125,
+    "recoil": -0.15625
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_17"
+  },
+  {
+   "name": "M4A1 Handguard Upgrade O",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 11000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.13625,
+    "stab": 0.14125,
+    "recoil": -0.1475
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_HGD_18"
+  },
+  {
+   "name": "M4A1 Magazine",
+   "slot": "Magazine",
+   "level": 0,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_MAG_556_03"
+  },
+  {
+   "name": "M4A1 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_MAG_556_01"
+  },
+  {
+   "name": "M4A1 Magazine B",
+   "slot": "Magazine",
+   "level": 31,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 60
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_MAG_556_02"
+  },
+  {
+   "name": "M4A1 Pistol Grip A",
+   "slot": "Grip",
+   "level": 0,
+   "buy": 11000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.05,
+    "stab": 0.061,
+    "recoil": -0.057
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_PGR_04"
+  },
+  {
+   "name": "M4A1 Pistol Grip B",
+   "slot": "Grip",
+   "level": 0,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.05,
+    "stab": 0.0585,
+    "recoil": -0.0625
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_PGR_05"
+  },
+  {
+   "name": "M4A1 Pistol Grip C",
+   "slot": "Grip",
+   "level": 0,
+   "buy": 13000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0605,
+    "stab": 0.0525,
+    "recoil": -0.054
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_PGR_06"
+  },
+  {
+   "name": "M4A1 Receiver A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_UPP_01"
+  },
+  {
+   "name": "M4A1 Receiver B",
+   "slot": "Upper assembly",
+   "level": 27,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02775,
+    "stab": 0.028,
+    "recoil": -0.02525
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_UPP_02"
+  },
+  {
+   "name": "M4A1 Receiver C",
+   "slot": "Upper assembly",
+   "level": 29,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.053,
+    "stab": 0.0525,
+    "recoil": -0.0545
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_UPP_03"
+  },
+  {
+   "name": "M4A1 Stock A",
+   "slot": "Stock",
+   "level": 0,
+   "buy": 7000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.05,
+    "stab": 0.0625,
+    "recoil": -0.0555
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_STK_04"
+  },
+  {
+   "name": "M4A1 Stock B",
+   "slot": "Stock",
+   "level": 0,
+   "buy": 8000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.08475,
+    "stab": 0.087,
+    "recoil": -0.09
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_STK_05"
+  },
+  {
+   "name": "M4A1 Stock C",
+   "slot": "Stock",
+   "level": 0,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.07875,
+    "stab": 0.0915,
+    "recoil": -0.081
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_STK_06"
+  },
+  {
+   "name": "M4A1 Stock D",
+   "slot": "Stock",
+   "level": 0,
+   "buy": 10000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.07725,
+    "stab": 0.0765,
+    "recoil": -0.08175
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_STK_07"
+  },
+  {
+   "name": "M4A1 Stock E",
+   "slot": "Stock",
+   "level": 0,
+   "buy": 11000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0885,
+    "stab": 0.0795,
+    "recoil": -0.093
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_STK_08"
+  },
+  {
+   "name": "M4A1 Stock F",
+   "slot": "Stock",
+   "level": 0,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.09375,
+    "stab": 0.0795,
+    "recoil": -0.07575
+   },
+   "compatible": [
+    "M4A1"
+   ],
+   "internal": "WPN_RFL12_STK_09"
+  },
+  {
+   "name": "M60 Handguard A",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M60"
+   ],
+   "internal": "WPN_LMG03_HGD_01"
+  },
+  {
+   "name": "M60 Handguard B",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M60"
+   ],
+   "internal": "WPN_LMG03_HGD_01_1"
+  },
+  {
+   "name": "M79 Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_BRL_01"
+  },
+  {
+   "name": "M79 Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.028,
+    "stab": 0.03025,
+    "recoil": -0.0255
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_BRL_02"
+  },
+  {
+   "name": "M79 Front Sight A",
+   "slot": "Front sight",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_FMS_01"
+  },
+  {
+   "name": "M79 Front Sight B",
+   "slot": "Front sight",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02925,
+    "stab": 0.02775,
+    "recoil": -0.0275
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_FMS_02"
+  },
+  {
+   "name": "M79 Grip A",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_PGR_01"
+  },
+  {
+   "name": "M79 Grip B",
+   "slot": "Grip",
+   "level": 11,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02725,
+    "stab": 0.0285,
+    "recoil": -0.029
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_PGR_02"
+  },
+  {
+   "name": "M79 Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_HGD_01"
+  },
+  {
+   "name": "M79 Handguard B",
+   "slot": "Handguard",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02675,
+    "stab": 0.03025,
+    "recoil": -0.0265
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_HGD_02"
+  },
+  {
+   "name": "M79 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 1
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_MAG_40m_01"
+  },
+  {
+   "name": "M79 Magazine B",
+   "slot": "Magazine",
+   "level": 9,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 1
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_MAG_40m_02"
+  },
+  {
+   "name": "M79 Rear Sight A",
+   "slot": "Rear sight",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_RLS_01"
+  },
+  {
+   "name": "M79 Rear Sight B",
+   "slot": "Rear sight",
+   "level": 13,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0515,
+    "stab": 0.053,
+    "recoil": -0.051,
+    "rof": 0.1
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_RLS_02"
+  },
+  {
+   "name": "M79 Receiver A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_UPP_01"
+  },
+  {
+   "name": "M79 Receiver B",
+   "slot": "Upper assembly",
+   "level": 17,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.03,
+    "stab": 0.0255,
+    "recoil": -0.029
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_UPP_02"
+  },
+  {
+   "name": "M79 Sight A",
+   "slot": "Rear sight",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_RLS_01"
+  },
+  {
+   "name": "M79 Sight B",
+   "slot": "Rear sight",
+   "level": 13,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0515,
+    "stab": 0.053,
+    "recoil": -0.051,
+    "rof": 0.1
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_RLS_02"
+  },
+  {
+   "name": "M79 Trigger A",
+   "slot": "Trigger",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_TRG_01"
+  },
+  {
+   "name": "M79 Trigger B",
+   "slot": "Trigger",
+   "level": 15,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.028,
+    "recoil": -0.03075,
+    "rof": 0.05
+   },
+   "compatible": [
+    "M79 Sawed-off"
+   ],
+   "internal": "WPN_PST07_TRG_02"
+  },
+  {
+   "name": "NSN Grip A",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS",
+    "USAS-12"
+   ],
+   "internal": "WPN_RFL12_PGR_01"
+  },
+  {
+   "name": "NSN Grip B",
+   "slot": "Grip",
+   "level": 15,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0295,
+    "stab": 0.02625,
+    "recoil": -0.028
+   },
+   "compatible": [
+    "M4A1",
+    "R11 RSASS",
+    "USAS-12"
+   ],
+   "internal": "WPN_RFL12_PGR_02"
+  },
+  {
+   "name": "NSN Grip C",
+   "slot": "Grip",
+   "level": 23,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0575,
+    "stab": 0.05,
+    "recoil": -0.053
+   },
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_PGR_03"
+  },
+  {
+   "name": "NSN Grip D",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS",
+    "USAS-12"
+   ],
+   "internal": "WPN_RFL19_PGR_01"
+  },
+  {
+   "name": "NSN Grip E",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS",
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_PGR_01"
+  },
+  {
+   "name": "NSN Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_HGD_01"
+  },
+  {
+   "name": "NSN Handguard B",
+   "slot": "Handguard",
+   "level": 11,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02775,
+    "stab": 0.025,
+    "recoil": -0.02725
+   },
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_HGD_02"
+  },
+  {
+   "name": "NSN Handguard C",
+   "slot": "Handguard",
+   "level": 21,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0525,
+    "stab": 0.056,
+    "recoil": -0.051
+   },
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_HGD_03"
+  },
+  {
+   "name": "NSN Handguard D",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL19_HGD_01"
+  },
+  {
+   "name": "NSN Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_STK_01"
+  },
+  {
+   "name": "NSN Stock B",
+   "slot": "Stock",
+   "level": 17,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02875,
+    "stab": 0.0285,
+    "recoil": -0.025
+   },
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_STK_02"
+  },
+  {
+   "name": "NSN Stock C",
+   "slot": "Stock",
+   "level": 25,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0605,
+    "stab": 0.0595,
+    "recoil": -0.053
+   },
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL12_STK_03"
+  },
+  {
+   "name": "NSN Stock D",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "M4A1",
+    "R11 RSASS"
+   ],
+   "internal": "WPN_RFL19_STK_01"
+  },
+  {
+   "name": "PM-9 Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_BRL_01"
+  },
+  {
+   "name": "PM-9 Barrel B",
+   "slot": "Barrel",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.08999964,
+    "recoil": -0.09333296
+   },
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_BRL_02"
+  },
+  {
+   "name": "PM-9 Barrel C",
+   "slot": "Barrel",
+   "level": 7,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.15,
+    "recoil": -0.125
+   },
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_BRL_03"
+  },
+  {
+   "name": "PM-9 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 20
+   },
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_MAG_919_01"
+  },
+  {
+   "name": "PM-9 Magazine B",
+   "slot": "Magazine",
+   "level": 9,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 50
+   },
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_MAG_919_02"
+  },
+  {
+   "name": "PM-9 Upper Assembly A",
+   "slot": "Upper assembly",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_UPP_01"
+  },
+  {
+   "name": "PM-9 Upper Assembly B",
+   "slot": "Upper assembly",
+   "level": 11,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PM-9"
+   ],
+   "internal": "WPN_SMG03_UPP_01_1"
+  },
+  {
+   "name": "PP-19 Vityaz Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_BRL_01"
+  },
+  {
+   "name": "PP-19 Vityaz Barrel B",
+   "slot": "Barrel",
+   "level": 7,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.10166626,
+    "recoil": -0.09249963
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_BRL_02"
+  },
+  {
+   "name": "PP-19 Vityaz Grip A",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_PGR_01"
+  },
+  {
+   "name": "PP-19 Vityaz Grip B",
+   "slot": "Grip",
+   "level": 9,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0265,
+    "stab": 0.02925,
+    "recoil": -0.028
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_PGR_02"
+  },
+  {
+   "name": "PP-19 Vityaz Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_HGD_01"
+  },
+  {
+   "name": "PP-19 Vityaz Handguard B",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0285,
+    "stab": 0.0285,
+    "recoil": -0.02625
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_HGD_02"
+  },
+  {
+   "name": "PP-19 Vityaz Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 30
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_MAG_919_01"
+  },
+  {
+   "name": "PP-19 Vityaz Magazine B",
+   "slot": "Magazine",
+   "level": 17,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 45
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_MAG_919_02"
+  },
+  {
+   "name": "PP-19 Vityaz Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_STK_01"
+  },
+  {
+   "name": "PP-19 Vityaz Stock B",
+   "slot": "Stock",
+   "level": 11,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.066875,
+    "stab": 0.043125,
+    "recoil": -0.068125
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_STK_02"
+  },
+  {
+   "name": "PP-19 Vityaz Trigger A",
+   "slot": "Trigger",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_TRG_01"
+  },
+  {
+   "name": "PP-19 Vityaz Trigger B",
+   "slot": "Trigger",
+   "level": 13,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.02675,
+    "recoil": -0.03125,
+    "rof": 0.05
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_TRG_02"
+  },
+  {
+   "name": "PP-19 Vityaz Upper Assembly A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_UPP_01"
+  },
+  {
+   "name": "PP-19 Vityaz Upper Assembly B",
+   "slot": "Upper assembly",
+   "level": 15,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.031,
+    "recoil": -0.03075,
+    "rof": 0.05
+   },
+   "compatible": [
+    "PP-19 Vityaz"
+   ],
+   "internal": "WPN_SMG07_UPP_02"
+  },
+  {
+   "name": "RPD Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "RPD"
+   ],
+   "internal": "WPN_LMG04_BRL_01"
+  },
+  {
+   "name": "RPD Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 4000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.08749965,
+    "recoil": -0.08833298
+   },
+   "compatible": [
+    "RPD"
+   ],
+   "internal": "WPN_LMG04_BRL_02"
+  },
+  {
+   "name": "RPD Barrel C",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 4000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "RPD"
+   ],
+   "internal": "WPN_LMG04_STK_01"
+  },
+  {
+   "name": "RPD Handguard A",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "RPD"
+   ],
+   "internal": "WPN_LMG04_HGD_01"
+  },
+  {
+   "name": "RPD Handguard B",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "RPD"
+   ],
+   "internal": "WPN_LMG04_HGD_01_1"
+  },
+  {
+   "name": "S12 Shotgun Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "S12"
+   ],
+   "internal": "WPN_SHG01_BRL_01"
+  },
+  {
+   "name": "S12 Shotgun Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0255,
+    "stab": 0.02925,
+    "recoil": -0.02925
+   },
+   "compatible": [
+    "S12"
+   ],
+   "internal": "WPN_SHG01_BRL_02"
+  },
+  {
+   "name": "S12 Shotgun Barrel C",
+   "slot": "Barrel",
+   "level": 5,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0615,
+    "stab": 0.055,
+    "recoil": -0.05
+   },
+   "compatible": [
+    "S12"
+   ],
+   "internal": "WPN_SHG01_BRL_03"
+  },
+  {
+   "name": "S12 Shotgun Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 6
+   },
+   "compatible": [
+    "S12"
+   ],
+   "internal": "WPN_SHG01_MAG_01"
+  },
+  {
+   "name": "S12 Shotgun Magazine B",
+   "slot": "Magazine",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 4
+   },
+   "compatible": [
+    "S12"
+   ],
+   "internal": "WPN_SHG01_MAG_02"
+  },
+  {
+   "name": "S12 Shotgun Magazine C",
+   "slot": "Magazine",
+   "level": 9,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 9
+   },
+   "compatible": [
+    "S12"
+   ],
+   "internal": "WPN_SHG01_MAG_03"
+  },
+  {
+   "name": "SA58 Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SA58"
+   ],
+   "internal": "WPN_RFL15_BRL_01"
+  },
+  {
+   "name": "SA58 Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0565,
+    "recoil": -0.051
+   },
+   "compatible": [
+    "SA58"
+   ],
+   "internal": "WPN_RFL15_BRL_02"
+  },
+  {
+   "name": "SA58 Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 20
+   },
+   "compatible": [
+    "SA58"
+   ],
+   "internal": "WPN_RFL15_MAG_308_01"
+  },
+  {
+   "name": "SA58 Magazine B",
+   "slot": "Magazine",
+   "level": 5,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 50
+   },
+   "compatible": [
+    "SA58"
+   ],
+   "internal": "WPN_RFL15_MAG_308_02"
+  },
+  {
+   "name": "SAW Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_BRL_01"
+  },
+  {
+   "name": "SAW Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.025,
+    "stab": 0.02925,
+    "recoil": -0.02525
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_BRL_02"
+  },
+  {
+   "name": "SAW Gas Tube A",
+   "slot": "Gas Tube",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_GAS_01"
+  },
+  {
+   "name": "SAW Gas Tube B",
+   "slot": "Gas Tube",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "stab": 0.028,
+    "recoil": -0.02625
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_GAS_02"
+  },
+  {
+   "name": "SAW Grip A",
+   "slot": "Grip",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_PGR_01"
+  },
+  {
+   "name": "SAW Grip B",
+   "slot": "Grip",
+   "level": 13,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.027,
+    "stab": 0.03025,
+    "recoil": -0.02625
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_PGR_02"
+  },
+  {
+   "name": "SAW Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_HGD_01"
+  },
+  {
+   "name": "SAW Handguard B",
+   "slot": "Handguard",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.028,
+    "stab": 0.028,
+    "recoil": -0.02875
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_HGD_02"
+  },
+  {
+   "name": "SAW Handguard C",
+   "slot": "Handguard",
+   "level": 9,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.055,
+    "stab": 0.0555,
+    "recoil": -0.056
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_HGD_03"
+  },
+  {
+   "name": "SAW Handguard D",
+   "slot": "Handguard",
+   "level": 6,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_HGD_01_1"
+  },
+  {
+   "name": "SAW Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 200
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_MAG_556_01"
+  },
+  {
+   "name": "SAW Magazine B",
+   "slot": "Magazine",
+   "level": 11,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 300
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_MAG_556_02"
+  },
+  {
+   "name": "SAW Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_STK_01"
+  },
+  {
+   "name": "SAW Stock B",
+   "slot": "Stock",
+   "level": 15,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.065,
+    "stab": 0.045375,
+    "recoil": -0.07375
+   },
+   "compatible": [
+    "SAW"
+   ],
+   "internal": "WPN_LMG02_STK_02"
+  },
+  {
+   "name": "SCAR Barrel A",
+   "slot": "Barrel",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_BRL_01"
+  },
+  {
+   "name": "SCAR Barrel B",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 4000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.028,
+    "stab": 0.02675,
+    "recoil": -0.02575
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_BRL_02"
+  },
+  {
+   "name": "SCAR Barrel C",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 5000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.051,
+    "stab": 0.056,
+    "recoil": -0.0625
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_BRL_03"
+  },
+  {
+   "name": "SCAR Barrel D",
+   "slot": "Barrel",
+   "level": 9,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.075,
+    "stab": 0.0915,
+    "recoil": -0.0765
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_BRL_04"
+  },
+  {
+   "name": "SCAR Handgaurd E",
+   "slot": "Handguard",
+   "level": 13,
+   "buy": 8000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.112,
+    "stab": 0.119,
+    "recoil": -0.116
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_HGD_05"
+  },
+  {
+   "name": "SCAR Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 4000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_HGD_01"
+  },
+  {
+   "name": "SCAR Handguard B",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 5000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.03125,
+    "stab": 0.0285,
+    "recoil": -0.0305
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_HGD_02"
+  },
+  {
+   "name": "SCAR Handguard C",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 6000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.051,
+    "stab": 0.053,
+    "recoil": -0.055
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_HGD_03"
+  },
+  {
+   "name": "SCAR Handguard D",
+   "slot": "Handguard",
+   "level": 11,
+   "buy": 7000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.075,
+    "stab": 0.0885,
+    "recoil": -0.09
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_HGD_04"
+  },
+  {
+   "name": "SCAR Handguard F",
+   "slot": "Handguard",
+   "level": 15,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.15,
+    "stab": 0.14375,
+    "recoil": -0.14
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_HGD_06"
+  },
+  {
+   "name": "SCAR Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 8
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_MAG_50_01"
+  },
+  {
+   "name": "SCAR Magazine B",
+   "slot": "Magazine",
+   "level": 17,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 20
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_MAG_50_02"
+  },
+  {
+   "name": "SCAR Magazine C",
+   "slot": "Magazine",
+   "level": 19,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 50
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_MAG_50_03"
+  },
+  {
+   "name": "SCAR Magazine D",
+   "slot": "Magazine",
+   "level": 7,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 8
+   },
+   "compatible": [
+    "SCAR"
+   ],
+   "internal": "WPN_HRF01_MAG_50_04"
+  },
+  {
+   "name": "SOG Receiver A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 1000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SOG"
+   ],
+   "internal": "WPN_PST02_UPP_01"
+  },
+  {
+   "name": "SOG Receiver B",
+   "slot": "Upper assembly",
+   "level": 3,
+   "buy": 2000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0295,
+    "stab": 0.03125,
+    "recoil": -0.029
+   },
+   "compatible": [
+    "SOG"
+   ],
+   "internal": "WPN_PST02_UPP_02"
+  },
+  {
+   "name": "SVD Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_BRL_01"
+  },
+  {
+   "name": "SVD Barrel B",
+   "slot": "Barrel",
+   "level": 7,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.027,
+    "recoil": -0.02675
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_BRL_02"
+  },
+  {
+   "name": "SVD Barrel C",
+   "slot": "Barrel",
+   "level": 11,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.062,
+    "recoil": -0.05
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_BRL_03"
+  },
+  {
+   "name": "SVD Barrel D",
+   "slot": "Barrel",
+   "level": 13,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.078,
+    "recoil": -0.081
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_BRL_04"
+  },
+  {
+   "name": "SVD Stock A",
+   "slot": "Stock",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_STK_01"
+  },
+  {
+   "name": "SVD Stock B",
+   "slot": "Stock",
+   "level": 3,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0285,
+    "stab": 0.02775,
+    "recoil": -0.03
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_STK_02"
+  },
+  {
+   "name": "SVD Upper Assmbly A",
+   "slot": "Upper assembly",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_UPP_01"
+  },
+  {
+   "name": "SVD Upper Assmbly B",
+   "slot": "Upper assembly",
+   "level": 9,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02575,
+    "stab": 0.02675,
+    "recoil": -0.02725,
+    "fov": 33.0
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_UPP_02"
+  },
+  {
+   "name": "SVD Upper Assmbly C",
+   "slot": "Upper assembly",
+   "level": 15,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.054,
+    "stab": 0.0605,
+    "recoil": -0.054
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_UPP_03"
+  },
+  {
+   "name": "SVD Upper Assmbly D",
+   "slot": "Upper assembly",
+   "level": 17,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.08775,
+    "stab": 0.0915,
+    "recoil": -0.087
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_UPP_04"
+  },
+  {
+   "name": "SVD Upper Assmbly E",
+   "slot": "Upper assembly",
+   "level": 19,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.117,
+    "stab": 0.115,
+    "recoil": -0.115
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_UPP_05"
+  },
+  {
+   "name": "SVD Upper Assmbly F",
+   "slot": "Upper assembly",
+   "level": 21,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.14625,
+    "stab": 0.15625,
+    "recoil": -0.1425
+   },
+   "compatible": [
+    "SVD"
+   ],
+   "internal": "WPN_RFL20_UPP_06"
+  },
+  {
+   "name": "Spectre M4 Handguard",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "Spectre M4"
+   ],
+   "internal": "WPN_SMG08_HGD_01_1"
+  },
+  {
+   "name": "TKB-0146 Handguard A",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "TKB-0146"
+   ],
+   "internal": "WPN_RFL30_HGD_01"
+  },
+  {
+   "name": "TKB-0146 Handguard B",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 9000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "TKB-0146"
+   ],
+   "internal": "WPN_RFL30_HGD_02"
+  },
+  {
+   "name": "Target Pistol Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 12
+   },
+   "compatible": [
+    "87 Target"
+   ],
+   "internal": "WPN_PST03_MAG_919_01"
+  },
+  {
+   "name": "Target Pistol Magazine B",
+   "slot": "Magazine",
+   "level": 3,
+   "buy": 13000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 15
+   },
+   "compatible": [
+    "87 Target"
+   ],
+   "internal": "WPN_PST03_MAG_919_02"
+  },
+  {
+   "name": "USAS-12 Shotgun Barrel A",
+   "slot": "Barrel",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_BRL_01"
+  },
+  {
+   "name": "USAS-12 Shotgun Barrel B",
+   "slot": "Barrel",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.02675,
+    "stab": 0.02725,
+    "recoil": -0.0255
+   },
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_BRL_02"
+  },
+  {
+   "name": "USAS-12 Shotgun Barrel C",
+   "slot": "Barrel",
+   "level": 5,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0535,
+    "stab": 0.054,
+    "recoil": -0.057
+   },
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_BRL_03"
+  },
+  {
+   "name": "USAS-12 Shotgun Handguard B",
+   "slot": "Handguard",
+   "level": 6,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_HGD_01_1"
+  },
+  {
+   "name": "USAS-12 Shotgun Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 12
+   },
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_MAG_12G_01"
+  },
+  {
+   "name": "USAS-12 Shotgun Magazine B",
+   "slot": "Magazine",
+   "level": 7,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 20
+   },
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_MAG_12G_02"
+  },
+  {
+   "name": "USAS-12 Shotgun Magazine C",
+   "slot": "Magazine",
+   "level": 9,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 8
+   },
+   "compatible": [
+    "USAS-12"
+   ],
+   "internal": "WPN_SHG03_MAG_12G_03"
+  },
+  {
+   "name": "VHS2 Upper Assembly B",
+   "slot": "Upper assembly",
+   "level": 3,
+   "buy": 2000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.027,
+    "stab": 0.0295,
+    "recoil": -0.026,
+    "fov": 45.0
+   },
+   "compatible": [
+    "VH-Ambi 2"
+   ],
+   "internal": "WPN_RFL02_UPP_02"
+  },
+  {
+   "name": "VKS Front Sight",
+   "slot": "Front sight",
+   "level": 0,
+   "buy": 0,
+   "weight": 0.0,
+   "effects": {},
+   "compatible": [
+    "VKS VYKHLOP"
+   ],
+   "internal": "WPN_RFL29_FRS_01"
+  },
+  {
+   "name": "VKS Handguard A",
+   "slot": "Handguard",
+   "level": 0,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "VKS VYKHLOP"
+   ],
+   "internal": "WPN_RFL29_HGD_01"
+  },
+  {
+   "name": "VKS Handguard B",
+   "slot": "Handguard",
+   "level": 3,
+   "buy": 15000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "VKS VYKHLOP"
+   ],
+   "internal": "WPN_RFL29_HGD_01_1"
+  },
+  {
+   "name": "Vepr-12 Shotgun Handguard A",
+   "slot": "Handguard",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "VEPR-12"
+   ],
+   "internal": "WPN_SHG04_HGD_01"
+  },
+  {
+   "name": "Vepr-12 Shotgun Handguard B",
+   "slot": "Handguard",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.025,
+    "stab": 0.02525,
+    "recoil": -0.03025
+   },
+   "compatible": [
+    "VEPR-12"
+   ],
+   "internal": "WPN_SHG04_HGD_02"
+  },
+  {
+   "name": "Vepr-12 Shotgun Handguard C",
+   "slot": "Handguard",
+   "level": 5,
+   "buy": 18000,
+   "weight": 0.3,
+   "effects": {
+    "acc": 0.0525,
+    "stab": 0.0555,
+    "recoil": -0.0525
+   },
+   "compatible": [
+    "VEPR-12"
+   ],
+   "internal": "WPN_SHG04_HGD_03"
+  },
+  {
+   "name": "Vepr-12 Shotgun Magazine A",
+   "slot": "Magazine",
+   "level": 1,
+   "buy": 3000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 10
+   },
+   "compatible": [
+    "VEPR-12"
+   ],
+   "internal": "WPN_SHG04_MAG_12G_01"
+  },
+  {
+   "name": "Vepr-12 Shotgun Magazine B",
+   "slot": "Magazine",
+   "level": 7,
+   "buy": 24000,
+   "weight": 0.3,
+   "effects": {
+    "mag": 25
+   },
+   "compatible": [
+    "VEPR-12"
+   ],
+   "internal": "WPN_SHG04_MAG_12G_02"
+  },
+  {
+   "name": "Walther MPL Handguard",
+   "slot": "Handguard",
+   "level": 3,
+   "buy": 12000,
+   "weight": 0.3,
+   "effects": {},
+   "compatible": [
+    "WLT MPL"
+   ],
+   "internal": "WPN_SMG04_HGD_01_1"
+  }
+ ]
+}

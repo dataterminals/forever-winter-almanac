@@ -13,6 +13,7 @@ const SUBTYPE_ORDER = ["ATTMD1", "ATTMD2", "ATTMD3", "ATTMD4", "ATTMD5"];
 
 let DATA = null;
 let WEAPONS = null; // per-weapon stats from data/weapons.json, keyed by lowercased name
+let PARTS = null;   // structural parts from data/parts.json (byWeapon -> slot -> [parts])
 const state = { tab: "weapons", weapon: null, att: null, q: "" };
 const idx = { attById: {}, weaponByName: {}, weaponSubtype: {}, subtypes: {} };
 
@@ -52,6 +53,8 @@ async function init() {
     WEAPONS = {};
     for (const nm in wj.weapons) WEAPONS[nm.toLowerCase()] = wj.weapons[nm];
   } catch (e) { WEAPONS = {}; }
+  try { PARTS = await (await fetch("data/parts.json", { cache: "no-cache" })).json(); }
+  catch (e) { PARTS = { byWeapon: {}, slotOrder: [] }; }
   buildIndex();
   wireChrome();
   render();
@@ -186,6 +189,19 @@ function renderWeapons() {
   view.innerHTML = `<div class="panes"><div class="list">${list}</div><div class="detail">${detail}</div></div>`;
 }
 
+function partEffects(e) {
+  if (!e) return "";
+  const out = [];
+  if (e.mag != null) out.push(e.mag + "-round magazine");
+  if (e.acc) out.push("Accuracy +" + (e.acc * 100).toFixed(1) + "%");
+  if (e.stab) out.push("Stability +" + (e.stab * 100).toFixed(1) + "%");
+  if (e.recoil) out.push("Recoil " + (e.recoil * 100).toFixed(1) + "%");
+  if (e.rof) out.push("RoF " + (e.rof > 0 ? "+" : "") + e.rof);
+  if (e.dmg) out.push("Damage " + (e.dmg > 0 ? "+" : "") + e.dmg);
+  if (e.fov) out.push("FOV " + e.fov);
+  return out.join(" · ");
+}
+
 function weaponDetail(w) {
   const st = idx.weaponSubtype[w.name];
   const needs = w.needsPart || {};
@@ -203,6 +219,23 @@ function weaponDetail(w) {
     if (rows) html += `<div class="statgrid">${rows}</div>`;
     if (ws.ammo) html += `<p class="legend"><b>Ammo:</b> ${esc(ws.ammo)}</p>`;
     html += `<p class="legend"><b>Accuracy</b> &amp; <b>Magazine</b> matter most. Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they really measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
+  }
+  const wp = PARTS && PARTS.byWeapon[w.name];
+  if (wp) {
+    html += `<div class="section"><h3>Parts <span class="c">unlock at weapon level</span></h3>`;
+    (PARTS.slotOrder || []).forEach((slot) => {
+      const list = wp[slot];
+      if (!list || !list.length) return;
+      html += `<div class="lab">${esc(slot)}</div><div class="chips">`;
+      list.forEach((p) => {
+        const tip = [partEffects(p.effects), p.buy ? Number(p.buy).toLocaleString() + " cr" : ""].filter(Boolean).join(" · ");
+        const lvl = (p.level != null) ? `<span class="lvl">L${p.level}</span>` : "";
+        const cap = (p.effects && p.effects.mag != null) ? `<span class="cap">${p.effects.mag} rnd</span>` : "";
+        html += `<span class="chip part"${tip ? ` title="${esc(tip)}"` : ""}>${esc(p.short || p.name)}${lvl}${cap}</span>`;
+      });
+      html += `</div>`;
+    });
+    html += `</div>`;
   }
   if (st) {
     html += `<div class="callout"><b>Muzzle mount: ${st} &mdash; ${esc(SUBTYPE_LABEL[st] || "")}.</b>
