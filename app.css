@@ -83,14 +83,21 @@ a { color: var(--gold); }
 .view { max-width: var(--maxw); margin: 0 auto; padding: 0 16px 40px;
   border-top: 1px solid var(--line2); }
 
-/* ---- two-pane layout ---- */
-.panes { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: 16px; padding-top: 16px; }
-.list { min-width: 0; }
+/* ---- browse grid + toggle-to-detail layout ---- */
+.panes { display: grid; grid-template-columns: 1fr; gap: 14px; padding-top: 16px; }
+/* the weapon/attachment list is a compact responsive grid, not one tall column */
+.list { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 6px; align-content: start; min-width: 0; }
 .detail { min-width: 0; }
-.backbtn { display: none; }
+/* browse = full-width grid; picking one shows its detail full-width with a back button */
+.view:not(.detail-open) .detail { display: none; }
+.view.detail-open .list { display: none; }
+.backbtn { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px;
+  background: var(--panel); border: 1px solid var(--line2); color: var(--gold);
+  padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
 
 /* group headers in lists */
-.grp { margin: 14px 0 6px; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase;
+.grp { grid-column: 1 / -1; margin: 14px 0 6px; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase;
   color: var(--dim); font-weight: 700; }
 .grp:first-child { margin-top: 2px; }
 
@@ -98,8 +105,8 @@ a { color: var(--gold); }
 .row {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
   width: 100%; text-align: left; background: var(--panel); color: var(--text);
-  border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; margin-bottom: 6px;
-  cursor: pointer; font-size: 14.5px;
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px;
+  cursor: pointer; font-size: 14px;
 }
 .row:hover { border-color: var(--line2); background: var(--panel2); }
 .row.sel { border-color: var(--gold); background: #2a2a1e; }
@@ -223,9 +230,5 @@ a { color: var(--gold); }
   .gdef { grid-template-columns: 1fr; gap: 1px; }
   .gdef .term { margin-top: 2px; }
   .brand h1 { font-size: 14px; white-space: normal; }
-  .view.detail-open .list { display: none; }
-  .view:not(.detail-open) .detail { display: none; }
-  .backbtn { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px;
-    background: var(--panel); border: 1px solid var(--line2); color: var(--gold);
-    padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+  .list { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
 }
