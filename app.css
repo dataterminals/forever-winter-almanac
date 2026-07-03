@@ -130,6 +130,11 @@ a { color: var(--gold); }
   body.wl-split .panes { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
   body.wl-split .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 5px; align-content: start; }
   body.wl-split .row { padding: 6px 9px; font-size: 12.5px; }
+
+  /* attachments carry longer names (e.g. "Sup. Muzzle Device A") -> wider cells so nothing clips */
+  body.wl-grid .list-att { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  body.wl-split .list-att { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  body.wl-split .list-att .row { padding: 7px 10px; font-size: 13px; }
 }
 
 /* group headers in lists */
@@ -261,6 +266,7 @@ a { color: var(--gold); }
 @media (max-width: 720px) {
   .panes { grid-template-columns: 1fr; }
   .list { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; align-content: start; }
+  .list-att { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); }
   .view.detail-open .list { display: none; }
   .view:not(.detail-open) .detail { display: none; }
   .backbtn { display: inline-flex; }

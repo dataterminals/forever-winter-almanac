@@ -307,17 +307,16 @@ function renderAttachments() {
     if (!items.length) return;
     list += `<div class="grp">${esc(CATLABEL[code])}</div>`;
     items.forEach((a) => {
-      const sub = a.subtype ? `<span class="rmeta">${a.subtype}</span>` : "";
       list += `<button class="row ${state.att === a.id ? "sel" : ""}" data-att="${esc(a.id)}">
         <span class="rname">${esc(a.name)}</span>
-        <span class="rmeta">${a.subtype ? `<span class="count">${esc(a.subtype)}</span>` : ""}<span class="count">${a.compatible.length}</span></span></button>`;
+        <span class="rmeta"><span class="count">${a.compatible.length}</span></span></button>`;
     });
   });
   if (!list) list = `<p class="empty">No attachments match &ldquo;${esc(state.q)}&rdquo;.</p>`;
   const detail = state.att && idx.attById[state.att]
     ? attDetail(idx.attById[state.att])
     : `<div class="placeholder">Pick an attachment to see which weapons it fits.</div>`;
-  view.innerHTML = layoutBar(DATA.attachments.length, "attachments") + `<div class="panes"><div class="list">${list}</div><div class="detail">${detail}</div></div>`;
+  view.innerHTML = layoutBar(DATA.attachments.length, "attachments") + `<div class="panes"><div class="list list-att">${list}</div><div class="detail">${detail}</div></div>`;
 }
 
 function attDetail(a) {
