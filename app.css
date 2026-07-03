@@ -135,6 +135,9 @@ a { color: var(--gold); }
   body.wl-grid .list-att { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   body.wl-split .list-att { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
   body.wl-split .list-att .row { padding: 7px 10px; font-size: 13px; }
+  /* attachment cells are wide; give split's list pane more room so it's a real 2-col grid,
+     not a lone column (otherwise Split looks identical to List for attachments) */
+  body.wl-split .panes:has(.list-att) { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); }
 }
 
 /* group headers in lists */
