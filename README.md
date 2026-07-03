@@ -9,7 +9,7 @@ a single tabbed companion. Data comes from the
 [official wiki](https://theforeverwinter.wiki.gg) (CC BY-NC-SA / CC BY-SA), and,
 for the parts the wiki doesn't cover, straight from the shipping game files.
 
-**39 maps · 46 weapons · 268 parts · 68 attachments · 5 muzzle mount families · the full detection model.**
+**39 maps · 46 weapons · 268 parts · 68 attachments · 5 muzzle mount families · 361 sellable loot items · the full detection model.**
 
 ## The tabs
 
@@ -26,6 +26,10 @@ for the parts the wiki doesn't cover, straight from the shipping game files.
   **Stability decoded from the game binary** (it drives bullet-spread, not recoil).
 - **Detection** — the datamined **FWAI awareness system**: per-enemy vision / hearing
   / ESP ranges, what makes you visible, noise radii, and how you summon Hunter-Killers.
+- **Economy** — every lootable item you can *sell*, bucketed into **value tiers** (Junk →
+  Jackpot) with a distribution overview, plus a **space-efficiency** view that ranks loot by
+  **credits-per-volume** — what to grab when your bins are nearly full. Excludes the gear that
+  already has its own tab (weapons, parts, attachments, ammo); keeps enemy-drop destroyed weapons.
 - **Maps** — the full interactive atlas (Leaflet): 10 surface regions, 16 tunnels and
   12 aerial references, with toggleable marker layers, per-map search, background
   switches, popups with screenshots + wiki links, and a distance-measure tool.
@@ -78,12 +82,13 @@ handy on a second screen with no connection.
 
 ## Updating the data
 
-Both fetchers are stdlib-only Python 3, re-runnable, no dependencies:
+All the fetchers are stdlib-only Python 3, re-runnable, no dependencies:
 
 ```bash
 python tools/fetch_attachments.py   # rebuilds data/attachments.json from the wiki
 python tools/fetch_weapons.py       # rebuilds data/weapons.json (per-weapon stats) from the wiki
 python tools/fetch_parts.py         # rebuilds data/parts.json (structural parts) from the wiki
+python tools/fetch_items.py         # rebuilds data/economy.json (loot value tiers) from the wiki's Cargo Items table
 python tools/fetch_maps.py          # rebuilds data/maps.json + per-map JSON, downloads tiles/icons
 python tools/compress_maps.py       # recompress bundled map imagery in place (shrinks the deploy)
 ```
@@ -109,6 +114,7 @@ sw.js · manifest.webmanifest        PWA / offline (shell precached, imagery run
 data/attachments.json               weapon ↔ attachment dataset (wiki)
 data/weapons.json                   per-weapon stats (wiki, cross-checked vs datamine)
 data/parts.json                     structural parts per weapon, by slot + unlock level (wiki)
+data/economy.json                   raiding-loot value tiers + density (wiki Cargo Items table)
 data/detection.json                 datamined FWAI awareness model
 data/maps.json                      map index; data/<map>.json are the per-map sources
 assets/img/*                        bundled map tiles, marker icons, popup photos

@@ -14,7 +14,7 @@ const SUBTYPE_ORDER = ["ATTMD1", "ATTMD2", "ATTMD3", "ATTMD4", "ATTMD5"];
 let DATA = null;
 let WEAPONS = null; // per-weapon stats from data/weapons.json, keyed by lowercased name
 let PARTS = null;   // structural parts from data/parts.json (byWeapon -> slot -> [parts])
-const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split" };
+const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", ecoMode: "tiers", ecoCat: "all" };
 const idx = { attById: {}, weaponByName: {}, weaponSubtype: {}, subtypes: {} };
 
 // per-weapon stat card rows (accuracy & magazine first — the two that visibly matter)
@@ -59,6 +59,7 @@ async function init() {
     for (const nm in (PARTS.byWeapon || {})) PARTS.byWeaponLC[nm.toLowerCase()] = PARTS.byWeapon[nm];
   } catch (e) { PARTS = { byWeapon: {}, byWeaponLC: {}, slotOrder: [] }; }
   try { const s = localStorage.getItem("fw:wlayout"); if (["list", "grid", "split"].includes(s)) state.layout = s; } catch (e) {}
+  try { const m = localStorage.getItem("fw:ecomode"); if (["tiers", "density"].includes(m)) state.ecoMode = m; } catch (e) {}
   applyLayout();
   buildIndex();
   wireChrome();
@@ -107,6 +108,17 @@ function wireChrome() {
     if (gear) { e.stopPropagation(); gear.closest(".layoutpick").classList.toggle("open"); return; }
     const lay = e.target.closest("[data-layout]");
     if (lay) { setLayout(lay.dataset.layout); return; }
+    const em = e.target.closest("[data-ecomode]");
+    if (em) { setEcoMode(em.dataset.ecomode); return; }
+    const ec = e.target.closest("[data-ecocat]");
+    if (ec) { state.ecoCat = ec.dataset.ecocat; render(); return; }
+    const et = e.target.closest("[data-ecotier]");
+    if (et) {
+      if (state.ecoMode !== "tiers") setEcoMode("tiers");
+      const sec = document.getElementById("eco-tier-" + et.dataset.ecotier);
+      if (sec) { sec.open = true; sec.scrollIntoView({ behavior: "smooth", block: "start" }); }
+      return;
+    }
     const el = e.target.closest("[data-weapon],[data-att],[data-goatt],[data-goweapon],[data-back]");
     if (!el) return;
     if (el.dataset.back !== undefined) { view.classList.remove("detail-open"); render(); return; }
@@ -195,6 +207,13 @@ function layoutBar(count, noun) {
     </div></div>`;
 }
 
+function setEcoMode(mode) {
+  if (!["tiers", "density"].includes(mode)) return;
+  state.ecoMode = mode;
+  try { localStorage.setItem("fw:ecomode", mode); } catch (e) {}
+  render();
+}
+
 /* ---------- render dispatch ---------- */
 function render() {
   if (state.tab === "maps") return; // the Maps tab is driven by activateMaps(), not #view
@@ -202,7 +221,8 @@ function render() {
   else if (state.tab === "attachments") renderAttachments();
   else if (state.tab === "muzzles") renderMuzzles();
   else if (state.tab === "stats") renderStats();
-  else renderDetection();
+  else if (state.tab === "detection") renderDetection();
+  else renderEconomy();
 }
 const match = (name) => !state.q || name.toLowerCase().includes(state.q);
 
@@ -570,6 +590,127 @@ async function renderDetection() {
 
     <p class="legend">Method: decoded from the shipping game's <code>FWAI</code> awareness assets (vision/hearing/ESP sensor definitions, noise events, transference) via a UE4SS type mapping + CUE4Parse. Ranges: Unreal units ÷100 = metres. Modifier directions verified against in-game roles (crouch stealthier, shooting louder).</p>
   </div>`;
+}
+
+/* ---------- economy / loot tab ---------- */
+let ECO = null;
+const TIER_COLOR = {
+  junk: "var(--dim)", cheap: "var(--muted)", worth: "var(--blue)", good: "var(--olive)",
+  valuable: "var(--olive)", prime: "var(--gold)", jackpot: "var(--rust)",
+};
+const ecoCr = (n) => Number(n).toLocaleString();
+const ecoCompact = (n) => (n >= 1e6 ? +(n / 1e6).toFixed(2) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "k" : "" + n);
+const ecoRange = (t) => {
+  const c = (n) => (n >= 1000 ? n / 1000 + "k" : "" + n);
+  return t.hi == null ? c(t.lo) + "+" : c(t.lo) + "–" + c(t.hi);
+};
+
+async function renderEconomy() {
+  view.classList.remove("detail-open");
+  if (!ECO) {
+    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading loot economy&hellip;</div>`;
+    try { ECO = await (await fetch("data/economy.json", { cache: "no-cache" })).json(); }
+    catch (e) { view.innerHTML = `<p class="empty">Could not load economy data.<br><small>${esc(e.message)}</small></p>`; return; }
+    ECO.byKey = {}; ECO.tiers.forEach((t) => (ECO.byKey[t.key] = t));
+  }
+  drawEconomy();
+}
+
+function drawEconomy() {
+  const D = ECO;
+  const tiersDesc = D.tiers.slice().reverse(); // lead with the best loot (Jackpot → Junk)
+  const items = D.items.filter((it) => (state.ecoCat === "all" || it.cat === state.ecoCat) && match(it.name));
+  const dens = (v) => (v == null ? '<span class="dim">&mdash;</span>' : ecoCr(v));
+  const catCell = (it) => `<button class="eco-cat" data-ecocat="${esc(it.cat)}">${esc(it.catLabel)}</button>`;
+
+  let html = `<div class="guide eco">
+    <div class="callout" style="margin-top:16px"><b>What your scavenging is worth.</b>
+      Every lootable item you can sell, bucketed by credit value. Prices are the wiki's standard
+      reference (a Rep&nbsp;2 vendor at 100% cost efficiency), so read them as <em>relative</em> worth &mdash;
+      your real payout shifts with vendor, reputation and faction.</div>`;
+
+  // distribution strip
+  const maxC = Math.max(...D.tiers.map((t) => t.count));
+  html += `<div class="card"><div class="section" style="margin-top:0"><h3>The loot economy at a glance <span class="c">${D.count} sellable items</span></h3></div>
+    <div class="eco-strip">`;
+  tiersDesc.forEach((t) => {
+    const w = Math.max(3, Math.round((t.count / maxC) * 100));
+    html += `<button class="eco-tierbar" data-ecotier="${t.key}" title="Jump to ${esc(t.label)}">
+      <span class="eco-tname">${esc(t.label)} <small>${ecoRange(t)}</small></span>
+      <span class="eco-tbarwrap"><span class="eco-tbar" style="width:${w}%;background:${TIER_COLOR[t.key]}"></span></span>
+      <span class="eco-tmeta">${t.count} <small>&middot; ${ecoCompact(t.sumCr)} cr</small></span></button>`;
+  });
+  html += `</div>
+    <p class="gnote">How many sellable items land in each value band. Tap one to jump to it &mdash; a single
+    high-tier find can outweigh a full bin of junk.</p></div>`;
+
+  // controls: mode toggle + category filter
+  html += `<div class="eco-controls"><div class="eco-modes">
+      <button data-ecomode="tiers" class="${state.ecoMode === "tiers" ? "on" : ""}">Value tiers</button>
+      <button data-ecomode="density" class="${state.ecoMode === "density" ? "on" : ""}">Space-efficiency</button>
+    </div></div>
+    <div class="chips eco-cats">
+      <button class="chip ${state.ecoCat === "all" ? "on" : ""}" data-ecocat="all">All <small>${D.count}</small></button>`;
+  D.categories.forEach((c) => {
+    html += `<button class="chip ${state.ecoCat === c.key ? "on" : ""}" data-ecocat="${esc(c.key)}">${esc(c.label)} <small>${c.count}</small></button>`;
+  });
+  html += `</div>`;
+
+  if (!items.length) {
+    html += `<p class="empty">No loot matches ${state.q ? `&ldquo;${esc(state.q)}&rdquo;` : "this filter"}.</p></div>`;
+    view.innerHTML = html; return;
+  }
+
+  html += state.ecoMode === "density" ? ecoDensityTable(items, catCell, dens) : ecoTierSections(items, tiersDesc, catCell, dens);
+
+  html += `<p class="legend">Source: <a href="https://theforeverwinter.wiki.gg/wiki/Items" target="_blank" rel="noopener">Items</a> (wiki Cargo data).
+    Value = raw item value &divide; ${D.divisor.toFixed(2)} (the wiki's Rep&nbsp;2 / 100%-efficiency reference). Community data &mdash; may lag patches.</p></div>`;
+  view.innerHTML = html;
+}
+
+function ecoRow(it, catCell, dens, withTier) {
+  const tierBadge = withTier ? `<td><span class="eco-tier" style="--tc:${TIER_COLOR[it.tier]}">${esc(ECO.byKey[it.tier].label)}</span></td>` : "";
+  const q = it.quest ? ` <span class="eco-q" title="Quest item">&#10022;</span>` : "";
+  return `<tr><td>${esc(it.name)}${q}</td>${tierBadge}<td>${catCell(it)}</td>
+    <td class="num gold">${ecoCr(it.cr)}</td><td class="num">${dens(it.perVol)}</td><td class="num">${dens(it.perWgt)}</td></tr>`;
+}
+
+function ecoTierSections(items, tiers, catCell, dens) {
+  // Collapsed by default (the strip is the summary); filtering/searching expands
+  // every matching tier since the result set is then small. Jackpot always leads open.
+  const expandAll = state.ecoCat !== "all" || !!state.q;
+  let html = "";
+  tiers.forEach((t) => {
+    const grp = items.filter((it) => it.tier === t.key);
+    if (!grp.length) return;
+    const sum = grp.reduce((a, it) => a + it.cr, 0);
+    const open = expandAll || t.key === "jackpot";
+    html += `<details class="eco-det" id="eco-tier-${t.key}"${open ? " open" : ""}>
+      <summary class="eco-sum"><span class="eco-dot" style="background:${TIER_COLOR[t.key]}"></span>
+        <span class="eco-sum-name">${esc(t.label)}</span>
+        <span class="c">${ecoRange(t)} cr &middot; ${grp.length} item${grp.length === 1 ? "" : "s"} &middot; ${ecoCompact(sum)} cr total</span></summary>
+      <p class="gnote">${esc(t.blurb)}</p>
+      <div class="gtable-wrap"><table class="gtable eco-table">
+        <thead><tr><th>Item</th><th>Category</th><th class="num">Value</th><th class="num">cr / cu</th><th class="num">cr / kg</th></tr></thead>
+        <tbody>${grp.map((it) => ecoRow(it, catCell, dens, false)).join("")}</tbody>
+      </table></div></details>`;
+  });
+  return html;
+}
+
+function ecoDensityTable(items, catCell, dens) {
+  const ranked = items.slice().sort((a, b) => {
+    if ((a.perVol == null) !== (b.perVol == null)) return a.perVol == null ? 1 : -1;
+    return (b.perVol || 0) - (a.perVol || 0);
+  });
+  return `<div class="section eco-sec"><h3>By space-efficiency <span class="c">${ranked.length} items &middot; credits per unit of bin volume</span></h3></div>
+    <p class="gnote">Rig space is the real constraint. When your small-item bins are nearly full, grab the <b>densest</b> loot first &mdash;
+    the top of this list is the most credits per cubic unit. Destroyed weapons and Large items use dedicated bins (no small-item volume),
+    so they sink to the bottom.</p>
+    <div class="gtable-wrap"><table class="gtable eco-table">
+      <thead><tr><th>Item</th><th>Tier</th><th>Category</th><th class="num">Value</th><th class="num">cr / cu</th><th class="num">cr / kg</th></tr></thead>
+      <tbody>${ranked.map((it) => ecoRow(it, catCell, dens, true)).join("")}</tbody>
+    </table></div>`;
 }
 
 /* ---------- PWA plumbing ---------- */

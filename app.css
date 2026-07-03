@@ -260,6 +260,60 @@ a { color: var(--gold); }
 .noise-val { color: var(--muted); font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) { .noise-row { grid-template-columns: 92px 1fr 78px; gap: 7px; font-size: 12px; } }
 
+/* ---- economy / loot tab ---- */
+.eco-strip { display: flex; flex-direction: column; gap: 5px; margin: 4px 0; }
+.eco-tierbar { display: grid; grid-template-columns: 150px 1fr 104px; gap: 10px; align-items: center;
+  background: none; border: 0; padding: 4px 5px; border-radius: 6px; cursor: pointer; text-align: left;
+  font: inherit; color: var(--text); }
+.eco-tierbar:hover { background: var(--panel); }
+.eco-tname { font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.eco-tname small { color: var(--dim); font-size: 11px; margin-left: 3px; }
+.eco-tbarwrap { height: 10px; background: var(--bg2); border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.eco-tbar { display: block; height: 100%; border-radius: 4px; }
+.eco-tmeta { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.eco-tmeta small { color: var(--dim); }
+
+.eco-controls { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 16px 0 8px; flex-wrap: wrap; }
+.eco-modes { display: inline-flex; background: var(--panel); border: 1px solid var(--line2); border-radius: 8px; padding: 3px; gap: 3px; }
+.eco-modes button { background: none; border: 0; color: var(--muted); padding: 7px 13px; border-radius: 6px;
+  cursor: pointer; font-size: 12.5px; font-weight: 600; font-family: inherit; }
+.eco-modes button:hover { color: var(--text); }
+.eco-modes button.on { background: var(--panel2); color: var(--gold); }
+
+.eco-cats { margin: 4px 0 12px; }
+.eco-cats .chip { padding: 5px 9px; font-size: 12px; }
+.chip.on { border-color: var(--gold); color: var(--gold); background: #2a2a1e; }
+
+.eco-sec h3 { align-items: center; }
+.eco-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+/* collapsible tier sections */
+.eco-det { border-top: 1px solid var(--line); }
+.eco-det:last-of-type { border-bottom: 1px solid var(--line); }
+.eco-sum { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; list-style: none; cursor: pointer;
+  padding: 12px 4px; font-size: 12.5px; letter-spacing: .8px; text-transform: uppercase; color: var(--olive); font-weight: 700; }
+.eco-sum::-webkit-details-marker { display: none; }
+.eco-sum::before { content: "\25B8"; color: var(--dim); font-size: 12px; transition: transform .15s ease; }
+.eco-det[open] > .eco-sum::before { transform: rotate(90deg); }
+.eco-sum:hover { color: var(--gold); }
+.eco-sum:hover::before { color: var(--gold); }
+.eco-sum .c { color: var(--dim); font-weight: 500; text-transform: none; letter-spacing: normal; font-size: 11.5px; }
+.eco-table { min-width: 0; }
+.eco-table td:first-child { white-space: normal; }
+.eco-table td.num, .eco-table th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.eco-table td.gold { color: var(--gold); font-weight: 600; }
+.eco-table .dim { color: var(--dim); }
+.eco-cat { background: none; border: 0; padding: 0; color: var(--muted); cursor: pointer; font: inherit; font-size: 12.5px; text-align: left; }
+.eco-cat:hover { color: var(--gold); text-decoration: underline; }
+.eco-tier { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: .4px;
+  padding: 1px 7px; border-radius: 20px; border: 1px solid var(--line2); color: var(--tc, var(--muted)); }
+.eco-q { color: var(--gold); font-size: 11px; }
+
+@media (max-width: 560px) {
+  .eco-tierbar { grid-template-columns: 104px 1fr 78px; gap: 7px; }
+  .eco-tname small { display: none; }
+}
+
 .foot { max-width: var(--maxw); margin: 0 auto; padding: 18px 16px calc(28px + env(safe-area-inset-bottom));
   color: var(--dim); font-size: 11.5px; display: flex; flex-direction: column; gap: 4px;
   border-top: 1px solid var(--line); }
