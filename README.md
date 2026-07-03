@@ -85,6 +85,7 @@ python tools/fetch_attachments.py   # rebuilds data/attachments.json from the wi
 python tools/fetch_weapons.py       # rebuilds data/weapons.json (per-weapon stats) from the wiki
 python tools/fetch_parts.py         # rebuilds data/parts.json (structural parts) from the wiki
 python tools/fetch_maps.py          # rebuilds data/maps.json + per-map JSON, downloads tiles/icons
+python tools/compress_maps.py       # recompress bundled map imagery in place (shrinks the deploy)
 ```
 
 `fetch_maps.py` pulls every page in the wiki's `Map:` namespace, saves source JSON to
