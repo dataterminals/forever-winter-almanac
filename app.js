@@ -600,7 +600,6 @@ let BOSSDATA = null;
 const bNum = (n) => Number(n).toLocaleString();
 const mdb = (s) => esc(s == null ? "" : String(s)).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
 const CAL_LABEL = { "545": "5.45mm", "556": "5.56mm", "762": "7.62mm", "919": "9mm", "308": ".308", "40m": "40mm", "12G": "12ga" };
-const THREAT_CLASS = { High: "rust", Medium: "gold", Low: "olive" };
 
 async function renderBosses() {
   view.classList.remove("detail-open");
@@ -624,10 +623,8 @@ function bossGrabVal(g) {
 }
 
 function bossCard(b) {
-  const tcls = THREAT_CLASS[b.threat] || "";
   let h = `<div class="card boss" id="boss-${esc(b.id)}">
     <div class="dhead"><h2>${esc(b.name)}</h2>
-      ${b.threat ? `<span class="badge ${tcls}">${esc(b.threat)} threat</span>` : ""}
       <span class="badge gold">${esc(b.faction)}</span>
       <span class="badge olive">${esc(b.type)}</span>
       ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}</div>
@@ -681,7 +678,7 @@ function drawBosses() {
     <div class="callout" style="border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
       <b>Stagger</b> &mdash; burst that much damage into it inside the window and it's stunned (only <em>your</em> damage counts &mdash; which is why one railgun shot can freeze what a whole magazine can't). <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so simply <em>staying healthy</em> is a defence.</div>`;
 
-  html += `<div class="chips boss-jump">` + bosses.map((b) => `<button class="chip" data-bossjump="${esc(b.id)}">${esc(b.name)}${b.threat ? ` <small>${esc(b.threat[0])}</small>` : ""}</button>`).join("") + `</div>`;
+  html += `<div class="chips boss-jump">` + bosses.map((b) => `<button class="chip" data-bossjump="${esc(b.id)}">${esc(b.name)}</button>`).join("") + `</div>`;
 
   if (!bosses.length) html += `<p class="empty">No bosses match &ldquo;${esc(state.q)}&rdquo;.</p>`;
   else html += bosses.map(bossCard).join("");
