@@ -119,6 +119,8 @@ function wireChrome() {
       if (sec) { sec.open = true; sec.scrollIntoView({ behavior: "smooth", block: "start" }); }
       return;
     }
+    const bj = e.target.closest("[data-bossjump]");
+    if (bj) { const sec = document.getElementById("boss-" + bj.dataset.bossjump); if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
     const el = e.target.closest("[data-weapon],[data-att],[data-goatt],[data-goweapon],[data-back]");
     if (!el) return;
     if (el.dataset.back !== undefined) { view.classList.remove("detail-open"); render(); return; }
@@ -222,6 +224,7 @@ function render() {
   else if (state.tab === "muzzles") renderMuzzles();
   else if (state.tab === "stats") renderStats();
   else if (state.tab === "detection") renderDetection();
+  else if (state.tab === "bosses") renderBosses();
   else renderEconomy();
 }
 const match = (name) => !state.q || name.toLowerCase().includes(state.q);
@@ -592,6 +595,103 @@ async function renderDetection() {
   </div>`;
 }
 
+/* ---------- bosses tab ---------- */
+let BOSSDATA = null;
+const bNum = (n) => Number(n).toLocaleString();
+const mdb = (s) => esc(s == null ? "" : String(s)).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+const CAL_LABEL = { "545": "5.45mm", "556": "5.56mm", "762": "7.62mm", "919": "9mm", "308": ".308", "40m": "40mm", "12G": "12ga" };
+const THREAT_CLASS = { High: "rust", Medium: "gold", Low: "olive" };
+
+async function renderBosses() {
+  view.classList.remove("detail-open");
+  if (!BOSSDATA) {
+    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading boss intel&hellip;</div>`;
+    try { BOSSDATA = await (await fetch("data/bosses.json", { cache: "no-cache" })).json(); }
+    catch (e) { view.innerHTML = `<p class="empty">Could not load boss data.<br><small>${esc(e.message)}</small></p>`; return; }
+  }
+  drawBosses();
+}
+
+function bossStaggerVal(s) {
+  if (!s) return "&mdash;";
+  if (s.damage >= 99999) return `${bNum(s.damage)} <span class="dim">&middot; ≈immune</span>`;
+  return `${bNum(s.damage)}${s.window ? ` <span class="dim">in ${s.window}s</span>` : ""}`;
+}
+function bossGrabVal(g) {
+  if (!g || !g.vsPlayer) return null;
+  if (g.hpAlways) return `<b>Any</b> health &middot; ${g.rangeM} m`;
+  return `&le; ${bNum(g.hpThreshold)} HP &middot; ${g.rangeM} m`;
+}
+
+function bossCard(b) {
+  const tcls = THREAT_CLASS[b.threat] || "";
+  let h = `<div class="card boss" id="boss-${esc(b.id)}">
+    <div class="dhead"><h2>${esc(b.name)}</h2>
+      ${b.threat ? `<span class="badge ${tcls}">${esc(b.threat)} threat</span>` : ""}
+      <span class="badge gold">${esc(b.faction)}</span>
+      <span class="badge olive">${esc(b.type)}</span>
+      ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}</div>
+    <p class="boss-blurb">${mdb(b.blurb)}</p>
+    <p class="boss-desc">${mdb(b.desc)}</p>`;
+
+  const grab = bossGrabVal(b.grab);
+  h += `<div class="statgrid">`;
+  if (b.health && b.health.total) h += `<div class="stat"><div class="k">Health</div><div class="v">${bNum(b.health.total)}</div></div>`;
+  h += `<div class="stat key"><div class="k">Stagger &middot; stun</div><div class="v">${bossStaggerVal(b.stagger)}</div></div>`;
+  if (grab) h += `<div class="stat"><div class="k">Instakill grab</div><div class="v">${grab}</div></div>`;
+  h += `<div class="stat"><div class="k">Kill XP</div><div class="v">${b.killXp ? bNum(b.killXp) : "&mdash;"}</div></div>`;
+  h += `</div>`;
+
+  if (b.health && b.health.components) {
+    h += `<div class="section"><h3>Armour zones <span class="c">${bNum(b.health.total)} total</span></h3><div class="chips">`;
+    b.health.components.forEach((c) => {
+      h += `<span class="chip static boss-zone${c.critical ? " crit" : ""}">${esc(c.tag)} <b>${bNum(c.hp)}</b>${c.impact != null ? ` <small>&times;${c.impact}</small>` : ""}</span>`;
+    });
+    h += `</div><p class="gnote">Each zone is its own hit-box; <b>&times;</b> is the fraction of damage it takes &mdash; the <span style="color:var(--rust)">vulnerable</span> zone takes full damage, the heavy plate soaks 90%.</p></div>`;
+  }
+
+  const rows = [];
+  if (b.melee) rows.push(["Melee", `${b.melee.hits > 1 ? b.melee.hits + "-hit combo &middot; " : ""}${bNum(b.melee.min)}${b.melee.max !== b.melee.min ? "&ndash;" + bNum(b.melee.max) : ""} dmg`]);
+  if (b.dash) rows.push(["Dash / lunge", `${bNum(b.dash.damage)} dmg &middot; ${b.dash.minM}&ndash;${b.dash.maxM} m reach &middot; ${b.dash.cooldown}s cd`]);
+  (b.weapons || []).forEach((w) => rows.push([esc(w.name),
+    [w.damage != null ? bNum(w.damage) + " dmg" : "", w.rps ? `${w.rps}/s` : "", w.caliber ? (CAL_LABEL[w.caliber] || w.caliber) : "", w.knockdown ? "knockdown" : ""].filter(Boolean).join(" &middot; ")]));
+  if (rows.length) {
+    h += `<div class="section"><h3>Attacks</h3><div class="gtable-wrap"><table class="gtable"><tbody>${rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("")}</tbody></table></div></div>`;
+  }
+
+  if (b.weakpoint) h += `<div class="callout" style="border-left-color:var(--olive)"><b>Weak point.</b> ${mdb(b.weakpoint)}</div>`;
+
+  if (b.weaknesses && b.weaknesses.length) {
+    h += `<div class="section"><h3>Weaknesses</h3><ul class="boss-weak">${b.weaknesses.map((w) => `<li>${mdb(w)}</li>`).join("")}</ul></div>`;
+  }
+
+  h += `<div class="callout boss-beat"><b>How to beat it.</b> ${mdb(b.howToDefeat)}</div>`;
+
+  if (b.codexReward) {
+    h += `<p class="boss-codex"><b>${esc(b.codexReward.name)}</b>${b.codexReward.upgrade ? ` &rarr; unlocks ${esc(b.codexReward.upgrade)}` : ""} &middot; ${bNum(b.codexReward.xp)} XP &middot; ${bNum(b.codexReward.cr)} cr</p>`;
+  }
+  h += `</div>`;
+  return h;
+}
+
+function drawBosses() {
+  const D = BOSSDATA;
+  const bosses = D.bosses.filter((b) => match(b.name) || match(b.type) || (b.aka && match(b.aka)) || match(b.faction));
+  let html = `<div class="guide">
+    <div class="callout" style="margin-top:16px"><b>Datamined from each boss's own AI, not the forums.</b>
+      Health, the stun threshold, melee &amp; dash damage, the grab that instakills you, and every mounted gun &mdash; read straight from the game's <code>FWAIPawnDefinition</code> files. The tactics are built from those numbers.</div>
+    <div class="callout" style="border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
+      <b>Stagger</b> &mdash; burst that much damage into it inside the window and it's stunned (only <em>your</em> damage counts &mdash; which is why one railgun shot can freeze what a whole magazine can't). <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so simply <em>staying healthy</em> is a defence.</div>`;
+
+  html += `<div class="chips boss-jump">` + bosses.map((b) => `<button class="chip" data-bossjump="${esc(b.id)}">${esc(b.name)}${b.threat ? ` <small>${esc(b.threat[0])}</small>` : ""}</button>`).join("") + `</div>`;
+
+  if (!bosses.length) html += `<p class="empty">No bosses match &ldquo;${esc(state.q)}&rdquo;.</p>`;
+  else html += bosses.map(bossCard).join("");
+
+  html += `<p class="legend">Method: decoded from the shipping game's <code>FW/AI/Characters/&hellip;/AIDEF_*</code> pawn definitions and <code>DA_WPN_*</code> weapon defs via a UE4SS type mapping + CUE4Parse (build ${D.build}). Ranges: Unreal units &divide; 100 = metres. Codex values &amp; tactics cross-checked against the wiki and community testing.</p></div>`;
+  view.innerHTML = html;
+}
+
 /* ---------- economy / loot tab ---------- */
 let ECO = null;
 const TIER_COLOR = {
@@ -692,7 +792,6 @@ function ecoTierSections(items, tiers, catCell, dens) {
       <summary class="eco-sum"><span class="eco-dot" style="background:${TIER_COLOR[t.key]}"></span>
         <span class="eco-sum-name">${esc(t.label)}</span>
         <span class="c">${ecoRange(t)} cr &middot; ${grp.length} item${grp.length === 1 ? "" : "s"} &middot; ${ecoCompact(sum)} cr total</span></summary>
-      <p class="gnote">${esc(t.blurb)}</p>
       <div class="gtable-wrap"><table class="gtable eco-table">
         <thead><tr><th>Item</th><th>Category</th><th class="num">Value</th><th class="num">cr / cu</th><th class="num">cr / kg</th></tr></thead>
         <tbody>${grp.map((it) => ecoRow(it, catCell, dens, false)).join("")}</tbody>

@@ -1,0 +1,680 @@
+{
+ "source": "The Forever Winter shipping game files (build 24045295) — FWAIPawnDefinition boss defs + weapon defs, decoded with CUE4Parse",
+ "note": "Datamined straight from each boss's AI pawn definition: layered armour HP, the stagger/stun threshold, melee & dash damage, the grab (sync-kill) health threshold and range, mounted weapons, and kill XP. Tactics are curated from those mechanics plus community testing.",
+ "build": 24045295,
+ "codex": {
+  "xp": 62500,
+  "cr": 32800,
+  "crBase": 64000,
+  "drillSeconds": 60,
+  "note": "Every boss drops a container on defeat; drill it (~60 s) for a guaranteed Codex — 62,500 XP and ~32,800 cr, used in max-rank Innards upgrades, the Cognition Cradle, and some quests."
+ },
+ "staggerNote": "“Stagger” = burst this much damage into it within the window and it's stunned; only player damage counts. This is why a single railgun shot can freeze a boss a whole magazine can't.",
+ "bosses": [
+  {
+   "id": "grabber",
+   "name": "Grabber",
+   "aka": "Stalker (internal)",
+   "faction": "Euruska",
+   "type": "Bio-mechanical stalker",
+   "blurb": "The thing that runs you down and pulls you in half.",
+   "desc": "A fast, bipedal-mechanical terror that stalks the map, then closes with leaps and a mauling melee. Its chip damage is trivial — the danger is the grab: get inside arm's reach and it plays a Smash sync-kill that ends the raid on the spot, even at near-full health. Its AI is internally the “Stalker” (the art and codex call it the Grabber), and Toothy borrows its ability set.",
+   "location": "Most maps; hunts day and night",
+   "weakpoint": null,
+   "weaknesses": [
+    "Can't open doors or fit tight gaps — break line of sight behind a gate and it's stuck",
+    "Its own melee only does 600–900; the grab is the only thing that actually kills you",
+    "Can be stunned — a burst of 20,000 in 3 s (a railgun hit) staggers it"
+   ],
+   "howToDefeat": "You mostly evade it. It can't use doors or squeeze through tight spaces, so put a gate between you. If you must fight, stay beyond ~4.5 m so the Smash can't start, and burst 20,000 damage into it within 3 s to stagger it. Community note: it sometimes shrugs off 5+ railgun hits before it finally stuns, so the codex can take several raids.",
+   "internal": "AIDEF_Euruska_Stalker",
+   "tag": "Pawn.AI.Eurasia.Stalker",
+   "threat": "Low",
+   "killXp": 1875,
+   "threatScore": null,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 3.0
+   },
+   "melee": {
+    "hits": 3,
+    "min": 600.0,
+    "max": 900.0
+   },
+   "grab": {
+    "moves": [
+     "Smash"
+    ],
+    "hpThreshold": 2000.0,
+    "hpAlways": false,
+    "rangeM": 4.5,
+    "vsPlayer": true
+   },
+   "codexReward": {
+    "name": "Grabber Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "id": "medium-mech",
+   "name": "Medium Mech",
+   "aka": null,
+   "faction": "Europa / Eurasia / Euruska",
+   "type": "Battle mech",
+   "blurb": "The standard walking tank — and the chassis Rat King and Toothy are built on.",
+   "desc": "The workhorse bipedal war-mech, fielded by every faction. It grinds you down with a long rifle, dual quad-guns and two miniguns, plus an 8,000-damage ground-pound up close. Its armour is split into zones totalling roughly 451,000 HP.",
+   "location": "Region maps, all factions",
+   "weakpoint": "The **vulnerable** armour zone (40,000 HP) takes full damage; the heavy zone (200,000) only soaks 10%.",
+   "weaknesses": [
+    "Layered armour — pour fire into the vulnerable zone, not the heavy plating",
+    "Stagger window: 20,000 in 4 s",
+    "Small arms barely scratch it — anti-tank / railgun class only"
+   ],
+   "howToDefeat": "Don't trade with its guns. Flank to the vulnerable component (full damage vs the heavy zone's 10%), or burst 20,000 in 4 s to stagger it and open a window. It grabs and executes other mechs, not you — so the threat is purely its firepower and the ground-pound.",
+   "internal": "AIDEF_Europa_MediumMech",
+   "tag": "Pawn.AI.Europa.MediumMech",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 10,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 1,
+    "min": 8000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 900.0,
+    "hpAlways": false,
+    "rangeM": 11.0,
+    "vsPlayer": false
+   },
+   "health": {
+    "total": 451000.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 66000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 100000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 200000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 40000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "MediumMech LongRifle",
+     "mount": "Cannon",
+     "damage": 8750.0,
+     "rps": 1.0,
+     "caliber": "545",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech QuadGun Left",
+     "mount": "Left.Shoulder",
+     "damage": 60.0,
+     "rps": 0.2,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech QuadGun Right",
+     "mount": "Right.Shoulder",
+     "damage": 60.0,
+     "rps": 0.2,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech MiniGun Center",
+     "mount": "MachineGun",
+     "damage": 300.0,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech MiniGun Rear",
+     "mount": "Rear",
+     "damage": 300.0,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": true
+    }
+   ],
+   "codexReward": {
+    "name": "MediumMech Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "id": "rat-king",
+   "name": "Rat King",
+   "aka": null,
+   "faction": "Scavenger",
+   "type": "Battle mech (Scav-crewed)",
+   "blurb": "A Medium Mech the Scavengers stole and bolted junk onto.",
+   "desc": "Mechanically a Medium Mech — same ~451,000 HP layered armour and mech guns (Rat King weapon variants) — but Scav-piloted and noticeably easier to stun (12,000 vs the standard 20,000). It drops its loot container on death, and its parts are a fetch-quest objective.",
+   "location": "Scav territory; fetch-quest target",
+   "weakpoint": "Same vulnerable 40,000 zone as the Medium Mech.",
+   "weaknesses": [
+    "Easiest mech to stagger — only 12,000 burst in the window",
+    "Drops its container (and the codex) on death"
+   ],
+   "howToDefeat": "Play it like a Medium Mech, but it stuns for far less — 12,000 burst staggers it. Kill it to drop both its loot container and the Rat King codex.",
+   "internal": "AIDEF_Mech_Scav_RatKing",
+   "tag": "Pawn.AI.Scav.Mech.RatKing",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 10,
+   "stagger": {
+    "damage": 12000.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 8000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 900.0,
+    "hpAlways": false,
+    "rangeM": 11.0,
+    "vsPlayer": false
+   },
+   "health": {
+    "total": 451000.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 66000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 100000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 200000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 40000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "MediumMech LongRifle",
+     "mount": "Cannon"
+    },
+    {
+     "name": "MediumMech QuadGun Left",
+     "mount": "Left.Shoulder"
+    },
+    {
+     "name": "MediumMech QuadGun Right",
+     "mount": "Right.Shoulder"
+    },
+    {
+     "name": "MediumMech MiniGun Center",
+     "mount": "MachineGun"
+    }
+   ],
+   "codexReward": {
+    "name": "RatKing Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Bar V3"
+   }
+  },
+  {
+   "id": "mother-courage",
+   "name": "Mother Courage",
+   "aka": null,
+   "faction": "Eurasia",
+   "type": "Giant humanoid automaton",
+   "blurb": "She walks you down and pulls you apart — at any health.",
+   "desc": "A towering, female-form automaton that stalks the wastes with immobile cyborgs riveted to her frame. Her melee is a five-hit AOE (8k/6k/6k/8k/6k). The nightmare is her grab: a Rip or Chomp sync-kill that triggers regardless of your health — no health pool saves you, only distance.",
+   "location": "Eurasian region maps",
+   "weakpoint": null,
+   "weaknesses": [
+    "Slow — you can simply out-walk her",
+    "Stagger window: 30,000 in 4 s",
+    "Has a scripted anti-boss self-destruct sequence"
+   ],
+   "howToDefeat": "You evade far more than you fight. Her grab ignores your health entirely, so the only defence is spacing — keep ~7 m clear so the Rip/Chomp can't start, and she's slow enough to outrun. If you have to stop her, 30,000 burst in 4 s staggers her.",
+   "internal": "AIDEF_Eurasia_MotherCourage",
+   "tag": "Pawn.AI.Eurasia.MotherCourage",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 30000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 5,
+    "min": 6000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": [
+     "Rip",
+     "Chomp"
+    ],
+    "hpThreshold": 900000000.0,
+    "hpAlways": true,
+    "rangeM": 7.0,
+    "vsPlayer": true
+   },
+   "codexReward": {
+    "name": "MotherCourage Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "+28 days"
+   }
+  },
+  {
+   "id": "blind-mother",
+   "name": "Blind Mother",
+   "aka": "Mother Courage variant",
+   "faction": "Eurasia",
+   "type": "Blind automaton (hearing-only)",
+   "blurb": "Mother Courage with her eyes gone — she hunts by sound alone.",
+   "desc": "The same devastating kit as Mother Courage — five-hit AOE, an at-any-health Rip/Chomp grab — but she is blind. No vision sensor at all, just a 30 m instant-hearing cylinder. She literally cannot see you.",
+   "location": "Eurasian region maps",
+   "weakpoint": null,
+   "weaknesses": [
+    "Blind — crouch-moving emits no noise event, so a silent approach is invisible to her",
+    "Sprinting or shooting nearby is what brings the grab"
+   ],
+   "howToDefeat": "Crouch-move and stay quiet. Crouch emits no noise event at all (see the Detection tab), so a slow, silent path walks straight past her. Everything that makes Mother Courage lethal still applies the instant you make a sound.",
+   "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
+   "tag": "Pawn.AI.Eurasia.BlindMother",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 30000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 5,
+    "min": 6000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": [
+     "Rip",
+     "Chomp"
+    ],
+    "hpThreshold": 900000000.0,
+    "hpAlways": true,
+    "rangeM": 7.0,
+    "vsPlayer": true
+   }
+  },
+  {
+   "id": "toothy",
+   "name": "Toothy",
+   "aka": null,
+   "faction": "Euruska",
+   "type": "Giant battle mech",
+   "blurb": "The one with the digestive sacks. It eats what it grabs.",
+   "desc": "A blocky, ground-shaking Euruskan mech that patrols the flat deserts of Ashen Mesa. A cannon railgun and a left-shoulder machine gun, plus an 8,000-damage Stomp AOE. It grabs troops and scavengers into black digestive sacks (a Bag or Smash sync-kill) and expels the skeletons.",
+   "location": "Ashen Mesa, Scorched Enclave",
+   "weakpoint": "The vulnerable 40,000 armour zone takes full damage.",
+   "weaknesses": [
+    "Grab only triggers at ≤700 HP — stay healthy and it can't bag you",
+    "Stagger window: 30,000 in 4 s",
+    "Layered armour — hit the vulnerable zone"
+   ],
+   "howToDefeat": "Keep your health above 700 so the Bag/Smash can't trigger, and stay out of ~8.5 m. Burst 30,000 in 4 s to stagger it, then punish the vulnerable armour zone. Railgun-class firepower only.",
+   "internal": "AIDEF_Euruska_Toothy",
+   "tag": "Pawn.AI.Euruska.Toothy",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 30000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 1,
+    "min": 8000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": [
+     "Bag",
+     "Smash"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 8.5,
+    "vsPlayer": true
+   },
+   "health": {
+    "total": 451000.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 66000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 100000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 200000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 40000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "Toothy RailGun",
+     "mount": "Cannon",
+     "damage": 8750.0,
+     "rps": 1.0,
+     "caliber": "545",
+     "knockdown": true
+    },
+    {
+     "name": "Toothy ShoulderMachineGun",
+     "mount": "Left.Shoulder",
+     "damage": 300.0,
+     "rps": 0.075,
+     "caliber": "545",
+     "knockdown": false
+    }
+   ],
+   "codexReward": {
+    "name": "Toothy Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Personal Quarters Upgrade v3"
+   }
+  },
+  {
+   "id": "orga",
+   "name": "Orgamech",
+   "aka": "Orga",
+   "faction": "Euruska",
+   "type": "Organic humanoid mech",
+   "blurb": "A fleshy melee mech that dashes in and stabs.",
+   "desc": "A humanoid organic-mech. An eight-hit melee combo (3,000 each), an 800-damage dash gap-closer (0.4–10 m, 10 s cooldown), and a Stab sync-kill. The easiest of the big bosses to stagger, at 20,000.",
+   "location": "Euruskan maps; obtainable in the Tunnels",
+   "weakpoint": null,
+   "weaknesses": [
+    "Grab only at ≤700 HP — stay above it",
+    "Lowest stagger threshold of the melee bosses — 20,000",
+    "Dash telegraphs on a 10 s cooldown"
+   ],
+   "howToDefeat": "Keep above 700 HP, break its dash spacing, and burst 20,000 in 4 s to stun it. Its codex is the only one you can pull in the Tunnels, and the quest “A Cost Will Be Paid Pt. 1” wants three of them.",
+   "internal": "AIDEF_Euruska_OrgaMech",
+   "tag": "Pawn.AI.Europa.OrgaMech",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 8,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "Stab"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 4.0,
+    "maxM": 10.0,
+    "cooldown": 10.0
+   },
+   "codexReward": {
+    "name": "Orga Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Water Bots V3"
+   }
+  },
+  {
+   "id": "shield-officer",
+   "name": "Shield Officer",
+   "aka": null,
+   "faction": "Euruska",
+   "type": "Teleporting shield unit",
+   "blurb": "Hides, teleports, and shield-stabs you when you least expect it.",
+   "desc": "A shield-bearing Euruskan officer that teleports and relocates to hiding spots mid-fight (its behaviour tree literally has “teleport-to” and “find-hiding-location” tasks). Shares the Orga melee kit — eight-hit combo, 800 dash — plus a Shield-Stab sync-kill. The tankiest stagger threshold of the humanoids at 40,000.",
+   "location": "Euruskan reinforcement encounters",
+   "weakpoint": null,
+   "weaknesses": [
+    "Grab only at ≤700 HP",
+    "Repositions constantly — expect it to vanish and reappear",
+    "High stagger threshold — 40,000 needs a heavy single hit"
+   ],
+   "howToDefeat": "Expect it to teleport and hide rather than brawl — don't chase it into the open. It needs a full 40,000 burst in 4 s to stagger, so bring the heaviest single-shot weapon you have and keep above 700 HP.",
+   "internal": "AIDEF_Euruska_ShieldOfficer",
+   "tag": "Pawn.AI.Euruska.ShieldOfficer",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 40000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 8,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "ShieldStabStab"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 4.0,
+    "maxM": 10.0,
+    "cooldown": 10.0
+   },
+   "codexReward": {
+    "name": "ShieldOfficer Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Shooting Range Upgrade v3"
+   }
+  },
+  {
+   "id": "opal",
+   "name": "Opal",
+   "aka": null,
+   "faction": "Eurasia",
+   "type": "Flying gunship-mech",
+   "blurb": "The one that circles overhead and strafes you.",
+   "desc": "An airborne Eurasian gunship-mech that flies scripted maneuver splines — circle, figure-8, zig-zag, dog-leg, leap-over — while strafing with dual rapid-fire gun-hands (16.7 per shot, full-auto). Its “Glide of Doom” dash deals 800 over an 8–20 m lunge. Very nearly impossible to stagger — threshold 99,999.",
+   "location": "Eurasian airspace; Hunter-Killer variant",
+   "weakpoint": "Its hands are a dedicated target (TargetDef_Opal_Hands) — shoot the gun-hands.",
+   "weaknesses": [
+    "You will not stun it — 99,999 stagger is effectively immune",
+    "Flies predictable maneuver splines — lead its path",
+    "Grab (Shoot sync-kill) only at ≤700 HP"
+   ],
+   "howToDefeat": "Forget stunning it (99,999). Use hard cover against its strafing runs, learn the maneuver splines so you can lead it, and put fire into its hands. Keep above 700 HP so the Shoot sync-kill can't finish you.",
+   "internal": "AIDEF_Eurasia_Opal",
+   "tag": "Pawn.AI.Eurasia.Opal",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 99999.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 4,
+    "min": 1500.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "Shoot"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 8.0,
+    "maxM": 20.0,
+    "cooldown": 8.0
+   },
+   "weapons": [
+    {
+     "name": "Opal GunHand",
+     "mount": "Right.Shoulder"
+    }
+   ],
+   "codexReward": {
+    "name": "Opal Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "id": "meat-man",
+   "name": "MeatMan",
+   "aka": null,
+   "faction": "Euruska",
+   "type": "Charging melee brute",
+   "blurb": "Closes two hundred metres in a single lunge.",
+   "desc": "A Euruskan melee brute running the Orga brain. Eight-hit combo (3,000 each) and a Stab sync-kill — but its signature is the dash: 800 damage over a 0.4–200 m range on a 6 s cooldown. It can cross almost the entire arena in one charge.",
+   "location": "Euruskan maps",
+   "weakpoint": null,
+   "weaknesses": [
+    "The 200 m dash is on a 6 s cooldown and commits — sidestep the tell",
+    "Grab only at ≤700 HP",
+    "Stagger window: 20,000 in 4 s"
+   ],
+   "howToDefeat": "Watch for the charge — it commits to a 200 m lunge every 6 s, so bait it, sidestep, then punish the recovery. 20,000 burst staggers it; stay above 700 HP so it can't stab-kill you.",
+   "internal": "AIDEF_Euruska_MeatMan",
+   "tag": "Pawn.AI.Euruska.MeatMan",
+   "threat": "High",
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 8,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "Stab"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 4.0,
+    "maxM": 200.0,
+    "cooldown": 6.0
+   },
+   "codexReward": {
+    "name": "MeatMan Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  }
+ ],
+ "count": 10
+}

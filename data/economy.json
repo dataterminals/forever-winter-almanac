@@ -10,7 +10,6 @@
    "label": "Junk",
    "lo": 0,
    "hi": 500,
-   "blurb": "Vendor-fodder — only bother if it's on the way.",
    "count": 7,
    "sumCr": 1794
   },
@@ -19,7 +18,6 @@
    "label": "Cheap",
    "lo": 500,
    "hi": 1500,
-   "blurb": "Pocket change; fine when your bins are empty.",
    "count": 40,
    "sumCr": 38927
   },
@@ -28,7 +26,6 @@
    "label": "Worth grabbing",
    "lo": 1500,
    "hi": 3000,
-   "blurb": "Solid filler for spare space.",
    "count": 101,
    "sumCr": 210760
   },
@@ -37,7 +34,6 @@
    "label": "Good",
    "lo": 3000,
    "hi": 6000,
-   "blurb": "Reliably worth a slot.",
    "count": 90,
    "sumCr": 359977
   },
@@ -46,7 +42,6 @@
    "label": "Valuable",
    "lo": 6000,
    "hi": 12000,
-   "blurb": "Prioritise these on a normal run.",
    "count": 85,
    "sumCr": 709758
   },
@@ -55,7 +50,6 @@
    "label": "Prime",
    "lo": 12000,
    "hi": 25000,
-   "blurb": "Big-ticket — make room for it.",
    "count": 45,
    "sumCr": 735865
   },
@@ -64,7 +58,6 @@
    "label": "Jackpot",
    "lo": 25000,
    "hi": null,
-   "blurb": "Drop lesser loot and take it.",
    "count": 30,
    "sumCr": 1295358
   }
