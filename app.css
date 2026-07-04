@@ -319,6 +319,9 @@ a { color: var(--gold); }
 
 /* ---- bosses tab ---- */
 .guide .card.boss { margin-top: 14px; }
+.badge.boss-threat { cursor: pointer; font-family: inherit; color: var(--muted); }
+.badge.boss-threat small { text-transform: none; letter-spacing: 0; color: var(--dim); font-size: 9px; }
+.badge.boss-threat:hover { color: var(--gold); border-color: var(--gold); }
 .boss-blurb { color: var(--muted); font-style: italic; font-size: 14.5px; margin: 10px 0 2px; }
 .boss-desc { font-size: 14px; color: var(--text); line-height: 1.6; margin: 4px 0 2px; }
 .boss-jump { margin: 12px 0 4px; }

@@ -121,6 +121,13 @@ function wireChrome() {
     }
     const bj = e.target.closest("[data-bossjump]");
     if (bj) { const sec = document.getElementById("boss-" + bj.dataset.bossjump); if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+    const goAI = e.target.closest("[data-goai]");
+    if (goAI) {
+      state.tab = "detection"; syncTabs(); deactivateMaps(); view.classList.remove("detail-open");
+      window.scrollTo({ top: 0 });
+      renderDetection().then(() => { const s = document.getElementById("det-priority"); if (s) s.scrollIntoView({ behavior: "smooth", block: "start" }); });
+      return;
+    }
     const el = e.target.closest("[data-weapon],[data-att],[data-goatt],[data-goweapon],[data-back]");
     if (!el) return;
     if (el.dataset.back !== undefined) { view.classList.remove("detail-open"); render(); return; }
@@ -591,6 +598,17 @@ async function renderDetection() {
       <div class="callout"><b>Squad transference.</b> ${esc(D.transference.desc)}</div>
     </div>
 
+    ${D.targetPriority ? `<div class="card" id="det-priority">
+      <div class="section" style="margin-top:0"><h3>How enemies choose a target <span class="badge gold">datamined</span></h3></div>
+      <p class="gnote">${esc(D.targetPriority.intro)}</p>
+      <div class="gtable-wrap"><table class="gtable">
+        <thead><tr><th>What it weighs</th><th class="num">Weight</th><th>Meaning</th></tr></thead>
+        <tbody>${D.targetPriority.weights.map((w) => `<tr><td>${esc(w.factor)}</td><td class="num gold">${w.weight}</td><td>${esc(w.desc)}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <p class="gnote">${esc(D.targetPriority.note)}</p>
+      <div class="callout">${esc(D.targetPriority.badgeNote)}</div>
+    </div>` : ""}
+
     <p class="legend">Method: decoded from the shipping game's <code>FWAI</code> awareness assets (vision/hearing/ESP sensor definitions, noise events, transference) via a UE4SS type mapping + CUE4Parse. Ranges: Unreal units ÷100 = metres. Modifier directions verified against in-game roles (crouch stealthier, shooting louder).</p>
   </div>`;
 }
@@ -627,7 +645,8 @@ function bossCard(b) {
     <div class="dhead"><h2>${esc(b.name)}</h2>
       <span class="badge gold">${esc(b.faction)}</span>
       <span class="badge olive">${esc(b.type)}</span>
-      ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}</div>
+      ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}
+      ${b.threat ? `<button class="badge boss-threat" data-goai title="The enemy AI's internal target-priority tier for this unit — an input to how squads pick who to shoot, not a danger rating. Click for how it works.">AI priority: ${esc(b.threat)} <small>(internal)</small></button>` : ""}</div>
     <p class="boss-blurb">${mdb(b.blurb)}</p>
     <p class="boss-desc">${mdb(b.desc)}</p>`;
 

@@ -28,6 +28,7 @@
    ],
    "internal": "AIDEF_Euruska_Stalker",
    "tag": "Pawn.AI.Eurasia.Stalker",
+   "threat": "Low",
    "killXp": 1875,
    "threatScore": null,
    "stagger": {
@@ -73,6 +74,7 @@
    ],
    "internal": "AIDEF_Europa_MediumMech",
    "tag": "Pawn.AI.Europa.MediumMech",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 10,
    "stagger": {
@@ -191,6 +193,7 @@
    ],
    "internal": "AIDEF_Mech_Scav_RatKing",
    "tag": "Pawn.AI.Scav.Mech.RatKing",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 10,
    "stagger": {
@@ -286,6 +289,7 @@
    ],
    "internal": "AIDEF_Eurasia_MotherCourage",
    "tag": "Pawn.AI.Eurasia.MotherCourage",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {
@@ -330,6 +334,7 @@
    ],
    "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
    "tag": "Pawn.AI.Eurasia.BlindMother",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {
@@ -369,6 +374,7 @@
    ],
    "internal": "AIDEF_Euruska_Toothy",
    "tag": "Pawn.AI.Euruska.Toothy",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {
@@ -467,6 +473,7 @@
    ],
    "internal": "AIDEF_Euruska_OrgaMech",
    "tag": "Pawn.AI.Europa.OrgaMech",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {
@@ -517,6 +524,7 @@
    ],
    "internal": "AIDEF_Euruska_ShieldOfficer",
    "tag": "Pawn.AI.Euruska.ShieldOfficer",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {
@@ -567,6 +575,7 @@
    ],
    "internal": "AIDEF_Eurasia_Opal",
    "tag": "Pawn.AI.Eurasia.Opal",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {
@@ -623,6 +632,7 @@
    ],
    "internal": "AIDEF_Euruska_MeatMan",
    "tag": "Pawn.AI.Euruska.MeatMan",
+   "threat": "High",
    "killXp": 1875,
    "threatScore": 100,
    "stagger": {

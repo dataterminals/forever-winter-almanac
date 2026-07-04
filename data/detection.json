@@ -84,5 +84,22 @@
     ],
     "questNote": "This is the quest link: several quest objective items — and boss-codex scans — are themselves on the trigger list, so a quest that 'requires HKs' really means 'do the objective, then survive them.' To summon them on purpose, opening ~30 crates is the most controllable method.",
     "escalation": "Once they're out, killing an Opal or Shield-Officer Hunter-Killer spawns more of that type — the 'kill one, more come' loop."
+  },
+  "targetPriority": {
+    "intro": "Detection decides whether an enemy knows you're there. This decides who it shoots once more than one target is in play — you, your squadmates, rival-faction NPCs, even other mechs. Every squad scores each candidate and fires on the highest, re-picking as the fight moves.",
+    "distanceMaxM": 10,
+    "distanceMinM": 100,
+    "switchTopN": 2,
+    "maxStars": 750,
+    "weights": [
+      { "factor": "Proximity", "weight": 10, "desc": "How close the candidate is — the dominant factor. Full weight within 10 m, fading to nothing by 100 m." },
+      { "factor": "Superiority", "weight": 9, "desc": "How much the shooter outguns the candidate — it favours fights it expects to win." },
+      { "factor": "Its own vulnerability", "weight": 8, "desc": "How exposed the shooter itself is right now — it turns to face what threatens it." },
+      { "factor": "Star level", "weight": 6, "desc": "Your notoriety / star rating (caps at 750) — more heat draws more fire." },
+      { "factor": "Target type", "weight": 5, "desc": "The candidate's internal type tier. This is the boss \"AI priority\" tag (High / Low) — one weighted input, not a verdict." },
+      { "factor": "Target vulnerability", "weight": 4, "desc": "How exposed or weakened the candidate looks." }
+    ],
+    "note": "It doesn't lock onto the single top score — it randomly picks among the top 2, so a squad won't perfectly tunnel one person, and the scores recompute continuously, which is why fire redistributes as you move, take cover, or gain stars.",
+    "badgeNote": "The \"AI priority\" tier shown on each boss is exactly the Target-type row above — the AI's internal classification of that unit as a target, weighted 5 in the mix. It is not a rating of how dangerous the boss is to you, which is why the Grabber — a one-grab kill — is internally tagged \"Low\"."
   }
 }
