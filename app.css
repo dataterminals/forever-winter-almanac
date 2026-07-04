@@ -332,8 +332,6 @@ a { color: var(--gold); }
 .boss-zone.crit b { color: var(--rust); }
 .boss-weak { margin: 6px 0 0; padding-left: 20px; }
 .boss-weak li { margin: 5px 0; font-size: 13.5px; color: var(--text); line-height: 1.5; }
-.callout.boss-beat { border-left-color: var(--rust); }
-.callout.boss-beat b { color: var(--rust); }
 .boss-codex { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line);
   font-size: 12.5px; color: var(--dim); }
 .boss-codex b { color: var(--gold); }

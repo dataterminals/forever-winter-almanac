@@ -665,8 +665,6 @@ function bossCard(b) {
     h += `<div class="section"><h3>Weaknesses</h3><ul class="boss-weak">${b.weaknesses.map((w) => `<li>${mdb(w)}</li>`).join("")}</ul></div>`;
   }
 
-  h += `<div class="callout boss-beat"><b>How to beat it.</b> ${mdb(b.howToDefeat)}</div>`;
-
   if (b.codexReward) {
     h += `<p class="boss-codex"><b>${esc(b.codexReward.name)}</b>${b.codexReward.upgrade ? ` &rarr; unlocks ${esc(b.codexReward.upgrade)}` : ""} &middot; ${bNum(b.codexReward.xp)} XP &middot; ${bNum(b.codexReward.cr)} cr</p>`;
   }

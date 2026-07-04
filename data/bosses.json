@@ -26,7 +26,6 @@
     "Its own melee only does 600–900; the grab is the only thing that actually kills you",
     "Can be stunned — a burst of 20,000 in 3 s (a railgun hit) staggers it"
    ],
-   "howToDefeat": "You mostly evade it. It can't use doors or squeeze through tight spaces, so put a gate between you. If you must fight, stay beyond ~4.5 m so the Smash can't start, and burst 20,000 damage into it within 3 s to stagger it. Community note: it sometimes shrugs off 5+ railgun hits before it finally stuns, so the codex can take several raids.",
    "internal": "AIDEF_Euruska_Stalker",
    "tag": "Pawn.AI.Eurasia.Stalker",
    "threat": "Low",
@@ -73,7 +72,6 @@
     "Stagger window: 20,000 in 4 s",
     "Small arms barely scratch the plating — hit the weak spot, or bring anti-tank / railgun class"
    ],
-   "howToDefeat": "Don’t trade with its guns from the open. Put fire into the exposed lower torso — the waist joint under the chest — where damage isn’t soaked, and/or blow off its weapon hardpoints (shoulder quad-guns, arm cannon) to disarm it. A 20,000 burst in 4 s staggers it for a free window. It grabs and executes other mechs, not you, so the danger is purely its firepower and the ground-pound.",
    "internal": "AIDEF_Europa_MediumMech",
    "tag": "Pawn.AI.Europa.MediumMech",
    "threat": "High",
@@ -193,7 +191,6 @@
     "Easiest mech to stagger — only 12,000 burst in the window",
     "Drops its container (and the codex) on death"
    ],
-   "howToDefeat": "Play it like a Medium Mech, but it stuns for far less — 12,000 burst staggers it. Kill it to drop both its loot container and the Rat King codex.",
    "internal": "AIDEF_Mech_Scav_RatKing",
    "tag": "Pawn.AI.Scav.Mech.RatKing",
    "threat": "High",
@@ -290,7 +287,6 @@
     "Stagger window: 30,000 in 4 s",
     "Has a scripted anti-boss self-destruct sequence"
    ],
-   "howToDefeat": "You evade far more than you fight. Her grab ignores your health entirely, so the only defence is spacing — keep ~7 m clear so the Rip/Chomp can't start, and she's slow enough to outrun. If you have to stop her, 30,000 burst in 4 s staggers her.",
    "internal": "AIDEF_Eurasia_MotherCourage",
    "tag": "Pawn.AI.Eurasia.MotherCourage",
    "threat": "High",
@@ -336,7 +332,6 @@
     "Blind — crouch-moving emits no noise event, so a silent approach is invisible to her",
     "Sprinting or shooting nearby is what brings the grab"
    ],
-   "howToDefeat": "Crouch-move and stay quiet. Crouch emits no noise event at all (see the Detection tab), so a slow, silent path walks straight past her. Everything that makes Mother Courage lethal still applies the instant you make a sound.",
    "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
    "tag": "Pawn.AI.Eurasia.BlindMother",
    "threat": "High",
@@ -377,7 +372,6 @@
     "Stagger window: 30,000 in 4 s",
     "Layered armour — hit the vulnerable zone"
    ],
-   "howToDefeat": "Keep your health above 700 so the Bag/Smash can't trigger, and stay out of ~8.5 m. Burst 30,000 in 4 s to stagger it, then punish the vulnerable armour zone. Railgun-class firepower only.",
    "internal": "AIDEF_Euruska_Toothy",
    "tag": "Pawn.AI.Euruska.Toothy",
    "threat": "High",
@@ -477,7 +471,6 @@
     "Lowest stagger threshold of the melee bosses — 20,000",
     "Dash telegraphs on a 10 s cooldown"
    ],
-   "howToDefeat": "Keep above 700 HP, break its dash spacing, and burst 20,000 in 4 s to stun it. Its codex is the only one you can pull in the Tunnels, and the quest “A Cost Will Be Paid Pt. 1” wants three of them.",
    "internal": "AIDEF_Euruska_OrgaMech",
    "tag": "Pawn.AI.Europa.OrgaMech",
    "threat": "High",
@@ -529,7 +522,6 @@
     "Repositions constantly — expect it to vanish and reappear",
     "High stagger threshold — 40,000 needs a heavy single hit"
    ],
-   "howToDefeat": "Expect it to teleport and hide rather than brawl — don't chase it into the open. It needs a full 40,000 burst in 4 s to stagger, so bring the heaviest single-shot weapon you have and keep above 700 HP.",
    "internal": "AIDEF_Euruska_ShieldOfficer",
    "tag": "Pawn.AI.Euruska.ShieldOfficer",
    "threat": "High",
@@ -581,7 +573,6 @@
     "Flies predictable maneuver splines — lead its path",
     "Grab (Shoot sync-kill) only at ≤700 HP"
    ],
-   "howToDefeat": "Forget stunning it (99,999). Use hard cover against its strafing runs, learn the maneuver splines so you can lead it, and put fire into its hands. Keep above 700 HP so the Shoot sync-kill can't finish you.",
    "internal": "AIDEF_Eurasia_Opal",
    "tag": "Pawn.AI.Eurasia.Opal",
    "threat": "High",
@@ -639,7 +630,6 @@
     "Grab only at ≤700 HP",
     "Stagger window: 20,000 in 4 s"
    ],
-   "howToDefeat": "Watch for the charge — it commits to a 200 m lunge every 6 s, so bait it, sidestep, then punish the recovery. 20,000 burst staggers it; stay above 700 HP so it can't stab-kill you.",
    "internal": "AIDEF_Euruska_MeatMan",
    "tag": "Pawn.AI.Euruska.MeatMan",
    "threat": "High",
