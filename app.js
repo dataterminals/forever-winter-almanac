@@ -15,7 +15,7 @@ let DATA = null;
 let WEAPONS = null; // per-weapon stats from data/weapons.json, keyed by lowercased name
 let PARTS = null;   // structural parts from data/parts.json (byWeapon -> slot -> [parts])
 let AMMO = null; // full ammunition catalogue from data/ammo.json (also feeds weapon-card headshots)
-const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", ecoMode: "tiers", ecoCat: "all" };
+const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", ecoMode: "tiers", ecoCat: "all", lootKind: "all" };
 const idx = { attById: {}, weaponByName: {}, weaponSubtype: {}, subtypes: {} };
 
 // per-weapon stat card rows (accuracy & magazine first — the two that visibly matter)
@@ -143,6 +143,17 @@ function wireChrome() {
       requestAnimationFrame(() => { const s = document.getElementById("ammo-headshots"); if (s) s.scrollIntoView({ behavior: "smooth", block: "start" }); });
       return;
     }
+    const lk = e.target.closest("[data-lootkind]");
+    if (lk) { state.lootKind = lk.dataset.lootkind; render(); return; }
+    const ge = e.target.closest("[data-goeco]");
+    if (ge) {
+      state.tab = "economy"; state.ecoCat = "all"; syncTabs(); deactivateMaps(); view.classList.remove("detail-open");
+      const sb = $("#search"), clr = $("#searchClear");
+      if (sb) { sb.value = ge.dataset.goeco; } if (clr) clr.hidden = false;
+      state.q = ge.dataset.goeco.toLowerCase();
+      render(); window.scrollTo({ top: 0 });
+      return;
+    }
     const el = e.target.closest("[data-weapon],[data-att],[data-goatt],[data-goweapon],[data-back]");
     if (!el) return;
     if (el.dataset.back !== undefined) { view.classList.remove("detail-open"); render(); return; }
@@ -249,7 +260,8 @@ function render() {
   else if (state.tab === "detection") renderDetection();
   else if (state.tab === "bosses") renderBosses();
   else if (state.tab === "factions") renderFactions();
-  else renderEconomy();
+  else if (state.tab === "economy") renderEconomy();
+  else renderLoot();
 }
 const match = (name) => !state.q || name.toLowerCase().includes(state.q);
 
@@ -1033,6 +1045,81 @@ function ecoDensityTable(items, catCell, dens) {
       <thead><tr><th>Item</th><th>Tier</th><th>Category</th><th class="num">Value</th><th class="num">cr / cu</th><th class="num">cr / kg</th></tr></thead>
       <tbody>${ranked.map((it) => ecoRow(it, catCell, dens, true)).join("")}</tbody>
     </table></div>`;
+}
+
+/* ---------- drops / loot-source tab ---------- */
+let LOOT = null;
+const RAR_COLOR = { 5: "var(--muted)", 4: "var(--blue)", 3: "var(--olive)", 2: "var(--gold)", 1: "var(--rust)" };
+
+async function renderLoot() {
+  view.classList.remove("detail-open");
+  if (!LOOT) {
+    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading loot sources&hellip;</div>`;
+    try { LOOT = await (await fetch("data/loot.json", { cache: "no-cache" })).json(); }
+    catch (e) { view.innerHTML = `<p class="empty">Could not load loot data.<br><small>${esc(e.message)}</small></p>`; return; }
+    LOOT.kindLabel = {}; LOOT.kinds.forEach((k) => (LOOT.kindLabel[k.key] = k.label));
+  }
+  drawLoot();
+}
+
+function lootRow(it) {
+  const val = it.cr != null ? `<span class="gold">${ecoCr(it.cr)}</span>` : `<span class="dim">&mdash;</span>`;
+  return `<tr>
+    <td><button class="loot-item" data-goeco="${esc(it.name)}" title="See value &amp; details on the Economy tab">${esc(it.name)}</button></td>
+    <td><span class="loot-rar" style="--rc:${RAR_COLOR[it.rarity]}"><span class="loot-dot"></span>${esc(it.rarityLabel)}</span></td>
+    <td class="num">${it.share}%</td>
+    <td class="num">${val}</td></tr>`;
+}
+
+function lootCard(s, items, open) {
+  const tiers = s.tiers && s.tiers.length ? ` <span class="badge">${s.tiers.join(" · ")}</span>` : "";
+  return `<details class="loot-src"${open ? " open" : ""}>
+    <summary class="loot-sum"><span class="loot-src-name">${esc(s.label)}</span>${tiers}
+      <span class="c">${items.length} item${items.length === 1 ? "" : "s"}</span></summary>
+    <div class="gtable-wrap"><table class="gtable loot-table">
+      <thead><tr><th>Item</th><th>Rarity</th><th class="num">Pool share</th><th class="num">Value</th></tr></thead>
+      <tbody>${items.map(lootRow).join("")}</tbody></table></div></details>`;
+}
+
+function drawLoot() {
+  const D = LOOT;
+  const q = state.q;
+  let html = `<div class="guide">
+    <div class="callout" style="margin-top:16px"><b>Where loot comes from.</b> Pick a source &mdash; a crate type, a wrecked mech, an enemy, a boss codex &mdash; to see everything it can yield, ranked by how common it is. Datamined straight from the game's drop tables.</div>
+    <div class="callout" style="border-left-color:var(--olive)"><b>Reading rarity:</b> an item's <b>pool share</b> is its weight within that one source's loot roll &mdash; relative scarcity when you crack it, <em>not</em> a per-raid probability. Search an item name to see <b>every</b> source that drops it.</div>`;
+
+  // kind filter chips
+  const kinds = D.kinds.filter((k) => D.sources.some((s) => s.kind === k.key));
+  html += `<div class="chips loot-kinds">
+    <button class="chip ${state.lootKind === "all" ? "on" : ""}" data-lootkind="all">All <small>${D.sources.length}</small></button>`;
+  kinds.forEach((k) => {
+    const n = D.sources.filter((s) => s.kind === k.key).length;
+    html += `<button class="chip ${state.lootKind === k.key ? "on" : ""}" data-lootkind="${esc(k.key)}">${esc(k.label)} <small>${n}</small></button>`;
+  });
+  html += `</div>`;
+
+  // sources, grouped by kind (D.sources is pre-sorted by kind order)
+  const pool = D.sources.filter((s) => state.lootKind === "all" || s.kind === state.lootKind);
+  let body = "", curKind = null, shown = 0;
+  pool.forEach((s) => {
+    const labelHit = match(s.label);
+    const items = q && !labelHit ? s.items.filter((it) => match(it.name)) : s.items;
+    if (q && !labelHit && !items.length) return;
+    shown++;
+    if (s.kind !== curKind) {
+      curKind = s.kind;
+      const n = pool.filter((x) => x.kind === s.kind).length;
+      body += `<div class="section loot-kindhead"><h3>${esc(D.kindLabel[s.kind])}${q ? "" : ` <span class="c">${n} source${n === 1 ? "" : "s"}</span>`}</h3></div>`;
+    }
+    body += lootCard(s, items, !!q);
+  });
+
+  if (!shown) html += `<p class="empty">No sources match ${q ? `&ldquo;${esc(state.q)}&rdquo;` : "this filter"}.</p>`;
+  else html += body;
+
+  html += `<p class="legend">Source: <code>RandomContainerLootData</code> + <code>DT_GachaLootTable</code> + <code>BP_RareLootManager</code>, decoded from build ${D.build}.
+    Pool share = the item's weight in that source's loot table; real per-raid odds also depend on how many items a source rolls. ${D.count} sources.</p></div>`;
+  view.innerHTML = html;
 }
 
 /* ---------- PWA plumbing ---------- */
