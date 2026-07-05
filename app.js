@@ -1062,23 +1062,44 @@ async function renderLoot() {
   drawLoot();
 }
 
+const lootVal = (it) => (it.cr != null ? `<span class="gold">${ecoCr(it.cr)}</span>` : `<span class="dim">&mdash;</span>`);
+const lootItemCell = (it) => `<td><button class="loot-item" data-goeco="${esc(it.name)}" title="See value &amp; details on the Economy tab">${esc(it.name)}</button></td>`;
+
+// single-rarity row (non-tiered sources)
 function lootRow(it) {
-  const val = it.cr != null ? `<span class="gold">${ecoCr(it.cr)}</span>` : `<span class="dim">&mdash;</span>`;
-  return `<tr>
-    <td><button class="loot-item" data-goeco="${esc(it.name)}" title="See value &amp; details on the Economy tab">${esc(it.name)}</button></td>
+  return `<tr>${lootItemCell(it)}
     <td><span class="loot-rar" style="--rc:${RAR_COLOR[it.rarity]}"><span class="loot-dot"></span>${esc(it.rarityLabel)}</span></td>
     <td class="num">${it.share}%</td>
-    <td class="num">${val}</td></tr>`;
+    <td class="num">${lootVal(it)}</td></tr>`;
+}
+
+// one tier's dot: filled + coloured if present, hollow if the item can't spawn in that tier
+function lootDot(it, t) {
+  const b = it.byTier && it.byTier[t];
+  if (!b) return `<span class="loot-tdot gap" title="${t}: not in this tier"></span>`;
+  return `<span class="loot-tdot" style="--rc:${RAR_COLOR[b.r]}" title="${t}: ${esc(LOOT.rarityLabels[b.r] || "")} · ${b.s}% of pool"></span>`;
+}
+// tiered row (crate categories): a rarity dot per tier, showing the T1→T4 progression
+function lootRowTiered(it, tiers) {
+  return `<tr>${lootItemCell(it)}${tiers.map((t) => `<td class="tc">${lootDot(it, t)}</td>`).join("")}
+    <td class="num">${lootVal(it)}</td></tr>`;
 }
 
 function lootCard(s, items, open) {
-  const tiers = s.tiers && s.tiers.length ? ` <span class="badge">${s.tiers.join(" · ")}</span>` : "";
+  const tierBadge = s.tiers && s.tiers.length ? ` <span class="badge">${s.tiers.join(" · ")}</span>` : "";
+  let head, rows;
+  if (s.tiered && s.tiers.length) {
+    head = `<tr><th>Item</th>${s.tiers.map((t) => `<th class="tc">${t}</th>`).join("")}<th class="num">Value</th></tr>`;
+    rows = items.map((it) => lootRowTiered(it, s.tiers)).join("");
+  } else {
+    head = `<tr><th>Item</th><th>Rarity</th><th class="num">Pool share</th><th class="num">Value</th></tr>`;
+    rows = items.map(lootRow).join("");
+  }
   return `<details class="loot-src"${open ? " open" : ""}>
-    <summary class="loot-sum"><span class="loot-src-name">${esc(s.label)}</span>${tiers}
+    <summary class="loot-sum"><span class="loot-src-name">${esc(s.label)}</span>${tierBadge}
       <span class="c">${items.length} item${items.length === 1 ? "" : "s"}</span></summary>
-    <div class="gtable-wrap"><table class="gtable loot-table">
-      <thead><tr><th>Item</th><th>Rarity</th><th class="num">Pool share</th><th class="num">Value</th></tr></thead>
-      <tbody>${items.map(lootRow).join("")}</tbody></table></div></details>`;
+    <div class="gtable-wrap"><table class="gtable loot-table${s.tiered ? " loot-tiered" : ""}">
+      <thead>${head}</thead><tbody>${rows}</tbody></table></div></details>`;
 }
 
 function drawLoot() {
@@ -1086,7 +1107,9 @@ function drawLoot() {
   const q = state.q;
   let html = `<div class="guide">
     <div class="callout" style="margin-top:16px"><b>Where loot comes from.</b> Pick a source &mdash; a crate type, a wrecked mech, an enemy, a boss codex &mdash; to see everything it can yield, ranked by how common it is. Datamined straight from the game's drop tables.</div>
-    <div class="callout" style="border-left-color:var(--olive)"><b>Reading rarity:</b> an item's <b>pool share</b> is its weight within that one source's loot roll &mdash; relative scarcity when you crack it, <em>not</em> a per-raid probability. Search an item name to see <b>every</b> source that drops it.</div>`;
+    <div class="callout" style="border-left-color:var(--olive)"><b>Reading rarity:</b> an item's <b>pool share</b> is its weight within that one source's loot roll &mdash; relative scarcity when you crack it, <em>not</em> a per-raid probability. Crates show a dot <b>per tier</b> (T1&rarr;T4) &mdash; colour = how common that tier makes it, a hollow dot means it <em>can't</em> spawn in that tier. Search an item name to see <b>every</b> source that drops it.</div>
+    <div class="callout" style="border-left-color:var(--rust)"><b>&ldquo;Rare&rdquo; means unlikely, not valuable.</b> Rarity is measured <b>per table</b> &mdash; it's the odds of pulling that item from <em>this</em> source, nothing about its worth. Cheap junk like <b>Drywall</b> shows as <b>Ultra Rare</b> in the rare-loot pool just because it's a <em>bad roll</em> there (one of the least likely things to fall out) &mdash; not a prized find. The same item can read Common in one source and Ultra Rare in another, so always read a rarity together with the source it's under.</div>
+    <div class="loot-legend"><span class="c">Rarity</span>${[5, 4, 3, 2, 1].map((r) => `<span class="loot-key"><span class="loot-dot" style="--rc:${RAR_COLOR[r]}"></span>${esc(D.rarityLabels[r])}</span>`).join("")}<span class="loot-key"><span class="loot-tdot gap"></span>not in tier</span></div>`;
 
   // kind filter chips
   const kinds = D.kinds.filter((k) => D.sources.some((s) => s.kind === k.key));
