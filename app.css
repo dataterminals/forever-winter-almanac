@@ -348,7 +348,7 @@ a { color: var(--gold); }
 .loot-legend .c { color: var(--dim); text-transform: uppercase; letter-spacing: .5px; font-size: 10px; }
 .loot-key { display: inline-flex; align-items: center; gap: 5px; }
 
-/* ---- bosses tab ---- */
+/* ---- enemies tab ---- */
 .guide .card.boss { margin-top: 14px; }
 .badge.boss-threat { cursor: pointer; font-family: inherit; color: var(--muted); }
 .badge.boss-threat small { text-transform: none; letter-spacing: 0; color: var(--dim); font-size: 9px; }
@@ -368,6 +368,19 @@ a { color: var(--gold); }
 .boss-codex { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line);
   font-size: 12.5px; color: var(--dim); }
 .boss-codex b { color: var(--gold); }
+/* category filter + sections */
+.enemy-cats { margin: 12px 0 2px; }
+.enemy-cat-sec { scroll-margin-top: 88px; }
+.enemy-cat-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px;
+  margin: 26px 0 2px; padding-bottom: 6px; border-bottom: 1px solid var(--line2); }
+.enemy-cat-head h2 { margin: 0; font-size: 16px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--olive); }
+.enemy-cat-head h2 .c { color: var(--dim); font-weight: 500; letter-spacing: 0; font-size: 13px; }
+.enemy-cat-blurb { font-size: 12.5px; color: var(--dim); }
+/* compact (non-boss) unit cards sit a touch lighter than the boss cards */
+.guide .card.boss.unit { margin-top: 10px; padding: 13px 14px; }
+.card.boss.unit .dhead h2 { font-size: 18px; }
+.unit-meta { font-size: 12.5px; color: var(--muted); margin: 6px 0 2px; }
+.unit-meta b { color: var(--dim); font-weight: 600; }
 
 /* ---- factions / tug-of-war tab ---- */
 .fac-legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 12px 2px 6px; }

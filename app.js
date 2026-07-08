@@ -15,7 +15,7 @@ let DATA = null;
 let WEAPONS = null; // per-weapon stats from data/weapons.json, keyed by lowercased name
 let PARTS = null;   // structural parts from data/parts.json (byWeapon -> slot -> [parts])
 let AMMO = null; // full ammunition catalogue from data/ammo.json (also feeds weapon-card headshots)
-const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", ecoMode: "tiers", ecoCat: "all", lootKind: "all" };
+const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", ecoMode: "tiers", ecoCat: "all", lootKind: "all", enemyCat: "all" };
 const idx = { attById: {}, weaponByName: {}, weaponSubtype: {}, subtypes: {} };
 
 // per-weapon stat card rows (accuracy & magazine first — the two that visibly matter)
@@ -139,8 +139,8 @@ function wireChrome() {
       writeHash({ sub: "tier-" + et.dataset.ecotier });
       return;
     }
-    const bj = e.target.closest("[data-bossjump]");
-    if (bj) { const sec = document.getElementById("boss-" + bj.dataset.bossjump); if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" }); writeHash({ sub: bj.dataset.bossjump }); return; }
+    const enc = e.target.closest("[data-enemycat]");
+    if (enc) { state.enemyCat = enc.dataset.enemycat; render(); writeHash(); window.scrollTo({ top: 0 }); return; }
     const goAI = e.target.closest("[data-goai]");
     if (goAI) {
       state.tab = "detection"; syncTabs(); deactivateMaps(); view.classList.remove("detail-open");
@@ -286,7 +286,7 @@ function dispatch() {
   else if (state.tab === "ammo") return renderAmmo();
   else if (state.tab === "stats") return renderStats();
   else if (state.tab === "detection") return renderDetection();
-  else if (state.tab === "bosses") return renderBosses();
+  else if (state.tab === "enemies") return renderEnemies();
   else if (state.tab === "factions") return renderFactions();
   else if (state.tab === "economy") return renderEconomy();
   else return renderLoot();
@@ -789,24 +789,25 @@ async function renderDetection() {
   </div>`;
 }
 
-/* ---------- bosses tab ---------- */
-let BOSSDATA = null;
+/* ---------- enemies tab ---------- */
+let ENEMYDATA = null;
 const bNum = (n) => Number(n).toLocaleString();
 const mdb = (s) => esc(s == null ? "" : String(s)).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
 const CAL_LABEL = { "545": "5.45mm", "556": "5.56mm", "762": "7.62mm", "919": "9mm", "308": ".308", "40m": "40mm", "12G": "12ga" };
 
-async function renderBosses() {
+async function renderEnemies() {
   view.classList.remove("detail-open");
-  if (!BOSSDATA) {
-    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading boss intel&hellip;</div>`;
-    try { BOSSDATA = await (await fetch("data/bosses.json", { cache: "no-cache" })).json(); }
-    catch (e) { view.innerHTML = `<p class="empty">Could not load boss data.<br><small>${esc(e.message)}</small></p>`; return; }
+  if (!ENEMYDATA) {
+    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading enemy intel&hellip;</div>`;
+    try { ENEMYDATA = await (await fetch("data/enemies.json", { cache: "no-cache" })).json(); }
+    catch (e) { view.innerHTML = `<p class="empty">Could not load enemy data.<br><small>${esc(e.message)}</small></p>`; return; }
   }
-  drawBosses();
+  drawEnemies();
 }
 
 function bossStaggerVal(s) {
-  if (!s) return "&mdash;";
+  if (!s || s.damage == null) return "&mdash;";
+  if (s.damage >= 999999) return `<span class="dim">Immune</span>`;
   if (s.damage >= 99999) return `${bNum(s.damage)} <span class="dim">&middot; ≈immune</span>`;
   return `${bNum(s.damage)}${s.window ? ` <span class="dim">in ${s.window}s</span>` : ""}`;
 }
@@ -816,19 +817,27 @@ function bossGrabVal(g) {
   return `&le; ${bNum(g.hpThreshold)} HP &middot; ${g.rangeM} m`;
 }
 
-function bossCard(b) {
-  let h = `<div class="card boss" id="boss-${esc(b.id)}" data-anchor="${esc(b.id)}">
+function unitCard(b) {
+  const isBoss = b.tier === "boss";
+  let h = `<div class="card boss${isBoss ? "" : " unit"}" id="enemy-${esc(b.id)}" data-anchor="${esc(b.id)}">
     <div class="dhead"><h2>${esc(b.name)}</h2>
       <span class="badge gold">${esc(b.faction)}</span>
       <span class="badge olive">${esc(b.type)}</span>
       ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}
-      ${b.threat ? `<button class="badge boss-threat" data-goai title="The enemy AI's internal target-priority tier for this unit — an input to how squads pick who to shoot, not a danger rating. Click for how it works.">AI priority: ${esc(b.threat)} <small>(internal)</small></button>` : ""}</div>
-    <p class="boss-blurb">${mdb(b.blurb)}</p>
-    <p class="boss-desc">${mdb(b.desc)}</p>`;
+      ${b.threat ? `<button class="badge boss-threat" data-goai title="The enemy AI's internal target-priority tier for this unit — an input to how squads pick who to shoot, not a danger rating. Click for how it works.">AI priority: ${esc(b.threat)} <small>(internal)</small></button>` : ""}</div>`;
+  if (isBoss && b.blurb) h += `<p class="boss-blurb">${mdb(b.blurb)}</p>`;
+  if (b.desc) h += `<p class="boss-desc">${mdb(b.desc)}</p>`;
+  if (!isBoss) {
+    const meta = [];
+    if (b.variants) meta.push(`<b>Variants:</b> ${esc(b.variants)}`);
+    if (b.location) meta.push(`<b>Found:</b> ${esc(b.location)}`);
+    if (meta.length) h += `<p class="unit-meta">${meta.join(" &middot; ")}</p>`;
+  }
 
   const grab = bossGrabVal(b.grab);
+  const hp = (b.health && b.health.total) || b.hp;
   h += `<div class="statgrid">`;
-  if (b.health && b.health.total) h += `<div class="stat"><div class="k">Health</div><div class="v">${bNum(b.health.total)}</div></div>`;
+  if (hp) h += `<div class="stat"><div class="k">${b.health ? "Armour" : "Health"}</div><div class="v">${bNum(hp)}</div></div>`;
   h += `<div class="stat key"><div class="k">Stagger &middot; stun</div><div class="v">${bossStaggerVal(b.stagger)}</div></div>`;
   if (grab) h += `<div class="stat"><div class="k">Instakill grab</div><div class="v">${grab}</div></div>`;
   h += `<div class="stat"><div class="k">Kill XP</div><div class="v">${b.killXp ? bNum(b.killXp) : "&mdash;"}</div></div>`;
@@ -846,6 +855,7 @@ function bossCard(b) {
   if (b.melee) rows.push(["Melee", `${b.melee.hits > 1 ? b.melee.hits + "-hit combo &middot; " : ""}${bNum(b.melee.min)}${b.melee.max !== b.melee.min ? "&ndash;" + bNum(b.melee.max) : ""} dmg`]);
   if (b.dash) rows.push(["Dash / lunge", `${bNum(b.dash.damage)} dmg &middot; ${b.dash.minM}&ndash;${b.dash.maxM} m reach &middot; ${b.dash.cooldown}s cd`]);
   (b.weapons || []).forEach((w) => rows.push([esc(w.name),
+    w.builtin ? `<span class="dim">built-in mount</span>` :
     [w.damage != null ? bNum(w.damage) + " dmg" : "", w.rps ? `${w.rps}/s` : "", w.caliber ? (CAL_LABEL[w.caliber] || w.caliber) : "", w.knockdown ? "knockdown" : ""].filter(Boolean).join(" &middot; ")]));
   if (rows.length) {
     h += `<div class="section"><h3>Attacks</h3><div class="gtable-wrap"><table class="gtable"><tbody>${rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("")}</tbody></table></div></div>`;
@@ -864,21 +874,42 @@ function bossCard(b) {
   return h;
 }
 
-function drawBosses() {
-  const D = BOSSDATA;
-  const bosses = D.bosses.filter((b) => match(b.name) || match(b.type) || (b.aka && match(b.aka)) || match(b.faction));
+function enemyMatches(u) {
+  return match(u.name) || match(u.type) || (u.aka && match(u.aka)) || match(u.faction)
+    || (u.desc && match(u.desc)) || (u.variants && match(u.variants));
+}
+
+function drawEnemies() {
+  const D = ENEMYDATA;
+  const cat = state.enemyCat || "all";
+  const shown = D.units.filter((u) => (cat === "all" || u.category === cat) && enemyMatches(u));
+
   let html = `<div class="guide">
-    <div class="callout" style="margin-top:16px"><b>Datamined from each boss's own AI, not the forums.</b>
-      Health, the stun threshold, melee &amp; dash damage, the grab that instakills you, and every mounted gun &mdash; read straight from the game's <code>FWAIPawnDefinition</code> files. The tactics are built from those numbers.</div>
+    <div class="callout" style="margin-top:16px"><b>Datamined from each unit's own AI, not the forums.</b>
+      Threat class, health, the stun threshold, melee &amp; dash damage, the grab that instakills you, and every mounted gun &mdash; read straight from the game's <code>FWAIPawnDefinition</code> files. The 10 bosses keep hand-written tactics; every other unit is a datamined summary.</div>
     <div class="callout" style="border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
-      <b>Stagger</b> &mdash; burst that much damage into it inside the window and it's stunned (only <em>your</em> damage counts &mdash; which is why one railgun shot can freeze what a whole magazine can't). <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so simply <em>staying healthy</em> is a defence.</div>`;
+      <b>Stagger</b> &mdash; burst that much damage in and it's stunned (only <em>your</em> damage counts &mdash; one railgun shot can freeze what a magazine can't); the big machines are effectively <em>immune</em>. <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so <em>staying healthy</em> is a defence.</div>`;
 
-  html += `<div class="chips boss-jump">` + bosses.map((b) => `<button class="chip" data-bossjump="${esc(b.id)}">${esc(b.name)}</button>`).join("") + `</div>`;
+  const chip = (id, label, n) => `<button class="chip ${cat === id ? "on" : ""}" data-enemycat="${esc(id)}">${esc(label)}${n != null ? ` <small>${n}</small>` : ""}</button>`;
+  html += `<div class="chips enemy-cats">` + chip("all", "All", D.units.length)
+    + D.categories.map((c) => chip(c.id, c.name, D.units.filter((u) => u.category === c.id).length)).join("") + `</div>`;
 
-  if (!bosses.length) html += `<p class="empty">No bosses match &ldquo;${esc(state.q)}&rdquo;.</p>`;
-  else html += bosses.map(bossCard).join("");
+  if (!shown.length) {
+    html += `<p class="empty">No enemies match &ldquo;${esc(state.q)}&rdquo;.</p>`;
+  } else {
+    D.categories.forEach((c) => {
+      if (cat !== "all" && cat !== c.id) return;
+      const us = shown.filter((u) => u.category === c.id);
+      if (!us.length) return;
+      html += `<section class="enemy-cat-sec" id="enemy-cat-${esc(c.id)}" data-anchor="cat-${esc(c.id)}">
+        <div class="enemy-cat-head"><h2>${esc(c.name)} <span class="c">${us.length}</span></h2>
+        <span class="enemy-cat-blurb">${esc(c.blurb)}</span></div>`;
+      html += us.map(unitCard).join("");
+      html += `</section>`;
+    });
+  }
 
-  html += `<p class="legend">Method: decoded from the shipping game's <code>FW/AI/Characters/&hellip;/AIDEF_*</code> pawn definitions and <code>DA_WPN_*</code> weapon defs via a UE4SS type mapping + CUE4Parse (build ${D.build}). Ranges: Unreal units &divide; 100 = metres. Codex values &amp; tactics cross-checked against the wiki and community testing.</p></div>`;
+  html += `<p class="legend">Method: decoded from the shipping game's <code>FW/AI/Characters/&hellip;/AIDEF_*</code> pawn definitions, <code>BP_AI_*</code> health components and <code>DA_WPN_*</code> weapon defs via a UE4SS type mapping + CUE4Parse (build ${D.build}). Ranges: Unreal units &divide; 100 = metres. Values cross-checked against the wiki and community testing.</p></div>`;
   view.innerHTML = html;
 }
 
@@ -1179,8 +1210,8 @@ function drawLoot() {
    The URL is the source of truth on load / hashchange (applyRoute); every in-app
    navigation mirrors state back into it (writeHash). Maps owns its own sub-route. */
 const TAB_SLUG = { loot: "drops" };   // internal tab key -> pretty URL slug
-const TAB_KEY = { drops: "loot" };    // pretty URL slug -> internal tab key
-const VALID_TABS = ["weapons", "attachments", "muzzles", "ammo", "stats", "detection", "bosses", "factions", "economy", "loot", "maps"];
+const TAB_KEY = { drops: "loot", bosses: "enemies" };  // pretty URL slug -> internal tab key (bosses = legacy alias)
+const VALID_TABS = ["weapons", "attachments", "muzzles", "ammo", "stats", "detection", "enemies", "factions", "economy", "loot", "maps"];
 const tabToSlug = (t) => TAB_SLUG[t] || t;
 const slugToTab = (s) => TAB_KEY[s] || s;
 const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -1225,6 +1256,7 @@ function writeHash(opts) {
   if (state.q) q.push("q=" + encodeURIComponent(state.q));
   if (t === "economy") { if (state.ecoMode === "density") q.push("mode=density"); if (state.ecoCat && state.ecoCat !== "all") q.push("cat=" + encodeURIComponent(state.ecoCat)); }
   if (t === "loot" && state.lootKind && state.lootKind !== "all") q.push("kind=" + encodeURIComponent(state.lootKind));
+  if (t === "enemies" && state.enemyCat && state.enemyCat !== "all") q.push("cat=" + encodeURIComponent(state.enemyCat));
   writeHashRaw("#" + path + (q.length ? "?" + q.join("&") : ""), opts.push);
 }
 
@@ -1237,6 +1269,7 @@ function applyRoute() {
   if (r.query.mode) state.ecoMode = r.query.mode === "density" ? "density" : "tiers";
   if (r.query.cat) state.ecoCat = r.query.cat;
   if (r.query.kind) state.lootKind = r.query.kind;
+  state.enemyCat = (tab === "enemies" && r.query.cat) ? r.query.cat : "all";
   state.weapon = null; state.att = null;
   let sub = r.sub || "";
   if (tab === "weapons" && sub && idx.weaponSlug[sub]) { state.weapon = idx.weaponSlug[sub]; sub = ""; }

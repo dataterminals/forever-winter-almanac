@@ -1,0 +1,1570 @@
+{
+ "source": "The Forever Winter shipping game files (build 24045295) — FWAIPawnDefinition enemy defs + BP_AI health components + weapon defs, decoded with CUE4Parse",
+ "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units is read from the unit's blueprint health component. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
+ "build": 24045295,
+ "codex": {
+  "xp": 62500,
+  "cr": 32800,
+  "crBase": 64000,
+  "drillSeconds": 60,
+  "note": "Every boss drops a container on defeat; drill it (~60 s) for a guaranteed Codex — 62,500 XP and ~32,800 cr, used in max-rank Innards upgrades, the Cognition Cradle, and some quests."
+ },
+ "staggerNote": "“Stagger” = burst this much damage into it within the window and it's stunned; only player damage counts. This is why a single railgun shot can freeze a target a whole magazine can't.",
+ "categories": [
+  {
+   "id": "infantry",
+   "name": "Infantry",
+   "blurb": "Humanoid personnel — the troops, snipers, cyborgs and elites that make up most of every squad."
+  },
+  {
+   "id": "drones",
+   "name": "Drones",
+   "blurb": "Small hovering and walking robots — spotters, attackers and support units. Most can't be stunned."
+  },
+  {
+   "id": "turrets",
+   "name": "Turrets",
+   "blurb": "Fixed and deployable guns. They can't chase you — break line of sight and they're beaten."
+  },
+  {
+   "id": "aircraft",
+   "name": "Aircraft",
+   "blurb": "Flying gunships. Heavy firepower, effectively unstaggerable — fight them from hard cover."
+  },
+  {
+   "id": "vehicles",
+   "name": "Vehicles",
+   "blurb": "Tanks and armoured vehicles. Cannon + coaxial MG, heavily armoured, worth big XP."
+  },
+  {
+   "id": "mechs",
+   "name": "Mechs & Giants",
+   "blurb": "The walking war-machines and giant automatons — the apex threats, most with layered armour and instakill grabs."
+  }
+ ],
+ "units": [
+  {
+   "tier": "unit",
+   "id": "egghead",
+   "name": "Egghead",
+   "aka": null,
+   "faction": "Europa",
+   "category": "infantry",
+   "type": "Support / tech",
+   "desc": "A lightly-armed Europan technician (~940 HP) — low threat, and often an objective or escort target rather than a fight.",
+   "variants": "Overwatch / alcohol-quest",
+   "location": "Europan facilities",
+   "internal": "AIDEF_Europa_Egghead",
+   "tag": "Pawn.AI.Europa.Egghead",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": null,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 938.0
+  },
+  {
+   "tier": "unit",
+   "id": "scrambler",
+   "name": "Scrambler",
+   "aka": null,
+   "faction": "Eurasia",
+   "category": "infantry",
+   "type": "Support (melee)",
+   "desc": "The unit that jams your radar and HUD when it's nearby (~1,500 HP). Kill it first to get your detection back.",
+   "variants": null,
+   "location": "Eurasian squads",
+   "internal": "AIDEF_Eurasia_Scrambler",
+   "tag": "Pawn.AI.Eurasia.Scrambler",
+   "threat": "Low",
+   "role": "Melee",
+   "killXp": 25,
+   "threatScore": null,
+   "stagger": {
+    "damage": 151.0,
+    "window": 2.0
+   },
+   "melee": {
+    "hits": 1,
+    "min": 133.0,
+    "max": 133.0
+   },
+   "hp": 1513.0
+  },
+  {
+   "tier": "unit",
+   "id": "pursuer",
+   "name": "Pursuer",
+   "aka": null,
+   "faction": "Eurasia",
+   "category": "infantry",
+   "type": "Assassin",
+   "desc": "A light hunter that breaks off to chase YOU specifically. Fragile (~940 HP) but stagger-resistant, so it won't flinch when hit.",
+   "variants": "Assassin quest",
+   "location": "Hunts across the map",
+   "internal": "AIDEF_Eurasia_Pursuer",
+   "tag": "Pawn.AI.Eurasia.Soldier.Shotgun",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 40,
+   "threatScore": null,
+   "stagger": {
+    "damage": 1000.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 938.0
+  },
+  {
+   "tier": "unit",
+   "id": "signaler",
+   "name": "Signaler",
+   "aka": null,
+   "faction": "Europa",
+   "category": "infantry",
+   "type": "Support",
+   "desc": "Calls in reinforcements — silence it fast or the encounter snowballs. Fragile (~940 HP).",
+   "variants": null,
+   "location": "Europan patrols",
+   "internal": "AIDEF_Europa_Signaler",
+   "tag": "Pawn.AI.Europa.Signaler",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 40,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 938.0
+  },
+  {
+   "tier": "unit",
+   "id": "sniper",
+   "name": "Sniper",
+   "aka": null,
+   "faction": "All factions",
+   "category": "infantry",
+   "type": "Marksman",
+   "desc": "A soldier that hangs back and reaches out: low HP, but the shot that finds you comes from off-screen. Its vision reaches twice as far as a grunt's — stay out of the arc.",
+   "variants": "Overwatch (fixed vantage) / quest snipers",
+   "location": "Long sightlines — rooftops & ridges",
+   "internal": "AIDEF_Eurasia_Sniper",
+   "tag": "Pawn.AI.Eurasia.Soldier.Sniper",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 40,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 1250.0
+  },
+  {
+   "tier": "unit",
+   "id": "cultist",
+   "name": "Cultist",
+   "aka": null,
+   "faction": "Cult of the Leech",
+   "category": "infantry",
+   "type": "Fanatic",
+   "desc": "Cult of the Leech fanatics (~1,875 HP) — they come as riflemen, grenadiers and heavy-weapons variants, erratic and aggressive.",
+   "variants": "Soldier / Grenadier / Heavy Weapons / Pursuer",
+   "location": "Cult ambushes",
+   "internal": "AIDEF_Cultist_Soldier",
+   "tag": "Pawn.AI.Cultists.Soldier",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 50,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 1875.0
+  },
+  {
+   "tier": "unit",
+   "id": "soldier",
+   "name": "Soldier",
+   "aka": null,
+   "faction": "All factions",
+   "category": "infantry",
+   "type": "Rifleman",
+   "desc": "The baseline trooper — a rifle, ~1,250 HP and no special tricks. Euruskan soldiers are the exception: far tougher (~4,600 HP) and flagged high-threat.",
+   "variants": "Europa / Eurasia / Euruska / Scav; sleeveless, VIP-guard & rider skins",
+   "location": "Every faction, every region",
+   "internal": "AIDEF_Europa_Soldier",
+   "tag": "Pawn.AI.Europa.Soldier",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 50,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 1250.0
+  },
+  {
+   "tier": "unit",
+   "id": "water-thief",
+   "name": "Water Thief",
+   "aka": null,
+   "faction": "Water Thieves",
+   "category": "infantry",
+   "type": "Raider",
+   "desc": "Rival scavengers (~2,800 HP) raiding the same maps you are — skirmishers, looters and berzerkers, all after the same water you need.",
+   "variants": "Skirmisher / Looter / Berzerker",
+   "location": "Contested scav regions",
+   "internal": "AIDEF_WaterThief_Skirmisher",
+   "tag": "Pawn.AI.WaterThief.Skirmisher",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 50,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 2813.0
+  },
+  {
+   "tier": "unit",
+   "id": "cyborg",
+   "name": "Cyborg",
+   "aka": null,
+   "faction": "Eurasia",
+   "category": "infantry",
+   "type": "Melee",
+   "desc": "A Eurasian melee drone-soldier (~2,200 HP) that rushes in to claw at you — it has headshot resistance, so put rounds in the body, not the head.",
+   "variants": "A1 / A2 marks",
+   "location": "Eurasian maps",
+   "internal": "AIDEF_Eurasia_Cyborg",
+   "tag": "Pawn.AI.Eurasia.Cyborg",
+   "threat": "Low",
+   "role": "Melee",
+   "killXp": 65,
+   "threatScore": null,
+   "stagger": {
+    "damage": 151.0,
+    "window": 2.0
+   },
+   "melee": {
+    "hits": 2,
+    "min": 250.0,
+    "max": 250.0
+   },
+   "hp": 2200.0
+  },
+  {
+   "tier": "unit",
+   "id": "eod",
+   "name": "EOD",
+   "aka": null,
+   "faction": "Europa",
+   "category": "infantry",
+   "type": "Elite rifleman",
+   "desc": "Europa's armoured elite — tanky (~4,600 HP), grabs at ≤550 HP, and the named ones (Jack, Pyro, Hunter-Killer) resist stagger. Pyro brings fire.",
+   "variants": "Jack / Pyro / Hunter-Killer / Officer",
+   "location": "Europan strongholds",
+   "internal": "AIDEF_Europa_EOD",
+   "tag": "Pawn.AI.Europa.EOD",
+   "threat": "High",
+   "role": "Rifleman",
+   "killXp": 185,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 550.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": false
+   },
+   "hp": 4625.0
+  },
+  {
+   "tier": "unit",
+   "id": "heavy",
+   "name": "Heavy",
+   "aka": null,
+   "faction": "Eurasia",
+   "category": "infantry",
+   "type": "Gunner",
+   "desc": "A high-threat gunner with far more HP than a rifleman (~4,600) and an MG that pins you down. Can grab you if you drop below ~550 HP.",
+   "variants": "MG34 gunner; heavy EOD",
+   "location": "Frontline squads",
+   "internal": "AIDEF_Eurasia_Heavy",
+   "tag": "Pawn.AI.Eurasia.Heavy",
+   "threat": "High",
+   "role": "Rifleman",
+   "killXp": 185,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 550.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": false
+   },
+   "hp": 4625.0
+  },
+  {
+   "tier": "unit",
+   "id": "brawler",
+   "name": "Brawler",
+   "aka": null,
+   "faction": "Eurasia",
+   "category": "infantry",
+   "type": "Melee bruiser",
+   "desc": "The toughest infantry in the game (~9,250 HP) — a helmeted melee bruiser that closes and grabs you at ≤400 HP.",
+   "variants": "Elite quest version resists stagger",
+   "location": "Eurasian heavy squads",
+   "internal": "AIDEF_Eurasia_Heavy_Brawler",
+   "tag": "Pawn.AI.Eurasia.Brawler",
+   "threat": "High",
+   "role": "Melee",
+   "killXp": 370,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 400.0,
+    "hpAlways": false,
+    "rangeM": null,
+    "vsPlayer": true
+   },
+   "hp": 9250.0
+  },
+  {
+   "tier": "boss",
+   "category": "infantry",
+   "id": "grabber",
+   "name": "Grabber",
+   "aka": "Stalker (internal)",
+   "faction": "Euruska",
+   "type": "Bio-mechanical stalker",
+   "blurb": "The thing that runs you down and pulls you in half.",
+   "desc": "A fast, bipedal-mechanical terror that stalks the map, then closes with leaps and a mauling melee. Its chip damage is trivial — the danger is the grab: get inside arm's reach and it plays a Smash sync-kill that ends the raid on the spot, even at near-full health. Its AI is internally the “Stalker” (the art and codex call it the Grabber), and Toothy borrows its ability set.",
+   "location": "Most maps; hunts day and night",
+   "weakpoint": null,
+   "weaknesses": [
+    "Can't open doors or fit tight gaps — break line of sight behind a gate and it's stuck",
+    "Its own melee only does 600–900; the grab is the only thing that actually kills you",
+    "Can be stunned — a burst of 20,000 in 3 s (a railgun hit) staggers it"
+   ],
+   "internal": "AIDEF_Euruska_Stalker",
+   "tag": "Pawn.AI.Eurasia.Stalker",
+   "threat": "Low",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": null,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 3.0
+   },
+   "melee": {
+    "hits": 3,
+    "min": 600.0,
+    "max": 900.0
+   },
+   "grab": {
+    "moves": [
+     "Smash"
+    ],
+    "hpThreshold": 2000.0,
+    "hpAlways": false,
+    "rangeM": 4.5,
+    "vsPlayer": true
+   },
+   "codexReward": {
+    "name": "Grabber Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "tier": "unit",
+   "id": "heal-drone",
+   "name": "Heal Drone",
+   "aka": null,
+   "faction": "Scavenger",
+   "category": "drones",
+   "type": "Support",
+   "desc": "A support drone that heals its owners (0 kill XP). No threat to you directly, but it keeps everything else alive — pop it first.",
+   "variants": null,
+   "location": "Escorting Scav squads",
+   "internal": "AIDEF_Scav_HealDrone",
+   "tag": "Pawn.AI.Scav.HealDrone",
+   "threat": "Low",
+   "role": null,
+   "killXp": 0,
+   "threatScore": null,
+   "stagger": {
+    "damage": 100000000.0,
+    "window": null
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 450.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": false
+   },
+   "hp": 1500.0
+  },
+  {
+   "tier": "unit",
+   "id": "quad-drone",
+   "name": "Quad Drone",
+   "aka": null,
+   "faction": "Europa",
+   "category": "drones",
+   "type": "Walker drone",
+   "desc": "A four-legged walker-drone with an enormous HP pool but little kill value — usually not worth focusing down.",
+   "variants": null,
+   "location": "Europan patrols",
+   "internal": "AIDEF_QuadDrone",
+   "tag": "Pawn.AI.Europa.QuadDrone",
+   "threat": "High",
+   "role": null,
+   "killXp": 50,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 100000.0
+  },
+  {
+   "tier": "unit",
+   "id": "drone",
+   "name": "Attack Drone",
+   "aka": null,
+   "faction": "All factions",
+   "category": "drones",
+   "type": "Recon / attack",
+   "desc": "A hovering recon/attack drone (~2,500 HP) fielded by every faction. Can't be staggered, and it plays an instakill grab if you fall below ~450 HP.",
+   "variants": "Eurasia / Europa / Euruska / Scav / Water-Thief",
+   "location": "Everywhere; often the squad's spotter",
+   "internal": "AIDEF_Eurasia_Drone",
+   "tag": "Pawn.AI.Eurasia.Drone",
+   "threat": "Low",
+   "role": null,
+   "killXp": 125,
+   "threatScore": null,
+   "stagger": {
+    "damage": 999999.0,
+    "window": null
+   },
+   "grab": {
+    "moves": [
+     "Grab"
+    ],
+    "hpThreshold": 450.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "hp": 2500.0
+  },
+  {
+   "tier": "unit",
+   "id": "walking-turret",
+   "name": "Walking Turret",
+   "aka": null,
+   "faction": "Europa",
+   "category": "turrets",
+   "type": "Deployable gun",
+   "desc": "A turret that walks into position and pops up to fire (~9,000 HP) — it can reposition, unlike a fixed emplacement.",
+   "variants": "Pop-up",
+   "location": "Europan defensive lines",
+   "internal": "AIDEF_WalkingTurret",
+   "tag": "Pawn.AI.Europa.WalkingTurret",
+   "threat": "Low",
+   "role": "Rifleman",
+   "killXp": 50,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 9000.0
+  },
+  {
+   "tier": "unit",
+   "id": "turret",
+   "name": "Turret",
+   "aka": null,
+   "faction": "All factions",
+   "category": "turrets",
+   "type": "Fixed gun",
+   "desc": "A static emplaced gun (~7,000 HP). It can't move — break its line of sight and it's neutralised. The 20mm version is flagged high-threat.",
+   "variants": "20mm (high-threat) / Scav / Water-Thief",
+   "location": "Guarding chokepoints & objectives",
+   "internal": "AIDEF_Europa_Turret",
+   "tag": "Pawn.AI.Europa.Turret",
+   "threat": "Low",
+   "role": "Fixed emplacement",
+   "killXp": 175,
+   "threatScore": null,
+   "stagger": {
+    "damage": 999999.0,
+    "window": null
+   },
+   "hp": 7000.0
+  },
+  {
+   "tier": "unit",
+   "id": "chopper",
+   "name": "Chopper",
+   "aka": "Gunship",
+   "faction": "Eurasia",
+   "category": "aircraft",
+   "type": "Attack helicopter",
+   "desc": "A Eurasian attack helicopter (~66,750 HP) with a 300-damage minigun. Effectively unstaggerable; the Hunter-Killer gunship variant hits harder. Fight it from hard cover.",
+   "variants": "Hunter-Killer / gunship / rise-from-below",
+   "location": "Eurasian airspace",
+   "internal": "AIDEF_Eurasia_Chopper",
+   "tag": "Pawn.AI.Eurasia.Chopper",
+   "threat": "High",
+   "role": null,
+   "killXp": 1850,
+   "threatScore": null,
+   "stagger": {
+    "damage": 9999999.0,
+    "window": null
+   },
+   "weapons": [
+    {
+     "name": "Chopper Minigun",
+     "mount": "MachineGun",
+     "damage": 300.0,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": false
+    }
+   ],
+   "hp": 66750.0
+  },
+  {
+   "tier": "boss",
+   "category": "aircraft",
+   "id": "opal",
+   "name": "Opal",
+   "aka": null,
+   "faction": "Eurasia",
+   "type": "Flying gunship-mech",
+   "blurb": "The one that circles overhead and strafes you.",
+   "desc": "An airborne Eurasian gunship-mech that flies scripted maneuver splines — circle, figure-8, zig-zag, dog-leg, leap-over — while strafing with dual rapid-fire gun-hands (16.7 per shot, full-auto). Its “Glide of Doom” dash deals 800 over an 8–20 m lunge. Very nearly impossible to stagger — threshold 99,999.",
+   "location": "Eurasian airspace; Hunter-Killer variant",
+   "weakpoint": null,
+   "weaknesses": [
+    "You will not stun it — 99,999 stagger is effectively immune",
+    "Flies predictable maneuver splines — lead its path",
+    "Grab (Shoot sync-kill) only at ≤700 HP"
+   ],
+   "internal": "AIDEF_Eurasia_Opal",
+   "tag": "Pawn.AI.Eurasia.Opal",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 99999.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 4,
+    "min": 1500.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "Shoot"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 8.0,
+    "maxM": 20.0,
+    "cooldown": 8.0
+   },
+   "weapons": [
+    {
+     "name": "Opal GunHand",
+     "mount": "Right.Shoulder"
+    }
+   ],
+   "codexReward": {
+    "name": "Opal Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "tier": "unit",
+   "id": "merkava",
+   "name": "Merkava Tank",
+   "aka": null,
+   "faction": "Europa",
+   "category": "vehicles",
+   "type": "Main battle tank",
+   "desc": "Europa's main battle tank — cannon + coaxial MG, heavily armoured. A quest variant serves as a body-boss objective.",
+   "variants": "Quest body-boss",
+   "location": "Europan armoured columns",
+   "internal": "AIDEF_Europa_Merkava",
+   "tag": "Pawn.AI.Europa.Merkava",
+   "threat": "High",
+   "role": "Vehicle",
+   "killXp": 1850,
+   "threatScore": null,
+   "stagger": {
+    "damage": 999999.0,
+    "window": null
+   },
+   "weapons": [
+    {
+     "name": "Cannon",
+     "mount": "Cannon",
+     "builtin": true
+    },
+    {
+     "name": "Europa Merkava Machinegun",
+     "mount": "MachineGun",
+     "damage": 16.666666,
+     "rps": 0.083333,
+     "caliber": "545",
+     "knockdown": false
+    }
+   ]
+  },
+  {
+   "tier": "unit",
+   "id": "t90",
+   "name": "T-90 Tank",
+   "aka": null,
+   "faction": "Euruska",
+   "category": "vehicles",
+   "type": "Main battle tank",
+   "desc": "A Euruskan main battle tank: a main cannon plus a coaxial MG, heavily armoured and unstaggerable. Worth 1,850 XP, but you'll need anti-tank firepower to earn it.",
+   "variants": null,
+   "location": "Euruskan armoured columns",
+   "internal": "AIDEF_Euruska_T90",
+   "tag": "Pawn.AI.Euruska.T90",
+   "threat": "High",
+   "role": "Vehicle",
+   "killXp": 1850,
+   "threatScore": null,
+   "stagger": {
+    "damage": 9999999.0,
+    "window": null
+   },
+   "weapons": [
+    {
+     "name": "Cannon",
+     "mount": "Cannon",
+     "builtin": true
+    },
+    {
+     "name": "Euruska T90 MachineGun",
+     "mount": "MachineGun",
+     "damage": 16.666666,
+     "rps": 0.083333,
+     "caliber": "545",
+     "knockdown": false
+    }
+   ]
+  },
+  {
+   "tier": "unit",
+   "id": "tripod",
+   "name": "Tripod",
+   "aka": null,
+   "faction": "Europa",
+   "category": "mechs",
+   "type": "Light walker",
+   "desc": "A small three-legged walker-drone — a big HP pool but low kill value, usually safe to skip.",
+   "variants": null,
+   "location": "Europan patrols",
+   "internal": "AIDEF_Tripod",
+   "tag": "Pawn.AI.Europa.Tripod",
+   "threat": "High",
+   "role": null,
+   "killXp": 50,
+   "threatScore": null,
+   "stagger": {
+    "damage": 180.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 333.0,
+    "max": 333.0
+   },
+   "hp": 100000.0
+  },
+  {
+   "tier": "unit",
+   "id": "exo",
+   "name": "Exo",
+   "aka": "Red Baron chassis",
+   "faction": "Europa",
+   "category": "mechs",
+   "type": "Battle mech",
+   "desc": "A Europan bipedal battle-mech behind ~105,900 of layered armour. Twin stubby guns and a 167-damage arm cannon, plus a grab at ≤900 HP. The named Red Baron, Jolly Rodger and Downtown versions are all this chassis.",
+   "variants": "Red Baron / Jolly Rodger / Downtown (named)",
+   "location": "Europan heavy encounters",
+   "internal": "AIDEF_Europa_Exo",
+   "tag": "Pawn.AI.Europa.Exo",
+   "threat": "Low",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 10,
+   "stagger": {
+    "damage": 10000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 1,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 900.0,
+    "hpAlways": false,
+    "rangeM": 8.0,
+    "vsPlayer": false
+   },
+   "health": {
+    "total": 105900.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 9900.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 15000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 30000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 6000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "Exo LeftStubbyGun",
+     "mount": "Right.Shoulder",
+     "damage": 16.666666,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": false
+    },
+    {
+     "name": "Exo RightArm",
+     "mount": "Cannon",
+     "damage": 166.66667,
+     "rps": 0.333333,
+     "caliber": "545",
+     "knockdown": true
+    }
+   ]
+  },
+  {
+   "tier": "unit",
+   "id": "stiltwalker",
+   "name": "Stilt Walker",
+   "aka": null,
+   "faction": "Europa",
+   "category": "mechs",
+   "type": "Missile walker",
+   "desc": "A towering Europan walker on stilt legs — ~130,900 of layered armour, a minigun and four 40mm-HE missile launchers (150 damage each) plus a stomp. Grabs at ≤900 HP. Serious area denial.",
+   "variants": null,
+   "location": "Europan set-piece encounters",
+   "internal": "AIDEF_Europa_StiltWalker",
+   "tag": "Pawn.AI.Europa.StiltWalker",
+   "threat": "Low",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 10,
+   "stagger": {
+    "damage": 9000.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 900.0,
+    "hpAlways": false,
+    "rangeM": 8.0,
+    "vsPlayer": false
+   },
+   "health": {
+    "total": 130900.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 9900.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 15000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 30000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 60000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 6000.0,
+      "impact": 1.0,
+      "critical": true
+     },
+     {
+      "tag": "component",
+      "hp": 10000.0,
+      "impact": 0.25,
+      "critical": false
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "StiltWalker MiniGun",
+     "mount": "Cannon",
+     "damage": 120.0,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": false
+    },
+    {
+     "name": "StiltWalker Missile Outer Left",
+     "mount": "Left.Wing",
+     "damage": 150.0,
+     "rps": 2.0,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "StiltWalker Missile Left",
+     "mount": "Left.Shoulder",
+     "damage": 150.0,
+     "rps": 7.0,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "StiltWalker Missile Right",
+     "mount": "Right.Shoulder",
+     "damage": 150.0,
+     "rps": 7.0,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "StiltWalker Missile Outer Right",
+     "mount": "Right.Wing",
+     "damage": 150.0,
+     "rps": 2.0,
+     "caliber": "40mmHE",
+     "knockdown": true
+    }
+   ]
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "blind-mother",
+   "name": "Blind Mother",
+   "aka": "Mother Courage variant",
+   "faction": "Eurasia",
+   "type": "Blind automaton (hearing-only)",
+   "blurb": "Mother Courage with her eyes gone — she hunts by sound alone.",
+   "desc": "The same devastating kit as Mother Courage — five-hit AOE, an at-any-health Rip/Chomp grab — but she is blind. No vision sensor at all, just a 30 m instant-hearing cylinder. She literally cannot see you.",
+   "location": "Eurasian region maps",
+   "weakpoint": null,
+   "weaknesses": [
+    "Blind — crouch-moving emits no noise event, so a silent approach is invisible to her",
+    "Sprinting or shooting nearby is what brings the grab"
+   ],
+   "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
+   "tag": "Pawn.AI.Eurasia.BlindMother",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 30000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 5,
+    "min": 6000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": [
+     "Rip",
+     "Chomp"
+    ],
+    "hpThreshold": 900000000.0,
+    "hpAlways": true,
+    "rangeM": 7.0,
+    "vsPlayer": true
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "meat-man",
+   "name": "MeatMan",
+   "aka": null,
+   "faction": "Euruska",
+   "type": "Charging melee brute",
+   "blurb": "Closes two hundred metres in a single lunge.",
+   "desc": "A Euruskan melee brute running the Orga brain. Eight-hit combo (3,000 each) and a Stab sync-kill — but its signature is the dash: 800 damage over a 0.4–200 m range on a 6 s cooldown. It can cross almost the entire arena in one charge.",
+   "location": "Euruskan maps",
+   "weakpoint": null,
+   "weaknesses": [
+    "The 200 m dash is on a 6 s cooldown and commits — sidestep the tell",
+    "Grab only at ≤700 HP",
+    "Stagger window: 20,000 in 4 s"
+   ],
+   "internal": "AIDEF_Euruska_MeatMan",
+   "tag": "Pawn.AI.Euruska.MeatMan",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 8,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "Stab"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 4.0,
+    "maxM": 200.0,
+    "cooldown": 6.0
+   },
+   "codexReward": {
+    "name": "MeatMan Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "medium-mech",
+   "name": "Medium Mech",
+   "aka": null,
+   "faction": "Europa / Eurasia / Euruska",
+   "type": "Battle mech",
+   "blurb": "The standard walking tank — and the chassis Rat King and Toothy are built on.",
+   "desc": "The workhorse bipedal war-mech, fielded by every faction. It grinds you down with a long rifle, dual quad-guns and two miniguns, plus an 8,000-damage ground-pound up close. Its armour is split into zones totalling roughly 451,000 HP.",
+   "location": "Region maps, all factions",
+   "weakpoint": "Aim the **exposed lower torso** — the waist/belly joint where the upper body pivots over the hips (the datamined `armor_vulnerable` zone, mesh `SM_Spine_jnt__EXO_TorsoPivotBottom`). It takes **full** damage, while the heavy chest & leg plating (200,000 HP) soaks 90%. The cockpit glass isn't it — that panel is just an info display.",
+   "weaknesses": [
+    "Weak spot: the exposed lower-torso / waist joint takes full damage; the plating soaks up to 90%",
+    "Its guns are destructible hardpoints — blow off the shoulder quad-guns and arm cannon to defang it",
+    "Stagger window: 20,000 in 4 s",
+    "Small arms barely scratch the plating — hit the weak spot, or bring anti-tank / railgun class"
+   ],
+   "internal": "AIDEF_Europa_MediumMech",
+   "tag": "Pawn.AI.Europa.MediumMech",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 10,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 1,
+    "min": 8000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 900.0,
+    "hpAlways": false,
+    "rangeM": 11.0,
+    "vsPlayer": false
+   },
+   "health": {
+    "total": 451000.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 66000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 100000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 200000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 40000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "MediumMech LongRifle",
+     "mount": "Cannon",
+     "damage": 8750.0,
+     "rps": 1.0,
+     "caliber": "545",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech QuadGun Left",
+     "mount": "Left.Shoulder",
+     "damage": 60.0,
+     "rps": 0.2,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech QuadGun Right",
+     "mount": "Right.Shoulder",
+     "damage": 60.0,
+     "rps": 0.2,
+     "caliber": "40mmHE",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech MiniGun Center",
+     "mount": "MachineGun",
+     "damage": 300.0,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": true
+    },
+    {
+     "name": "MediumMech MiniGun Rear",
+     "mount": "Rear",
+     "damage": 300.0,
+     "rps": 0.1,
+     "caliber": "545",
+     "knockdown": true
+    }
+   ],
+   "codexReward": {
+    "name": "MediumMech Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": null
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "mother-courage",
+   "name": "Mother Courage",
+   "aka": null,
+   "faction": "Eurasia",
+   "type": "Giant humanoid automaton",
+   "blurb": "She walks you down and pulls you apart — at any health.",
+   "desc": "A towering, female-form automaton that stalks the wastes with immobile cyborgs riveted to her frame. Her melee is a five-hit AOE (8k/6k/6k/8k/6k). The nightmare is her grab: a Rip or Chomp sync-kill that triggers regardless of your health — no health pool saves you, only distance.",
+   "location": "Eurasian region maps",
+   "weakpoint": null,
+   "weaknesses": [
+    "Slow — you can simply out-walk her",
+    "Stagger window: 30,000 in 4 s",
+    "Has a scripted anti-boss self-destruct sequence"
+   ],
+   "internal": "AIDEF_Eurasia_MotherCourage",
+   "tag": "Pawn.AI.Eurasia.MotherCourage",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 30000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 5,
+    "min": 6000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": [
+     "Rip",
+     "Chomp"
+    ],
+    "hpThreshold": 900000000.0,
+    "hpAlways": true,
+    "rangeM": 7.0,
+    "vsPlayer": true
+   },
+   "codexReward": {
+    "name": "MotherCourage Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "+28 days"
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "orga",
+   "name": "Orgamech",
+   "aka": "Orga",
+   "faction": "Euruska",
+   "type": "Organic humanoid mech",
+   "blurb": "A fleshy melee mech that dashes in and stabs.",
+   "desc": "A humanoid organic-mech. An eight-hit melee combo (3,000 each), an 800-damage dash gap-closer (0.4–10 m, 10 s cooldown), and a Stab sync-kill. The easiest of the big bosses to stagger, at 20,000.",
+   "location": "Euruskan maps; obtainable in the Tunnels",
+   "weakpoint": null,
+   "weaknesses": [
+    "Grab only at ≤700 HP — stay above it",
+    "Lowest stagger threshold of the melee bosses — 20,000",
+    "Dash telegraphs on a 10 s cooldown"
+   ],
+   "internal": "AIDEF_Euruska_OrgaMech",
+   "tag": "Pawn.AI.Europa.OrgaMech",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 20000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 8,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "Stab"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 4.0,
+    "maxM": 10.0,
+    "cooldown": 10.0
+   },
+   "codexReward": {
+    "name": "Orga Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Water Bots V3"
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "rat-king",
+   "name": "Rat King",
+   "aka": null,
+   "faction": "Scavenger",
+   "type": "Battle mech (Scav-crewed)",
+   "blurb": "A Medium Mech the Scavengers stole and bolted junk onto.",
+   "desc": "Mechanically a Medium Mech — same ~451,000 HP layered armour and mech guns (Rat King weapon variants) — but Scav-piloted and noticeably easier to stun (12,000 vs the standard 20,000). It drops its loot container on death, and its parts are a fetch-quest objective.",
+   "location": "Scav territory; fetch-quest target",
+   "weakpoint": "Same Medium Mech chassis, so the same weak spot — the exposed lower-torso / waist joint takes full damage while the plating soaks up to 90%.",
+   "weaknesses": [
+    "Easiest mech to stagger — only 12,000 burst in the window",
+    "Drops its container (and the codex) on death"
+   ],
+   "internal": "AIDEF_Mech_Scav_RatKing",
+   "tag": "Pawn.AI.Scav.Mech.RatKing",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 10,
+   "stagger": {
+    "damage": 12000.0,
+    "window": null
+   },
+   "melee": {
+    "hits": 1,
+    "min": 8000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": null,
+    "hpThreshold": 900.0,
+    "hpAlways": false,
+    "rangeM": 11.0,
+    "vsPlayer": false
+   },
+   "health": {
+    "total": 451000.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 66000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 100000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 200000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 40000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "MediumMech LongRifle",
+     "mount": "Cannon"
+    },
+    {
+     "name": "MediumMech QuadGun Left",
+     "mount": "Left.Shoulder"
+    },
+    {
+     "name": "MediumMech QuadGun Right",
+     "mount": "Right.Shoulder"
+    },
+    {
+     "name": "MediumMech MiniGun Center",
+     "mount": "MachineGun"
+    }
+   ],
+   "codexReward": {
+    "name": "RatKing Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Bar V3"
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "shield-officer",
+   "name": "Shield Officer",
+   "aka": null,
+   "faction": "Euruska",
+   "type": "Teleporting shield unit",
+   "blurb": "Hides, teleports, and shield-stabs you when you least expect it.",
+   "desc": "A shield-bearing Euruskan officer that teleports and relocates to hiding spots mid-fight (its behaviour tree literally has “teleport-to” and “find-hiding-location” tasks). Shares the Orga melee kit — eight-hit combo, 800 dash — plus a Shield-Stab sync-kill. The tankiest stagger threshold of the humanoids at 40,000.",
+   "location": "Euruskan reinforcement encounters",
+   "weakpoint": null,
+   "weaknesses": [
+    "Grab only at ≤700 HP",
+    "Repositions constantly — expect it to vanish and reappear",
+    "High stagger threshold — 40,000 needs a heavy single hit"
+   ],
+   "internal": "AIDEF_Euruska_ShieldOfficer",
+   "tag": "Pawn.AI.Euruska.ShieldOfficer",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 40000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 8,
+    "min": 3000.0,
+    "max": 3000.0
+   },
+   "grab": {
+    "moves": [
+     "ShieldStabStab"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 6.0,
+    "vsPlayer": true
+   },
+   "dash": {
+    "damage": 800.0,
+    "minM": 4.0,
+    "maxM": 10.0,
+    "cooldown": 10.0
+   },
+   "codexReward": {
+    "name": "ShieldOfficer Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Shooting Range Upgrade v3"
+   }
+  },
+  {
+   "tier": "boss",
+   "category": "mechs",
+   "id": "toothy",
+   "name": "Toothy",
+   "aka": null,
+   "faction": "Euruska",
+   "type": "Giant battle mech",
+   "blurb": "The one with the digestive sacks. It eats what it grabs.",
+   "desc": "A blocky, ground-shaking Euruskan mech that patrols the flat deserts of Ashen Mesa. A cannon railgun and a left-shoulder machine gun, plus an 8,000-damage Stomp AOE. It grabs troops and scavengers into black digestive sacks (a Bag or Smash sync-kill) and expels the skeletons.",
+   "location": "Ashen Mesa, Scorched Enclave",
+   "weakpoint": "Built on the same Exo mech chassis, so the vulnerable zone is the exposed lower torso (the waist/pivot joint under the chest) — it takes full damage while the plating soaks up to 90%.",
+   "weaknesses": [
+    "Grab only triggers at ≤700 HP — stay healthy and it can't bag you",
+    "Stagger window: 30,000 in 4 s",
+    "Layered armour — hit the vulnerable zone"
+   ],
+   "internal": "AIDEF_Euruska_Toothy",
+   "tag": "Pawn.AI.Euruska.Toothy",
+   "threat": "High",
+   "role": null,
+   "killXp": 1875,
+   "threatScore": 100,
+   "stagger": {
+    "damage": 30000.0,
+    "window": 4.0
+   },
+   "melee": {
+    "hits": 1,
+    "min": 8000.0,
+    "max": 8000.0
+   },
+   "grab": {
+    "moves": [
+     "Bag",
+     "Smash"
+    ],
+    "hpThreshold": 700.0,
+    "hpAlways": false,
+    "rangeM": 8.5,
+    "vsPlayer": true
+   },
+   "health": {
+    "total": 451000.0,
+    "components": [
+     {
+      "tag": "default",
+      "hp": 66000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "medium",
+      "hp": 100000.0,
+      "impact": 0.15,
+      "critical": false
+     },
+     {
+      "tag": "heavy",
+      "hp": 200000.0,
+      "impact": 0.1,
+      "critical": false
+     },
+     {
+      "tag": "critical",
+      "hp": 45000.0,
+      "impact": 0.25,
+      "critical": false
+     },
+     {
+      "tag": "vulnerable",
+      "hp": 40000.0,
+      "impact": 1.0,
+      "critical": true
+     }
+    ]
+   },
+   "weapons": [
+    {
+     "name": "Toothy RailGun",
+     "mount": "Cannon",
+     "damage": 8750.0,
+     "rps": 1.0,
+     "caliber": "545",
+     "knockdown": true
+    },
+    {
+     "name": "Toothy ShoulderMachineGun",
+     "mount": "Left.Shoulder",
+     "damage": 300.0,
+     "rps": 0.075,
+     "caliber": "545",
+     "knockdown": false
+    }
+   ],
+   "codexReward": {
+    "name": "Toothy Codex",
+    "xp": 62500,
+    "cr": 32800,
+    "upgrade": "Personal Quarters Upgrade v3"
+   }
+  }
+ ],
+ "count": 33
+}
