@@ -848,8 +848,7 @@ function unitCard(b) {
   let durLabel = "Health", durVal = null;
   if (b.health && b.health.total) { durLabel = "Armour"; durVal = bNum(b.health.total); }
   else if (b.hp) { durVal = bNum(b.hp); }
-  else if (b.hpNote === "invincible") { durVal = `<span title="~1,000,000,000 HP — no conventional health bar. These aren't dropped by raw damage; you win by mechanics (stagger-lock, destroying components, scanning for the codex) or simply evade them.">&infin;</span>`; }
-  else if (b.hpNote === "heavy") { durLabel = "Armour"; durVal = `<span class="dim" title="Exact durability isn't exposed in the AI files — tanks are heavily armoured and need anti-tank weapons.">Heavy</span>`; }
+  else if (b.hpNote === "invincible") { durVal = `<span class="help" title="Datamined max HP = 1,000,000,000 — invincible by design. This boss isn't dropped by raw damage: you beat it with mechanics (stagger-lock, destroying components, scanning it for the Codex) or simply evade it.">&infin; <small class="dim">invincible</small></span>`; }
   h += `<div class="statgrid">`;
   if (durVal) h += `<div class="stat"><div class="k">${durLabel}</div><div class="v">${durVal}</div></div>`;
   h += `<div class="stat key"><div class="k">Stagger &middot; stun</div><div class="v">${bossStaggerVal(b.stagger)}</div></div>`;

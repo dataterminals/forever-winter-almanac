@@ -783,7 +783,7 @@
      "knockdown": false
     }
    ],
-   "hpNote": "heavy",
+   "hp": 37500.0,
    "senses": {
     "visionNear": 10,
     "visionFar": 108,
@@ -830,7 +830,7 @@
      "knockdown": false
     }
    ],
-   "hpNote": "heavy",
+   "hp": 37500.0,
    "senses": {
     "visionNear": 10,
     "visionFar": 108,
