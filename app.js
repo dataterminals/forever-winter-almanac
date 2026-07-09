@@ -1225,7 +1225,7 @@ function dropModelPanel() {
 
   const typeRow = (c) => {
     const name = c.file === "gear"
-      ? `<button class="dm-type" data-gotab="${esc(c.tab)}">${esc(c.type)}</button> <span class="dm-gear">${esc(c.tab)} tab</span>`
+      ? `<button class="dm-type" data-gotab="${esc(c.tab)}">${esc(c.type)}</button> <button class="dm-gear" data-gotab="${esc(c.tab)}">${esc(c.tab)} tab &rarr;</button>`
       : `<button class="dm-type" data-gosrc="${esc(c.source)}">${esc(c.type)}</button>`;
     return `<tr><td>${name}</td><td class="num">${c.cap}</td><td class="num">${c.pool}</td>
       <td class="dm-inside">${mdb(c.inside)}</td></tr>`;
