@@ -7,9 +7,10 @@
   "cr": 32800,
   "crBase": 64000,
   "drillSeconds": 60,
-  "note": "Most bosses drop a container on defeat; drill it (~60 s) for a guaranteed Codex — typically 62,500 XP and ~32,800 cr, used in max-rank Innards upgrades, the Cognition Cradle, and some quests. The billion-HP bosses must be DetPack-killed first (see each card's How-to-kill); MeatMan's codex is instead a placed lootable item."
+  "note": "Most bosses drop a container on defeat; drill it (~60 s) for a guaranteed Codex — 62,500 XP and ~32,800 cr, used in max-rank Innards upgrades, the Cognition Cradle, and some quests. The billion-HP bosses must be DetPack-killed first (see each card's How-to-kill); MeatMan's codex is instead a placed lootable item."
  },
  "staggerNote": "“Stagger” = burst this much damage into it within the window and it's stunned; only player damage counts. This is why a single railgun shot can freeze a target a whole magazine can't.",
+ "detpackNote": "The billion-HP bosses can't be shot to death — datamined body HP (FWHealthComponent.DefaultHealth) is 1,000,000,000 (Toothy hides a 900M body under its armour). You stun one (burst its stagger threshold within the window — only your damage counts), then plant the Special Units DetPack while it's stunned; three planted charges fire a scripted kill (BP_BossC4_Planted \"Kill Victim\") that bypasses the HP pool, and drilling the corpse yields the Codex. Only Mother Courage also has the AntiBossExplode self-destruct sequence. Note: \"LARGE\"/plantable is item-description prose, not a per-boss tag, so which bosses accept the DetPack is inferred from their body HP + stagger.",
  "categories": [
   {
    "id": "infantry",
@@ -433,7 +434,7 @@
    "weaknesses": [
     "Can't open doors or fit tight gaps — break line of sight behind a gate and it's stuck",
     "Its own melee only does 600–900; the grab is the only thing that actually kills you",
-    "1,000,000,000 HP — gunfire can't kill it; stun it (20,000 in 3 s, a railgun hit) then plant 3 Special Units DetPacks while it's stunned"
+    "Can be stunned — a burst of 20,000 in 3 s (a railgun hit) staggers it"
    ],
    "internal": "AIDEF_Euruska_Stalker",
    "tag": "Pawn.AI.Eurasia.Stalker",
@@ -469,21 +470,23 @@
     "notes": "Exceptional hearing (40 m) and a tall vertical cone; doubles its ESP radius. Built to hunt.",
     "profile": "Stalker"
    },
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "detpack",
+    "plants": 3,
+    "stunThreshold": 20000.0,
+    "stunWindow": 3.0,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "Datamined 1e9 body HP on a single FWHealthComponent (no armour) — a stagger-then-DetPack kill, not a damage race."
+   },
    "codexReward": {
     "name": "Grabber Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": null
-   },
-   "realHp": 1000000000,
-   "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 20000,
-    "stunWindow": 3,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "Datamined 1e9 body HP on a single FWHealthComponent (no armour parts) — a stagger-then-DetPack kill, not a damage race."
    }
   },
   {
@@ -700,8 +703,7 @@
    "location": "Eurasian airspace; Hunter-Killer variant",
    "weakpoint": null,
    "weaknesses": [
-    "1,000,000,000 HP — gunfire can't touch it",
-    "You will not stun it — 99,999 stagger with no reset window is effectively immune, so the DetPack kill is practically unreachable (its codex exists but the method is unconfirmed)",
+    "You will not stun it — 99,999 stagger is effectively immune",
     "Flies predictable maneuver splines — lead its path",
     "Grab (Shoot sync-kill) only at ≤700 HP"
    ],
@@ -751,21 +753,23 @@
     "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer.",
     "profile": "Opal (Eurasia elite)"
    },
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "uncertain",
+    "plants": null,
+    "stunThreshold": 99999.0,
+    "stunWindow": null,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "1e9 HP AND a 99,999 stagger with no datamined reset window — effectively can't be stunned, so the DetPack path is practically unreachable. A codex row (CodexLoot_Opal) exists, but the intended kill method isn't confirmed."
+   },
    "codexReward": {
     "name": "Opal Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": null
-   },
-   "realHp": 1000000000,
-   "codexKill": {
-    "method": "uncertain",
-    "plants": 3,
-    "stunThreshold": 99999,
-    "stunWindow": null,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "1e9 HP AND a 99,999 stagger with no datamined reset window — effectively can't be stunned, so the DetPack path is practically unreachable. A codex row (CodexLoot_Opal) exists, but the intended kill method isn't confirmed by the data."
    }
   },
   {
@@ -1126,8 +1130,7 @@
    "weakpoint": null,
    "weaknesses": [
     "Blind — crouch-moving emits no noise event, so a silent approach is invisible to her",
-    "Sprinting or shooting nearby is what brings the grab",
-    "1e9 HP (inherited from Mother Courage) — same stun-then-DetPack kill, but she drops no Codex of her own"
+    "Sprinting or shooting nearby is what brings the grab"
    ],
    "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
    "tag": "Pawn.AI.Eurasia.BlindMother",
@@ -1164,15 +1167,17 @@
     "notes": "Runs on hearing — a 30 m listen radius with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a long, flat vision cone in the files, but it builds so slowly it never matters — the fight is entirely about noise.)",
     "profile": "BlindMother"
    },
-   "realHp": 1000000000,
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": true,
    "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 30000,
-    "stunWindow": 4,
+    "method": "none",
+    "plants": null,
+    "stunThreshold": 30000.0,
+    "stunWindow": 4.0,
     "hasCodex": false,
     "codexDelivery": null,
-    "note": "1e9 HP inherited from Mother Courage (her own BP overrides nothing). Same stun-then-DetPack kill, but no datamined codex loot row exists for her."
+    "note": "1e9 HP inherited from Mother Courage; same stun-then-DetPack kill, but no datamined codex loot row exists for her."
    }
   },
   {
@@ -1190,7 +1195,7 @@
    "weaknesses": [
     "The 200 m dash is on a 6 s cooldown and commits — sidestep the tell",
     "Grab only at ≤700 HP",
-    "1e9 HP — gunfire can't kill it; stun (20,000 in 4 s) then plant 3 Special Units DetPacks"
+    "Stagger window: 20,000 in 4 s"
    ],
    "internal": "AIDEF_Euruska_MeatMan",
    "tag": "Pawn.AI.Euruska.MeatMan",
@@ -1223,21 +1228,23 @@
     "cooldown": 6.0
    },
    "hpNote": "invincible",
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "detpack",
+    "plants": 3,
+    "stunThreshold": 20000.0,
+    "stunWindow": 4.0,
+    "hasCodex": true,
+    "codexDelivery": "placed",
+    "note": "1e9 HP; stun (20k in 4s) then 3 DetPacks. Its codex is NOT a corpse-drill drop — it's a placed lootable item spawned nearby (BP_MeatManCodexNoise). The item data is internally inconsistent (labelled both the 'Kotleta Codex' and a 5-second cloak), so the reward is unconfirmed."
+   },
    "codexReward": {
     "name": "Kotleta Codex",
     "xp": null,
     "cr": null,
     "upgrade": null
-   },
-   "realHp": 1000000000,
-   "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 20000,
-    "stunWindow": 4,
-    "hasCodex": true,
-    "codexDelivery": "placed",
-    "note": "1e9 HP; stun (20k in 4s) then 3 DetPacks. Its codex is NOT a corpse-drill drop — it's a placed lootable item spawned nearby (BP_MeatManCodexNoise). The item data is internally inconsistent (labelled both the 'Kotleta Codex' and a 5-second cloak), so the reward is unconfirmed."
    }
   },
   {
@@ -1255,8 +1262,8 @@
    "weaknesses": [
     "Weak spot: the exposed lower-torso / waist joint takes full damage; the plating soaks up to 90%",
     "Its guns are destructible hardpoints — blow off the shoulder quad-guns and arm cannon to defang it",
-    "Finite HP — ~337k body under 451k armour; anti-tank / railgun fire kills it (the DetPack is optional)",
-    "Stun window: 20,000 in 4 s"
+    "Stagger window: 20,000 in 4 s",
+    "Small arms barely scratch the plating — hit the weak spot, or bring anti-tank / railgun class"
    ],
    "internal": "AIDEF_Europa_MediumMech",
    "tag": "Pawn.AI.Europa.MediumMech",
@@ -1366,20 +1373,23 @@
     "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    },
+   "invincible": false,
+   "realHp": 451000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "gunfire",
+    "plants": null,
+    "stunThreshold": 20000.0,
+    "stunWindow": 4.0,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "Real, finite HP: a ~337,400 body pool under 451k of armour — heavy/anti-tank fire actually kills it; the DetPack is optional. Codex drops from the corpse."
+   },
    "codexReward": {
     "name": "MediumMech Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": null
-   },
-   "codexKill": {
-    "method": "gunfire",
-    "plants": null,
-    "stunThreshold": 20000,
-    "stunWindow": 4,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "Real, finite HP: ~337,400 body pool under 451k of layered armour — heavy/anti-tank fire actually kills it; the DetPack is optional. Codex drops from the corpse on death."
    }
   },
   {
@@ -1396,8 +1406,8 @@
    "weakpoint": null,
    "weaknesses": [
     "Slow — you can simply out-walk her",
-    "1,000,000,000 HP — gunfire can't kill her; the only way down is stun + DetPack",
-    "Stun window: 30,000 in 4 s (your damage only) — you must stun her three times, once per DetPack plant"
+    "Stagger window: 30,000 in 4 s (your damage only) — you must stun her three times, once per DetPack plant",
+    "Can't be gunned down (1e9 HP) — she's killed with the Special Units DetPack (see How to kill)"
    ],
    "internal": "AIDEF_Eurasia_MotherCourage",
    "tag": "Pawn.AI.Eurasia.MotherCourage",
@@ -1425,21 +1435,23 @@
     "vsPlayer": true
    },
    "hpNote": "invincible",
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": true,
+   "codexKill": {
+    "method": "detpack",
+    "plants": 3,
+    "stunThreshold": 30000.0,
+    "stunWindow": 4.0,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "1e9 HP — gunfire can't touch her. Stun (30k in 4s, your damage only), plant 3 Special Units DetPacks while stunned → scripted kill (she also plays her AntiBossExplode self-destruct) → drill the corpse. Budget for three separate stuns."
+   },
    "codexReward": {
     "name": "MotherCourage Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": "+28 days"
-   },
-   "realHp": 1000000000,
-   "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 30000,
-    "stunWindow": 4,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "1e9 HP — gunfire can't touch her. Stun (30k in 4s, your damage only), plant 3 Special Units DetPacks while stunned → scripted kill (she also plays her AntiBossExplode self-destruct) → drill the corpse. Budget for three separate stuns."
    }
   },
   {
@@ -1456,7 +1468,7 @@
    "weakpoint": null,
    "weaknesses": [
     "Grab only at ≤700 HP — stay above it",
-    "1e9 HP — gunfire can't kill it; lowest stun of the melee bosses (20,000), then plant 3 Special Units DetPacks",
+    "Lowest stagger threshold of the melee bosses — 20,000",
     "Dash telegraphs on a 10 s cooldown"
    ],
    "internal": "AIDEF_Euruska_OrgaMech",
@@ -1490,21 +1502,23 @@
     "cooldown": 10.0
    },
    "hpNote": "invincible",
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "detpack",
+    "plants": 3,
+    "stunThreshold": 20000.0,
+    "stunWindow": 4.0,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "1e9 HP; the lowest stun of the melee bosses (20k in 4s) → 3 DetPacks → drill the corpse."
+   },
    "codexReward": {
     "name": "Orga Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": "Water Bots V3"
-   },
-   "realHp": 1000000000,
-   "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 20000,
-    "stunWindow": 4,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "1e9 HP; the lowest stun of the melee bosses (20k in 4s) → 3 DetPacks → drill the corpse for the Orga codex."
    }
   },
   {
@@ -1520,8 +1534,8 @@
    "location": "Scav territory; fetch-quest target",
    "weakpoint": "Same Medium Mech chassis, so the same weak spot — the exposed lower-torso / waist joint takes full damage while the plating soaks up to 90%.",
    "weaknesses": [
-    "Easiest mech to stagger — only 12,000 burst",
-    "Finite 451k armour, no separate body pool — anti-tank fire kills it; drops its container (and the codex) on death"
+    "Easiest mech to stagger — only 12,000 burst in the window",
+    "Drops its container (and the codex) on death"
    ],
    "internal": "AIDEF_Mech_Scav_RatKing",
    "tag": "Pawn.AI.Scav.Mech.RatKing",
@@ -1607,20 +1621,23 @@
     "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    },
+   "invincible": false,
+   "realHp": 451000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "gunfire",
+    "plants": null,
+    "stunThreshold": 12000.0,
+    "stunWindow": null,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "Finite 451k armour, no separate body pool — anti-tank fire kills it (easiest stun at 12k); drops its container + codex on death."
+   },
    "codexReward": {
     "name": "RatKing Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": "Bar V3"
-   },
-   "codexKill": {
-    "method": "gunfire",
-    "plants": null,
-    "stunThreshold": 12000,
-    "stunWindow": null,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "Finite 451k armour with no separate body pool — anti-tank fire kills it (easiest stun at 12k). Drops its loot container + codex on death."
    }
   },
   {
@@ -1638,7 +1655,7 @@
    "weaknesses": [
     "Grab only at ≤700 HP",
     "Repositions constantly — expect it to vanish and reappear",
-    "1e9 HP — gunfire can't kill it; the tankiest stun of the humanoids (40,000, needs a heavy hit) then plant 3 Special Units DetPacks"
+    "High stagger threshold — 40,000 needs a heavy single hit"
    ],
    "internal": "AIDEF_Euruska_ShieldOfficer",
    "tag": "Pawn.AI.Euruska.ShieldOfficer",
@@ -1680,21 +1697,23 @@
     "notes": "Soldier-range vision in a wide arc.",
     "profile": "Shield Guy"
    },
+   "invincible": true,
+   "realHp": 1000000000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "detpack",
+    "plants": 3,
+    "stunThreshold": 40000.0,
+    "stunWindow": 4.0,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "1e9 HP; the tankiest stun of the humanoids (40k in 4s — needs a heavy single hit) → 3 DetPacks → drill the corpse."
+   },
    "codexReward": {
     "name": "ShieldOfficer Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": "Shooting Range Upgrade v3"
-   },
-   "realHp": 1000000000,
-   "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 40000,
-    "stunWindow": 4,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "1e9 HP; the tankiest stun of the humanoids (40k in 4s — needs a heavy single hit) → 3 DetPacks → drill the corpse."
    }
   },
   {
@@ -1711,8 +1730,8 @@
    "weakpoint": "Built on the same Exo mech chassis, so the vulnerable zone is the exposed lower torso (the waist/pivot joint under the chest) — it takes full damage while the plating soaks up to 90%.",
    "weaknesses": [
     "Grab only triggers at ≤700 HP — stay healthy and it can't bag you",
-    "900,000,000 body HP — gunfire can't kill it despite the armour numbers; stun (30,000 in 4 s) then plant 3 Special Units DetPacks",
-    "451k layered armour on top — hit the vulnerable zone to build stagger fast"
+    "Stagger window: 30,000 in 4 s",
+    "You can't drain its 900M body — hit the exposed lower-torso zone to build stagger fast, then DetPack it"
    ],
    "internal": "AIDEF_Euruska_Toothy",
    "tag": "Pawn.AI.Euruska.Toothy",
@@ -1801,24 +1820,25 @@
     "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    },
+   "invincible": true,
+   "realHp": 900000000.0,
+   "antiBossExplode": false,
+   "codexKill": {
+    "method": "detpack",
+    "plants": 3,
+    "stunThreshold": 30000.0,
+    "stunWindow": 4.0,
+    "hasCodex": true,
+    "codexDelivery": "drill",
+    "note": "Under its 451k armour zones sits a 900,000,000 HP body — gunfire can't drop it (NOT a damage kill despite the armour numbers). Stun (30k in 4s) → 3 DetPacks → drill the corpse."
+   },
    "codexReward": {
     "name": "Toothy Codex",
     "xp": 62500,
     "cr": 32800,
     "upgrade": "Personal Quarters Upgrade v3"
-   },
-   "realHp": 900000000,
-   "codexKill": {
-    "method": "detpack",
-    "plants": 3,
-    "stunThreshold": 30000,
-    "stunWindow": 4,
-    "hasCodex": true,
-    "codexDelivery": "drill",
-    "note": "Under its 451k armour zones sits a 900,000,000 HP body — gunfire can't drop it (NOT a damage kill despite the armour numbers). Stun (30k in 4s) → 3 DetPacks → drill the corpse for the Toothy codex."
    }
   }
  ],
- "count": 33,
- "detpackNote": "The billion-HP bosses can't be shot to death — datamined DefaultHealth is 1,000,000,000 (Toothy hides a 900M body under its armour). You stun one (burst its stagger threshold within the window — only your damage counts), then plant the Special Units DetPack while it's stunned; three planted charges fire a scripted kill that bypasses the HP pool, and drilling the corpse yields the Codex. Note: “LARGE”/plantable is item-description prose, not a per-boss tag, so exactly which bosses accept the DetPack is inferred from their 1e9 HP + stagger, not an explicit flag."
+ "count": 33
 }
