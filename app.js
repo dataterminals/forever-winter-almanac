@@ -846,9 +846,15 @@ function unitCard(b) {
   // durability slot — every card gets one: armour sum, real HP, ∞ for the
   // sentinel-HP bosses (defeated by mechanics/evasion, not damage), or "Heavy" for tanks.
   let durLabel = "Health", durVal = null;
-  if (b.health && b.health.total) { durLabel = "Armour"; durVal = bNum(b.health.total); }
+  const dpKill = b.codexKill && (b.codexKill.method === "detpack" || b.codexKill.method === "uncertain");
+  if (dpKill) {
+    durLabel = "Body HP";
+    const hp = b.realHp ? bNum(b.realHp) : "1,000,000,000";
+    durVal = `<span class="help" title="Datamined body HP = ${hp} — gunfire can't drop it. You stun it (only your damage builds stagger) and plant Special Units DetPacks while it's stunned; 3 plants trigger a scripted kill that bypasses the HP pool, then you drill the corpse for the Codex.">&infin; <small class="dim">DetPack kill</small></span>`;
+  }
+  else if (b.health && b.health.total) { durLabel = "Armour"; durVal = bNum(b.health.total); }
   else if (b.hp) { durVal = bNum(b.hp); }
-  else if (b.hpNote === "invincible") { durVal = `<span class="help" title="Datamined max HP = 1,000,000,000 — invincible by design. This boss isn't dropped by raw damage: you beat it with mechanics (stagger-lock, destroying components, scanning it for the Codex) or simply evade it.">&infin; <small class="dim">invincible</small></span>`; }
+  else if (b.hpNote === "invincible") { durVal = `<span class="help" title="Datamined max HP = 1,000,000,000 — invincible to gunfire. Defeated by stunning it and planting Special Units DetPacks, or simply evaded.">&infin; <small class="dim">invincible</small></span>`; }
   h += `<div class="statgrid">`;
   if (durVal) h += `<div class="stat"><div class="k">${durLabel}</div><div class="v">${durVal}</div></div>`;
   h += `<div class="stat key"><div class="k">Stagger &middot; stun</div><div class="v">${bossStaggerVal(b.stagger)}</div></div>`;
@@ -891,8 +897,25 @@ function unitCard(b) {
     h += `<div class="section"><h3>Weaknesses</h3><ul class="boss-weak">${b.weaknesses.map((w) => `<li>${mdb(w)}</li>`).join("")}</ul></div>`;
   }
 
+  if (b.codexKill) {
+    const ck = b.codexKill;
+    let how;
+    if (ck.method === "gunfire") how = "Finite HP — kill it with sustained anti-tank / heavy fire.";
+    else if (ck.method === "detpack") how = `Gunfire can't kill it. Stun it (**${bNum(ck.stunThreshold)}**${ck.stunWindow ? ` in ${ck.stunWindow}s` : ""}, your damage only) and plant **${ck.plants} Special Units DetPacks** while it's stunned — 3 plants trigger a scripted kill.`;
+    else how = "Kill method unconfirmed in the datamine.";
+    const codexBit = !ck.hasCodex ? " Drops no Codex of its own."
+      : ck.codexDelivery === "placed" ? " Its Codex spawns as a lootable item nearby, not a corpse drill."
+      : " Drill the corpse for its Codex.";
+    h += `<div class="callout" style="border-left-color:var(--gold)"><b>How to kill.</b> ${mdb(how + codexBit)}${ck.note ? ` <span class="dim">${mdb(ck.note)}</span>` : ""}</div>`;
+  }
+
   if (b.codexReward) {
-    h += `<p class="boss-codex"><b>${esc(b.codexReward.name)}</b>${b.codexReward.upgrade ? ` &rarr; unlocks ${esc(b.codexReward.upgrade)}` : ""} &middot; ${bNum(b.codexReward.xp)} XP &middot; ${bNum(b.codexReward.cr)} cr</p>`;
+    const cr = b.codexReward;
+    const bits = [];
+    if (cr.upgrade) bits.push(`unlocks ${esc(cr.upgrade)}`);
+    if (cr.xp != null) bits.push(`${bNum(cr.xp)} XP`);
+    if (cr.cr != null) bits.push(`${bNum(cr.cr)} cr`);
+    h += `<p class="boss-codex"><b>${esc(cr.name)}</b>${bits.length ? ` &middot; ${bits.join(" &middot; ")}` : ""}</p>`;
   }
   h += `</div>`;
   return h;
