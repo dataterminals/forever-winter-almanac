@@ -1,0 +1,86 @@
+{
+ "meta": {
+  "id": "unkillables",
+  "name": "Unkillables Rebalance",
+  "short": "Unkillables",
+  "badge": "Unkillables",
+  "nexus": 68,
+  "nexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/68",
+  "game": "0.9.3.9.2 (24097213)",
+  "pages": [
+   "enemies"
+  ],
+  "note": "De-invincibles the billion-HP bosses (finite, gunfire-killable body pools), makes the Grabber/Stalker far easier to stun, and scales armoured-zone damage gates down. Overlaid on the datamined vanilla enemy data."
+ },
+ "enemies": {
+  "byId": {
+   "meat-man": {
+    "invincible": false,
+    "hpNote": null,
+    "bodyHp": 330000,
+    "codexKill": {
+     "method": "gunfire",
+     "note": "**Unkillables Rebalance** removes the invincibility: the body is a finite **330,000** HP pool now, so sustained heavy / anti-tank fire kills it outright — no stun-and-DetPack required."
+    }
+   },
+   "orga": {
+    "invincible": false,
+    "hpNote": null,
+    "bodyHp": 286870,
+    "codexKill": {
+     "method": "gunfire",
+     "note": "**Unkillables Rebalance** removes the invincibility: the body is a finite **286,870** HP pool now, so sustained heavy / anti-tank fire kills it outright — no stun-and-DetPack required."
+    }
+   },
+   "shield-officer": {
+    "invincible": false,
+    "hpNote": null,
+    "bodyHp": 328000,
+    "codexKill": {
+     "method": "gunfire",
+     "note": "**Unkillables Rebalance** removes the invincibility: the body is a finite **328,000** HP pool now, so sustained heavy / anti-tank fire kills it outright — no stun-and-DetPack required."
+    }
+   },
+   "toothy": {
+    "invincible": false,
+    "hpNote": null,
+    "bodyHp": 308700,
+    "codexKill": {
+     "method": "gunfire",
+     "note": "**Unkillables Rebalance** removes the invincibility: the body is a finite **308,700** HP pool now, so sustained heavy / anti-tank fire kills it outright — no stun-and-DetPack required."
+    }
+   },
+   "mother-courage": {
+    "invincible": false,
+    "hpNote": null,
+    "bodyHp": 372000,
+    "codexKill": {
+     "method": "gunfire",
+     "note": "**Unkillables Rebalance** removes the invincibility: the body is a finite **372,000** HP pool now, so sustained heavy / anti-tank fire kills it outright — no stun-and-DetPack required."
+    }
+   },
+   "opal": {
+    "invincible": false,
+    "hpNote": null,
+    "bodyHp": 213000,
+    "codexKill": {
+     "method": "gunfire",
+     "note": "**Unkillables Rebalance** removes the invincibility: the body is a finite **213,000** HP pool now, so sustained heavy / anti-tank fire kills it outright — no stun-and-DetPack required."
+    }
+   },
+   "grabber": {
+    "stagger": {
+     "damage": 1000
+    },
+    "grab": {
+     "hpThreshold": 1000
+    },
+    "codexKill": {
+     "stunThreshold": 1000,
+     "note": "Body HP is unchanged (still a stun-then-DetPack kill), but **Unkillables Rebalance** drops its stagger threshold to **1,000** (20× easier to stun) and its sync-kill grab to ≤ **1,000** HP."
+    }
+   }
+  },
+  "note": "Also scales the game's **19 internal armour-damage thresholds** (`BPC_IncomingDamageMod`) down to ~**20–69%** of vanilla, so the armoured mechs' plated zones take far more punishment per hit and break faster. These are internal damage-gate constants shared across the armoured bosses — distinct from the per-zone HP shown on each mech card (which the mod does not change), so they're noted here rather than applied to the zones."
+ }
+}

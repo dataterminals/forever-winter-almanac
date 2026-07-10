@@ -11,22 +11,28 @@ const SUBTYPE_LABEL = {
 };
 const SUBTYPE_ORDER = ["ATTMD1", "ATTMD2", "ATTMD3", "ATTMD4", "ATTMD5"];
 
-let DATA = null;
-let WEAPONS = null; // per-weapon stats from data/weapons.json, keyed by lowercased name
-let PARTS = null;   // structural parts from data/parts.json (byWeapon -> slot -> [parts])
-let AMMO = null; // full ammunition catalogue from data/ammo.json (also feeds weapon-card headshots)
-let CRAFT = null; // active crafting recipes (data/crafting.json), lazy-loaded on first Crafting visit
-let REBAL = null; // the mod overlay (data/rebalance.json) — Heavy Rifles Rebalance deltas + new content
-// Vanilla + rebalance variants of each dataset. The active globals above point at
-// one set; setDataset() re-points them. Built once in init()/on first Crafting visit.
-let DATA_V = null, DATA_RB = null, WEAPONS_V = null, WEAPONS_RB = null,
-    PARTS_V = null, PARTS_RB = null, AMMO_V = null, AMMO_RB = null, CRAFT_V = null, CRAFT_RB = null;
-// membership sets (weapon internal ids / ammo keys the mod changes, ids of brand-new
-// attachments/parts it adds) — drive the "changed" / "new" badges
-const rbAffected = { weapons: new Set(), ammo: new Set(), attAdded: new Set(), partsAdded: new Set() };
-const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", dataset: "vanilla", ecoMode: "tiers", ecoCat: "all", lootKind: "all", enemyCat: "all" };
+let DATA = null;      // active attachments dataset (data/attachments.json)
+let WEAPONS = null;   // active per-weapon stats (data/weapons.json), keyed by lowercased name
+let PARTS = null;     // active structural parts (data/parts.json, byWeapon -> slot -> [parts])
+let AMMO = null;      // active ammunition catalogue (data/ammo.json)
+let CRAFT = null;     // active crafting recipes (data/crafting.json), lazy on first Crafting visit
+let ENEMYDATA = null; // active enemy intel (data/enemies.json), lazy on first Enemies visit
+// Pristine vanilla copies. The active globals above are (re)composed from these +
+// whichever mod overlays are switched on, by composeActive().
+let DATA_V = null, WEAPONS_V = null, PARTS_V = null, AMMO_V = null, CRAFT_V = null, ENEMY_V = null;
+// Mod overlays: a registry loaded at boot. Each file carries a .meta
+// {id,name,short,badge,nexus,pages}. Independent — any number can be switched on.
+const MOD_FILES = [
+  { id: "hrr", file: "data/rebalance.json" },
+  { id: "unkillables", file: "data/unkillables.json" },
+];
+let MODS = []; // successfully-loaded overlays, in MOD_FILES order
+// which mod id changed each row / added each item — drives the per-mod "changed"/"new" badges
+const affected = { weapons: new Map(), ammo: new Map(), attAdded: new Map(), enemies: new Map() };
+const state = { tab: "weapons", weapon: null, att: null, q: "", layout: "split", mods: {}, ecoMode: "tiers", ecoCat: "all", lootKind: "all", enemyCat: "all" };
 const idx = { attById: {}, weaponByName: {}, weaponSubtype: {}, subtypes: {} };
 const clone = (o) => (o == null ? o : JSON.parse(JSON.stringify(o)));
+const modById = (id) => MODS.find((m) => m.meta && m.meta.id === id) || null;
 
 // per-weapon stat card rows (accuracy & magazine first — the two that visibly matter)
 const WSTAT_ROWS = [
@@ -74,15 +80,17 @@ async function init() {
     AMMO.byKey = {};
     AMMO.ammo.forEach((a) => (AMMO.byKey[a.key] = a));
   } catch (e) { AMMO = null; }
-  // the mod overlay (optional — the app works fine without it)
-  try { REBAL = await (await fetch("data/rebalance.json", { cache: "no-cache" })).json(); } catch (e) { REBAL = null; }
+  // load every mod overlay (each optional — the app works fine without any)
+  MODS = (await Promise.all(MOD_FILES.map(async (mf) => {
+    try { const j = await (await fetch(mf.file, { cache: "no-cache" })).json(); j.meta = j.meta || {}; j.meta.id = j.meta.id || mf.id; return j; }
+    catch (e) { return null; }
+  }))).filter(Boolean);
   DATA_V = DATA; WEAPONS_V = WEAPONS; PARTS_V = PARTS; AMMO_V = AMMO;
-  buildVariants();
   try { const s = localStorage.getItem("fw:wlayout"); if (["list", "grid", "split"].includes(s)) state.layout = s; } catch (e) {}
   try { const m = localStorage.getItem("fw:ecomode"); if (["tiers", "density"].includes(m)) state.ecoMode = m; } catch (e) {}
-  try { const d = localStorage.getItem("fw:dataset"); if (["vanilla", "rebalance"].includes(d)) state.dataset = d; } catch (e) {}
+  try { const d = JSON.parse(localStorage.getItem("fw:mods") || "{}"); if (d && typeof d === "object") state.mods = d; } catch (e) {}
   applyLayout();
-  applyDataset(); // points the active globals at the chosen dataset and (re)builds the index
+  composeActive(); // build the active globals from vanilla + any switched-on overlays
   wireChrome();
   // Back/forward, edited URLs, and clicked deep-links all route through applyRoute.
   window.addEventListener("hashchange", () => { if (!routing) applyRoute(); });
@@ -111,67 +119,80 @@ function buildIndex() {
   $("#stats").textContent = `${DATA.weapons.length} weapons · ${DATA.attachments.length} attachments`;
 }
 
-/* ---------- dataset toggle (Vanilla <-> a mod overlay, e.g. Heavy Rifles Rebalance) ----------
-   Every dataset is a bare module global (DATA/WEAPONS/PARTS/AMMO/CRAFT). We build a
-   "_RB" variant of each by cloning the vanilla data and layering REBAL's deltas + new
-   content on top, then setDataset() just re-points the active globals and re-renders. */
-function buildVariants() {
-  // default the variants to vanilla so the app is unaffected when no overlay is present
-  DATA_RB = DATA_V; WEAPONS_RB = WEAPONS_V; PARTS_RB = PARTS_V; AMMO_RB = AMMO_V;
-  rbAffected.weapons = new Set(); rbAffected.ammo = new Set(); rbAffected.attAdded = new Set(); rbAffected.partsAdded = new Set();
-  if (!REBAL) return;
-  const R = REBAL;
+/* ---------- dataset overlays (Vanilla + independent per-mod toggles) ----------
+   Each dataset is a bare module global. composeActive() rebuilds every active
+   global from its pristine vanilla copy, layering on whichever mod overlays are
+   switched on (state.mods[id]). Mods are independent — two can be on at once. */
+function activeMods() { return MODS.filter((m) => state.mods[m.meta.id]); }
 
-  // weapons: clone the lowercased-name map, apply byInternal overrides (joined on .internal)
-  if (WEAPONS_V) {
-    WEAPONS_RB = {};
-    for (const lc in WEAPONS_V) WEAPONS_RB[lc] = Object.assign({}, WEAPONS_V[lc]);
-    const byInt = (R.weapons && R.weapons.byInternal) || {};
-    for (const lc in WEAPONS_RB) {
-      const w = WEAPONS_RB[lc], d = w.internal && byInt[w.internal];
-      if (d) { Object.assign(w, d); rbAffected.weapons.add(w.internal); }
+function composeActive() {
+  const mods = activeMods();
+  affected.weapons = new Map(); affected.ammo = new Map(); affected.attAdded = new Map(); affected.enemies = new Map();
+  WEAPONS = composeWeapons(mods);
+  AMMO = composeAmmo(mods);
+  PARTS = composeParts(mods);
+  DATA = composeAttachments(mods);
+  if (ENEMY_V) ENEMYDATA = composeEnemies(mods);
+  if (CRAFT_V) CRAFT = composeCrafting(mods);
+  document.body.classList.toggle("ds-modded", mods.length > 0);
+  buildIndex(); // idx (attachments, weapon-by-name, slugs, subtypes) is derived from the active DATA
+}
+
+function composeWeapons(mods) {
+  if (!WEAPONS_V) return WEAPONS_V;
+  const out = {};
+  for (const lc in WEAPONS_V) out[lc] = Object.assign({}, WEAPONS_V[lc]);
+  mods.forEach((m) => {
+    const byInt = (m.weapons && m.weapons.byInternal) || {};
+    for (const lc in out) {
+      const w = out[lc], d = w.internal && byInt[w.internal];
+      if (d) { Object.assign(w, d); affected.weapons.set(w.internal, m.meta.id); }
     }
-  }
+  });
+  return out;
+}
 
-  // ammo: clone, apply per-key headshot overrides, rebuild byKey
-  if (AMMO_V) {
-    AMMO_RB = clone(AMMO_V);
-    const byKey = (R.ammo && R.ammo.byKey) || {};
-    AMMO_RB.byKey = {};
-    AMMO_RB.ammo.forEach((a) => {
-      if (byKey[a.key]) { Object.assign(a, byKey[a.key]); rbAffected.ammo.add(a.key); }
-      AMMO_RB.byKey[a.key] = a;
-    });
-  }
+function composeAmmo(mods) {
+  if (!AMMO_V) return AMMO_V;
+  const out = clone(AMMO_V);
+  mods.forEach((m) => {
+    const byKey = (m.ammo && m.ammo.byKey) || {};
+    out.ammo.forEach((a) => { if (byKey[a.key]) { Object.assign(a, byKey[a.key]); affected.ammo.set(a.key, m.meta.id); } });
+  });
+  out.byKey = {}; out.ammo.forEach((a) => (out.byKey[a.key] = a));
+  return out;
+}
 
-  // parts: clone, merge effect overrides + append new parts into byWeapon, rebuild byWeaponLC
-  if (PARTS_V) {
-    PARTS_RB = clone(PARTS_V);
-    const bw = PARTS_RB.byWeapon || (PARTS_RB.byWeapon = {});
-    ((R.parts && R.parts.override) || []).forEach((o) => {
+function composeParts(mods) {
+  if (!PARTS_V) return PARTS_V;
+  const out = clone(PARTS_V);
+  const bw = out.byWeapon || (out.byWeapon = {});
+  mods.forEach((m) => {
+    ((m.parts && m.parts.override) || []).forEach((o) => {
       const arr = bw[o.weapon] && bw[o.weapon][o.slot];
       const p = arr && arr.find((x) => x.name === o.name);
       if (p) p.effects = Object.assign({}, p.effects || {}, o.effects);
     });
-    ((R.parts && R.parts.add) || []).forEach((o) => {
+    ((m.parts && m.parts.add) || []).forEach((o) => {
       const slots = bw[o.weapon] || (bw[o.weapon] = {});
       const arr = slots[o.slot] || (slots[o.slot] = []);
-      if (!arr.some((x) => x.name === o.name)) arr.push({ name: o.name, short: o.short, level: o.level, effects: o.effects, buy: o.buy, mod: true });
-      rbAffected.partsAdded.add(o.weapon.toLowerCase() + "|" + o.slot + "|" + o.name);
-      if (PARTS_RB.slotOrder && !PARTS_RB.slotOrder.includes(o.slot)) PARTS_RB.slotOrder.push(o.slot);
+      if (!arr.some((x) => x.name === o.name)) arr.push({ name: o.name, short: o.short, level: o.level, effects: o.effects, buy: o.buy, mod: m.meta.id });
+      if (out.slotOrder && !out.slotOrder.includes(o.slot)) out.slotOrder.push(o.slot);
     });
-    PARTS_RB.byWeaponLC = {};
-    for (const nm in bw) PARTS_RB.byWeaponLC[nm.toLowerCase()] = bw[nm];
-  }
+  });
+  out.byWeaponLC = {};
+  for (const nm in bw) out.byWeaponLC[nm.toLowerCase()] = bw[nm];
+  return out;
+}
 
-  // attachments: clone, append new attachments, and thread them into each compatible
-  // weapon's byCategory (+total) so the weapon-detail card lists them too
-  if (DATA_V) {
-    DATA_RB = clone(DATA_V);
-    const wByName = {}; DATA_RB.weapons.forEach((w) => (wByName[w.name] = w));
-    ((R.attachments && R.attachments.add) || []).forEach((a) => {
-      if (!DATA_RB.attachments.some((x) => x.id === a.id)) DATA_RB.attachments.push(a);
-      rbAffected.attAdded.add(a.id);
+function composeAttachments(mods) {
+  if (!DATA_V) return DATA_V;
+  const out = clone(DATA_V);
+  const wByName = {}; out.weapons.forEach((w) => (wByName[w.name] = w));
+  mods.forEach((m) => {
+    ((m.attachments && m.attachments.add) || []).forEach((a) => {
+      if (!out.attachments.some((x) => x.id === a.id)) out.attachments.push(a);
+      affected.attAdded.set(a.id, m.meta.id);
       (a.compatible || []).forEach((wn) => {
         const w = wByName[wn]; if (!w) return;
         w.byCategory = w.byCategory || {};
@@ -179,51 +200,72 @@ function buildVariants() {
         if (!cat.includes(a.name)) { cat.push(a.name); w.total = (w.total || 0) + 1; }
       });
     });
+  });
+  return out;
+}
+
+function composeCrafting(mods) {
+  if (!CRAFT_V) return CRAFT_V;
+  const out = clone(CRAFT_V);
+  mods.forEach((m) => ((m.crafting && m.crafting.addGroups) || []).forEach((g) => out.groups.push(Object.assign({}, g, { mod: m.meta.id }))));
+  return out;
+}
+
+function composeEnemies(mods) {
+  if (!ENEMY_V) return ENEMY_V;
+  const out = clone(ENEMY_V);
+  out._modNotes = [];
+  const byId = {}; out.units.forEach((u) => (byId[u.id] = u));
+  mods.forEach((m) => {
+    const ov = (m.enemies && m.enemies.byId) || {};
+    for (const id in ov) { const u = byId[id]; if (u) { deepMerge(u, ov[id]); affected.enemies.set(id, m.meta.id); } }
+    if (m.enemies && m.enemies.note) out._modNotes.push({ mod: m.meta.id, note: m.enemies.note });
+  });
+  return out;
+}
+
+// recursive merge for nested overlay objects (e.g. codexKill{}, stagger{}, grab{})
+function deepMerge(dst, src) {
+  for (const k in src) {
+    const v = src[k];
+    if (v && typeof v === "object" && !Array.isArray(v) && dst[k] && typeof dst[k] === "object") deepMerge(dst[k], v);
+    else dst[k] = v;
   }
 }
 
-// crafting is lazy (loaded on first Crafting visit); build its overlay then
-function buildCraftRB() {
-  CRAFT_RB = clone(CRAFT_V);
-  const add = REBAL && REBAL.crafting && REBAL.crafting.addGroups;
-  if (add) add.forEach((g) => CRAFT_RB.groups.push(Object.assign({}, g, { mod: true })));
-}
-
-function applyDataset() {
-  const rb = state.dataset === "rebalance";
-  DATA = rb ? DATA_RB : DATA_V;
-  WEAPONS = rb ? WEAPONS_RB : WEAPONS_V;
-  PARTS = rb ? PARTS_RB : PARTS_V;
-  AMMO = rb ? AMMO_RB : AMMO_V;
-  if (CRAFT_V) CRAFT = rb ? (CRAFT_RB || CRAFT_V) : CRAFT_V;
-  document.body.classList.toggle("ds-rebalance", rb);
-  buildIndex(); // idx (attachments, weapon-by-name, slugs, subtypes) is derived from the active DATA
-}
-
-function setDataset(mode) {
-  if (!["vanilla", "rebalance"].includes(mode) || mode === state.dataset) return;
-  state.dataset = mode;
-  try { localStorage.setItem("fw:dataset", mode); } catch (e) {}
-  applyDataset();
+function setMod(id, on) {
+  on = !!on;
+  if (!modById(id) || !!state.mods[id] === on) return;
+  state.mods[id] = on;
+  try { localStorage.setItem("fw:mods", JSON.stringify(state.mods)); } catch (e) {}
+  composeActive();
   render();
 }
 
-// the per-page Vanilla | <mod> control (rendered inside affected pages)
+// per-page control: a Vanilla | <mod> switch for every mod whose meta.pages includes this tab
 function datasetBar() {
-  if (!REBAL) return "";
-  const m = REBAL.meta || {}, rb = state.dataset === "rebalance";
-  const note = rb
-    ? `Showing <b>${esc(m.name || "mod")}</b> values${m.nexusUrl ? ` &middot; <a href="${esc(m.nexusUrl)}" target="_blank" rel="noopener">Nexus&nbsp;#${esc(m.nexus || "")}</a>` : ""}`
-    : `Vanilla, datamined from the game. Toggle to overlay a mod.`;
-  return `<div class="ds-bar${rb ? " on" : ""}">
-    <div class="ds-modes" role="tablist" aria-label="Dataset">
-      <button data-dataset="vanilla" class="${rb ? "" : "on"}">Vanilla</button>
-      <button data-dataset="rebalance" class="${rb ? "on" : ""}">${esc(m.short || "Mod")}</button>
-    </div>
-    <span class="ds-note${rb ? "" : " ds-dim"}">${note}</span>
-  </div>`;
+  const rel = MODS.filter((m) => (m.meta.pages || []).includes(state.tab));
+  if (!rel.length) return "";
+  return rel.map((m) => {
+    const on = !!state.mods[m.meta.id], mt = m.meta;
+    const note = on
+      ? `Showing <b>${esc(mt.name)}</b>${mt.nexusUrl ? ` &middot; <a href="${esc(mt.nexusUrl)}" target="_blank" rel="noopener">Nexus&nbsp;#${esc(mt.nexus || "")}</a>` : ""}`
+      : `Vanilla, datamined. Toggle to overlay <b>${esc(mt.short)}</b>.`;
+    return `<div class="ds-bar${on ? " on" : ""}">
+      <div class="ds-modes" role="group" aria-label="${esc(mt.name)} dataset">
+        <button data-mod="${esc(mt.id)}" data-on="0" class="${on ? "" : "on"}">Vanilla</button>
+        <button data-mod="${esc(mt.id)}" data-on="1" class="${on ? "on" : ""}">${esc(mt.short)}</button>
+      </div>
+      <span class="ds-note${on ? "" : " ds-dim"}">${note}</span>
+    </div>`;
+  }).join("");
 }
-const dsAffectedWeapon = (name) => state.dataset === "rebalance" && WEAPONS && WEAPONS[name.toLowerCase()] && rbAffected.weapons.has(WEAPONS[name.toLowerCase()].internal);
+
+// which mod (meta) changed this weapon / ammo / enemy, if any
+function weaponMod(name) { const ws = WEAPONS && WEAPONS[name.toLowerCase()]; return ws && affected.weapons.has(ws.internal) ? modById(affected.weapons.get(ws.internal)) : null; }
+function ammoMod(key) { return affected.ammo.has(key) ? modById(affected.ammo.get(key)) : null; }
+function enemyMod(id) { return affected.enemies.has(id) ? modById(affected.enemies.get(id)) : null; }
+const modBadge = (m) => m ? (m.meta.badge || m.meta.short || "Mod") : "";
 
 /* ---------- chrome / events ---------- */
 function wireChrome() {
@@ -256,8 +298,8 @@ function wireChrome() {
     if (gear) { e.stopPropagation(); gear.closest(".layoutpick").classList.toggle("open"); return; }
     const lay = e.target.closest("[data-layout]");
     if (lay) { setLayout(lay.dataset.layout); return; }
-    const ds = e.target.closest("[data-dataset]");
-    if (ds) { setDataset(ds.dataset.dataset); return; }
+    const ds = e.target.closest("[data-mod]");
+    if (ds) { setMod(ds.dataset.mod, ds.dataset.on === "1"); return; }
     const em = e.target.closest("[data-ecomode]");
     if (em) { setEcoMode(em.dataset.ecomode); writeHash(); return; }
     const ec = e.target.closest("[data-ecocat]");
@@ -469,7 +511,8 @@ function renderWeapons() {
     const ws = groups[cls]; if (!ws) return;
     list += `<div class="grp">${esc(cls)}</div>`;
     ws.sort((a, b) => a.name.localeCompare(b.name)).forEach((w) => {
-      const dot = dsAffectedWeapon(w.name) ? `<span class="ds-dot" title="Changed by ${esc((REBAL.meta || {}).name || "the mod")}"></span>` : "";
+      const wm = weaponMod(w.name);
+      const dot = wm ? `<span class="ds-dot" title="Changed by ${esc(wm.meta.name)}"></span>` : "";
       list += `<button class="row ${state.weapon === w.name ? "sel" : ""}" data-weapon="${esc(w.name)}">
         <span class="rname">${esc(w.name)}${dot}</span>
         <span class="rmeta"><span class="count">${w.total}</span></span></button>`;
@@ -532,7 +575,7 @@ function weaponDetail(w) {
   let anyReq = false;
   let html = `<button class="backbtn" data-back>&larr; all weapons</button><div class="card" data-anchor="${esc(idx.slugByWeapon[w.name] || slugify(w.name))}">
     <div class="dhead"><h2>${esc(w.name)}</h2><span class="badge gold">${esc(w.class)}</span>
-      <span class="badge">${w.total} attachments</span>${dsAffectedWeapon(w.name) ? `<span class="badge rust" title="Stats reflect ${esc((REBAL.meta || {}).name || "the mod")}">${esc((REBAL.meta || {}).badge || (REBAL.meta || {}).short || "Mod")}</span>` : ""}</div>`;
+      <span class="badge">${w.total} attachments</span>${(() => { const m = weaponMod(w.name); return m ? `<span class="badge rust" title="Stats reflect ${esc(m.meta.name)}">${esc(modBadge(m))}</span>` : ""; })()}</div>`;
   const ws = WEAPONS && WEAPONS[w.name.toLowerCase()];
   if (ws) {
     const rows = WSTAT_ROWS.filter(([k]) => ws[k] != null).map(([k, label, fmt]) => {
@@ -594,7 +637,7 @@ function renderAttachments() {
     if (!items.length) return;
     list += `<div class="grp">${esc(CATLABEL[code])}</div>`;
     items.forEach((a) => {
-      const nu = (state.dataset === "rebalance" && rbAffected.attAdded.has(a.id)) ? `<span class="ds-new">new</span>` : "";
+      const nu = affected.attAdded.has(a.id) ? `<span class="ds-new">new</span>` : "";
       list += `<button class="row ${state.att === a.id ? "sel" : ""}" data-att="${esc(a.id)}">
         <span class="rname">${esc(a.name)}${nu}</span>
         <span class="rmeta"><span class="count">${a.compatible.length}</span></span></button>`;
@@ -806,7 +849,7 @@ function ammoCard(a, usedBy) {
     : "";
   return `<div class="ammo-card" data-anchor="${esc(a.key)}">
     <div class="ammo-head"><span class="ammo-name">${esc(a.name)}</span>
-      ${a.faction ? `<span class="badge">${esc(a.faction)}</span>` : ""}${(state.dataset === "rebalance" && rbAffected.ammo.has(a.key)) ? `<span class="badge rust" title="Changed by ${esc((REBAL.meta || {}).name || "the mod")}">${esc((REBAL.meta || {}).badge || (REBAL.meta || {}).short || "Mod")}</span>` : ""}</div>
+      ${a.faction ? `<span class="badge">${esc(a.faction)}</span>` : ""}${(() => { const m = ammoMod(a.key); return m ? `<span class="badge rust" title="Changed by ${esc(m.meta.name)}">${esc(modBadge(m))}</span>` : ""; })()}</div>
     ${grid ? `<div class="statgrid ammo-stats">${grid}</div>` : ""}
     ${a.desc ? `<p class="ammo-desc">${esc(a.desc)}</p>` : ""}
     ${chips}
@@ -858,8 +901,7 @@ async function renderCrafting() {
     view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading crafting recipes&hellip;</div>`;
     try { CRAFT_V = await (await fetch("data/crafting.json", { cache: "no-cache" })).json(); }
     catch (e) { view.innerHTML = `<p class="empty">Could not load crafting data.<br><small>${esc(e.message)}</small></p>`; return; }
-    buildCraftRB();
-    CRAFT = state.dataset === "rebalance" ? CRAFT_RB : CRAFT_V;
+    CRAFT = composeCrafting(activeMods());
   }
   drawCrafting();
 }
@@ -878,7 +920,9 @@ function recipeCard(r) {
 }
 
 function drawCrafting() {
-  const D = CRAFT, rb = state.dataset === "rebalance", q = state.q;
+  const D = CRAFT, q = state.q;
+  const craftMods = activeMods().filter((m) => m.crafting && m.crafting.addGroups);
+  const rb = craftMods.length > 0;
   const recMatch = (r) => !q || r.name.toLowerCase().includes(q)
     || (r.inputs || []).some((i) => i.name.toLowerCase().includes(q))
     || (r.outputs || []).some((o) => o.name.toLowerCase().includes(q));
@@ -888,7 +932,7 @@ function drawCrafting() {
   const order = cats.map((c) => c.key).concat(Object.keys(byCat).filter((k) => !cats.some((c) => c.key === k)));
 
   let html = `<div class="guide craft">` + datasetBar() +
-    `<div class="callout" style="margin-top:16px"><b>Manufacturing.</b> Every crafting recipe in the game, pulled straight from its data tables &mdash; what each makes, what it costs, and how long it takes.${rb ? ` Overlaid with <b>${esc((REBAL.meta || {}).name)}</b>&rsquo;s added recipes.` : ""}</div>`;
+    `<div class="callout" style="margin-top:16px"><b>Manufacturing.</b> Every crafting recipe in the game, pulled straight from its data tables &mdash; what each makes, what it costs, and how long it takes.${rb ? ` Overlaid with ${craftMods.map((m) => `<b>${esc(m.meta.name)}</b>`).join(", ")}&rsquo;s added recipes.` : ""}</div>`;
 
   let any = false;
   order.forEach((ck) => {
@@ -899,7 +943,7 @@ function drawCrafting() {
       const recs = (g.recipes || []).filter(recMatch);
       if (!recs.length) return;
       any = true;
-      inner += `<div class="craft-group" data-anchor="craft-${esc(g.key)}"><div class="section" style="margin-top:0"><h3>${esc(g.name)}${g.mod ? ` <span class="ds-badge">${esc((REBAL.meta || {}).badge || (REBAL.meta || {}).short || "Mod")}</span>` : ""} <span class="c">&times;${recs.length}</span></h3></div>${g.subtext ? `<p class="gnote">${esc(g.subtext)}</p>` : ""}<div class="craft-recipes">${recs.map(recipeCard).join("")}</div></div>`;
+      inner += `<div class="craft-group" data-anchor="craft-${esc(g.key)}"><div class="section" style="margin-top:0"><h3>${esc(g.name)}${g.mod ? ` <span class="ds-badge">${esc(modBadge(modById(g.mod)))}</span>` : ""} <span class="c">&times;${recs.length}</span></h3></div>${g.subtext ? `<p class="gnote">${esc(g.subtext)}</p>` : ""}<div class="craft-recipes">${recs.map(recipeCard).join("")}</div></div>`;
     });
     if (inner) html += `<div class="grp craft-cat">${esc(label)}</div>${inner}`;
   });
@@ -1016,17 +1060,17 @@ async function renderDetection() {
 }
 
 /* ---------- enemies tab ---------- */
-let ENEMYDATA = null;
 const bNum = (n) => Number(n).toLocaleString();
 const mdb = (s) => esc(s == null ? "" : String(s)).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*([^*\n]+?)\*/g, "<i>$1</i>").replace(/`([^`]+)`/g, "<code>$1</code>");
 const CAL_LABEL = { "545": "5.45mm", "556": "5.56mm", "762": "7.62mm", "919": "9mm", "308": ".308", "40m": "40mm", "12G": "12ga" };
 
 async function renderEnemies() {
   view.classList.remove("detail-open");
-  if (!ENEMYDATA) {
+  if (!ENEMY_V) {
     view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading enemy intel&hellip;</div>`;
-    try { ENEMYDATA = await (await fetch("data/enemies.json", { cache: "no-cache" })).json(); }
+    try { ENEMY_V = await (await fetch("data/enemies.json", { cache: "no-cache" })).json(); }
     catch (e) { view.innerHTML = `<p class="empty">Could not load enemy data.<br><small>${esc(e.message)}</small></p>`; return; }
+    ENEMYDATA = composeEnemies(activeMods());
   }
   drawEnemies();
 }
@@ -1050,6 +1094,7 @@ function unitCard(b) {
       <span class="badge gold">${esc(b.faction)}</span>
       <span class="badge olive">${esc(b.type)}</span>
       ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}
+      ${(() => { const m = enemyMod(b.id); return m ? `<span class="badge rust" title="Changed by ${esc(m.meta.name)}">${esc(modBadge(m))}</span>` : ""; })()}
       ${b.threat ? `<button class="badge boss-threat" data-goai title="The enemy AI's internal target-priority tier for this unit — an input to how squads pick who to shoot, not a danger rating. Click for how it works.">AI priority: ${esc(b.threat)} <small>(internal)</small></button>` : ""}</div>`;
   if (isBoss && b.blurb) h += `<p class="boss-blurb">${mdb(b.blurb)}</p>`;
   if (b.desc) h += `<p class="boss-desc">${mdb(b.desc)}</p>`;
@@ -1065,7 +1110,11 @@ function unitCard(b) {
   // sentinel-HP bosses (defeated by mechanics/evasion, not damage), or "Heavy" for tanks.
   let durLabel = "Health", durVal = null;
   const dpKill = b.codexKill && (b.codexKill.method === "detpack" || b.codexKill.method === "uncertain");
-  if (dpKill) {
+  if (b.codexKill && b.codexKill.method === "gunfire" && b.bodyHp) {
+    // a mod (e.g. Unkillables) de-invincibled this boss: finite, gunfire-killable body pool
+    durLabel = "Body HP"; durVal = `${bNum(b.bodyHp)} <small class="dim">killable</small>`;
+  }
+  else if (dpKill) {
     durLabel = "Body HP";
     const hp = b.realHp ? bNum(b.realHp) : "1,000,000,000";
     durVal = `<span class="help" title="Datamined body HP = ${hp} — gunfire can't drop it. You stun it (only your damage builds stagger) and plant Special Units DetPacks while it's stunned; 3 plants trigger a scripted kill that bypasses the HP pool, then you drill the corpse for the Codex.">&infin; <small class="dim">DetPack kill</small></span>`;
@@ -1149,11 +1198,12 @@ function drawEnemies() {
   const cat = state.enemyCat || "all";
   const shown = D.units.filter((u) => (cat === "all" || u.category === cat) && enemyMatches(u));
 
-  let html = `<div class="guide">
+  let html = `<div class="guide">` + datasetBar() + `
     <div class="callout" style="margin-top:16px"><b>Datamined from each unit's own AI, not the forums.</b>
       Threat class, health, the stun threshold, melee &amp; dash damage, the grab that instakills you, and every mounted gun &mdash; read straight from the game's <code>FWAIPawnDefinition</code> files. The 10 bosses keep hand-written tactics; every other unit is a datamined summary.</div>
     <div class="callout" style="border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
       <b>Stagger</b> &mdash; burst that much damage in and it's stunned (only <em>your</em> damage counts &mdash; one railgun shot can freeze what a magazine can't); the big machines are effectively <em>immune</em>. <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so <em>staying healthy</em> is a defence.</div>`;
+  (D._modNotes || []).forEach((mn) => { const m = modById(mn.mod); html += `<div class="callout" style="border-left-color:var(--rust)"><b>${esc(m ? m.meta.name : "Mod")}.</b> ${mdb(mn.note)}</div>`; });
 
   const chip = (id, label, n) => `<button class="chip ${cat === id ? "on" : ""}" data-enemycat="${esc(id)}">${esc(label)}${n != null ? ` <small>${n}</small>` : ""}</button>`;
   html += `<div class="chips enemy-cats">` + chip("all", "All", D.units.length)

@@ -8,6 +8,12 @@
   "nexus": 123,
   "nexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/123",
   "game": "0.9.3.9.2",
+  "pages": [
+   "weapons",
+   "ammo",
+   "attachments",
+   "crafting"
+  ],
   "note": "Community rebalance of the heavy rifles (HRF01-05) + VKS Vykhlop: big damage buffs, retuned magazines, a 5x headshot multiplier on 12.7 subsonic & 7.62x54R, new VKS magazines and scopes, and craftable optics / .50PST ammo. Overlaid on the datamined vanilla dataset."
  },
  "weapons": {
