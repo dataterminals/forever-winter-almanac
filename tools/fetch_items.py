@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 """
+SUPERSEDED — do not run. Kept for the Cargo-query code, which is still useful.
+
+data/economy.json is now generated from the shipping game files by the datamine
+repo's tools/parse_items.py (ItemDetailsData + the EconV2 value tables). This
+script writes to the same path from the community wiki, so running it would
+silently replace datamined values with scraped ones — the exact drift that put
+16 wrong weapon damages on the site before weapons.json was repointed at the
+datamine. It now refuses to write; see main().
+
+Historical description follows.
+
 Rebuild data/economy.json from the Forever Winter wiki.
 
 Unlike the other fetchers (which scrape per-page infoboxes), the wiki keeps a
@@ -138,6 +149,13 @@ def is_loot(size, tokens):
 
 
 def main():
+    if "--i-know-this-overwrites-datamined-data" not in sys.argv:
+        raise SystemExit(
+            "refusing to run: data/economy.json is datamined now.\n"
+            "  Regenerate it with the datamine repo instead:\n"
+            "      python tools/parse_items.py   (in forever-winter-datamine)\n"
+            "  This script scrapes the community wiki and would overwrite the\n"
+            "  authoritative values with drifted ones.")
     print("Querying the Items Cargo table …")
     raw = cargo_items()
     print(f"  {len(raw)} items in the table")

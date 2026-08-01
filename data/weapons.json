@@ -1,10 +1,32 @@
 {
- "source": "theforeverwinter.wiki.gg weapon infoboxes (Category:Weapons)",
- "note": "Community wiki stats, flagged WIP by the devs — see the Stats tab for what each actually does. Cross-checked against game files where available (AK/RFL01 wiki damage 150 & RoF 11.11 match the datamined values exactly). Heavy rifles (HRF01-05, RFL29) damage/magazine/weight verified against datamined DataAssets + WeaponsDetailsData 2026-07; AT-43 MASS damage corrected 20000->10000 (DA WeaponDamage).",
+ "source": "The Forever Winter shipping game files (build 24501089) — DA_WPN_PLAYER_* weapon definitions + WeaponsDetailsData + ValueV2_WEAPONS, decoded with CUE4Parse; theforeverwinter.wiki.gg infoboxes for display name, class and the three non-stored handling stats",
+ "note": "Damage, rate of fire, magazine, weight, value, XP and calibre come from the game files and are authoritative. Accuracy, recoil and stability are not stored fields — they are the wiki's transcription of the in-game aggregate, which the devs flag as WIP. Shotgun `damage` is PER PELLET, as the game stores it; `pellets` and `damagePerShot` give the whole-spread total.",
+ "build": 24501089,
+ "provenance": {
+  "datamined": [
+   "damage",
+   "pellets",
+   "damagePerShot",
+   "rof",
+   "magazine",
+   "weight",
+   "value",
+   "xp",
+   "caliber"
+  ],
+  "wiki": [
+   "class",
+   "accuracy",
+   "recoil",
+   "stability",
+   "firemodes",
+   "ammo"
+  ]
+ },
  "weapons": {
   "36M AntiTank": {
    "class": "Heavy Rifles",
-   "damage": 2000.0,
+   "damage": 1800.0,
    "magazine": 10,
    "accuracy": 88.96,
    "stability": 0.33,
@@ -14,8 +36,9 @@
    "weight": 54.7,
    "value": 192000,
    "ammo": "20x105mm Anti-Tank",
-   "xp": 125,
-   "internal": "HRF02"
+   "xp": 2067,
+   "internal": "HRF02",
+   "caliber": "20mm"
   },
   "47 TYP": {
    "class": "Rifles",
@@ -29,8 +52,9 @@
    "weight": 4.78,
    "value": 82000,
    "ammo": "7.62x39mm Ammo",
-   "xp": 1063,
-   "internal": "RFL10"
+   "xp": 702,
+   "internal": "RFL10",
+   "caliber": "762"
   },
   "87 Target": {
    "class": "Pistols",
@@ -41,15 +65,16 @@
    "recoil": 1.0,
    "rof": 10.0,
    "firemodes": "Semi",
-   "weight": 1.16,
+   "weight": 1.162,
    "value": 5000,
    "ammo": "9x19mm Ammo",
-   "xp": 71,
-   "internal": "PST03"
+   "xp": 224,
+   "internal": "PST03",
+   "caliber": "919"
   },
   "AA12": {
    "class": "Shotguns",
-   "damage": 1200.0,
+   "damage": 6.0,
    "magazine": 8,
    "accuracy": 75.71,
    "stability": 1.0,
@@ -59,8 +84,11 @@
    "weight": 7.3,
    "value": 82000,
    "ammo": "12-Gauge Buckshot",
-   "xp": 774,
-   "internal": "SHG05"
+   "xp": 2466,
+   "internal": "SHG05",
+   "pellets": 20,
+   "damagePerShot": 120.0,
+   "caliber": "12g"
   },
   "AK": {
    "class": "Rifles",
@@ -74,8 +102,9 @@
    "weight": 3.63,
    "value": 42000,
    "ammo": "5.45x39mm Ammo, 5.45x39mm Cryo Ammo, 5.45x39mm Ammo Surplus",
-   "xp": 173,
-   "internal": "RFL01"
+   "xp": 542,
+   "internal": "RFL01",
+   "caliber": "545"
   },
   "APC9 Pro": {
    "class": "Submachine Guns",
@@ -89,8 +118,9 @@
    "weight": 2.68,
    "value": 14000,
    "ammo": "9x19mm Ammo",
-   "xp": 121,
-   "internal": "SMG05"
+   "xp": 390,
+   "internal": "SMG05",
+   "caliber": "919"
   },
   "AT-43 MASS": {
    "class": "Heavy Rifles",
@@ -104,8 +134,9 @@
    "weight": 3.29,
    "value": 92000,
    "ammo": ".50 PST Ammo",
-   "xp": 0,
-   "internal": "HRF05"
+   "xp": 865,
+   "internal": "HRF05",
+   "caliber": "50PST"
   },
   "C96": {
    "class": "Pistols",
@@ -119,12 +150,13 @@
    "weight": 1.13,
    "value": 4000,
    "ammo": "9x19mm Ammo",
-   "xp": 63,
-   "internal": "PST04"
+   "xp": 199,
+   "internal": "PST04",
+   "caliber": "919"
   },
   "CLAW": {
    "class": "Shotguns",
-   "damage": 1320.0,
+   "damage": 6.6,
    "magazine": 8,
    "accuracy": 75.71,
    "stability": 1.0,
@@ -135,7 +167,10 @@
    "value": 108000,
    "ammo": "12-Gauge Buckshot",
    "xp": 2698,
-   "internal": "SHG06"
+   "internal": "SHG06",
+   "pellets": 20,
+   "damagePerShot": 132.0,
+   "caliber": "12g"
   },
   "G-L 19": {
    "class": "Pistols",
@@ -144,13 +179,14 @@
    "accuracy": 87.81,
    "stability": 3.0,
    "recoil": 1.0,
-   "rof": 10.0,
+   "rof": 13.33,
    "firemodes": "Semi",
    "weight": 0.67,
    "value": 3000,
    "ammo": "9x19mm Ammo",
-   "xp": 81,
-   "internal": "PST10"
+   "xp": 261,
+   "internal": "PST10",
+   "caliber": "919"
   },
   "G36": {
    "class": "Rifles",
@@ -164,8 +200,9 @@
    "weight": 3.63,
    "value": 52000,
    "ammo": "5.56x45mm Ammo",
-   "xp": 184,
-   "internal": "RFL16"
+   "xp": 592,
+   "internal": "RFL16",
+   "caliber": "556"
   },
   "GM6": {
    "class": "Heavy Rifles",
@@ -179,8 +216,9 @@
    "weight": 10.5,
    "value": 124000,
    "ammo": ".50 BMG",
-   "xp": 86,
-   "internal": "HRF04"
+   "xp": 1724,
+   "internal": "HRF04",
+   "caliber": "50cal"
   },
   "Grenade Launcher": {
    "class": "Grenade Launchers",
@@ -194,8 +232,9 @@
    "weight": 5.3,
    "value": 266000,
    "ammo": "40mm Grenade",
-   "xp": 2034,
-   "internal": "GRL01"
+   "xp": 6353,
+   "internal": "GRL01",
+   "caliber": "40mmHE"
   },
   "Kriss Vector 45": {
    "class": "Submachine Guns",
@@ -209,12 +248,13 @@
    "weight": 3.6,
    "value": 42000,
    "ammo": ".45 ACP Ammo",
-   "xp": 400,
-   "internal": "SMG01"
+   "xp": 1252,
+   "internal": "SMG01",
+   "caliber": "45ACP"
   },
   "LMG-P": {
    "class": "Light Machinegun",
-   "damage": 551.25,
+   "damage": 525.0,
    "magazine": 100,
    "accuracy": 87.82,
    "stability": 0.33,
@@ -225,7 +265,8 @@
    "value": 134000,
    "ammo": "7.62x54mmR Ammo",
    "xp": 1208,
-   "internal": "LMG06"
+   "internal": "LMG06",
+   "caliber": "54R"
   },
   "M16": {
    "class": "Rifles",
@@ -239,8 +280,9 @@
    "weight": 3.3,
    "value": 32000,
    "ammo": "5.56x45mm Ammo",
-   "xp": 150,
-   "internal": "RFL23"
+   "xp": 479,
+   "internal": "RFL23",
+   "caliber": "556"
   },
   "M4A1": {
    "class": "Rifles",
@@ -254,12 +296,13 @@
    "weight": 3.51,
    "value": 56000,
    "ammo": "5.56x45mm Ammo",
-   "xp": 189,
-   "internal": "RFL12"
+   "xp": 605,
+   "internal": "RFL12",
+   "caliber": "556"
   },
   "M60": {
    "class": "Light Machinegun",
-   "damage": 306.25,
+   "damage": 290.0,
    "magazine": 100,
    "accuracy": 87.82,
    "stability": 2.99,
@@ -269,8 +312,9 @@
    "weight": 10.5,
    "value": 128000,
    "ammo": ".308 Ammo",
-   "xp": 305,
-   "internal": "LMG03"
+   "xp": 971,
+   "internal": "LMG03",
+   "caliber": "308"
   },
   "M79 Sawed-off": {
    "class": "Pistols, Grenade Launchers",
@@ -281,15 +325,16 @@
    "recoil": 1.0,
    "rof": 2.0,
    "firemodes": "Semi",
-   "weight": 2.2,
+   "weight": 2.197,
    "value": 175000,
    "ammo": "40mm Grenade",
-   "xp": 727,
-   "internal": "PST07"
+   "xp": 2317,
+   "internal": "PST07",
+   "caliber": "40mmHE"
   },
   "MG34": {
    "class": "Light Machinegun",
-   "damage": 306.25,
+   "damage": 290.0,
    "magazine": 75,
    "accuracy": 87.81,
    "stability": 3.0,
@@ -299,8 +344,9 @@
    "weight": 12.1,
    "value": 104000,
    "ammo": ".308 Ammo",
-   "xp": 260,
-   "internal": "LMG01"
+   "xp": 830,
+   "internal": "LMG01",
+   "caliber": "308"
   },
   "Mateo Model J": {
    "class": "Pistols",
@@ -315,7 +361,8 @@
    "value": 26000,
    "ammo": ".357 Magnum Ammo",
    "xp": 316,
-   "internal": "PST08"
+   "internal": "PST08",
+   "caliber": "357"
   },
   "NTW-20": {
    "class": "Heavy Rifles",
@@ -329,23 +376,25 @@
    "weight": 34.0,
    "value": 148000,
    "ammo": ".50 BMG",
-   "xp": 86,
-   "internal": "HRF03"
+   "xp": 1943,
+   "internal": "HRF03",
+   "caliber": "50cal"
   },
   "P90": {
    "class": "Submachine Guns",
    "damage": 110.0,
-   "magazine": 35,
+   "magazine": 50,
    "accuracy": 87.81,
    "stability": 3.0,
    "recoil": 1.0,
-   "rof": 14.29,
+   "rof": 20.0,
    "firemodes": "Semi, Burst, Auto",
    "weight": 2.6,
    "value": 36000,
    "ammo": "5.7x28mm Ammo",
-   "xp": 187,
-   "internal": "SMG06"
+   "xp": 608,
+   "internal": "SMG06",
+   "caliber": "57x28"
   },
   "PM-9": {
    "class": "Submachine Guns",
@@ -359,8 +408,9 @@
    "weight": 2.8,
    "value": 16000,
    "ammo": "9x19mm Ammo",
-   "xp": 122,
-   "internal": "SMG03"
+   "xp": 386,
+   "internal": "SMG03",
+   "caliber": "919"
   },
   "PP-19 Vityaz": {
    "class": "Submachine Guns",
@@ -374,8 +424,9 @@
    "weight": 2.9,
    "value": 24000,
    "ammo": "9x19mm Ammo",
-   "xp": 139,
-   "internal": "SMG07"
+   "xp": 435,
+   "internal": "SMG07",
+   "caliber": "919"
   },
   "PPSH-41": {
    "class": "Submachine Guns",
@@ -389,12 +440,13 @@
    "weight": 5.45,
    "value": 18000,
    "ammo": "9x19mm Ammo",
-   "xp": 158,
-   "internal": "SMG02"
+   "xp": 509,
+   "internal": "SMG02",
+   "caliber": "919"
   },
   "Painless": {
    "class": "Heavy Machinegun",
-   "damage": 525.0,
+   "damage": 472.5,
    "magazine": 500,
    "accuracy": 87.81,
    "stability": 3.0,
@@ -404,8 +456,9 @@
    "weight": 17.82,
    "value": 178000,
    "ammo": "Nitro Express",
-   "xp": 2034,
-   "internal": "HMG01"
+   "xp": 3370,
+   "internal": "HMG01",
+   "caliber": "NitroExpress"
   },
   "PnP-2K": {
    "class": "Submachine Guns",
@@ -417,44 +470,47 @@
    "rof": 10.0,
    "firemodes": "Semi, Burst, Auto",
    "weight": 1.5,
-   "value": 38000,
+   "value": 54000,
    "ammo": "9x19mm Ammo",
-   "xp": 1063,
-   "internal": "SMG09"
+   "xp": 502,
+   "internal": "SMG09",
+   "caliber": "919"
   },
   "R11 RSASS": {
    "class": "Rifles",
-   "damage": 175.0,
+   "damage": 300.0,
    "magazine": 20,
    "accuracy": 88.97,
    "stability": 2.96,
    "recoil": 1.0,
    "rof": 11.63,
    "firemodes": "Semi",
-   "weight": 4.92,
+   "weight": 4.922,
    "value": 110000,
    "ammo": ".308 Ammo",
-   "xp": 166,
-   "internal": "RFL19"
+   "xp": 519,
+   "internal": "RFL19",
+   "caliber": "308"
   },
   "R8": {
    "class": "Pistols",
-   "damage": 150.0,
+   "damage": 540.0,
    "magazine": 8,
    "accuracy": 87.81,
    "stability": 3.0,
    "recoil": 1.0,
    "rof": 10.0,
    "firemodes": "Semi",
-   "weight": 1.03,
+   "weight": 1.029,
    "value": 16000,
    "ammo": ".357 Magnum Ammo",
-   "xp": 72,
-   "internal": "PST05"
+   "xp": 230,
+   "internal": "PST05",
+   "caliber": "357"
   },
   "RPD": {
    "class": "Light Machinegun",
-   "damage": 306.25,
+   "damage": 290.0,
    "magazine": 75,
    "accuracy": 87.81,
    "stability": 3.0,
@@ -464,13 +520,14 @@
    "weight": 7.4,
    "value": 114000,
    "ammo": "7.62x39mm Ammo",
-   "xp": 306,
-   "internal": "LMG04"
+   "xp": 976,
+   "internal": "LMG04",
+   "caliber": "762"
   },
   "RPK": {
    "class": "Rifles",
    "damage": 175.0,
-   "magazine": 30,
+   "magazine": 40,
    "accuracy": 88.12,
    "stability": 2.47,
    "recoil": 1.0,
@@ -479,12 +536,13 @@
    "weight": 4.8,
    "value": 75000,
    "ammo": "7.62x39mm Ammo",
-   "xp": 264,
-   "internal": "RFL01B"
+   "xp": 851,
+   "internal": "RFL01B",
+   "caliber": "762"
   },
   "S12": {
    "class": "Shotguns",
-   "damage": 3000.0,
+   "damage": 15.0,
    "magazine": 6,
    "accuracy": 75.71,
    "stability": 1.0,
@@ -494,8 +552,11 @@
    "weight": 4.4,
    "value": 28000,
    "ammo": "12-Gauge Buckshot",
-   "xp": 282,
-   "internal": "SHG01"
+   "xp": 910,
+   "internal": "SHG01",
+   "pellets": 20,
+   "damagePerShot": 300.0,
+   "caliber": "12g"
   },
   "SA58": {
    "class": "Rifles",
@@ -509,23 +570,25 @@
    "weight": 3.74,
    "value": 72000,
    "ammo": ".308 Ammo",
-   "xp": 165,
-   "internal": "RFL15"
+   "xp": 522,
+   "internal": "RFL15",
+   "caliber": "308"
   },
   "SAW": {
    "class": "Light Machinegun",
-   "damage": 262.5,
+   "damage": 250.0,
    "magazine": 200,
    "accuracy": 87.83,
    "stability": 2.98,
    "recoil": 1.0,
-   "rof": 11.76,
+   "rof": 15.15,
    "firemodes": "Semi, Burst, Auto",
    "weight": 7.5,
    "value": 142000,
    "ammo": "5.56x45mm Ammo",
-   "xp": 360,
-   "internal": "LMG02"
+   "xp": 1149,
+   "internal": "LMG02",
+   "caliber": "556"
   },
   "SCAR": {
    "class": "Heavy Rifles",
@@ -539,8 +602,9 @@
    "weight": 3.29,
    "value": 92000,
    "ammo": ".50 BMG",
-   "xp": 97,
-   "internal": "HRF01"
+   "xp": 865,
+   "internal": "HRF01",
+   "caliber": "50cal"
   },
   "SOG": {
    "class": "Pistols",
@@ -551,11 +615,12 @@
    "recoil": 1.0,
    "rof": 10.0,
    "firemodes": "Semi",
-   "weight": 0.94,
+   "weight": 0.935,
    "value": 11000,
    "ammo": ".45 ACP Ammo",
-   "xp": 96,
-   "internal": "PST02"
+   "xp": 310,
+   "internal": "PST02",
+   "caliber": "45ACP"
   },
   "SVD": {
    "class": "Rifles",
@@ -569,8 +634,9 @@
    "weight": 5.3,
    "value": 88000,
    "ammo": "7.62x54mmR Ammo",
-   "xp": 171,
-   "internal": "RFL20"
+   "xp": 552,
+   "internal": "RFL20",
+   "caliber": "54R"
   },
   "Spectre M4": {
    "class": "Submachine Guns",
@@ -584,12 +650,13 @@
    "weight": 2.9,
    "value": 38000,
    "ammo": ".45 ACP Ammo",
-   "xp": 330,
-   "internal": "SMG08"
+   "xp": 1063,
+   "internal": "SMG08",
+   "caliber": "45ACP"
   },
   "Surplus Rifle": {
    "class": "Rifles, Surplus weapons",
-   "damage": 150.0,
+   "damage": 140.0,
    "magazine": 10,
    "accuracy": 87.81,
    "stability": 3.0,
@@ -599,11 +666,12 @@
    "weight": 3.47,
    "value": 0,
    "ammo": "5.45x39mm Ammo, 5.45x39mm Cryo Ammo, 5.45x39mm Ammo Surplus",
-   "internal": "RFL01"
+   "internal": "RFL01a",
+   "caliber": "545"
   },
   "Surplus Shotgun": {
    "class": "Shotguns, Surplus weapons",
-   "damage": 3000.0,
+   "damage": 13.5,
    "magazine": 5,
    "accuracy": 75.71,
    "stability": 1.0,
@@ -613,7 +681,10 @@
    "weight": 3.6,
    "value": 0,
    "ammo": "12-Gauge Buckshot",
-   "internal": "SHG02"
+   "internal": "SHG02",
+   "pellets": 20,
+   "damagePerShot": 270.0,
+   "caliber": "12g"
   },
   "TKB-0146": {
    "class": "Rifles",
@@ -627,12 +698,13 @@
    "weight": 3.8,
    "value": 38000,
    "ammo": "5.45x39mm Ammo, 5.45x39mm Cryo Ammo, 5.45x39mm Ammo Surplus",
-   "xp": 162,
-   "internal": "RFL30"
+   "xp": 522,
+   "internal": "RFL30",
+   "caliber": "545"
   },
   "USAS-12": {
    "class": "Shotguns",
-   "damage": 1200.0,
+   "damage": 6.0,
    "magazine": 8,
    "accuracy": 75.72,
    "stability": 1.0,
@@ -642,8 +714,11 @@
    "weight": 5.45,
    "value": 74000,
    "ammo": "12-Gauge Buckshot",
-   "xp": 1233,
-   "internal": "SHG03"
+   "xp": 3888,
+   "internal": "SHG03",
+   "pellets": 20,
+   "damagePerShot": 120.0,
+   "caliber": "12g"
   },
   "USP": {
    "class": "Pistols",
@@ -657,12 +732,13 @@
    "weight": 0.82,
    "value": 12000,
    "ammo": ".45 ACP Ammo",
-   "xp": 129,
-   "internal": "PST01"
+   "xp": 418,
+   "internal": "PST01",
+   "caliber": "45ACP"
   },
   "VEPR-12": {
    "class": "Shotguns",
-   "damage": 1200.0,
+   "damage": 6.0,
    "magazine": 10,
    "accuracy": 75.71,
    "stability": 1.0,
@@ -672,13 +748,16 @@
    "weight": 4.2,
    "value": 92000,
    "ammo": "12-Gauge Buckshot",
-   "xp": 890,
-   "internal": "SHG04"
+   "xp": 2808,
+   "internal": "SHG04",
+   "pellets": 20,
+   "damagePerShot": 120.0,
+   "caliber": "12g"
   },
   "VH-Ambi 2": {
    "class": "Rifles",
    "damage": 150.0,
-   "magazine": 30,
+   "magazine": 20,
    "accuracy": 87.81,
    "stability": 0.33,
    "recoil": 21.98,
@@ -688,7 +767,8 @@
    "value": 92000,
    "ammo": "5.56x45mm Ammo",
    "xp": 642,
-   "internal": "RFL02"
+   "internal": "RFL02",
+   "caliber": "556"
   },
   "VIK-32L": {
    "class": "Rifles",
@@ -703,11 +783,12 @@
    "value": 72000,
    "ammo": "5.56x45mm Ammo",
    "xp": 615,
-   "internal": "RFL05"
+   "internal": "RFL05",
+   "caliber": "556"
   },
   "VKS Vykhlop": {
    "class": "Rifles",
-   "damage": 175.0,
+   "damage": 600.0,
    "magazine": 5,
    "accuracy": 87.82,
    "stability": 3.0,
@@ -717,8 +798,9 @@
    "weight": 7.0,
    "value": 92000,
    "ammo": "12.7x55mm Subsonic Ammo",
-   "xp": 58,
-   "internal": "RFL29"
+   "xp": 748,
+   "internal": "RFL29",
+   "caliber": "127"
   },
   "Viper": {
    "class": "Pistols",
@@ -732,8 +814,9 @@
    "weight": 2.0,
    "value": 6000,
    "ammo": "9x19mm Ammo",
-   "xp": 89,
-   "internal": "PST06"
+   "xp": 279,
+   "internal": "PST06",
+   "caliber": "919"
   },
   "WLT MPL": {
    "class": "Submachine Guns",
@@ -747,8 +830,9 @@
    "weight": 2.8,
    "value": 24000,
    "ammo": "9x19mm Ammo",
-   "xp": 114,
-   "internal": "SMG04"
+   "xp": 367,
+   "internal": "SMG04",
+   "caliber": "919"
   },
   "XM25": {
    "class": "Grenade Launchers",
@@ -760,10 +844,11 @@
    "rof": 3.0,
    "firemodes": "Semi",
    "weight": 6.35,
-   "value": 324000,
+   "value": 266000,
    "ammo": "40mm Grenade",
-   "xp": 2034,
-   "internal": "GRL02"
+   "xp": 6353,
+   "internal": "GRL02",
+   "caliber": "40mmHE"
   }
  }
 }
