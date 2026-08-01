@@ -99,7 +99,7 @@ scraped from [theforeverwinter.wiki.gg](https://theforeverwinter.wiki.gg) and ca
 | `ammo` `economy` `enemies` `factions` `loot` | game files, build-stamped | datamine `tools/parse_*.py` |
 | `crafting` `rebalance` `unkillables` | game files | datamine `tools/parse_crafting.py`, `parse_unkillables.py` |
 | `weapons` | game files, **plus wiki** for name/class/accuracy/recoil/stability | `tools/fetch_weapons.py` |
-| `detection` | game files | curated by hand from the `AIDEF_Sensor_*` dumps |
+| `detection` | game files, build-stamped | datamine `tools/parse_detection.py` |
 | `drops-model` | game files + curated prose | curated; `parse_crate_types.py` is the diff reference |
 | `attachments` `parts` | **wiki** | `tools/fetch_attachments.py`, `fetch_parts.py` |
 | `maps` + per-map JSON | **wiki** (DataMaps) | `tools/fetch_maps.py` |
@@ -188,7 +188,8 @@ data/loot.json                      source-first drop index — what each crate/
                                     Debris"), derived from the live loot objects — see the note below.
 data/drops-model.json               how drops work: kills leave a searchable container, crate placement,
                                     tier = credit budget, quest spawn rates (datamined + curated)
-data/detection.json                 datamined FWAI awareness model
+data/detection.json                 datamined FWAI awareness model. Ranges/modifiers/noise are derived;
+                                    unit names and tactical notes are editorial — see its `provenance`
 data/maps.json                      map index; data/<map>.json are the per-map sources
 assets/img/*                        bundled map tiles, marker icons, popup photos
 assets/vendor/                      Leaflet (vendored for offline use)

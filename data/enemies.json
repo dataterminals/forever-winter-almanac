@@ -251,7 +251,7 @@
    "senses": {
     "visionNear": 14,
     "visionFar": 40,
-    "coneH": 134,
+    "coneH": 134.5,
     "hearing": 11.5,
     "esp": "base",
     "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
