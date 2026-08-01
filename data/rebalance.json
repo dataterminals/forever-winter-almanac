@@ -5,9 +5,13 @@
   "short": "Heavy Rifles",
   "badge": "Rebalance",
   "author": "Meganiikko",
+  "fixBy": "dataterminals",
   "nexus": 123,
   "nexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/123",
-  "game": "0.9.3.9.2",
+  "originalNexus": 76,
+  "originalNexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/76",
+  "status": "v2.0 rebuilt for this build — not yet released; Nexus #123 currently hosts v1.1, which build 24501089 disabled.",
+  "game": "24501089",
   "pages": [
    "weapons",
    "ammo",
@@ -19,10 +23,10 @@
  "weapons": {
   "byInternal": {
    "HRF01": {
-    "damage": 730
+    "damage": 780
    },
    "HRF02": {
-    "damage": 28000,
+    "damage": 27000,
     "magazine": 3
    },
    "HRF03": {
@@ -39,7 +43,7 @@
     "weight": 23.29
    },
    "RFL29": {
-    "damage": 375,
+    "damage": 650,
     "magazine": 14
    }
   }
@@ -87,8 +91,8 @@
    {
     "weapon": "VKS VYKHLOP",
     "slot": "Magazine",
-    "name": "VKS Magazine A",
-    "short": "Mag A",
+    "name": "VKS Magazine B",
+    "short": "Mag B",
     "level": 0,
     "effects": {
      "mag": 14
@@ -97,8 +101,8 @@
    {
     "weapon": "VKS VYKHLOP",
     "slot": "Magazine",
-    "name": "VKS Magazine B",
-    "short": "Mag B",
+    "name": "VKS Magazine C",
+    "short": "Mag C",
     "level": 1,
     "effects": {
      "mag": 19

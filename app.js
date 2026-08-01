@@ -250,7 +250,7 @@ function datasetBar() {
   return rel.map((m) => {
     const on = !!state.mods[m.meta.id], mt = m.meta;
     const note = on
-      ? `Showing <b>${esc(mt.name)}</b>${mt.nexusUrl ? ` &middot; <a href="${esc(mt.nexusUrl)}" target="_blank" rel="noopener">Nexus&nbsp;#${esc(mt.nexus || "")}</a>` : ""}`
+      ? `Showing <b>${esc(mt.name)}</b>${mt.nexusUrl ? ` &middot; <a href="${esc(mt.nexusUrl)}" target="_blank" rel="noopener">Nexus&nbsp;#${esc(mt.nexus || "")}</a>` : ""}${mt.status ? ` &middot; <span class="ds-status">${esc(mt.status)}</span>` : ""}`
       : `Vanilla, datamined. Toggle to overlay <b>${esc(mt.short)}</b>.`;
     return `<div class="ds-bar${on ? " on" : ""}">
       <div class="ds-modes" role="group" aria-label="${esc(mt.name)} dataset">
