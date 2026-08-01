@@ -1480,11 +1480,14 @@ function dropModelPanel() {
     <span class="dm-budget-scale">${tiers.map((t) => `<span class="dm-b"><b>${t}</b> ${kcr(b[t])}</span>`).join('<span class="dm-arrow">&rarr;</span>')}</span>
   </div>`;
 
+  // cap/pool are a single number, or a range when the type's tiers differ (the Armaments Bin
+  // draws from 17 items at one tier and 18 at the others)
+  const span = (v) => (Array.isArray(v) ? `${v[0]}&ndash;${v[v.length - 1]}` : v);
   const typeRow = (c) => {
     const name = c.file === "gear"
       ? `<button class="dm-type" data-gotab="${esc(c.tab)}">${esc(c.type)}</button> <button class="dm-gear" data-gotab="${esc(c.tab)}">${esc(c.tab)} tab &rarr;</button>`
       : `<button class="dm-type" data-gosrc="${esc(c.source)}">${esc(c.type)}</button>`;
-    return `<tr><td>${name}</td><td class="num">${c.cap}</td><td class="num">${c.pool}</td>
+    return `<tr><td>${name}</td><td class="num">${span(c.cap)}</td><td class="num">${span(c.pool)}</td>
       <td class="dm-inside">${mdb(c.inside)}</td></tr>`;
   };
   const typeTable = `<details class="loot-src dm-det" data-anchor="crate-types" open>
@@ -1499,13 +1502,14 @@ function dropModelPanel() {
   const entRow = (e) => `<tr>
     <td><button class="dm-type" data-gosrc="${esc(e.source)}">${esc(e.name)}</button></td>
     <td class="num">${e.cap}</td><td class="num">${e.pool}</td>
+    <td class="num">${e.minValue ? Number(e.minValue).toLocaleString() : "&mdash;"}</td>
     <td class="dm-inside">${mdb(e.note || "")}</td></tr>`;
   const entTable = (D.entityDrops || []).length ? `<details class="loot-src dm-det" data-anchor="entity-drops">
     <summary class="loot-sum"><span class="loot-src-name">What a kill leaves behind</span>
       <span class="c">${D.entityDrops.length} debris types</span></summary>
     <p class="gnote dm-gnote">${mdb(D.entityNote || "")}</p>
     <div class="gtable-wrap"><table class="gtable dm-type-table">
-      <thead><tr><th>Container</th><th class="num">Cap</th><th class="num">Pool</th><th>Notes</th></tr></thead>
+      <thead><tr><th>Container</th><th class="num">Cap</th><th class="num">Pool</th><th class="num" title="Guaranteed minimum credit value — a dash means the wreck can come up empty">Floor</th><th>Notes</th></tr></thead>
       <tbody>${D.entityDrops.map(entRow).join("")}</tbody></table></div></details>` : "";
 
   const pctVar = (c) => (c >= 1 ? "--olive" : c >= 0.6 ? "--gold" : "--rust");
