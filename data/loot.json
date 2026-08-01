@@ -1,7 +1,7 @@
 {
- "source": "The Forever Winter shipping game files (build 24097213) — RandomContainerLootData + DT_GachaLootTable + BP_RareLootManager, decoded with CUE4Parse.",
+ "source": "The Forever Winter shipping game files (build 24501089) — RandomContainerLootData + DT_GachaLootTable + BP_RareLootManager, decoded with CUE4Parse.",
  "generated_note": "Source-first loot index. Rarity is each item's share of that source's loot pool by weight (relative scarcity within one open) — not a per-raid probability. Only named loot items are shown; ammo & weapon mods live on their own tabs.",
- "build": 24097213,
+ "build": 24501089,
  "kinds": [
   {
    "key": "container",
@@ -3028,6 +3028,33 @@
      "share": 1.35
     },
     {
+     "name": "Thermite",
+     "cr": 23575,
+     "cat": "Rare Loot",
+     "tier": "prime",
+     "byTier": {
+      "T1": {
+       "r": 1,
+       "s": 0.17
+      },
+      "T2": {
+       "r": 1,
+       "s": 0.2
+      },
+      "T3": {
+       "r": 3,
+       "s": 2.96
+      },
+      "T4": {
+       "r": 3,
+       "s": 2.25
+      }
+     },
+     "rarity": 3,
+     "rarityLabel": "Rare",
+     "share": 2.96
+    },
+    {
      "name": "Laser Rangefinder",
      "cr": 16400,
      "cat": "Salvage",
@@ -3235,33 +3262,6 @@
      "name": "Armorer's Wrench",
      "cr": 11787,
      "cat": "AT-43 Components",
-     "tier": "valuable",
-     "byTier": {
-      "T1": {
-       "r": 1,
-       "s": 0.17
-      },
-      "T2": {
-       "r": 1,
-       "s": 0.2
-      },
-      "T3": {
-       "r": 3,
-       "s": 2.96
-      },
-      "T4": {
-       "r": 3,
-       "s": 2.25
-      }
-     },
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 2.96
-    },
-    {
-     "name": "Thermite",
-     "cr": 11787,
-     "cat": "Rare Loot",
      "tier": "valuable",
      "byTier": {
       "T1": {
@@ -6465,6 +6465,15 @@
      "share": 0.35
     },
     {
+     "name": "Thermite",
+     "cr": 23575,
+     "cat": "Rare Loot",
+     "tier": "prime",
+     "rarity": 2,
+     "rarityLabel": "Very Rare",
+     "share": 0.35
+    },
+    {
      "name": "Organoid Memory Board",
      "cr": 21525,
      "cat": "Computer Parts",
@@ -6819,15 +6828,6 @@
      "name": "OLED",
      "cr": 11787,
      "cat": "Computer Parts",
-     "tier": "valuable",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.35
-    },
-    {
-     "name": "Thermite",
-     "cr": 11787,
-     "cat": "Rare Loot",
      "tier": "valuable",
      "rarity": 2,
      "rarityLabel": "Very Rare",
@@ -8608,6 +8608,15 @@
      "share": 3.76
     },
     {
+     "name": "Thermite",
+     "cr": 23575,
+     "cat": "Rare Loot",
+     "tier": "prime",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 4.18
+    },
+    {
      "name": "Toothpaste",
      "cr": 12300,
      "cat": "Rare Loot",
@@ -8615,15 +8624,6 @@
      "rarity": 4,
      "rarityLabel": "Uncommon",
      "share": 4.1
-    },
-    {
-     "name": "Thermite",
-     "cr": 11787,
-     "cat": "Rare Loot",
-     "tier": "valuable",
-     "rarity": 4,
-     "rarityLabel": "Uncommon",
-     "share": 4.18
     },
     {
      "name": "Camera Lens",
@@ -40328,6 +40328,26 @@
     "rarity": 2
    }
   ],
+  "Thermite": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (any container)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
+    "key": "ct-military",
+    "label": "Military Crate",
+    "kind": "container",
+    "rarity": 3
+   },
+   {
+    "key": "dogcrate",
+    "label": "Dog-Fetch Crate",
+    "kind": "dogcrate",
+    "rarity": 2
+   }
+  ],
   "Laser Rangefinder": [
    {
     "key": "ct-military",
@@ -40783,26 +40803,6 @@
    }
   ],
   "Armorer's Wrench": [
-   {
-    "key": "ct-military",
-    "label": "Military Crate",
-    "kind": "container",
-    "rarity": 3
-   },
-   {
-    "key": "dogcrate",
-    "label": "Dog-Fetch Crate",
-    "kind": "dogcrate",
-    "rarity": 2
-   }
-  ],
-  "Thermite": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-military",
     "label": "Military Crate",

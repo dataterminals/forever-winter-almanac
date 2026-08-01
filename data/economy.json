@@ -1,9 +1,9 @@
 {
- "source": "The Forever Winter shipping game files (build 24097213) — ItemDetailsData + EconV2 value tables, decoded with CUE4Parse",
+ "source": "The Forever Winter shipping game files (build 24501089) — ItemDetailsData + EconV2 value tables, decoded with CUE4Parse",
  "generated_note": "Datamined straight from the game — authoritative and ahead of the wiki. Raiding-loot economy: scavenge-and-sell items, excluding weapons, parts, attachments, ammo, rigs and containers (own tabs); keeps enemy-drop destroyed weapons.",
  "valueBasis": "credits = round(raw Value / 1.9512195122) — the game's Rep-2 / 100%-cost-efficiency reference",
  "divisor": 1.9512195122,
- "build": 24097213,
+ "build": 24501089,
  "tiers": [
   {
    "key": "junk",
@@ -42,16 +42,16 @@
    "label": "Valuable",
    "lo": 6000,
    "hi": 12000,
-   "count": 85,
-   "sumCr": 709758
+   "count": 84,
+   "sumCr": 697971
   },
   {
    "key": "prime",
    "label": "Prime",
    "lo": 12000,
    "hi": 25000,
-   "count": 45,
-   "sumCr": 735865
+   "count": 46,
+   "sumCr": 759440
   },
   {
    "key": "jackpot",
@@ -689,6 +689,21 @@
    "xp": 200,
    "quest": false,
    "loc": "Regions"
+  },
+  {
+   "name": "Thermite",
+   "cr": 23575,
+   "tier": "prime",
+   "cat": "rare-loot",
+   "catLabel": "Rare Loot",
+   "size": "Small",
+   "weight": 0.4,
+   "volume": 15.0,
+   "perVol": 1572,
+   "perWgt": 58938,
+   "xp": 400,
+   "quest": false,
+   "loc": "Tunnels & Regions"
   },
   {
    "name": "Organoid Memory Board",
@@ -1349,21 +1364,6 @@
    "xp": 100,
    "quest": false,
    "loc": "Tunnels"
-  },
-  {
-   "name": "Thermite",
-   "cr": 11787,
-   "tier": "valuable",
-   "cat": "rare-loot",
-   "catLabel": "Rare Loot",
-   "size": "Small",
-   "weight": 0.4,
-   "volume": 15.0,
-   "perVol": 786,
-   "perWgt": 29468,
-   "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
   },
   {
    "name": "Blood Packs",

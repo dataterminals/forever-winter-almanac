@@ -1,7 +1,7 @@
 {
- "source": "The Forever Winter shipping game files (build 24097213) — ItemDetailsData + ValueV2_AMMO + FW/Weapons/Weapon_V2/DT_CaliberToHeadshotMulti, decoded with CUE4Parse",
+ "source": "The Forever Winter shipping game files (build 24501089) — ItemDetailsData + ValueV2_AMMO + FW/Weapons/Weapon_V2/DT_CaliberToHeadshotMulti, decoded with CUE4Parse",
  "note": "Every ammunition type in the game, merged from the item, value and headshot tables. Headshot damage is a per-caliber multiplier that lives on the AMMO, not the gun (1.5x baseline). Value/XP are the sell price and extraction experience per unit.",
- "build": 24097213,
+ "build": 24501089,
  "headshotBaseline": 1.5,
  "categories": [
   {
@@ -200,8 +200,8 @@
    "name": "7.62x54mmR",
    "category": "battle",
    "weaponKey": "54R",
-   "headshot": 1.5,
-   "band": "base",
+   "headshot": 3.0,
+   "band": "high",
    "value": 400,
    "xp": 2,
    "weight": 0.019,
