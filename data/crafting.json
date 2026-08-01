@@ -1,6 +1,7 @@
 {
- "source": "Datamined DT_ManufactoringRecipies + DT_ManufactoringGroups (The Forever Winter 0.9.3.9.2); ingredient/product names via DT_TagToRowHandle -> ItemDetailsData/DanglyDetailsData.",
+ "source": "The Forever Winter shipping game files (build 24501089) — DT_ManufactoringRecipies + DT_ManufactoringGroups, decoded with CUE4Parse; ingredient/product names via DT_TagToRowHandle -> ItemDetailsData/DanglyDetailsData.",
  "note": "Vanilla crafting/manufacturing recipes as decoded from the game. Craft times are real-time. Use the dataset toggle to overlay the Heavy Rifles Rebalance recipes.",
+ "build": 24501089,
  "categoryOrder": [
   {
    "key": "ammo",
