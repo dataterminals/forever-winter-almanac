@@ -38,7 +38,8 @@ const modById = (id) => MODS.find((m) => m.meta && m.meta.id === id) || null;
 const WSTAT_ROWS = [
   ["accuracy", "Accuracy", (v) => v],
   ["magazine", "Magazine", (v) => v],
-  ["damage", "Damage", (v) => v],
+  // shotguns store damage PER PELLET; show the spread total too or the number reads as a typo
+  ["damage", "Damage", (v, w) => (w.pellets ? `${v} × ${w.pellets} = ${w.damagePerShot}` : v)],
   ["stability", "Stability", (v) => v],
   ["recoil", "Recoil", (v) => v],
   ["rof", "Rate of fire", (v) => v + " rps"],
@@ -49,7 +50,7 @@ const WSTAT_ROWS = [
 // stats the game computes on the fly (no stored field) — flagged with a * + hover note
 const WSTAT_NOTES = {
   accuracy: "Not a stored value — the game derives it from the bullet-spread (dispersion) system. Higher = tighter grouping, and it's the handling stat worth chasing. The number shown is an aggregate the devs flag as WIP.",
-  stability: "Not a stored value — Stability is the input to the weapon's dispersion curves: higher makes your spread grow slower and recover faster (tighter sustained fire). It does not affect recoil kick.",
+  stability: "Attachments still grant Stability, but as of build 24479102 nothing in the shipped data consumes it — the per-weapon curves that turned Stability into bullet spread were deleted. Treat it as unproven, not as a known gain.",
   recoil: "Not a stored value — a compound of hidden wrist + arm recoil shown as one number. Believed to drive camera shake only (it doesn't move your point of aim), and it's often wrong once the weapon is modified.",
 };
 
@@ -591,7 +592,7 @@ function weaponDetail(w) {
     const rows = WSTAT_ROWS.filter(([k]) => ws[k] != null).map(([k, label, fmt]) => {
       const note = WSTAT_NOTES[k];
       const mark = note ? ` <span class="statnote" tabindex="0" role="note" aria-label="${esc(label + ": " + note)}">*<span class="tip">${esc(note)}</span></span>` : "";
-      return `<div class="stat${k === "accuracy" || k === "magazine" ? " key" : ""}"><div class="k">${esc(label)}${mark}</div><div class="v">${esc(String(fmt(ws[k])))}</div></div>`;
+      return `<div class="stat${k === "accuracy" || k === "magazine" ? " key" : ""}"><div class="k">${esc(label)}${mark}</div><div class="v">${esc(String(fmt(ws[k], ws)))}</div></div>`;
     }).join("");
     if (rows) html += `<div class="statgrid">${rows}</div>`;
     if (ws.ammo) html += `<p class="legend"><b>Ammo:</b> ${esc(ws.ammo)}</p>`;
@@ -747,34 +748,38 @@ function renderStats() {
     <div class="card" data-anchor="display-only">
       <div class="section" style="margin-top:0"><h3>Stats that are display-only, buggy, or disputed</h3></div>
       <div class="gdef"><span class="term">Recoil</span><span>Shown as a single number but it's a <b>compound</b> of hidden values ("wrist" + "arm" recoil). It's theorised to drive <em>camera shake</em> only — it does <b>not</b> move your point of aim under fire. The wild numbers you see when swapping parts are aggregation errors, not real changes.</span></div>
-      <div class="gdef"><span class="term">Stability</span><span><b>Real, and higher is better.</b> Decoded from the game data: Stability feeds the <b>bullet-spread (dispersion)</b> system — <b>higher Stability = tighter sustained fire</b> — and never touches the recoil kick. This overturns the old "keep it low" advice. Numbers in <a href="#underhood">Under the hood</a>, just below.</span></div>
+      <div class="gdef"><span class="term">Stability</span><span><b>Currently unprovable.</b> Attachments still carry a Stability number and the game still shows it, but the per-weapon curves that turned it into bullet spread were <b>removed from the build</b>. We previously published what those curves did; that analysis no longer describes the shipping game. Full detail in <a href="#underhood">Under the hood</a>, just below.</span></div>
       <div class="gdef"><span class="term">The stat card as a whole</span><span>It aggregates several parameters into display values and is frequently wrong when a weapon is modified. Trust behaviour in the shooting range over the card.</span></div>
     </div>
 
     <div class="card" id="underhood" data-anchor="underhood">
-      <div class="section" style="margin-top:0"><h3>Under the hood: what Stability really does <span class="badge gold">from the game files</span></h3></div>
+      <div class="section" style="margin-top:0"><h3>Under the hood: handling, and what happened to Stability <span class="badge gold">from the game files</span></h3></div>
       <p>Read straight out of the shipping game's weapon code (the compiled <code>FWWeapon</code> module), "handling" is actually <b>three separate systems</b> — which is exactly why the card confuses everyone:</p>
       <div class="gdef"><span class="term">1 · Recoil — the kick</span><span>The visual muzzle climb: <code>RecoilWristYaw/Pitch</code>, <code>RecoilArmAngle</code>, <code>RecoilWristRecoveryBlend</code>, <code>ScaleRecoilADS</code> — a wrist + arm model, which is why the displayed "Recoil" is a compound. Parts tune it through <code>RecoilWristRelBuff</code> / <code>RecoilArmRelBuff</code>. <b>Stability is not an input here</b>, so "stability doesn't change recoil" is literally correct.</span></div>
-      <div class="gdef"><span class="term">2 · Dispersion — the spread <em>(this is Stability)</em></span><span>Your real accuracy under fire: a spread cone that grows at <code>MaxDispersionRate</code> while you hold the trigger and shrinks via <code>DispersionCoolDownStart/Rate</code> once you stop. The weapon carries three curves — <code>StabilityMaxDispersionRateCurve</code>, <code>StabilityDispersionCoolDownStartCurve</code>, <code>StabilityDispersionCoolDownStopCurve</code> — that convert the <b>Stability</b> stat into those spread values. So Stability governs <b>how fast your spread blooms and how quickly it recovers</b> — not the kick you see. And <b>higher Stability = tighter</b> (exact numbers below).</span></div>
+      <div class="gdef"><span class="term">2 · Dispersion — the spread</span><span>Your real accuracy under fire: a spread cone that grows at <code>MaxDispersionRate</code> while you hold the trigger and shrinks via <code>DispersionCoolDownStart/Rate</code> once you stop. These are still on every weapon — but they are now <b>fixed constants per gun</b> (the AK sits at 3.0 / 0.33 s / 0.175, the S12 at 1.0). Until build 24479102 each weapon also shipped three curves that converted the <b>Stability</b> stat into these numbers. Those curves are gone — see below.</span></div>
       <div class="gdef"><span class="term">3 · Aim-lag — the sway/settle</span><span>A spring system (<code>AimLagSpringStiffness/Damping/Mass</code>, <code>MaxAimLagYaw/Pitch</code>) with <code>StabilizeFireTime</code> and the <code>StabilizeTimeRelBuff</code> / <code>StabilizeScalarRelBuff</code> buffs — how fast the reticle re-settles after firing or moving. This is what item cards call "stabilization speed / length".</span></div>
-      <p class="gnote"><b>So the argument resolves cleanly:</b> testers who watched the <em>recoil kick</em> saw no change (right — wrong system); players who felt tighter <em>sustained fire</em> were feeling dispersion. <b>Stability = spread, Recoil = kick, Stabilize = sway.</b></p>
-      <div class="section"><h3>The actual numbers <span class="c">assault rifles (AK family)</span></h3></div>
-      <p class="gnote">Decoded straight from the weapon's <code>Stability…DispersionCurve</code> assets. As the <b>Stability</b> stat rises from 0 → 1:</p>
+      <p class="gnote"><b>The kick/spread split still holds:</b> testers who watched the <em>recoil kick</em> and saw no change were looking at the wrong system. <b>Recoil = kick, Dispersion = spread, Stabilize = sway.</b> What has changed is whether Stability still drives the middle one.</p>
+
+      <div class="section"><h3>The Stability curves were deleted <span class="c">build 24479102, still absent at 24501089</span></h3></div>
+      <p class="gnote">This page used to publish a table of what Stability did to dispersion, decoded from each weapon's <code>Stability…DispersionCurve</code> assets. <b>Those assets are no longer in the game.</b> Checked against a full mount of the shipping paks at build 24501089:</p>
       <div class="gtable-wrap"><table class="gtable">
-        <thead><tr><th>What it sets</th><th>Stability 0</th><th>Stability 1</th><th>Meaning</th></tr></thead>
+        <thead><tr><th>What we look for</th><th>Found at 24501089</th><th>Was</th></tr></thead>
         <tbody>
-          <tr><td>Max spread-growth rate</td><td>3.0</td><td>1.5</td><td>spread blooms <b>half as fast</b></td></tr>
-          <tr><td>Recovery start delay</td><td>0.33 s</td><td>0.17 s</td><td>starts tightening <b>sooner</b></td></tr>
-          <tr><td>Recovery rate</td><td>0.175</td><td>0.35</td><td>tightens <b>twice as fast</b></td></tr>
+          <tr><td>Files matching <code>*Stability*</code></td><td><b>0</b> of 76,309 packaged files</td><td>three curve assets per weapon</td></tr>
+          <tr><td><code>UpgradeTuning</code> paths</td><td><b>0</b></td><td>the per-weapon tuning tree</td></tr>
+          <tr><td>Player <code>DA_WPN_PLAYER_*_v2</code> tuning assets</td><td><b>0</b></td><td>one per gun</td></tr>
+          <tr><td>Surviving <code>FC_*</code> curves</td><td><b>20</b>, all global (sway, ADS kick, stamina, shotgun falloff)</td><td>several hundred, mostly per-weapon</td></tr>
         </tbody>
       </table></div>
-      <div class="callout" style="border-left-color:var(--olive)"><b>Verdict: higher Stability = tighter sustained fire, unambiguously.</b> Spread grows slower <em>and</em> recovers faster. It never touches recoil (the kick values are fixed per weapon). So the old "keep Stability low" advice is backwards — it was confusing Stability with recoil.</div>
-      <p class="legend">Method: property/curve names from the shipping binary; curve values decoded from the game assets via a UE4SS-dumped type mapping. Cross-checked against the wiki (AK <code>WeaponDamage</code> 150 &amp; fire rate 0.09 s both matched exactly).</p>
+      <p class="gnote">Meanwhile the stat itself is <b>still there</b>: <code>WeaponPartStatsData</code> lists 633 attachment rows, <b>324</b> of them with a non-zero <code>Stability</code>, and that table is byte-for-byte identical to the previous build. So attachments still grant Stability, the card still displays it — but nothing we can find in the shipped data reads it any more.</p>
+      <div class="callout" style="border-left-color:var(--rust)"><b>Verdict: we no longer know what Stability does.</b> The input survives and the transfer function is gone, so the old "higher Stability = tighter sustained fire" conclusion can't be re-derived from the current build — we've retired it rather than restate it. <b>The honest caveat:</b> this proves the <em>data-driven</em> path was removed, not that the stat is inert. The logic could have moved into compiled C++, which doesn't live in the asset tree and which we can't read this way. Until something in the build consumes it again, treat Stability as unproven and chase <b>accuracy</b> instead.</div>
+      <p class="legend">Method: property names from the shipping binary; asset inventory from a full CUE4Parse mount of the live paks (76,309 files) with a UE4SS-dumped type mapping. Weapon numbers on this site are read from the same mount — see the <b>Weapons</b> tab.</p>
     </div>
 
     <div class="card" data-anchor="damage">
       <div class="section" style="margin-top:0"><h3>Damage (the hidden part)</h3></div>
-      <div class="gdef"><span class="term">Base damage</span><span>Tied to the weapon (balanced around caliber/type), <b>not</b> to which ammo you load. The card often <b>under-reports</b> real damage — e.g. the AT-43 MASS deals roughly double what it lists, and shotguns and Painless read low too. Don't dismiss a gun by its listed damage alone.</span></div>
+      <div class="gdef"><span class="term">Base damage</span><span>Tied to the weapon (balanced around caliber/type), <b>not</b> to which ammo you load. Every damage number on this site is now read from the weapon's own game asset, so it matches the live build rather than the wiki.</span></div>
+      <div class="gdef"><span class="term">Shotguns: the number is <em>per pellet</em></span><span>This is the one stat that means something different from what you'd assume, and it's why community shotgun figures look ~200× off. The game stores <code>WeaponDamage</code> per <b>pellet</b> and fires <code>NumberOfBuckshots</code> = <b>20</b> of them — on all six shotguns; every other gun in the game fires 1. So the S12's 15 is <b>15 × 20 = 300</b> into a target that catches the whole spread, and the CLAW's 6.6 is <b>132</b>. Weapon cards here show all three numbers. Range matters too: <code>FC_ShotgunDamage_Falloff_All</code> is one of the few surviving global curves, so pellets lose damage with distance.</span></div>
       <div class="gdef"><span class="term">Critical / headshot damage</span><span>A per-<b>caliber</b> multiplier that lives on your <b>ammo</b>, not the gun &mdash; a head hit multiplies the weapon's listed damage by it. Most rounds sit at the <b>1.5×</b> baseline, but a few big single-shot calibers <b>triple</b> it and <b>shotguns are penalised</b>, so a lower-damage, high-crit caliber can out-perform a bigger gun on consistent headshots. Some enemies (notably melee cyborgs) also have headshot <em>resistance</em>. <button class="linklike" data-gohs>See the full per-caliber table on the <b>Ammo</b> tab &rarr;</button></span></div>
     </div>
     </div>
@@ -814,7 +819,7 @@ function renderStats() {
       <b>suppressor</b> for stealth. Treat scopes, laser sights, flashlights, bipods and bayonets as
       currently non-functional.
     </div>
-    <p class="legend">Sources: <a href="https://theforeverwinter.wiki.gg/wiki/Weapons" target="_blank" rel="noopener">Weapons</a> &amp; <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">Weapon Attachments</a> wiki pages + community testing. Mechanics are WIP and stats are flagged unreliable by the devs — verify in the shooting range.</p>
+    <p class="legend">Sources: weapon damage, rate of fire, magazine, weight, value, XP and calibre are decoded from the shipping game files (build 24501089). Accuracy, recoil and stability are not stored fields — those come from the <a href="https://theforeverwinter.wiki.gg/wiki/Weapons" target="_blank" rel="noopener">Weapons</a> &amp; <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">Weapon Attachments</a> wiki pages plus community testing, and the devs flag them as WIP — verify in the shooting range.</p>
   </div>`;
 }
 

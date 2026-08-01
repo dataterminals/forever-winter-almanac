@@ -1,6 +1,8 @@
 {
-  "source": "Datamined from the shipping game (FWAI awareness system) via a UE4SS usmap + CUE4Parse. Ranges converted from Unreal units (cm) to metres.",
+  "source": "The Forever Winter shipping game files (build 24501089) — FWAI awareness system (AIDEF_Sensor_*), decoded with CUE4Parse via a UE4SS usmap. Ranges converted from Unreal units (cm) to metres.",
   "note": "Vision modifiers act on accumulation TIME: AccumulationMultiplier > 1 = slower to detect (stealthier); DecayMultiplier < 1 = forgotten faster (stealthier).",
+  "build": 24501089,
+  "buildNote": "Decoded at 24501089. The 'holding a pistol' modifier is new since our previous decode, but we can't attribute it to a specific patch: it is absent from our pre-24479102 dump and present now, and 24479102 only touched the weapon assets, so it arrived in one of those two builds.",
   "globalModel": {
     "identifyTime": "0.5 s",
     "identifyNote": "Once a sensor has you, it takes ~0.5 s to confirm you as a target (all enemy tiers).",
@@ -40,6 +42,7 @@
     { "factor": "Shooting / “violent”", "acc": 0.5, "decay": 2.0, "effect": "Detected twice as fast and remembered twice as long. Every shot makes you far easier to find." },
     { "factor": "In a tunnel", "acc": 1.3, "decay": 0.9, "effect": "Roughly 1.1–1.5× slower to detect and forgotten a bit faster." },
     { "factor": "Stealth Rig", "acc": 1.2, "decay": 0.8, "effect": "Gear bonus: 1.2× slower to detect and forgotten faster." },
+    { "factor": "Holding a pistol", "acc": 1.2, "decay": 0.8, "effect": "New: a drawn sidearm is worth exactly as much as a Stealth Rig — 1.2× slower to detect and forgotten faster. Applies to every vision sensor in the game (all 15 that carry a modifier table), from basic infantry to snipers, mechs and turrets. Costs you nothing and stacks with crouching." },
     { "factor": "Gunhead (character)", "acc": 0.9, "decay": 1.0, "effect": "Spotted fastest of the cast — the big, bulky build." },
     { "factor": "BagMan (character)", "acc": 0.95, "decay": 1.0, "effect": "Slightly easier to spot." },
     { "factor": "Girl / Shaman (character)", "acc": 1.06, "decay": 1.0, "effect": "The stealthiest baseline characters." },
