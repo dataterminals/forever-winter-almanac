@@ -7,7 +7,15 @@
    - The Maps tab's "Save all maps offline" button posts SAVE_ALL to warm the
      entire image cache up front. */
 const VERSION = "fw-almanac-v30";
-const SHELL = VERSION + "-shell";
+/* Hash of the shell's own code + markup, stamped by scripts/stamp-sw.mjs. It
+   names the shell cache, so editing app.js (or any other shell file) retires
+   the old shell by itself, without waiting on VERSION being bumped by hand.
+   Deliberately NOT part of the image cache's name: map imagery runs to hundreds
+   of MB that people press "Save all maps offline" to get, and it has no reason
+   to be thrown away because a stylesheet changed. Bumping VERSION still clears
+   everything, imagery included. */
+const SHELL_REV = "91fe827b";
+const SHELL = VERSION + "-shell-" + SHELL_REV;
 const IMG = VERSION + "-img";
 
 const SHELL_ASSETS = [
@@ -41,7 +49,10 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((k) => !k.startsWith(VERSION)).map((k) => caches.delete(k)));
+    // Keep exactly the two caches this worker uses and drop the rest. Matching
+    // on VERSION alone would strand every superseded shell revision, since they
+    // all share the VERSION prefix.
+    await Promise.all(keys.filter((k) => k !== SHELL && k !== IMG).map((k) => caches.delete(k)));
     self.clients.claim();
   })());
 });

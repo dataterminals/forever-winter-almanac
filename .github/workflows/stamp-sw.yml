@@ -1,0 +1,25 @@
+# Guards the service worker's shell revision against the shell's contents.
+# A SHELL_REV that wasn't restamped after editing a shell file is invisible to
+# whoever forgot it -- their own browser installed the new worker while they
+# were testing. It surfaces as everyone else being served the old shell.
+# Deployment is unaffected: the site is served by GitHub's legacy Pages build
+# straight from main, which runs independently of this workflow.
+name: check shell revision
+
+on:
+  push:
+    branches: [main]
+    paths: ['sw.js', 'index.html', '*.js', '*.css', 'manifest.webmanifest', 'assets/vendor/**', 'scripts/stamp-sw.mjs', '.github/workflows/stamp-sw.yml']
+  pull_request:
+    paths: ['sw.js', 'index.html', '*.js', '*.css', 'manifest.webmanifest', 'assets/vendor/**', 'scripts/stamp-sw.mjs', '.github/workflows/stamp-sw.yml']
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/stamp-sw.mjs --check

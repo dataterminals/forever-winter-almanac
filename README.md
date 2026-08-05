@@ -201,6 +201,32 @@ tools/                              data fetchers + icon generators
 No build step, no framework — just static files, rendered with Leaflet (`CRS.Simple`)
 on the Maps tab.
 
+### Shipping a change: restamp the service worker
+
+**After editing any shell file — `index.html`, `app.js`, `maps.js`, `app.css`, `maps.css`,
+the manifest, vendored Leaflet — run this and commit the result:**
+
+```bash
+node scripts/stamp-sw.mjs
+```
+
+The worker serves the shell from a cache, so a deployed change only reaches anyone once
+that cache is retired. `SHELL_REV` holds a hash of the shell's contents and names the shell
+cache, so editing any of those files retires the old shell by itself instead of waiting on
+`VERSION` being bumped by hand.
+
+`SHELL_REV` deliberately does **not** name the image cache. Map imagery runs to hundreds of
+MB that people press *Save all maps offline* to get, and there is no reason to throw it away
+because a stylesheet changed. Bumping `VERSION` still clears everything, imagery included —
+that's what it's for now.
+
+Forgetting to restamp is invisible to *you* — your browser installed the new worker while
+you were testing — and only shows up as everyone else running last week's `app.js`. So
+[`scripts/stamp-sw.mjs`](scripts/stamp-sw.mjs) has a `--check` mode that verifies and exits
+non-zero, and CI runs it on every push touching the shell. The file list comes from `sw.js`'s
+own `SHELL_ASSETS`, so the two can't drift; data JSON is skipped (served network-first, it
+refreshes on its own) as are images.
+
 ### A note on drop data: only live loot rows
 
 `RandomContainerLootData` keeps loot rows forever, including ones the game stopped using.
