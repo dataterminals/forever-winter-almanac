@@ -1,7 +1,7 @@
 {
- "source": "The Forever Winter shipping game files (build 24501089) — DA_WPN_PLAYER_* weapon definitions + WeaponsDetailsData + ValueV2_WEAPONS, decoded with CUE4Parse; theforeverwinter.wiki.gg infoboxes for display name, class and the three non-stored handling stats",
+ "source": "The Forever Winter shipping game files (build 24536482) — DA_WPN_PLAYER_* weapon definitions + WeaponsDetailsData + ValueV2_WEAPONS, decoded with CUE4Parse; theforeverwinter.wiki.gg infoboxes for display name, class and the three non-stored handling stats",
  "note": "Damage, rate of fire, magazine, weight, value, XP and calibre come from the game files and are authoritative. Accuracy, recoil and stability are not stored fields — they are the wiki's transcription of the in-game aggregate, which the devs flag as WIP. Shotgun `damage` is PER PELLET, as the game stores it; `pellets` and `damagePerShot` give the whole-spread total.",
- "build": 24501089,
+ "build": 24536482,
  "provenance": {
   "datamined": [
    "damage",

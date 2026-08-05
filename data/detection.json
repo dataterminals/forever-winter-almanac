@@ -1,8 +1,8 @@
 {
-  "source": "The Forever Winter shipping game files (build 24501089) — FWAI awareness system (AIDEF_Sensor_* + AIDEF_Noise_*), decoded with CUE4Parse via a UE4SS usmap. Ranges converted from Unreal units (cm) to metres.",
+  "source": "The Forever Winter shipping game files (build 24536482) — FWAI awareness system (AIDEF_Sensor_* + AIDEF_Noise_*), decoded with CUE4Parse via a UE4SS usmap. Ranges converted from Unreal units (cm) to metres.",
   "note": "Vision modifiers act on accumulation TIME: AccumulationMultiplier > 1 = slower to detect (stealthier); DecayMultiplier < 1 = forgotten faster (stealthier).",
-  "build": 24501089,
-  "buildNote": "Decoded at 24501089. The 'holding a pistol' modifier is new since our previous decode, but we can't attribute it to a specific patch: it is absent from our pre-24479102 dump and present now, and 24479102 only touched the weapon assets, so it arrived in one of those two builds.",
+  "build": 24536482,
+  "buildNote": "Decoded at 24536482. The 'holding a pistol' modifier is new since our previous decode, but we can't attribute it to a specific patch: it is absent from our pre-24479102 dump and present now, and 24479102 only touched the weapon assets, so it arrived in one of those two builds.",
   "provenance": {
     "derived": [
       "enemies",

@@ -13,6 +13,13 @@ const SUBTYPE_ORDER = ["ATTMD1", "ATTMD2", "ATTMD3", "ATTMD4", "ATTMD5"];
 
 let DATA = null;      // active attachments dataset (data/attachments.json)
 let WEAPONS = null;   // active per-weapon stats (data/weapons.json), keyed by lowercased name
+let WEAPONS_BUILD = null; // that dataset's own build stamp, for the Weapons legend
+
+// The Stats tab is a static guide — it has no `const D = <dataset>` of its own, so it
+// used to hardcode build numbers in prose and went two builds stale. weapons.json is
+// loaded at boot and comes from the same full pak mount every Stats claim cites, so
+// its stamp is the right source. Degrades to a phrase rather than printing "null".
+const STATS_BUILD = () => WEAPONS_BUILD ?? "the live build";
 let PARTS = null;     // active structural parts (data/parts.json, byWeapon -> slot -> [parts])
 let AMMO = null;      // active ammunition catalogue (data/ammo.json)
 let CRAFT = null;     // active crafting recipes (data/crafting.json), lazy on first Crafting visit
@@ -68,6 +75,9 @@ async function init() {
   // per-weapon stats are optional — a failure here must not break the app
   try {
     const wj = await (await fetch("data/weapons.json", { cache: "no-cache" })).json();
+    // Keep the dataset's own build stamp — the Weapons legend used to hardcode it,
+    // so a regeneration restamped the data and left the page claiming the old build.
+    WEAPONS_BUILD = wj.build;
     WEAPONS = {};
     for (const nm in wj.weapons) WEAPONS[nm.toLowerCase()] = wj.weapons[nm];
   } catch (e) { WEAPONS = {}; }
@@ -760,12 +770,12 @@ function renderStats() {
       <div class="gdef"><span class="term">3 · Aim-lag — the sway/settle</span><span>A spring system (<code>AimLagSpringStiffness/Damping/Mass</code>, <code>MaxAimLagYaw/Pitch</code>) with <code>StabilizeFireTime</code> and the <code>StabilizeTimeRelBuff</code> / <code>StabilizeScalarRelBuff</code> buffs — how fast the reticle re-settles after firing or moving. This is what item cards call "stabilization speed / length".</span></div>
       <p class="gnote"><b>The kick/spread split still holds:</b> testers who watched the <em>recoil kick</em> and saw no change were looking at the wrong system. <b>Recoil = kick, Dispersion = spread, Stabilize = sway.</b> What has changed is whether Stability still drives the middle one.</p>
 
-      <div class="section"><h3>The Stability curves were deleted <span class="c">build 24479102, still absent at 24501089</span></h3></div>
-      <p class="gnote">This page used to publish a table of what Stability did to dispersion, decoded from each weapon's <code>Stability…DispersionCurve</code> assets. <b>Those assets are no longer in the game.</b> Checked against a full mount of the shipping paks at build 24501089:</p>
+      <div class="section"><h3>The Stability curves were deleted <span class="c">build 24479102, still absent at ${STATS_BUILD()}</span></h3></div>
+      <p class="gnote">This page used to publish a table of what Stability did to dispersion, decoded from each weapon's <code>Stability…DispersionCurve</code> assets. <b>Those assets are no longer in the game.</b> Checked against a full mount of the shipping paks at build ${STATS_BUILD()}:</p>
       <div class="gtable-wrap"><table class="gtable">
-        <thead><tr><th>What we look for</th><th>Found at 24501089</th><th>Was</th></tr></thead>
+        <thead><tr><th>What we look for</th><th>Found at ${STATS_BUILD()}</th><th>Was</th></tr></thead>
         <tbody>
-          <tr><td>Files matching <code>*Stability*</code></td><td><b>0</b> of 76,309 packaged files</td><td>three curve assets per weapon</td></tr>
+          <tr><td>Files matching <code>*Stability*</code></td><td><b>0</b> of 76,310 packaged files</td><td>three curve assets per weapon</td></tr>
           <tr><td><code>UpgradeTuning</code> paths</td><td><b>0</b></td><td>the per-weapon tuning tree</td></tr>
           <tr><td>Player <code>DA_WPN_PLAYER_*_v2</code> tuning assets</td><td><b>0</b></td><td>one per gun</td></tr>
           <tr><td>Surviving <code>FC_*</code> curves</td><td><b>20</b>, all global (sway, ADS kick, stamina, shotgun falloff)</td><td>several hundred, mostly per-weapon</td></tr>
@@ -773,7 +783,7 @@ function renderStats() {
       </table></div>
       <p class="gnote">Meanwhile the stat itself is <b>still there</b>: <code>WeaponPartStatsData</code> lists 633 attachment rows, <b>324</b> of them with a non-zero <code>Stability</code>, and that table is byte-for-byte identical to the previous build. So attachments still grant Stability, the card still displays it — but nothing we can find in the shipped data reads it any more.</p>
       <div class="callout" style="border-left-color:var(--rust)"><b>Verdict: we no longer know what Stability does.</b> The input survives and the transfer function is gone, so the old "higher Stability = tighter sustained fire" conclusion can't be re-derived from the current build — we've retired it rather than restate it. <b>The honest caveat:</b> this proves the <em>data-driven</em> path was removed, not that the stat is inert. The logic could have moved into compiled C++, which doesn't live in the asset tree and which we can't read this way. Until something in the build consumes it again, treat Stability as unproven and chase <b>accuracy</b> instead.</div>
-      <p class="legend">Method: property names from the shipping binary; asset inventory from a full CUE4Parse mount of the live paks (76,309 files) with a UE4SS-dumped type mapping. Weapon numbers on this site are read from the same mount — see the <b>Weapons</b> tab.</p>
+      <p class="legend">Method: property names from the shipping binary; asset inventory from a full CUE4Parse mount of the live paks (76,310 files) with a UE4SS-dumped type mapping. Weapon numbers on this site are read from the same mount — see the <b>Weapons</b> tab.</p>
     </div>
 
     <div class="card" data-anchor="damage">
@@ -819,7 +829,7 @@ function renderStats() {
       <b>suppressor</b> for stealth. Treat scopes, laser sights, flashlights, bipods and bayonets as
       currently non-functional.
     </div>
-    <p class="legend">Sources: weapon damage, rate of fire, magazine, weight, value, XP and calibre are decoded from the shipping game files (build 24501089). Accuracy, recoil and stability are not stored fields — those come from the <a href="https://theforeverwinter.wiki.gg/wiki/Weapons" target="_blank" rel="noopener">Weapons</a> &amp; <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">Weapon Attachments</a> wiki pages plus community testing, and the devs flag them as WIP — verify in the shooting range.</p>
+    <p class="legend">Sources: weapon damage, rate of fire, magazine, weight, value, XP and calibre are decoded from the shipping game files (build ${STATS_BUILD()}). Accuracy, recoil and stability are not stored fields — those come from the <a href="https://theforeverwinter.wiki.gg/wiki/Weapons" target="_blank" rel="noopener">Weapons</a> &amp; <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">Weapon Attachments</a> wiki pages plus community testing, and the devs flag them as WIP — verify in the shooting range.</p>
   </div>`;
 }
 
@@ -1459,7 +1469,7 @@ async function renderLoot() {
 
 // Context-first "How drops work" panel (Drops tab): the placement/tier/contents model,
 // the crate-type taxonomy, quest spawn rates and the other drop sources. Curated from
-// data/drops-model.json (regen: forever-winter-datamine/tools/parse_crate_types.py).
+// data/drops-model.json (regen: forever-winter-datamine/tools/parse_drops.py).
 function dropModelPanel() {
   const D = DROPMODEL;
   if (!D || D._err) return "";

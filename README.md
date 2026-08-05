@@ -131,7 +131,7 @@ PWA icons: `python tools/generate_icons.py` (Pillow) or `node tools/make_icons.m
 
 ### Why weapon stats are datamined now
 
-`weapons.json` was a pure wiki scrape until build 24501089, and it had drifted badly.
+`weapons.json` was a pure wiki scrape until the 24501089 cycle, and it had drifted badly.
 Against the live weapon assets, **17 of 51 damage values were wrong and 44 of 51 XP values
 were wrong**, along with 3 magazines, 3 rates of fire and 2 sell values. Two distinct
 causes:
@@ -152,9 +152,10 @@ fields** — they're the in-game display aggregates, which the devs flag as WIP.
 
 This site used to publish a decoded table of what the Stability stat did to bullet
 dispersion, taken from each weapon's `Stability…DispersionCurve` assets. **Those assets
-are no longer shipped.** Against a full mount of the live paks at build 24501089:
+are no longer shipped.** Re-measured against a full mount of the live paks at build 24536482
+(the finding first landed at 24501089 and every row below still holds):
 
-- **0** of 76,309 packaged files match `*Stability*` (there were three curves per weapon)
+- **0** of 76,310 packaged files match `*Stability*` (there were three curves per weapon)
 - **0** `UpgradeTuning` paths, and **0** player `DA_WPN_PLAYER_*_v2` tuning assets
 - **20** `FC_*` curve assets survive, all global (sway, ADS kick, stamina, shotgun
   damage falloff) — none is a per-weapon curve
