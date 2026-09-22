@@ -1729,11 +1729,11 @@ function drawChangelog() {
   const entries = (CHANGELOG.entries || [])
     .map((e) => ({ date: e.date, items: (e.items || []).filter((it) => match(it)) }))
     .filter((e) => e.items.length);
-  let html = `<div class="guide">
-    <div class="callout" style="margin-top:16px"><b>What's changed on the almanac,</b> newest first.</div>`;
+  let html = `<div class="guide">`;
   if (!entries.length) html += `<p class="empty">${state.q ? `No changes match &ldquo;${esc(state.q)}&rdquo;.` : "No changes recorded yet."}</p>`;
-  entries.forEach((e) => {
-    html += `<div class="card" data-anchor="${esc(e.date)}"><div class="section" style="margin-top:0"><h3>${esc(clDate(e.date))}</h3></div>
+  // the first card takes the 16px top margin the other tabs' opening callouts have
+  entries.forEach((e, i) => {
+    html += `<div class="card"${i ? "" : ' style="margin-top:16px"'} data-anchor="${esc(e.date)}"><div class="section" style="margin-top:0"><h3>${esc(clDate(e.date))}</h3></div>
       <ul class="cl-items">${e.items.map((it) => `<li>${mdb(it)}</li>`).join("")}</ul></div>`;
   });
   view.innerHTML = html + `</div>`;
