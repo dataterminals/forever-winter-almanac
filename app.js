@@ -1225,8 +1225,10 @@ function unitCard(b) {
 
   if (b.senses) {
     const s = b.senses, bits = [];
+    // A cone without figures is one the data holds back on purpose (visionHidden says why), never
+    // a blind unit: no card's senses come from a unit built without a vision sensor.
     bits.push(s.visionFar ? `<b>Vision</b> ${s.visionNear}&rarr;${s.visionFar} m${s.coneH ? ` <span class="dim">${s.coneH}&deg;</span>` : ""}`
-                          : `<b>Vision</b> <span class="dim">none — blind</span>`);
+                          : `<b>Vision</b> <span class="dim">${s.visionHidden ? `cone not shown — ${esc(s.visionHidden)}` : "—"}</span>`);
     if (s.hearing || s.hearingViolent) bits.push(`<b>Hearing</b> ${s.hearing ? s.hearing + " m" : "—"}${s.hearingViolent ? ` <span class="dim">(${s.hearingViolent} m violent)</span>` : ""}`);
     if (s.esp) bits.push(`<b>ESP</b> ${esc(s.esp)}`);
     h += `<div class="section"><h3>Senses <button class="linklike" data-godetect>full detection model &rarr;</button></h3>
