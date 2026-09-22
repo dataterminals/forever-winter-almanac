@@ -14,7 +14,7 @@ const VERSION = "fw-almanac-v30";
    of MB that people press "Save all maps offline" to get, and it has no reason
    to be thrown away because a stylesheet changed. Bumping VERSION still clears
    everything, imagery included. */
-const SHELL_REV = "91fe827b";
+const SHELL_REV = "db183afd";
 const SHELL = VERSION + "-shell-" + SHELL_REV;
 const IMG = VERSION + "-img";
 

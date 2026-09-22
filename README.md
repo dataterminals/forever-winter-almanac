@@ -9,7 +9,7 @@ a single tabbed companion. Data comes from the
 [official wiki](https://theforeverwinter.wiki.gg) (CC BY-NC-SA / CC BY-SA), and,
 for the parts the wiki doesn't cover, straight from the shipping game files.
 
-**39 maps · 46 weapons · 268 parts · 68 attachments · 5 muzzle mount families · 26 ammo types · 361 sellable loot items · the full detection model.**
+**39 maps · 46 weapons · 268 parts · 67 attachments · 5 muzzle mount families · 26 ammo types · 398 sellable loot items · the full detection model.**
 
 ## The tabs
 
@@ -25,17 +25,22 @@ for the parts the wiki doesn't cover, straight from the shipping game files.
 - **Ammo** — every round in the game, grouped by role (pistol → anti-materiel, plus
   grenades), each with its **datamined headshot multiplier** (it lives on the caliber,
   not the gun), sell value + extraction XP, weight/volume, faction, and the weapons that
-  fire it. The full per-caliber headshot table lives here.
+  fire it. The full per-caliber headshot table lives here, with how a head hit is really
+  scored: a share of the target's **health bar** (damage × caliber ÷ 450), not a flat
+  multiple of damage — read from the enemy blueprint's own code.
 - **Stats** — what each weapon/attachment stat *actually* does, including why shotgun
   damage reads ~200× low everywhere else (it's stored per pellet), and the evidence that
   the **Stability system was removed from the build** — attachments still grant the stat,
   but the per-weapon curves that consumed it are gone.
 - **Detection** — the datamined **FWAI awareness system**: per-enemy vision / hearing
-  / ESP ranges, what makes you visible, noise radii, and how you summon Hunter-Killers.
+  / ESP ranges *as they apply to you* (several enemies see rival factions much further
+  than they see players), what makes you visible, noise radii, and how you summon
+  Hunter-Killers.
 - **Economy** — every lootable item you can *sell*, bucketed into **value tiers** (Junk →
   Jackpot) with a distribution overview, plus a **space-efficiency** view that ranks loot by
-  **credits-per-volume** — what to grab when your bins are nearly full. Excludes the gear that
-  already has its own tab (weapons, parts, attachments, ammo); keeps enemy-drop destroyed weapons.
+  **credits-per-volume** — what to grab when your bins are nearly full. Every row links to the
+  Drops tab's list of everything that drops it. Excludes the gear that already has its own tab
+  (weapons, parts, attachments, ammo); keeps enemy-drop destroyed weapons.
 - **Maps** — the full interactive atlas (Leaflet): 10 surface regions, 16 tunnels and
   12 aerial references, with toggleable marker layers, per-map search, background
   switches, popups with screenshots + wiki links, and a distance-measure tool.
@@ -152,10 +157,10 @@ fields** — they're the in-game display aggregates, which the devs flag as WIP.
 
 This site used to publish a decoded table of what the Stability stat did to bullet
 dispersion, taken from each weapon's `Stability…DispersionCurve` assets. **Those assets
-are no longer shipped.** Re-measured against a full mount of the live paks at build 24536482
+are no longer shipped.** Re-measured against a full mount of the live paks at build 25071553
 (the finding first landed at 24501089 and every row below still holds):
 
-- **0** of 76,310 packaged files match `*Stability*` (there were three curves per weapon)
+- **0** of 76,321 packaged files match `*Stability*` (there were three curves per weapon)
 - **0** `UpgradeTuning` paths, and **0** player `DA_WPN_PLAYER_*_v2` tuning assets
 - **20** `FC_*` curve assets survive, all global (sway, ADS kick, stamina, shotgun
   damage falloff) — none is a per-weapon curve
@@ -183,7 +188,7 @@ data/weapons.json                   per-weapon stats (datamined; wiki for the di
                                     Shotgun `damage` is PER PELLET — see `pellets`/`damagePerShot`
 data/parts.json                     structural parts per weapon, by slot + unlock level (wiki)
 data/ammo.json                      every ammo type: headshot ×, value/XP, weight/volume (datamined from game files)
-data/economy.json                   raiding-loot value tiers, density + spawn-location (datamined from game files)
+data/economy.json                   raiding-loot value tiers + density (datamined from game files)
 data/loot.json                      source-first drop index — what each crate/wreck/corpse yields (datamined).
                                     Sources are keyed to the container the game actually spawns ("Turret
                                     Debris"), derived from the live loot objects — see the note below.
@@ -243,6 +248,19 @@ is named after that object's `ContainerDetails.ContainerName` — the string the
 reads on the thing they open. An orphaned row is now structurally unpublishable.
 Regenerate with `tools/parse_loot.py` in the (private) datamine repo; `--audit` prints the
 live/orphan split.
+
+**The same trap, one level up: the rare-loot manager's lists.** `BP_RareLootManager` carries
+a "Tunnel Options", a "Region Options" and a "Both Tunnel and Region Options" list, and the
+items in them are tagged `Item.RareLoot.Location.Tunnels` / `Regions` / `Both` to match.
+Until 25071553 this app published the third list as World Rare-Loot and printed the tags on
+the Economy tab as where each item spawns. Its bytecode says otherwise: no function in the
+manager reads any of the three lists, and its "Is in tunnels?" helper is never called. The
+live path (its "Rare Loot Feb 2026 Hotfix") builds each map's pool from that map's own quest
+list plus a single `Final Shuffle` list that is identical on every map, tunnels and regions
+alike. The Drops tab now shows those — **World Rare-Loot** and **Map Rare-Loot** — and the
+Economy tab no longer shows a location it can't back up. A community report caught this: a
+"Tunnels" USB drive turning up on surface maps — where Civilian Crates and 27 kinds of enemy
+bag drop it.
 
 ## Credits & licence
 

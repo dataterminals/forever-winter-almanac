@@ -362,6 +362,15 @@ function wireChrome() {
       writeHash({ sub: key });
       return;
     }
+    // Economy row -> the Drops tab, searched for that item: every source that can give it.
+    const gdrop = e.target.closest("[data-godrops]");
+    if (gdrop) {
+      state.tab = "loot"; state.lootKind = "all"; syncTabs(); deactivateMaps(); view.classList.remove("detail-open");
+      const sb = $("#search"), clr = $("#searchClear");
+      state.q = gdrop.dataset.godrops; if (sb) sb.value = state.q; if (clr) clr.hidden = false;
+      Promise.resolve(render()).then(() => window.scrollTo({ top: 0 })); writeHash({ push: true });
+      return;
+    }
     // …or hop to another tab (e.g. Armaments Bin -> Ammo, boss codex -> Enemies).
     const gtab = e.target.closest("[data-gotab]");
     if (gtab) {
@@ -573,9 +582,24 @@ function ammoToCal(ammo) {
 function headshotFor(ammo) {
   const key = ammoToCal(ammo);
   const a = key && AMMO && AMMO.byKey[key];
-  if (!a || a.headshot == null) return null;
-  return { label: a.name, multi: a.headshot, band: a.band };
+  if (a && a.headshot != null) return { label: a.name, multi: a.headshot, band: a.band, fallback: !!a.headshotFallback };
+  // Nitro Express has no ammo item, and no headshot row either, so the game scores it at the
+  // same no-row fallback as .50 PST (ammo.json headshotModel.noRowMulti).
+  const m = AMMO && AMMO.headshotModel;
+  if (!key && /nitro/i.test(ammo || "") && m) return { label: "Nitro Express", multi: m.noRowMulti, band: "low", fallback: true };
+  return null;
 }
+// Share of a standard infantry health bar one head hit removes. The game tops a head hit up to
+// damage x caliber x type x (max health / hpDivisor), so health cancels out and the share is
+// damage x caliber / hpDivisor (ammo.json headshotModel, read from the enemy blueprint). Null for
+// shotguns: pellets are scored one at a time and only gain on high-health targets.
+function headshotShare(damage, pellets, multi) {
+  const div = AMMO && AMMO.headshotModel && AMMO.headshotModel.hpDivisor;
+  if (!div || !damage || multi == null || (pellets || 1) !== 1) return null;
+  return (damage * multi) / div;
+}
+const hsPct = (f) => `${Math.round(f * 100)}%`;
+const hsHits = (f) => Math.ceil(1 / f - 1e-9);
 
 function partEffects(e) {
   if (!e) return "";
@@ -607,7 +631,10 @@ function weaponDetail(w) {
     if (rows) html += `<div class="statgrid">${rows}</div>`;
     if (ws.ammo) html += `<p class="legend"><b>Ammo:</b> ${esc(ws.ammo)}</p>`;
     const hs = ws.ammo ? headshotFor(ws.ammo) : null;
-    if (hs) html += `<p class="legend"><b>Headshot:</b> <b class="hs-${hs.band}">×${hs.multi}</b> <span style="color:var(--dim)">per-caliber (${esc(hs.label)})${hs.band === "high" ? " &mdash; well above the 1.5× baseline; a headshot machine" : hs.band === "low" ? " &mdash; below the 1.5× baseline, body shots hit harder" : ""}.</span> <button class="linklike" data-gohs>all calibers &rarr;</button></p>`;
+    if (hs) {
+      const f = headshotShare(ws.damage, ws.pellets, hs.multi);
+      html += `<p class="legend"><b>Headshot:</b> <b class="hs-${hs.band}">×${hs.multi}</b> <span style="color:var(--dim)">per-caliber (${esc(hs.label)})${hs.fallback ? ` &mdash; this round has no headshot row, so the game scores it at ×${hs.multi}` : ""}${f ? ` &mdash; a head hit takes <b>${hsPct(f)}</b> of a standard infantry health bar${hsHits(f) === 1 ? ", so one drops it" : ` (${hsHits(f)} to drop one)`}` : ""}.</span> <button class="linklike" data-gohs>how headshots work &rarr;</button></p>`;
+    }
     html += `<p class="legend"><b>Accuracy</b> &amp; <b>Magazine</b> matter most. Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they really measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
   }
   const wp = PARTS && PARTS.byWeaponLC && PARTS.byWeaponLC[w.name.toLowerCase()];
@@ -775,7 +802,7 @@ function renderStats() {
       <div class="gtable-wrap"><table class="gtable">
         <thead><tr><th>What we look for</th><th>Found at ${STATS_BUILD()}</th><th>Was</th></tr></thead>
         <tbody>
-          <tr><td>Files matching <code>*Stability*</code></td><td><b>0</b> of 76,310 packaged files</td><td>three curve assets per weapon</td></tr>
+          <tr><td>Files matching <code>*Stability*</code></td><td><b>0</b> of 76,321 packaged files</td><td>three curve assets per weapon</td></tr>
           <tr><td><code>UpgradeTuning</code> paths</td><td><b>0</b></td><td>the per-weapon tuning tree</td></tr>
           <tr><td>Player <code>DA_WPN_PLAYER_*_v2</code> tuning assets</td><td><b>0</b></td><td>one per gun</td></tr>
           <tr><td>Surviving <code>FC_*</code> curves</td><td><b>20</b>, all global (sway, ADS kick, stamina, shotgun falloff)</td><td>several hundred, mostly per-weapon</td></tr>
@@ -783,14 +810,14 @@ function renderStats() {
       </table></div>
       <p class="gnote">Meanwhile the stat itself is <b>still there</b>: <code>WeaponPartStatsData</code> lists 633 attachment rows, <b>324</b> of them with a non-zero <code>Stability</code>, and that table is byte-for-byte identical to the previous build. So attachments still grant Stability, the card still displays it — but nothing we can find in the shipped data reads it any more.</p>
       <div class="callout" style="border-left-color:var(--rust)"><b>Verdict: we no longer know what Stability does.</b> The input survives and the transfer function is gone, so the old "higher Stability = tighter sustained fire" conclusion can't be re-derived from the current build — we've retired it rather than restate it. <b>The honest caveat:</b> this proves the <em>data-driven</em> path was removed, not that the stat is inert. The logic could have moved into compiled C++, which doesn't live in the asset tree and which we can't read this way. Until something in the build consumes it again, treat Stability as unproven and chase <b>accuracy</b> instead.</div>
-      <p class="legend">Method: property names from the shipping binary; asset inventory from a full CUE4Parse mount of the live paks (76,310 files) with a UE4SS-dumped type mapping. Weapon numbers on this site are read from the same mount — see the <b>Weapons</b> tab.</p>
+      <p class="legend">Method: property names from the shipping binary; asset inventory from a full CUE4Parse mount of the live paks (76,321 files) with a UE4SS-dumped type mapping. Weapon numbers on this site are read from the same mount — see the <b>Weapons</b> tab.</p>
     </div>
 
     <div class="card" data-anchor="damage">
       <div class="section" style="margin-top:0"><h3>Damage (the hidden part)</h3></div>
       <div class="gdef"><span class="term">Base damage</span><span>Tied to the weapon (balanced around caliber/type), <b>not</b> to which ammo you load. Every damage number on this site is now read from the weapon's own game asset, so it matches the live build rather than the wiki.</span></div>
       <div class="gdef"><span class="term">Shotguns: the number is <em>per pellet</em></span><span>This is the one stat that means something different from what you'd assume, and it's why community shotgun figures look ~200× off. The game stores <code>WeaponDamage</code> per <b>pellet</b> and fires <code>NumberOfBuckshots</code> = <b>20</b> of them — on all six shotguns; every other gun in the game fires 1. So the S12's 15 is <b>15 × 20 = 300</b> into a target that catches the whole spread, and the CLAW's 6.6 is <b>132</b>. Weapon cards here show all three numbers. Range matters too: <code>FC_ShotgunDamage_Falloff_All</code> is one of the few surviving global curves, so pellets lose damage with distance.</span></div>
-      <div class="gdef"><span class="term">Critical / headshot damage</span><span>A per-<b>caliber</b> multiplier that lives on your <b>ammo</b>, not the gun &mdash; a head hit multiplies the weapon's listed damage by it. Most rounds sit at the <b>1.5×</b> baseline, but a few big single-shot calibers <b>triple</b> it and <b>shotguns are penalised</b>, so a lower-damage, high-crit caliber can out-perform a bigger gun on consistent headshots. Some enemies (notably melee cyborgs) also have headshot <em>resistance</em>. <button class="linklike" data-gohs>See the full per-caliber table on the <b>Ammo</b> tab &rarr;</button></span></div>
+      <div class="gdef"><span class="term">Critical / headshot damage</span><span>A per-<b>caliber</b> multiplier that lives on your <b>ammo</b>, not the gun &mdash; most rounds sit at the <b>1.5×</b> baseline, a few big single-shot calibers <b>triple</b> it and <b>shotguns are penalised</b>. It isn't applied to your damage directly: the game tops a head hit up in proportion to the target's <b>max health</b>, so a headshot removes a fixed share of the health bar &mdash; <b>damage &times; caliber &divide; ${(AMMO && AMMO.headshotModel && AMMO.headshotModel.hpDivisor) || 450}</b> &mdash; however tough the target is. Cyborg-types halve that, and Stalkers take no headshot bonus at all. <button class="linklike" data-gohs>See the per-caliber table on the <b>Ammo</b> tab &rarr;</button></span></div>
     </div>
     </div>
 
@@ -893,14 +920,29 @@ function drawAmmo() {
   // headshot-at-a-glance table (the datamined per-caliber multipliers, moved here
   // from Stats). It's a reference chart, so it's shown only when not searching.
   if (!state.q) {
+    const hm = D.headshotModel || {};
+    const gunShare = (a) => {   // head-hit share across the guns that fire this round, e.g. "50–67%"
+      if (a.category === "explosive" || a.category === "grenade") return "";
+      const fs = (usedBy[a.weaponKey] || []).map((g) => {
+        const ws = WEAPONS && WEAPONS[g.toLowerCase()];
+        return ws ? headshotShare(ws.damage, ws.pellets, a.headshot) : null;
+      }).filter((f) => f != null).sort((x, y) => x - y);
+      if (!fs.length) return "";
+      const lo = hsPct(fs[0]), hi = hsPct(fs[fs.length - 1]);
+      return lo === hi ? lo : `${lo}–${hi}`;
+    };
     const hsRows = D.ammo.filter((a) => a.headshot != null).slice()
       .sort((x, y) => y.headshot - x.headshot || x.name.localeCompare(y.name));
+    const ex = hm.exceptions || [];
+    const half = ex.filter((e) => e.multi > 0 && e.multi < 1), none = ex.filter((e) => e.multi === 0);
+    const shot = D.ammo.find((a) => a.key === "12g");
+    const list = (xs) => xs.map((e) => esc(e.enemy)).join(", ").replace(/, ([^,]*)$/, " and $1");
     html += `<div class="card" id="ammo-headshots" data-anchor="headshots"><div class="section" style="margin-top:0"><h3>Headshot multipliers <span class="c">per caliber &middot; ${base}&times; baseline</span></h3></div>
-      <p class="gnote">A head hit multiplies the weapon's <b>listed damage</b> by this. It lives on the <b>ammo</b>, not the gun &mdash; so a lower-damage, high-crit caliber can beat a bigger gun on consistent headshots.</p>
-      <div class="gtable-wrap"><table class="gtable"><thead><tr><th>Caliber</th><th class="num">Headshot</th><th>vs ${base}&times; baseline</th></tr></thead><tbody>${
-        hsRows.map((a) => `<tr><td>${esc(a.name)}</td><td class="num ${a.band === "high" ? "ok" : a.band === "low" ? "bad" : ""}">&times;${a.headshot}</td><td>${a.band === "high" ? "<b>higher crit</b> &mdash; reward headshots" : a.band === "low" ? "lower &mdash; body shots hit harder" : "baseline"}</td></tr>`).join("")
+      <p class="gnote">The multiplier lives on the <b>ammo</b>, not the gun &mdash; but it isn't simply applied to your damage. On a head hit the game tops the hit up to <b>damage &times; this &times; the target's type factor &times; its max health &divide; ${hm.hpDivisor || "450"}</b>. The health cancels out: a head hit takes <b>damage &times; multiplier &divide; ${hm.hpDivisor || "450"}</b> of a standard infantry health bar however much health it has, which is why one well-placed high-caliber round drops even a heavy.</p>
+      <div class="gtable-wrap"><table class="gtable"><thead><tr><th>Caliber</th><th class="num">Headshot</th><th class="num">A head hit takes</th><th>vs ${base}&times; baseline</th></tr></thead><tbody>${
+        hsRows.map((a) => `<tr><td>${esc(a.name)}</td><td class="num ${a.band === "high" ? "ok" : a.band === "low" ? "bad" : ""}">&times;${a.headshot}${a.headshotFallback ? ` <small style="color:var(--dim)" title="No headshot row for this round — the game falls back to ×${a.headshot}">no row</small>` : ""}</td><td class="num">${gunShare(a) || `<span style="color:var(--dim)">&mdash;</span>`}</td><td>${a.band === "high" ? "<b>higher crit</b> &mdash; reward headshots" : a.band === "low" ? "lower" : "baseline"}</td></tr>`).join("")
       }</tbody></table></div>
-      <p class="gnote">Some enemies (notably melee cyborgs) also carry headshot <em>resistance</em>. <b>.50 PST</b> and Nitro Express have no datamined headshot value.</p></div>`;
+      <p class="gnote"><b>A head hit takes</b> is the share of a standard infantry health bar one hit removes, across the guns that fire the round (100% or more = one shot drops it).${half.length ? ` ${list(half)} take ${half.every((e) => e.multi === half[0].multi) ? `&times;${half[0].multi} of it` : "less"}${none.length ? `, and ${list(none)} takes no headshot bonus at all` : ""}.` : ""} Gunhead's head-mounted guns never score one.${shot && shot.headshot ? ` Shotgun pellets are scored one at a time at &times;${shot.headshot}, so they only gain on targets with more than ${bNum(Math.round((hm.hpDivisor || 450) / shot.headshot))} health.` : ""}</p></div>`;
   }
 
   // one card per category, each holding its ammo rows
@@ -998,10 +1040,18 @@ async function renderDetection() {
   };
   const erow = (e) => `<tr title="${esc(e.notes)}">
       <td>${esc(e.name)}<div class="esub">${esc(e.class)}</div></td>
-      <td>${e.visionFar ? `${num(e.visionNear)} → ${num(e.visionFar)} m` : "—"}</td>
+      <td>${e.visionFar ? `${num(e.visionNear)} → ${num(e.visionFar)} m` : "—"}${e.visionPointBlank ? `<div class="esub">point-blank ${e.visionPointBlank} m</div>` : ""}</td>
       <td>${e.coneH ? e.coneH + "°" : "—"}</td>
-      <td>${e.hearing ? e.hearing + " m" : "—"}</td>
+      <td>${e.hearing ? e.hearing + " m" : "—"}${e.hearingViolent ? `<div class="esub">${e.hearingViolent} m violent</div>` : ""}</td>
       <td>${e.esp ? esc(e.esp) : "—"}</td></tr>`;
+  // The noise card's summary line reads the rows it summarises, so a re-tune can't strand it
+  // (the hardcoded "~3× louder" went stale when 25071553 moved walk 2.5→6 m and sprint 7.5→15 m).
+  const nr = (a) => (D.noise.find((n) => n.action === a) || {}).radius;
+  const walkR = nr("Walk"), sprintR = nr("Sprint"), gunLo = nr("Gunfire (rifle)"), gunHi = nr("Gunfire (LMG/shotgun)");
+  const noiseSummary = [
+    walkR && sprintR ? `A sprint carries ${Math.round((sprintR / walkR) * 10) / 10}× as far as a walk (${sprintR} m vs ${walkR} m)` : "",
+    gunLo && gunHi ? `a single gunshot is heard ${gunLo === gunHi ? gunLo : `${gunLo}–${gunHi}`} m away` : "",
+  ].filter(Boolean).join("; ");
   const nmax = Math.max(...D.noise.map((n) => n.radius || 0.1));
   const nrow = (n) => {
     const pct = Math.max(2, Math.round((Math.log10((n.radius || 0.5) + 1) / Math.log10(nmax + 1)) * 100));
@@ -1027,6 +1077,7 @@ async function renderDetection() {
         <tbody>${D.enemies.map(erow).join("")}</tbody>
       </table></div>
       <p class="gnote">Vision is a line-of-sight cone; you build detection faster up close (near range) than at the edge (far range). ESP ignores walls. "∞" = effectively omniscient at range (turrets, Hunter-Killers).</p>
+      <p class="gnote">Every figure is the one the enemy uses <b>against a player</b> &mdash; some carry longer ranges that only apply to rival-faction targets. Under Hearing, the second line is while you're flagged <b>violent</b>, the game's state for a player who's been shooting. <b>Point-blank</b> is a close-range band most ground units gained in 0.9.5; the files carry the distance, not exactly what it does.</p>
     </div>
 
     ${D.hunterKillers ? `<div class="card" id="hunterkillers" data-anchor="hunter-killers">
@@ -1052,7 +1103,7 @@ async function renderDetection() {
     <div class="card" data-anchor="noise">
       <div class="section" style="margin-top:0"><h3>Noise you make (audible radius)</h3></div>
       <div class="noise-list">${D.noise.map(nrow).join("")}</div>
-      <p class="gnote">Crouch-moving emits <b>no</b> noise event at all. Sprinting is ~3× louder than walking; a single gunshot is heard 75–100 m away.</p>
+      <p class="gnote">Crouch-moving emits <b>no</b> noise event at all.${noiseSummary ? ` ${noiseSummary}.` : ""}</p>
     </div>
 
     <div class="card" data-anchor="timing">
@@ -1080,7 +1131,7 @@ async function renderDetection() {
       <div class="callout">${esc(D.targetPriority.badgeNote)}</div>
     </div>` : ""}
 
-    <p class="legend">Method: decoded from the shipping game's <code>FWAI</code> awareness assets (vision/hearing/ESP sensor definitions, noise events, transference) via a UE4SS type mapping + CUE4Parse. Ranges: Unreal units ÷100 = metres. Modifier directions verified against in-game roles (crouch stealthier, shooting louder).</p>
+    <p class="legend">Method: decoded from the shipping game's <code>FWAI</code> awareness assets (vision/hearing/ESP sensor definitions, noise events, transference) via a UE4SS type mapping + CUE4Parse (build ${D.build}). Ranges: Unreal units ÷100 = metres. Modifier directions verified against in-game roles (crouch stealthier, shooting louder).</p>
   </div>`;
 }
 
@@ -1176,7 +1227,7 @@ function unitCard(b) {
     const s = b.senses, bits = [];
     bits.push(s.visionFar ? `<b>Vision</b> ${s.visionNear}&rarr;${s.visionFar} m${s.coneH ? ` <span class="dim">${s.coneH}&deg;</span>` : ""}`
                           : `<b>Vision</b> <span class="dim">none — blind</span>`);
-    if (s.hearing) bits.push(`<b>Hearing</b> ${s.hearing} m`);
+    if (s.hearing || s.hearingViolent) bits.push(`<b>Hearing</b> ${s.hearing ? s.hearing + " m" : "—"}${s.hearingViolent ? ` <span class="dim">(${s.hearingViolent} m violent)</span>` : ""}`);
     if (s.esp) bits.push(`<b>ESP</b> ${esc(s.esp)}`);
     h += `<div class="section"><h3>Senses <button class="linklike" data-godetect>full detection model &rarr;</button></h3>
       <div class="unit-senses">${bits.join(` <span class="dim">&middot;</span> `)}</div>
@@ -1358,9 +1409,8 @@ function drawEconomy() {
     <div class="callout" style="margin-top:16px"><b>What your scavenging is worth.</b>
       Every lootable item you can sell, pulled <b>straight from the game's own data</b> and bucketed by
       credit value. Values are the game's Rep&nbsp;2 / 100%-efficiency reference, so read them as
-      <em>relative</em> worth &mdash; your real payout shifts with vendor, reputation and faction. Where the
-      game tags it, a <span class="eco-loc">Tunnels</span> / <span class="eco-loc">Regions</span> mark shows
-      which map-type it spawns in.</div>`;
+      <em>relative</em> worth &mdash; your real payout shifts with vendor, reputation and faction. Tap
+      <b>drops</b> on a row for every crate, corpse and wreck that can give it.</div>`;
 
   // distribution strip
   const maxC = Math.max(...D.tiers.map((t) => t.count));
@@ -1404,8 +1454,10 @@ function drawEconomy() {
 function ecoRow(it, catCell, dens, withTier) {
   const tierBadge = withTier ? `<td><span class="eco-tier" style="--tc:${TIER_COLOR[it.tier]}">${esc(ECO.byKey[it.tier].label)}</span></td>` : "";
   const q = it.quest ? ` <span class="eco-q" title="Quest item">&#10022;</span>` : "";
-  const loc = it.loc ? ` <span class="eco-loc" title="Spawns in ${esc(it.loc)}">${esc(it.loc === "Tunnels & Regions" ? "Both" : it.loc)}</span>` : "";
-  return `<tr><td>${esc(it.name)}${q}${loc}</td>${tierBadge}<td>${catCell(it)}</td>
+  // Where it actually drops, not a map-type badge: the old Tunnels/Regions mark came from item
+  // tags the game's loot scatter never reads (see parse_loot.RARE_LISTS in the datamine).
+  const drops = ` <button class="eco-loc" data-godrops="${esc(it.name)}" title="Every source that drops ${esc(it.name)}">drops</button>`;
+  return `<tr><td>${esc(it.name)}${q}${drops}</td>${tierBadge}<td>${catCell(it)}</td>
     <td class="num gold">${ecoCr(it.cr)}</td><td class="num">${dens(it.perVol)}</td><td class="num">${dens(it.perWgt)}</td></tr>`;
 }
 
