@@ -1285,9 +1285,7 @@ function drawEnemies() {
   const shown = D.units.filter((u) => (cat === "all" || u.category === cat) && enemyMatches(u));
 
   let html = `<div class="guide">` + datasetBar() + `
-    <div class="callout" style="margin-top:16px"><b>Datamined from each unit's own AI, not the forums.</b>
-      Threat class, health, the stun threshold, melee &amp; dash damage, the grab that instakills you, and every mounted gun &mdash; read straight from the game's <code>FWAIPawnDefinition</code> files. The 10 bosses keep hand-written tactics; every other unit is a datamined summary.</div>
-    <div class="callout" style="border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
+    <div class="callout" style="margin-top:16px;border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
       <b>Stagger</b> &mdash; burst that much damage in and it's stunned (only <em>your</em> damage counts &mdash; one railgun shot can freeze what a magazine can't); the big machines are effectively <em>immune</em>. <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so <em>staying healthy</em> is a defence.</div>`;
   (D._modNotes || []).forEach((mn) => { const m = modById(mn.mod); html += `<div class="callout" style="border-left-color:var(--rust)"><b>${esc(m ? m.meta.name : "Mod")}.</b> ${mdb(mn.note)}</div>`; });
 
