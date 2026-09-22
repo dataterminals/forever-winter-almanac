@@ -1,6 +1,6 @@
 {
  "source": "The Forever Winter shipping game files (build 25071553) — FWAIPawnDefinition enemy defs + BP_AI health components + weapon defs, decoded with CUE4Parse",
- "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units is read from the unit's blueprint health component, and senses from the blueprint its pawn definition names, the same way the Detection tab reads them. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
+ "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units and senses both come from the blueprint its pawn definition names: HP from its health component (or the parent blueprint's, where it sets none of its own), senses the same way the Detection tab reads them. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
  "build": 25071553,
  "codex": {
   "xp": 62500,
@@ -2025,7 +2025,7 @@
     "stunWindow": null,
     "hasCodex": true,
     "codexDelivery": "drill",
-    "note": "Finite 451k armour, no separate body pool — anti-tank fire kills it (easiest stun at 12k); drops its container + codex on death."
+    "note": "Real, finite HP: 451k of armour over the Medium Mech's ~337,400 body pool, which it inherits — anti-tank fire kills it (easiest stun at 12k); drops its container + codex on death."
    },
    "codexReward": {
     "name": "RatKing Codex",
