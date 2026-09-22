@@ -4,8 +4,13 @@
   "name": "Unkillables Rebalance",
   "short": "Unkillables",
   "badge": "Unkillables",
-  "nexus": 68,
-  "nexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/68",
+  "author": "Meganiikko",
+  "fixBy": "dataterminals",
+  "nexus": 124,
+  "nexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/124",
+  "originalNexus": 68,
+  "originalNexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/68",
+  "status": "Doesn't work on the current game version yet — the current download crashes the game while loading. A fix is on the way.",
   "game": "25071553",
   "pages": [
    "enemies"
