@@ -794,7 +794,7 @@ function renderStats() {
     <div class="card" data-anchor="display-only">
       <div class="section" style="margin-top:0"><h3>Stats that are display-only, buggy, or disputed</h3></div>
       <div class="gdef"><span class="term">Recoil</span><span>Shown as a single number but it's a <b>compound</b> of hidden values ("wrist" + "arm" recoil). It's theorised to drive <em>camera shake</em> only — it does <b>not</b> move your point of aim under fire. The wild numbers you see when swapping parts are aggregation errors, not real changes.</span></div>
-      <div class="gdef"><span class="term">Stability</span><span><b>Currently unprovable.</b> Attachments still carry a Stability number and the game still shows it, but the per-weapon curves that turned it into bullet spread were <b>removed from the build</b>. We previously published what those curves did; that analysis no longer describes the shipping game. Full detail in <a href="#underhood">Under the hood</a>, just below.</span></div>
+      <div class="gdef"><span class="term">Stability</span><span><b>Currently unprovable.</b> Attachments still carry a Stability number and the game still shows it, but the per-weapon curves that turned it into bullet spread were <b>removed from the build</b>. We previously published what those curves did; that analysis no longer describes the shipping game. Full detail in <a href="#/stats/underhood">Under the hood</a>, just below.</span></div>
       <div class="gdef"><span class="term">The stat card as a whole</span><span>It aggregates several parameters into display values and is frequently wrong when a weapon is modified. Trust behaviour in the shooting range over the card.</span></div>
     </div>
 
@@ -834,25 +834,25 @@ function renderStats() {
       <div class="section" style="margin-top:0"><h3>What each attachment type really changes</h3></div>
       <p class="gnote">Within a category every item gives the <b>same</b> bonus — only the look differs (the displayed % also scales per weapon). Relative effect:</p>
       <div class="gtable-wrap"><table class="gtable">
-        <thead><tr><th>Attachment</th><th>Accuracy</th><th>Handling*</th><th>Works?</th><th>Real reason to fit it</th></tr></thead>
+        <thead><tr><th>Attachment</th><th>Accuracy</th><th>Handling*</th><th>Works?</th><th>What it does</th></tr></thead>
         <tbody>
-          <tr><td>Optic (red dot)</td><td>—</td><td>—</td><td class="ok">yes</td><td><b>Zero stat change</b> — purely the sight picture. Pick for a clear view (Spook occludes least).</td></tr>
-          <tr><td>Foregrip</td><td>+++</td><td>+++</td><td class="ok">yes</td><td><b>Biggest</b> accuracy/handling gain of the common parts. If a slot's open, fit one.</td></tr>
-          <tr><td>Muzzle device</td><td>+</td><td>+</td><td class="ok">yes</td><td>Small tune; choice within a mount family is basically cosmetic.</td></tr>
-          <tr><td>Suppressor</td><td>+</td><td>+</td><td class="ok">yes</td><td>Quieter shots (stealth) at almost no stat cost — the real reason to run one.</td></tr>
-          <tr><td>Scope (magnified)</td><td>+++</td><td>+++</td><td class="bad">no</td><td>Big numbers + zoom, but flagged <b>non-functional</b> right now.</td></tr>
-          <tr><td>Laser sight</td><td>+</td><td>+</td><td class="bad">no</td><td>Minor on paper; currently <b>non-functional</b>.</td></tr>
-          <tr><td>Flashlight</td><td>~</td><td>~</td><td class="bad">buggy</td><td>Negligible, and causes fog glare — devs suggest avoiding for now.</td></tr>
+          <tr><td>Optic (red dot)</td><td>—</td><td>—</td><td class="ok">yes</td><td><b>No stat change</b> — only the sight picture differs.</td></tr>
+          <tr><td>Foregrip</td><td>+++</td><td>+++</td><td class="ok">yes</td><td>The <b>largest</b> accuracy and handling bonus of the common attachments.</td></tr>
+          <tr><td>Muzzle device</td><td>+</td><td>+</td><td class="ok">yes</td><td>A small bonus, the same for every device in the category.</td></tr>
+          <tr><td>Suppressor</td><td>+</td><td>+</td><td class="ok">yes</td><td>Quieter shots and a small bonus. A suppressed shot that misses an unaware enemy who isn't looking at you doesn't make it suspicious.</td></tr>
+          <tr><td>Scope (magnified)</td><td>+++</td><td>+++</td><td class="bad">no</td><td>A large listed bonus and zoom; currently <b>non-functional</b>.</td></tr>
+          <tr><td>Laser sight</td><td>+</td><td>+</td><td class="bad">no</td><td>A small listed bonus; currently <b>non-functional</b>.</td></tr>
+          <tr><td>Flashlight</td><td>~</td><td>~</td><td class="bad">buggy</td><td>A negligible bonus; causes glare in fog.</td></tr>
         </tbody>
       </table></div>
-      <p class="gnote">*Handling = the recoil / stabilisation numbers — real-world benefit is small given how unreliable those stats are. The accuracy bump is the part that actually helps.</p>
+      <p class="gnote">*Handling = the recoil and stabilisation numbers. Like accuracy, they're values the game computes for display rather than stored stats — see <a href="#/stats/underhood">Under the hood</a>.</p>
     </div>
 
     <div class="card" data-anchor="glossary">
       <div class="section" style="margin-top:0"><h3>Attachment stat glossary</h3></div>
-      <div class="gdef"><span class="term">Accuracy</span><span>Tighter shot grouping. The meaningful one.</span></div>
-      <div class="gdef"><span class="term">Recoil (1st / 3rd person)</span><span>Camera kick you see while aiming / that others see. Cosmetic-ish; doesn't shift your aim.</span></div>
-      <div class="gdef"><span class="term">Stabilization speed / length</span><span>How fast, and for how long, the sight re-settles after a shot. Theorised, minor.</span></div>
+      <div class="gdef"><span class="term">Accuracy</span><span>Tighter shot grouping.</span></div>
+      <div class="gdef"><span class="term">Recoil (1st / 3rd person)</span><span>Camera kick you see while aiming / that others see. It doesn't shift your aim.</span></div>
+      <div class="gdef"><span class="term">Stabilization speed / length</span><span>How fast, and for how long, the sight re-settles after a shot.</span></div>
       <div class="gdef"><span class="term">ADS speed</span><span>How quickly you aim down sights.</span></div>
       <div class="gdef"><span class="term">Reload speed</span><span>Reload time. (Attachments here don't change it — it's 0 across the board.)</span></div>
       <div class="gdef"><span class="term">FOV</span><span>Zoom, on scopes only.</span></div>
@@ -860,10 +860,8 @@ function renderStats() {
     </div>
 
     <div class="callout">
-      <b>Bottom line.</b> Chase <b>accuracy</b> and <b>magazine size</b>; ignore the recoil/stability
-      numbers. Fit a <b>foregrip</b> where you can, pick <b>optics by how clearly you can see</b>, and run a
-      <b>suppressor</b> for stealth. Treat scopes, laser sights, flashlights, bipods and bayonets as
-      currently non-functional.
+      <b>Currently not working:</b> scopes, laser sights, bipods and bayonets. Flashlights work but cause
+      glare in fog.
     </div>
     <p class="legend">Sources: weapon damage, rate of fire, magazine, weight, value, XP and calibre are decoded from the shipping game files (build ${STATS_BUILD()}). Accuracy, recoil and stability are not stored fields — those come from the <a href="https://theforeverwinter.wiki.gg/wiki/Weapons" target="_blank" rel="noopener">Weapons</a> &amp; <a href="https://theforeverwinter.wiki.gg/wiki/Weapon_Attachments" target="_blank" rel="noopener">Weapon Attachments</a> wiki pages plus community testing, and the devs flag them as WIP — verify in the shooting range.</p>
   </div>`;
