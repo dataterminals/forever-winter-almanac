@@ -1076,7 +1076,7 @@ async function renderDetection() {
     </div>
 
     <div class="card" data-anchor="enemies">
-      <div class="section" style="margin-top:0"><h3>Per-enemy senses <span class="c">hover a row for tactics</span></h3></div>
+      <div class="section" style="margin-top:0"><h3>Per-enemy senses <span class="c">hover a row for a summary</span></h3></div>
       <div class="gtable-wrap"><table class="gtable">
         <thead><tr><th>Enemy</th><th>Vision (near→far)</th><th>Cone</th><th>Hearing</th><th>ESP</th></tr></thead>
         <tbody>${D.enemies.map(erow).join("")}</tbody>
@@ -1197,11 +1197,11 @@ function unitCard(b) {
   else if (dpKill) {
     durLabel = "Body HP";
     const hp = b.realHp ? bNum(b.realHp) : "1,000,000,000";
-    durVal = `<span class="help" title="Datamined body HP = ${hp} — gunfire can't drop it. You stun it (only your damage builds stagger) and plant Special Units DetPacks while it's stunned; 3 plants trigger a scripted kill that bypasses the HP pool, then you drill the corpse for the Codex.">&infin; <small class="dim">DetPack kill</small></span>`;
+    durVal = `<span class="help" title="Body HP ${hp}: gunfire can't bring it down. It dies to a scripted kill after three Special Units DetPacks are planted while it's stunned.">&infin; <small class="dim">DetPack kill</small></span>`;
   }
   else if (b.health && b.health.total) { durLabel = "Armour"; durVal = bNum(b.health.total); }
   else if (b.hp) { durVal = bNum(b.hp); }
-  else if (b.hpNote === "invincible") { durVal = `<span class="help" title="Datamined max HP = 1,000,000,000 — invincible to gunfire. Defeated by stunning it and planting Special Units DetPacks, or simply evaded.">&infin; <small class="dim">invincible</small></span>`; }
+  else if (b.hpNote === "invincible") { durVal = `<span class="help" title="Max HP 1,000,000,000: gunfire can't bring it down.">&infin; <small class="dim">invincible</small></span>`; }
   h += `<div class="statgrid">`;
   if (durVal) h += `<div class="stat"><div class="k">${durLabel}</div><div class="v">${durVal}</div></div>`;
   h += `<div class="stat key"><div class="k">Stagger &middot; stun</div><div class="v">${bossStaggerVal(b.stagger)}</div></div>`;

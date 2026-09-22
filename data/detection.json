@@ -78,7 +78,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": "base",
-      "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed."
+      "notes": "The baseline enemy profile. Detection builds quickly up close and a little slower at range."
     },
     {
       "name": "Europa Sniper",
@@ -93,7 +93,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": "base",
-      "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines."
+      "notes": "A soldier's profile with a longer far range and a wider arc."
     },
     {
       "name": "Overwatch Sniper",
@@ -108,7 +108,7 @@
       "hearing": 11.5,
       "hearingViolent": 11.5,
       "esp": "base",
-      "notes": "A fixed overwatch/quest sniper — only soldier range, but the fastest near-lock of any infantry (1.0 s inside 14 m), and it hears you at twice a soldier's range. It commits before a grunt would, so don't hold still in its arc."
+      "notes": "The fixed overwatch and quest snipers: soldier range, but faster detection and longer calm hearing than a soldier."
     },
     {
       "name": "Stalker",
@@ -123,7 +123,7 @@
       "hearing": 20,
       "hearingViolent": 40,
       "esp": "×2",
-      "notes": "Exceptional hearing — 20 m, 40 m once you're violent — and a tall vertical cone; doubles its ESP radius. Built to hunt."
+      "notes": "Long-range hearing, a tall cone and a doubled ESP radius."
     },
     {
       "name": "Mech",
@@ -138,7 +138,7 @@
       "hearing": 7.5,
       "hearingViolent": 15,
       "esp": null,
-      "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits."
+      "notes": "Soldier-range sight against players, but slow detection. Other factions are spotted from much farther away."
     },
     {
       "name": "Hunter-Killer (EOD)",
@@ -153,7 +153,7 @@
       "hearing": 100,
       "hearingViolent": 200,
       "esp": "∞",
-      "notes": "360° vision to 200 m with a 0.1 s lock, 100 m hearing and effectively infinite ESP. If an HK is near, you are found. Break line of sight and leave."
+      "notes": "Sees in every direction at long range and locks on almost instantly. Long-range hearing and effectively unlimited ESP."
     },
     {
       "name": "Scav Turret",
@@ -168,7 +168,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": "∞",
-      "notes": "360°, 200 m, instant. Stay behind hard cover."
+      "notes": "Sees in every direction at long range and locks on almost instantly. Effectively unlimited ESP."
     },
     {
       "name": "Turret (emplaced)",
@@ -183,7 +183,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": "×4.5",
-      "notes": "The ordinary mounted turret — not the Scav 360° one. A wide 195° arc to 40 m at a soldier's lock speed, plus a 4.5× ESP bubble that sees through walls up close. Come at it from behind, or from well past 40 m."
+      "notes": "The ordinary mounted turret, not the Scav one: soldier range and timing in a very wide arc, with a large ESP radius."
     },
     {
       "name": "Drone",
@@ -198,7 +198,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": null,
-      "notes": "Narrow 90° cone but wide vertical arc — it looks down well."
+      "notes": "A narrow but tall cone. Detection is quick up close and slow at range."
     },
     {
       "name": "Chopper",
@@ -213,7 +213,7 @@
       "hearing": 5.75,
       "hearingViolent": null,
       "esp": null,
-      "notes": "Long range but very slow to lock (12–18 s) — you can cross gaps between its sweeps."
+      "notes": "Long sight, very slow detection."
     },
     {
       "name": "Tank",
@@ -228,7 +228,7 @@
       "hearing": null,
       "hearingViolent": null,
       "esp": null,
-      "notes": "Short-sighted against you: 7.5 m near / 20 m far in a wide arc (the 108 m range in its file is for rival-faction targets), and slow to build (4–9 s)."
+      "notes": "Short sight and slow detection against players, with no hearing or ESP. Other factions are spotted from much farther away."
     },
     {
       "name": "BlindMother",
@@ -243,7 +243,7 @@
       "hearing": null,
       "hearingViolent": 30,
       "esp": null,
-      "notes": "Runs on hearing — once you're violent she hears you out to 30 m, with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a vision cone in the files, but it builds so slowly it never matters — the fight is about noise.)"
+      "notes": "Hears violent players almost instantly. Her vision cone is small and very slow to build."
     },
     {
       "name": "Shield Guy",
@@ -258,7 +258,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": null,
-      "notes": "Soldier-range vision in a wide arc."
+      "notes": "Soldier range in a wider arc, with slightly faster detection at range."
     },
     {
       "name": "Opal (Eurasia elite)",
@@ -273,7 +273,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": null,
-      "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer."
+      "notes": "Soldier range in a wide arc. Detection builds almost as fast at range as up close."
     }
   ],
   "modifiers": [
