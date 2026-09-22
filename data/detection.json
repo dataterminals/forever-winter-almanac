@@ -1,8 +1,8 @@
 {
-  "source": "The Forever Winter shipping game files (build 24536482) — FWAI awareness system (AIDEF_Sensor_* + AIDEF_Noise_*), decoded with CUE4Parse via a UE4SS usmap. Ranges converted from Unreal units (cm) to metres.",
+  "source": "The Forever Winter shipping game files (build 25071553) — FWAI awareness system (AIDEF_Sensor_* + AIDEF_Noise_*), decoded with CUE4Parse via a UE4SS usmap. Ranges converted from Unreal units (cm) to metres.",
   "note": "Vision modifiers act on accumulation TIME: AccumulationMultiplier > 1 = slower to detect (stealthier); DecayMultiplier < 1 = forgotten faster (stealthier).",
-  "build": 24536482,
-  "buildNote": "Decoded at 24536482. The 'holding a pistol' modifier is new since our previous decode, but we can't attribute it to a specific patch: it is absent from our pre-24479102 dump and present now, and 24479102 only touched the weapon assets, so it arrived in one of those two builds.",
+  "build": 25071553,
+  "buildNote": "Decoded at 25071553. Hearing and vision are what a player meets: the per-target override a sensor aims at players where it has one, its top-level range otherwise. 10 of the 14 enemy vision profiles here carry a point-blank range (5 m), which first shipped in 25071553 (0.9.5); the files hold the distance, not what the engine does with it.",
   "provenance": {
     "derived": [
       "enemies",
@@ -74,7 +74,9 @@
       "coneV": 79,
       "accNear": 1.2,
       "accFar": 2.75,
-      "hearing": 11.5,
+      "visionPointBlank": 5,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
       "esp": "base",
       "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed."
     },
@@ -87,9 +89,11 @@
       "coneV": 79,
       "accNear": 1.2,
       "accFar": 2.75,
-      "hearing": 11.5,
-      "esp": null,
-      "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines. (The 'Deadly Sniper' variant shares this exact profile.)"
+      "visionPointBlank": 5,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
+      "esp": "base",
+      "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines."
     },
     {
       "name": "Overwatch Sniper",
@@ -100,9 +104,11 @@
       "coneV": 79,
       "accNear": 1,
       "accFar": 2.29,
+      "visionPointBlank": 5,
       "hearing": 11.5,
-      "esp": null,
-      "notes": "A fixed overwatch/quest sniper — only soldier range, but the fastest near-lock in the game (1.0 s inside 14 m). It commits before a grunt would, so don't hold still in its arc."
+      "hearingViolent": 11.5,
+      "esp": "base",
+      "notes": "A fixed overwatch/quest sniper — only soldier range, but the fastest near-lock of any infantry (1.0 s inside 14 m), and it hears you at twice a soldier's range. It commits before a grunt would, so don't hold still in its arc."
     },
     {
       "name": "Stalker",
@@ -113,22 +119,26 @@
       "coneV": 120,
       "accNear": 1.2,
       "accFar": 4.33,
-      "hearing": 40,
+      "visionPointBlank": 5,
+      "hearing": 20,
+      "hearingViolent": 40,
       "esp": "×2",
-      "notes": "Exceptional hearing (40 m) and a tall vertical cone; doubles its ESP radius. Built to hunt."
+      "notes": "Exceptional hearing — 20 m, 40 m once you're violent — and a tall vertical cone; doubles its ESP radius. Built to hunt."
     },
     {
       "name": "Mech",
       "class": "Heavy",
-      "visionNear": 14,
-      "visionFar": 400,
-      "coneH": 176,
+      "visionNear": 15,
+      "visionFar": 40,
+      "coneH": 120,
       "coneV": 79,
       "accNear": 4,
       "accFar": 9,
-      "hearing": 15,
+      "visionPointBlank": 5,
+      "hearing": 7.5,
+      "hearingViolent": 15,
       "esp": "×3",
-      "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits."
+      "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits."
     },
     {
       "name": "Hunter-Killer (EOD)",
@@ -139,9 +149,11 @@
       "coneV": 360,
       "accNear": 0.1,
       "accFar": 0.1,
-      "hearing": 11.5,
+      "visionPointBlank": 5,
+      "hearing": 100,
+      "hearingViolent": 200,
       "esp": "∞",
-      "notes": "360° vision to 200 m with a 0.1 s lock and effectively infinite ESP. If an HK is near, you are found. Break line of sight and leave."
+      "notes": "360° vision to 200 m with a 0.1 s lock, 100 m hearing and effectively infinite ESP. If an HK is near, you are found. Break line of sight and leave."
     },
     {
       "name": "Scav Turret",
@@ -152,7 +164,9 @@
       "coneV": 360,
       "accNear": 0.1,
       "accFar": 0.1,
+      "visionPointBlank": 5,
       "hearing": null,
+      "hearingViolent": null,
       "esp": "∞",
       "notes": "360°, 200 m, instant. Stay behind hard cover."
     },
@@ -165,7 +179,9 @@
       "coneV": 79,
       "accNear": 1.2,
       "accFar": 2.75,
+      "visionPointBlank": 5,
       "hearing": null,
+      "hearingViolent": null,
       "esp": "×4.5",
       "notes": "The ordinary mounted turret — not the Scav 360° one. A wide 195° arc to 40 m at a soldier's lock speed, plus a 4.5× ESP bubble that sees through walls up close. Come at it from behind, or from well past 40 m."
     },
@@ -178,7 +194,9 @@
       "coneV": 120,
       "accNear": 1.2,
       "accFar": 9,
-      "hearing": null,
+      "visionPointBlank": null,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
       "esp": null,
       "notes": "Narrow 90° cone but wide vertical arc — it looks down well."
     },
@@ -191,22 +209,26 @@
       "coneV": 120,
       "accNear": 12,
       "accFar": 18,
+      "visionPointBlank": null,
       "hearing": 5.75,
+      "hearingViolent": null,
       "esp": null,
       "notes": "Long range but very slow to lock (12–18 s) — you can cross gaps between its sweeps."
     },
     {
       "name": "Tank",
       "class": "Vehicle",
-      "visionNear": 10,
-      "visionFar": 108,
-      "coneH": 150,
+      "visionNear": 7.5,
+      "visionFar": 20,
+      "coneH": 120,
       "coneV": 150,
       "accNear": 4,
       "accFar": 9,
+      "visionPointBlank": 5,
       "hearing": null,
+      "hearingViolent": null,
       "esp": null,
-      "notes": "Wide arc, long range, slow build."
+      "notes": "Short-sighted against you: 7.5 m near / 20 m far in a wide arc (the 108 m range in its file is for rival-faction targets), and slow to build (4–9 s)."
     },
     {
       "name": "BlindMother",
@@ -218,9 +240,10 @@
       "accNear": null,
       "accFar": null,
       "visionHidden": "accumulates far too slowly to matter; the fight is decided by hearing",
-      "hearing": 30,
+      "hearing": null,
+      "hearingViolent": 30,
       "esp": null,
-      "notes": "Runs on hearing — a 30 m listen radius with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a long, flat vision cone in the files, but it builds so slowly it never matters — the fight is entirely about noise.)"
+      "notes": "Runs on hearing — once you're violent she hears you out to 30 m, with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a vision cone in the files, but it builds so slowly it never matters — the fight is about noise.)"
     },
     {
       "name": "Shield Guy",
@@ -231,7 +254,9 @@
       "coneV": 79,
       "accNear": 1.2,
       "accFar": 2,
-      "hearing": 11.5,
+      "visionPointBlank": 5,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
       "esp": null,
       "notes": "Soldier-range vision in a wide arc."
     },
@@ -244,7 +269,9 @@
       "coneV": 79,
       "accNear": 1.2,
       "accFar": 1.5,
-      "hearing": 11.5,
+      "visionPointBlank": null,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
       "esp": "base",
       "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer."
     }
@@ -286,7 +313,7 @@
       "factor": "Holding a pistol",
       "acc": 1.2,
       "decay": 0.8,
-      "effect": "New: a drawn sidearm is worth exactly as much as a Stealth Rig — 1.2× slower to detect and forgotten faster. Applies to every vision sensor in the game (all 15 that carry a modifier table), from basic infantry to snipers, mechs and turrets. Costs you nothing and stacks with crouching."
+      "effect": "A drawn sidearm is worth exactly as much as a Stealth Rig — 1.2× slower to detect and forgotten faster. Applies to every vision sensor in the game (all 15 that carry a modifier table), from basic infantry to snipers, mechs and turrets. Costs you nothing and stacks with crouching."
     },
     {
       "factor": "Gunhead (character)",
@@ -328,32 +355,32 @@
       "label": "silent"
     },
     {
-      "action": "Walk",
-      "radius": 2.5
-    },
-    {
-      "action": "Gunhead walk",
-      "radius": 3
-    },
-    {
       "action": "Looting",
       "radius": 4
     },
     {
-      "action": "Gunhead sprint",
+      "action": "Walk",
       "radius": 6
     },
     {
-      "action": "Sprint",
+      "action": "Gunhead walk",
       "radius": 7.5
     },
     {
+      "action": "Sprint",
+      "radius": 15
+    },
+    {
       "action": "Loud action",
-      "radius": 8
+      "radius": 15
+    },
+    {
+      "action": "Gunhead sprint",
+      "radius": 18.75
     },
     {
       "action": "Grenade / very loud",
-      "radius": 50
+      "radius": 60
     },
     {
       "action": "Gunfire (rifle)",

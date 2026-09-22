@@ -1,9 +1,9 @@
 {
- "source": "The Forever Winter shipping game files (build 24536482) — ItemDetailsData + EconV2 value tables, decoded with CUE4Parse",
+ "source": "The Forever Winter shipping game files (build 25071553) — ItemDetailsData + EconV2 value tables, decoded with CUE4Parse",
  "generated_note": "Datamined straight from the game — authoritative and ahead of the wiki. Raiding-loot economy: scavenge-and-sell items, excluding weapons, parts, attachments, ammo, rigs and containers (own tabs); keeps enemy-drop destroyed weapons.",
  "valueBasis": "credits = round(raw Value / 1.9512195122) — the game's Rep-2 / 100%-cost-efficiency reference",
  "divisor": 1.9512195122,
- "build": 24536482,
+ "build": 25071553,
  "tiers": [
   {
    "key": "junk",
@@ -192,8 +192,7 @@
    "perVol": 1216,
    "perWgt": 91225,
    "xp": 0,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Sentient Drill",
@@ -207,8 +206,7 @@
    "perVol": 1293,
    "perWgt": 28017,
    "xp": 300,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Organoid Networking Board",
@@ -222,8 +220,7 @@
    "perVol": 2167,
    "perWgt": 108357,
    "xp": 300,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Construction Drone",
@@ -237,8 +234,7 @@
    "perVol": 0,
    "perWgt": 0,
    "xp": 6353,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Item Extraction Beacon",
@@ -252,8 +248,7 @@
    "perVol": 8139,
    "perWgt": 108520,
    "xp": 6353,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Special Units DetPack",
@@ -267,8 +262,7 @@
    "perVol": 8139,
    "perWgt": 108520,
    "xp": 6353,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Military Codebreaker",
@@ -282,8 +276,7 @@
    "perVol": 2296,
    "perWgt": 57400,
    "xp": 300,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Advanced Navigation Device",
@@ -297,8 +290,7 @@
    "perVol": 1824,
    "perWgt": 91224,
    "xp": 210,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Quantum Hard Drive",
@@ -312,8 +304,7 @@
    "perVol": 3041,
    "perWgt": 152040,
    "xp": 300,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Wetware Processor",
@@ -327,8 +318,7 @@
    "perVol": 608,
    "perWgt": 15204,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Construction Foam",
@@ -342,8 +332,7 @@
    "perVol": 2597,
    "perWgt": 97375,
    "xp": 300,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Diagnostic Scanner",
@@ -357,8 +346,7 @@
    "perVol": 1742,
    "perWgt": 87125,
    "xp": 200,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Rootkit Device",
@@ -372,8 +360,7 @@
    "perVol": 1394,
    "perWgt": 87125,
    "xp": 518,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Ventilation Regulator",
@@ -387,8 +374,7 @@
    "perVol": 1394,
    "perWgt": 43562,
    "xp": 250,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Recovery Drone",
@@ -402,8 +388,7 @@
    "perVol": 0,
    "perWgt": 0,
    "xp": 3370,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Grabber Codex",
@@ -417,8 +402,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Hard Shell Laptop",
@@ -432,8 +416,7 @@
    "perVol": 2187,
    "perWgt": 32800,
    "xp": 149,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Kotleta Codex",
@@ -447,8 +430,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Medium Mech Codex",
@@ -462,8 +444,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Mother Courage Codex",
@@ -477,8 +458,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Mystical Tech Totem",
@@ -492,8 +472,7 @@
    "perVol": 1312,
    "perWgt": 16400,
    "xp": 418,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Opal Codex",
@@ -507,8 +486,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Orga Codex",
@@ -522,8 +500,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Rat King Codex",
@@ -537,8 +514,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Shield Officer Codex",
@@ -552,8 +528,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Toothy Codex",
@@ -567,8 +542,7 @@
    "perVol": 437,
    "perWgt": 8200,
    "xp": 62500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Encrypted Data Pad",
@@ -582,8 +556,7 @@
    "perVol": 1589,
    "perWgt": 63550,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Toilet Paper",
@@ -597,8 +570,7 @@
    "perVol": 2870,
    "perWgt": 287000,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "High Capacity Hard Drive",
@@ -612,8 +584,7 @@
    "perVol": 2768,
    "perWgt": 92250,
    "xp": 180,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Smuggled Organs",
@@ -627,8 +598,7 @@
    "perVol": 1845,
    "perWgt": 27675,
    "xp": 101,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Exo Repair Kit",
@@ -642,8 +612,7 @@
    "perVol": 547,
    "perWgt": 2460,
    "xp": 92,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Scotch",
@@ -657,8 +626,7 @@
    "perVol": 984,
    "perWgt": 18923,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Solar Battery",
@@ -672,8 +640,7 @@
    "perVol": 328,
    "perWgt": 8200,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Anti-Vertex Bolt Cutters",
@@ -687,8 +654,7 @@
    "perVol": 472,
    "perWgt": 23575,
    "xp": 200,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Thermite",
@@ -702,8 +668,7 @@
    "perVol": 1572,
    "perWgt": 58938,
    "xp": 400,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Organoid Memory Board",
@@ -717,8 +682,7 @@
    "perVol": 861,
    "perWgt": 21525,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Zonophor Tablets",
@@ -732,8 +696,7 @@
    "perVol": 2152,
    "perWgt": 107625,
    "xp": 250,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "EDC Multi-tool",
@@ -747,8 +710,7 @@
    "perVol": 3997,
    "perWgt": 199870,
    "xp": 200,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Preserved Cryo Coffee",
@@ -762,8 +724,7 @@
    "perVol": 779,
    "perWgt": 64917,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Bulkhead Lights",
@@ -777,8 +738,7 @@
    "perVol": 379,
    "perWgt": 6321,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Advanced First Aid Kit",
@@ -792,8 +752,7 @@
    "perVol": 615,
    "perWgt": 18450,
    "xp": 146,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Heavy-Duty Trauma Kit",
@@ -807,8 +766,7 @@
    "perVol": 369,
    "perWgt": 9225,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Fast Travel  Drone",
@@ -822,8 +780,7 @@
    "perVol": 0,
    "perWgt": 0,
    "xp": 1722,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Heirloom Seeds",
@@ -837,8 +794,7 @@
    "perVol": 871,
    "perWgt": 87125,
    "xp": 0,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Soap",
@@ -852,8 +808,7 @@
    "perVol": 1742,
    "perWgt": 174250,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "HIND Navigation Computer",
@@ -867,8 +822,7 @@
    "perVol": 676,
    "perWgt": 16912,
    "xp": 797,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Banner of the Red Baron",
@@ -882,8 +836,7 @@
    "perVol": 328,
    "perWgt": 16400,
    "xp": 838,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Gyroscopic Stabilizer",
@@ -897,8 +850,7 @@
    "perVol": 469,
    "perWgt": 8200,
    "xp": 200,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Laser Rangefinder",
@@ -912,8 +864,7 @@
    "perVol": 469,
    "perWgt": 8200,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Merkava Suspension Component",
@@ -927,8 +878,7 @@
    "perVol": 328,
    "perWgt": 5467,
    "xp": 518,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Military Power Cell",
@@ -942,8 +892,7 @@
    "perVol": 656,
    "perWgt": 32800,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Portable Generator",
@@ -957,8 +906,7 @@
    "perVol": 219,
    "perWgt": 3280,
    "xp": 68,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "UMEGA Media Player",
@@ -972,8 +920,7 @@
    "perVol": 656,
    "perWgt": 54667,
    "xp": 150,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Whiskey",
@@ -987,8 +934,7 @@
    "perVol": 656,
    "perWgt": 12615,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Railgun Cooling Component",
@@ -1002,8 +948,7 @@
    "perVol": 1063,
    "perWgt": 39875,
    "xp": 1556,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Industrial Black Light",
@@ -1017,8 +962,7 @@
    "perVol": 318,
    "perWgt": 5296,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "NeuroScrambler",
@@ -1032,8 +976,7 @@
    "perVol": 1970,
    "perWgt": 15763,
    "xp": 1538,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Extraction Marker",
@@ -1047,8 +990,7 @@
    "perVol": 1934,
    "perWgt": 28131,
    "xp": 1510,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Railgun Breech Component",
@@ -1062,8 +1004,7 @@
    "perVol": 984,
    "perWgt": 36915,
    "xp": 1441,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Cyborg Immunosuppressant",
@@ -1077,8 +1018,7 @@
    "perVol": 957,
    "perWgt": 143500,
    "xp": 0,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Organoid Outlet",
@@ -1092,8 +1032,7 @@
    "perVol": 922,
    "perWgt": 13837,
    "xp": 130,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "T-90 Suspension Component",
@@ -1107,8 +1046,7 @@
    "perVol": 277,
    "perWgt": 4612,
    "xp": 471,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Industrial Sealant",
@@ -1122,8 +1060,7 @@
    "perVol": 1332,
    "perWgt": 66625,
    "xp": 190,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Multi-frequency Broadcaster",
@@ -1137,8 +1074,7 @@
    "perVol": 1332,
    "perWgt": 66625,
    "xp": 5,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Repair Dronelet",
@@ -1152,8 +1088,7 @@
    "perVol": 266,
    "perWgt": 6662,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Rotary Hammer",
@@ -1167,8 +1102,7 @@
    "perVol": 381,
    "perWgt": 16656,
    "xp": 200,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Stereo Box",
@@ -1182,8 +1116,7 @@
    "perVol": 266,
    "perWgt": 6662,
    "xp": 150,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Targeting Computer",
@@ -1197,8 +1130,7 @@
    "perVol": 266,
    "perWgt": 13325,
    "xp": 763,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Railgun Body Component",
@@ -1212,8 +1144,7 @@
    "perVol": 871,
    "perWgt": 32672,
    "xp": 1275,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Explosive Charge",
@@ -1227,8 +1158,7 @@
    "perVol": 854,
    "perWgt": 32030,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Frequency Tap",
@@ -1242,8 +1172,7 @@
    "perVol": 615,
    "perWgt": 41000,
    "xp": 200,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Liquid Cooling Unit",
@@ -1257,8 +1186,7 @@
    "perVol": 351,
    "perWgt": 6150,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Military Battery",
@@ -1272,8 +1200,7 @@
    "perVol": 205,
    "perWgt": 4100,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Toothpaste",
@@ -1287,8 +1214,7 @@
    "perVol": 2460,
    "perWgt": 123000,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Ventilation Filter",
@@ -1302,8 +1228,7 @@
    "perVol": 492,
    "perWgt": 17571,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Water Thief's Mask \"Oni\"",
@@ -1317,8 +1242,7 @@
    "perVol": 351,
    "perWgt": 6150,
    "xp": 150,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Armorer's Wrench",
@@ -1332,8 +1256,7 @@
    "perVol": 471,
    "perWgt": 39290,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Gin",
@@ -1347,8 +1270,7 @@
    "perVol": 471,
    "perWgt": 9067,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "OLED",
@@ -1362,8 +1284,7 @@
    "perVol": 471,
    "perWgt": 16839,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Blood Packs",
@@ -1377,8 +1298,7 @@
    "perVol": 752,
    "perWgt": 37583,
    "xp": 90,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Concrete Mixer",
@@ -1392,8 +1312,7 @@
    "perVol": 150,
    "perWgt": 3758,
    "xp": 200,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Construction Glue",
@@ -1407,8 +1326,7 @@
    "perVol": 1128,
    "perWgt": 56375,
    "xp": 150,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Exo Hard Drive",
@@ -1422,8 +1340,7 @@
    "perVol": 451,
    "perWgt": 11275,
    "xp": 100,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Military Circuitry",
@@ -1437,8 +1354,7 @@
    "perVol": 451,
    "perWgt": 22550,
    "xp": 558,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Neuralink Disc Player",
@@ -1452,8 +1368,7 @@
    "perVol": 1128,
    "perWgt": 37583,
    "xp": 110,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Precision Tool Set",
@@ -1467,8 +1382,7 @@
    "perVol": 251,
    "perWgt": 2255,
    "xp": 57,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Railgun Assembly Component",
@@ -1482,8 +1396,7 @@
    "perVol": 722,
    "perWgt": 27090,
    "xp": 1058,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Carbon Fiber Tube",
@@ -1497,8 +1410,7 @@
    "perVol": 538,
    "perWgt": 21524,
    "xp": 0,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Intermediate Tool Set",
@@ -1512,8 +1424,7 @@
    "perVol": 215,
    "perWgt": 10762,
    "xp": 150,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Power Cell",
@@ -1527,8 +1438,7 @@
    "perVol": 215,
    "perWgt": 10762,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Sledgehammer",
@@ -1542,8 +1452,7 @@
    "perVol": 143,
    "perWgt": 2690,
    "xp": 60,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Universal Aiming Interface Component",
@@ -1557,8 +1466,7 @@
    "perVol": 682,
    "perWgt": 25560,
    "xp": 998,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Battery Charger",
@@ -1572,8 +1480,7 @@
    "perVol": 325,
    "perWgt": 24342,
    "xp": 200,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Brandy",
@@ -1587,8 +1494,7 @@
    "perVol": 389,
    "perWgt": 7490,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Water Thief's Mask \"Bozo\"",
@@ -1602,8 +1508,7 @@
    "perVol": 278,
    "perWgt": 4868,
    "xp": 150,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Camera Lens",
@@ -1617,8 +1522,7 @@
    "perVol": 922,
    "perWgt": 30750,
    "xp": 150,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Crucible",
@@ -1632,8 +1536,7 @@
    "perVol": 308,
    "perWgt": 30750,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Exo Component",
@@ -1647,8 +1550,7 @@
    "perVol": 264,
    "perWgt": 3075,
    "xp": 150,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "MRE",
@@ -1662,8 +1564,7 @@
    "perVol": 461,
    "perWgt": 23062,
    "xp": 40,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Nucky Gold Cigarettes",
@@ -1677,8 +1578,7 @@
    "perVol": 1845,
    "perWgt": 30750,
    "xp": 63,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Organoid Plug",
@@ -1692,8 +1592,7 @@
    "perVol": 264,
    "perWgt": 15375,
    "xp": 200,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Tequila",
@@ -1707,8 +1606,7 @@
    "perVol": 308,
    "perWgt": 7096,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Europa MilTech Radio",
@@ -1722,8 +1620,7 @@
    "perVol": 151,
    "perWgt": 4512,
    "xp": 881,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Europa MilTech Turret Ammo Container",
@@ -1737,8 +1634,7 @@
    "perVol": 76,
    "perWgt": 2256,
    "xp": 881,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Europa MilTech Turret Mount",
@@ -1752,8 +1648,7 @@
    "perVol": 76,
    "perWgt": 2256,
    "xp": 881,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Europa MilTech Turret Weapon",
@@ -1767,8 +1662,7 @@
    "perVol": 76,
    "perWgt": 2256,
    "xp": 881,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Xtech Explosives",
@@ -1782,8 +1676,7 @@
    "perVol": 180,
    "perWgt": 4512,
    "xp": 881,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Concrete Powder",
@@ -1797,8 +1690,7 @@
    "perVol": 174,
    "perWgt": 2904,
    "xp": 50,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Telemetry Unit",
@@ -1812,8 +1704,7 @@
    "perVol": 581,
    "perWgt": 17424,
    "xp": 129,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Carbon Fiber",
@@ -1827,8 +1718,7 @@
    "perVol": 547,
    "perWgt": 41000,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Control Panel",
@@ -1842,8 +1732,7 @@
    "perVol": 234,
    "perWgt": 4100,
    "xp": 593,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Eurasian IFF Chip LVL3",
@@ -1857,8 +1746,7 @@
    "perVol": 1640,
    "perWgt": 82000,
    "xp": 2437,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Europan IFF Chip LVL3",
@@ -1872,8 +1760,7 @@
    "perVol": 1640,
    "perWgt": 82000,
    "xp": 2437,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Euruskan IFF Chip LVL3",
@@ -1887,8 +1774,7 @@
    "perVol": 1640,
    "perWgt": 82000,
    "xp": 2437,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Heavy-Duty Battery",
@@ -1902,8 +1788,7 @@
    "perVol": 328,
    "perWgt": 1640,
    "xp": 150,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Military Hard Drive",
@@ -1917,8 +1802,7 @@
    "perVol": 547,
    "perWgt": 8200,
    "xp": 150,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Military Tape",
@@ -1932,8 +1816,7 @@
    "perVol": 820,
    "perWgt": 41000,
    "xp": 90,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Orgamech Nervous System",
@@ -1947,8 +1830,7 @@
    "perVol": 547,
    "perWgt": 8200,
    "xp": 200,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Wine",
@@ -1962,8 +1844,7 @@
    "perVol": 328,
    "perWgt": 6308,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Advanced Joint",
@@ -1977,8 +1858,7 @@
    "perVol": 512,
    "perWgt": 10981,
    "xp": 200,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "High Durability Rail Component",
@@ -1992,8 +1872,7 @@
    "perVol": 498,
    "perWgt": 18678,
    "xp": 729,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Reinforced Personal Shield",
@@ -2007,8 +1886,7 @@
    "perVol": 931,
    "perWgt": 13540,
    "xp": 727,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Manpack Radio",
@@ -2022,8 +1900,7 @@
    "perVol": 248,
    "perWgt": 2477,
    "xp": 176,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "AT-43 Breech Assembly",
@@ -2037,8 +1914,7 @@
    "perVol": 287,
    "perWgt": 23917,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Cordura",
@@ -2052,8 +1928,7 @@
    "perVol": 478,
    "perWgt": 23917,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Cybernetic Lungs",
@@ -2067,8 +1942,7 @@
    "perVol": 287,
    "perWgt": 7175,
    "xp": 100,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Deep Fried Coffee",
@@ -2082,8 +1956,7 @@
    "perVol": 478,
    "perWgt": 23917,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Electric Motor",
@@ -2097,8 +1970,7 @@
    "perVol": 144,
    "perWgt": 7175,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Eurasian HK's Mnemonic Index",
@@ -2112,8 +1984,7 @@
    "perVol": 287,
    "perWgt": 7175,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Eurasian Sand-Diver HK Cortical Array",
@@ -2127,8 +1998,7 @@
    "perVol": 287,
    "perWgt": 7175,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Eurasian Sand-Diver HK Interface Core",
@@ -2142,8 +2012,7 @@
    "perVol": 287,
    "perWgt": 7175,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Eurasian Sand-Diver HK Memory Interface",
@@ -2157,8 +2026,7 @@
    "perVol": 287,
    "perWgt": 7175,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Grindstone",
@@ -2172,8 +2040,7 @@
    "perVol": 159,
    "perWgt": 3588,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Liquid Coolant",
@@ -2187,8 +2054,7 @@
    "perVol": 478,
    "perWgt": 17938,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Mezcal",
@@ -2202,8 +2068,7 @@
    "perVol": 239,
    "perWgt": 5519,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Pheromone Sac",
@@ -2217,8 +2082,7 @@
    "perVol": 144,
    "perWgt": 7175,
    "xp": 715,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Power Drill",
@@ -2232,8 +2096,7 @@
    "perVol": 478,
    "perWgt": 10250,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Prized Alcohol",
@@ -2247,8 +2110,7 @@
    "perVol": 205,
    "perWgt": 5519,
    "xp": 122,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Standard First Aid Kit",
@@ -2262,8 +2124,7 @@
    "perVol": 359,
    "perWgt": 10250,
    "xp": 77,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Water Thief's Mask \"Thirsty\"",
@@ -2277,8 +2138,7 @@
    "perVol": 205,
    "perWgt": 3588,
    "xp": 150,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Bolt Cutters",
@@ -2292,8 +2152,7 @@
    "perVol": 190,
    "perWgt": 8328,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Crowbar",
@@ -2307,8 +2166,7 @@
    "perVol": 133,
    "perWgt": 6662,
    "xp": 30,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Duct Tape",
@@ -2322,8 +2180,7 @@
    "perVol": 666,
    "perWgt": 33310,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "EOD Suit Component",
@@ -2337,8 +2194,7 @@
    "perVol": 266,
    "perWgt": 6662,
    "xp": 835,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Field Repair Kit",
@@ -2352,8 +2208,7 @@
    "perVol": 266,
    "perWgt": 6662,
    "xp": 103,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Hinoko Cigarettes",
@@ -2367,8 +2222,7 @@
    "perVol": 1332,
    "perWgt": 22207,
    "xp": 68,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Military Cables",
@@ -2382,8 +2236,7 @@
    "perVol": 666,
    "perWgt": 22207,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Neuro Uplink Board",
@@ -2397,8 +2250,7 @@
    "perVol": 1332,
    "perWgt": 22207,
    "xp": 516,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Scavenger's Go-Bag",
@@ -2412,8 +2264,7 @@
    "perVol": 133,
    "perWgt": 3331,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Super Glue",
@@ -2427,8 +2278,7 @@
    "perVol": 1332,
    "perWgt": 33310,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Survival Seeds",
@@ -2442,8 +2292,7 @@
    "perVol": 222,
    "perWgt": 8328,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Thermometer",
@@ -2457,8 +2306,7 @@
    "perVol": 666,
    "perWgt": 22207,
    "xp": 60,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Personal Shield",
@@ -2472,8 +2320,7 @@
    "perVol": 781,
    "perWgt": 11358,
    "xp": 610,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Brawler Spinal Joint",
@@ -2487,8 +2334,7 @@
    "perVol": 246,
    "perWgt": 6150,
    "xp": 200,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Corpse Tank Control Panel",
@@ -2502,8 +2348,7 @@
    "perVol": 123,
    "perWgt": 2050,
    "xp": 122,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "High-Frequency Radio",
@@ -2517,8 +2362,7 @@
    "perVol": 176,
    "perWgt": 3075,
    "xp": 505,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Military Grade Lubricant",
@@ -2532,8 +2376,7 @@
    "perVol": 308,
    "perWgt": 12300,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Rare Metals",
@@ -2547,8 +2390,7 @@
    "perVol": 205,
    "perWgt": 5125,
    "xp": 335,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "USAS-12 Shotgun Handguard B",
@@ -2562,8 +2404,7 @@
    "perVol": 3075,
    "perWgt": 20500,
    "xp": 40,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "UV Light Bulb",
@@ -2577,8 +2418,7 @@
    "perVol": 615,
    "perWgt": 20500,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Heavy Duty Gimble Component",
@@ -2592,8 +2432,7 @@
    "perVol": 384,
    "perWgt": 14382,
    "xp": 561,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Eurasian Drone Cortex",
@@ -2607,8 +2446,7 @@
    "perVol": 225,
    "perWgt": 5637,
    "xp": 225,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Gunpowder",
@@ -2622,8 +2460,7 @@
    "perVol": 282,
    "perWgt": 18790,
    "xp": 13,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "LCD",
@@ -2637,8 +2474,7 @@
    "perVol": 376,
    "perWgt": 18790,
    "xp": 80,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Medical Alcohol",
@@ -2652,8 +2488,7 @@
    "perVol": 564,
    "perWgt": 28185,
    "xp": 50,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Medical Tools",
@@ -2667,8 +2502,7 @@
    "perVol": 376,
    "perWgt": 14092,
    "xp": 100,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Military PDA",
@@ -2682,8 +2516,7 @@
    "perVol": 376,
    "perWgt": 7046,
    "xp": 316,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Motherboard",
@@ -2697,8 +2530,7 @@
    "perVol": 564,
    "perWgt": 18790,
    "xp": 90,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Old Tool Set",
@@ -2712,8 +2544,7 @@
    "perVol": 141,
    "perWgt": 5637,
    "xp": 30,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Pipe Wrench",
@@ -2727,8 +2558,7 @@
    "perVol": 113,
    "perWgt": 2818,
    "xp": 30,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Thermal Matches",
@@ -2742,8 +2572,7 @@
    "perVol": 1127,
    "perWgt": 56370,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Destroyed Grenade Launcher",
@@ -2757,8 +2586,7 @@
    "perVol": null,
    "perWgt": 1558,
    "xp": 2034,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed HMG",
@@ -2772,8 +2600,7 @@
    "perVol": null,
    "perWgt": 1558,
    "xp": 2034,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed XM25",
@@ -2787,8 +2614,7 @@
    "perVol": null,
    "perWgt": 1558,
    "xp": 2034,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled 36M AntiTank",
@@ -2802,8 +2628,7 @@
    "perVol": null,
    "perWgt": 1708,
    "xp": 727,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled Grenade Launcher.",
@@ -2817,8 +2642,7 @@
    "perVol": null,
    "perWgt": 1558,
    "xp": 2034,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Pneumatic Actuator Component",
@@ -2832,8 +2656,7 @@
    "perVol": 342,
    "perWgt": 12812,
    "xp": 500,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Advanced Pliers",
@@ -2847,8 +2670,7 @@
    "perVol": 325,
    "perWgt": 24345,
    "xp": 60,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "EOD Armor Plate",
@@ -2862,8 +2684,7 @@
    "perVol": 139,
    "perWgt": 6086,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Intelligence Disk",
@@ -2877,8 +2698,7 @@
    "perVol": 974,
    "perWgt": 16230,
    "xp": 159,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Railgun Power Bank",
@@ -2892,8 +2712,7 @@
    "perVol": 311,
    "perWgt": 11675,
    "xp": 456,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Assorted Medicine",
@@ -2907,8 +2726,7 @@
    "perVol": 307,
    "perWgt": 15373,
    "xp": 90,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "AT-43 Trigger Assembly",
@@ -2922,8 +2740,7 @@
    "perVol": 184,
    "perWgt": 15373,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Music Cassette",
@@ -2937,8 +2754,7 @@
    "perVol": 461,
    "perWgt": 23060,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Printed Circuit Board",
@@ -2952,8 +2768,7 @@
    "perVol": 461,
    "perWgt": 46120,
    "xp": 90,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Sewing Kit",
@@ -2967,8 +2782,7 @@
    "perVol": 461,
    "perWgt": 23060,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Stethoscope",
@@ -2982,8 +2796,7 @@
    "perVol": 922,
    "perWgt": 23060,
    "xp": 100,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Water Canteen",
@@ -2997,8 +2810,7 @@
    "perVol": 184,
    "perWgt": 6589,
    "xp": 57,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "CPU",
@@ -3012,8 +2824,7 @@
    "perVol": 871,
    "perWgt": 43560,
    "xp": 75,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Octogirl's Tool Set",
@@ -3027,8 +2838,7 @@
    "perVol": 43,
    "perWgt": 4251,
    "xp": 415,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Adrenaline Stim",
@@ -3042,8 +2852,7 @@
    "perVol": 273,
    "perWgt": 8200,
    "xp": 33,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Data Cache",
@@ -3057,8 +2866,7 @@
    "perVol": 82,
    "perWgt": 4100,
    "xp": 115,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Deployable Drill",
@@ -3072,8 +2880,7 @@
    "perVol": 82,
    "perWgt": 4100,
    "xp": 452,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Eurasian Brawler Components",
@@ -3087,8 +2894,7 @@
    "perVol": 205,
    "perWgt": 4100,
    "xp": 352,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Europan Drone Flight Controller",
@@ -3102,8 +2908,7 @@
    "perVol": 117,
    "perWgt": 4100,
    "xp": 242,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "God Sniper Equipment",
@@ -3117,8 +2922,7 @@
    "perVol": 820,
    "perWgt": 4100,
    "xp": 703,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Happy Cookies",
@@ -3132,8 +2936,7 @@
    "perVol": 410,
    "perWgt": 8200,
    "xp": 49,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Industrial Chemicals",
@@ -3147,8 +2950,7 @@
    "perVol": 205,
    "perWgt": 4100,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Old Paint Can",
@@ -3162,8 +2964,7 @@
    "perVol": 117,
    "perWgt": 6833,
    "xp": 7,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Power Supply Unit",
@@ -3177,8 +2978,7 @@
    "perVol": 273,
    "perWgt": 5125,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Tourniquet",
@@ -3192,8 +2992,7 @@
    "perVol": 820,
    "perWgt": 41000,
    "xp": 80,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Vodka",
@@ -3207,8 +3006,7 @@
    "perVol": 137,
    "perWgt": 3154,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Water Map",
@@ -3222,8 +3020,7 @@
    "perVol": 273,
    "perWgt": 20500,
    "xp": 757,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "WD40",
@@ -3237,8 +3034,7 @@
    "perVol": 410,
    "perWgt": 20500,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Clear Tube",
@@ -3252,8 +3048,7 @@
    "perVol": 400,
    "perWgt": 13323,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "AT-43 Feed Mechanism",
@@ -3267,8 +3062,7 @@
    "perVol": 154,
    "perWgt": 12813,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "ES Lamp",
@@ -3282,8 +3076,7 @@
    "perVol": 256,
    "perWgt": 12813,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Glue Gun",
@@ -3297,8 +3090,7 @@
    "perVol": 256,
    "perWgt": 3844,
    "xp": 103,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Heavy Joint Assembly",
@@ -3312,8 +3104,7 @@
    "perVol": 256,
    "perWgt": 9610,
    "xp": 375,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Ratchet",
@@ -3327,8 +3118,7 @@
    "perVol": 154,
    "perWgt": 3844,
    "xp": 20,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "CASE Component",
@@ -3342,8 +3132,7 @@
    "perVol": 251,
    "perWgt": 9398,
    "xp": 367,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Toy Dinosaur",
@@ -3357,8 +3146,7 @@
    "perVol": 717,
    "perWgt": 35870,
    "xp": 10,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Valve Adjustment Tool",
@@ -3372,8 +3160,7 @@
    "perVol": 179,
    "perWgt": 11957,
    "xp": 70,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Analog Headset",
@@ -3387,8 +3174,7 @@
    "perVol": 133,
    "perWgt": 8328,
    "xp": 100,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Energy Bar",
@@ -3402,8 +3188,7 @@
    "perVol": 666,
    "perWgt": 11103,
    "xp": 14,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Masking Tape",
@@ -3417,8 +3202,7 @@
    "perVol": 666,
    "perWgt": 33310,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Modem",
@@ -3432,8 +3216,7 @@
    "perVol": 222,
    "perWgt": 11103,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Rum",
@@ -3447,8 +3230,7 @@
    "perVol": 111,
    "perWgt": 2562,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Scavenger's Tool Kit",
@@ -3462,8 +3244,7 @@
    "perVol": 133,
    "perWgt": 1110,
    "xp": 123,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Weapon Attachment Lock Component",
@@ -3477,8 +3258,7 @@
    "perVol": 213,
    "perWgt": 7970,
    "xp": 311,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "AT-43 Muzzle Break",
@@ -3492,8 +3272,7 @@
    "perVol": 123,
    "perWgt": 10250,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Battle Plans",
@@ -3507,8 +3286,7 @@
    "perVol": 615,
    "perWgt": 10250,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Beer",
@@ -3522,8 +3300,7 @@
    "perVol": 308,
    "perWgt": 7688,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Car Battery",
@@ -3537,8 +3314,7 @@
    "perVol": 62,
    "perWgt": 1025,
    "xp": 60,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Combat Stimulant",
@@ -3552,8 +3328,7 @@
    "perVol": 615,
    "perWgt": 15375,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Convoy Schedule",
@@ -3567,8 +3342,7 @@
    "perVol": 615,
    "perWgt": 10250,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Dog Tags",
@@ -3582,8 +3356,7 @@
    "perVol": 615,
    "perWgt": 15375,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Drywall",
@@ -3597,8 +3370,7 @@
    "perVol": 88,
    "perWgt": 3075,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Eurasian IFF Chip LVL2",
@@ -3612,8 +3384,7 @@
    "perVol": 615,
    "perWgt": 30750,
    "xp": 406,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Europan IFF Chip LVL2",
@@ -3627,8 +3398,7 @@
    "perVol": 615,
    "perWgt": 30750,
    "xp": 406,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Euruskan IFF Chip LVL2",
@@ -3642,8 +3412,7 @@
    "perVol": 615,
    "perWgt": 30750,
    "xp": 406,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Euruskan Plans",
@@ -3657,8 +3426,7 @@
    "perVol": 154,
    "perWgt": 6150,
    "xp": 708,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Family Photo",
@@ -3672,8 +3440,7 @@
    "perVol": 615,
    "perWgt": 15375,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "GP-5 Gas Mask",
@@ -3687,8 +3454,7 @@
    "perVol": 154,
    "perWgt": 10250,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Intelligence Cassette",
@@ -3702,8 +3468,7 @@
    "perVol": 615,
    "perWgt": 10250,
    "xp": 167,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Leather Hole Punch",
@@ -3717,8 +3482,7 @@
    "perVol": 123,
    "perWgt": 6150,
    "xp": 30,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Mini MD Drive",
@@ -3732,8 +3496,7 @@
    "perVol": 615,
    "perWgt": 30750,
    "xp": 80,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Personnel Data",
@@ -3747,8 +3510,7 @@
    "perVol": 615,
    "perWgt": 10250,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "PLACEHOLDER",
@@ -3762,8 +3524,7 @@
    "perVol": 3075,
    "perWgt": 3075,
    "xp": 355,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Power Schematics",
@@ -3777,8 +3538,7 @@
    "perVol": 615,
    "perWgt": 10250,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Precision Components",
@@ -3792,8 +3552,7 @@
    "perVol": 3075,
    "perWgt": 3075,
    "xp": 533,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Pressure Gauge",
@@ -3807,8 +3566,7 @@
    "perVol": 123,
    "perWgt": 3075,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Processor Board",
@@ -3822,8 +3580,7 @@
    "perVol": 308,
    "perWgt": 15375,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Radio",
@@ -3837,8 +3594,7 @@
    "perVol": 3075,
    "perWgt": 3075,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Spark Plug",
@@ -3852,8 +3608,7 @@
    "perVol": 615,
    "perWgt": 15375,
    "xp": 60,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Survival Lighter",
@@ -3867,8 +3622,7 @@
    "perVol": 615,
    "perWgt": 30750,
    "xp": 0,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Urea",
@@ -3882,8 +3636,7 @@
    "perVol": 205,
    "perWgt": 7688,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Water Cache",
@@ -3897,8 +3650,7 @@
    "perVol": 205,
    "perWgt": 15375,
    "xp": 528,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Weapon Schematics",
@@ -3912,8 +3664,7 @@
    "perVol": 615,
    "perWgt": 10250,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Electrostatic Field",
@@ -3927,8 +3678,7 @@
    "perVol": 380,
    "perWgt": 5062,
    "xp": 297,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Absinthe",
@@ -3942,8 +3692,7 @@
    "perVol": 94,
    "perWgt": 2168,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "AT-43 Spring System",
@@ -3957,8 +3706,7 @@
    "perVol": 113,
    "perWgt": 9397,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Railgun Magazine",
@@ -3972,8 +3720,7 @@
    "perVol": 180,
    "perWgt": 6732,
    "xp": 262,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Boinco Candy Bar",
@@ -3987,8 +3734,7 @@
    "perVol": 512,
    "perWgt": 8540,
    "xp": 18,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Brawler Insignia",
@@ -4002,8 +3748,7 @@
    "perVol": 512,
    "perWgt": 8540,
    "xp": 212,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Comms Device",
@@ -4017,8 +3762,7 @@
    "perVol": 102,
    "perWgt": 2562,
    "xp": 355,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Destroyed 36M AntiTank",
@@ -4032,8 +3776,7 @@
    "perVol": null,
    "perWgt": 854,
    "xp": 125,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed GM6",
@@ -4047,8 +3790,7 @@
    "perVol": null,
    "perWgt": 706,
    "xp": 86,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed M60",
@@ -4062,8 +3804,7 @@
    "perVol": null,
    "perWgt": 212,
    "xp": 305,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed MG34",
@@ -4077,8 +3818,7 @@
    "perVol": null,
    "perWgt": 212,
    "xp": 260,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed NTW-20",
@@ -4092,8 +3832,7 @@
    "perVol": null,
    "perWgt": 706,
    "xp": 86,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed RPD",
@@ -4107,8 +3846,7 @@
    "perVol": null,
    "perWgt": 212,
    "xp": 306,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed SAW",
@@ -4122,8 +3860,7 @@
    "perVol": null,
    "perWgt": 320,
    "xp": 360,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed SCAR",
@@ -4137,8 +3874,7 @@
    "perVol": null,
    "perWgt": 779,
    "xp": 97,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled M60",
@@ -4152,8 +3888,7 @@
    "perVol": null,
    "perWgt": 212,
    "xp": 305,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled MG34",
@@ -4167,8 +3902,7 @@
    "perVol": null,
    "perWgt": 212,
    "xp": 260,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled NTW-20",
@@ -4182,8 +3916,7 @@
    "perVol": null,
    "perWgt": 706,
    "xp": 86,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled RPD",
@@ -4197,8 +3930,7 @@
    "perVol": null,
    "perWgt": 212,
    "xp": 306,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled SAW",
@@ -4212,8 +3944,7 @@
    "perVol": null,
    "perWgt": 320,
    "xp": 360,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled SCAR",
@@ -4227,8 +3958,7 @@
    "perVol": null,
    "perWgt": 779,
    "xp": 97,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "E-Nuggets",
@@ -4242,8 +3972,7 @@
    "perVol": 171,
    "perWgt": 4270,
    "xp": 160,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Light Bulb",
@@ -4257,8 +3986,7 @@
    "perVol": 256,
    "perWgt": 12810,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Light Bulbs",
@@ -4272,8 +4000,7 @@
    "perVol": 171,
    "perWgt": 12810,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Printing Resin",
@@ -4287,8 +4014,7 @@
    "perVol": 171,
    "perWgt": 8540,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Syringe",
@@ -4302,8 +4028,7 @@
    "perVol": 256,
    "perWgt": 12810,
    "xp": 20,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Toy Train",
@@ -4317,8 +4042,7 @@
    "perVol": 512,
    "perWgt": 25620,
    "xp": 5,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Weapon Tech",
@@ -4332,8 +4056,7 @@
    "perVol": 102,
    "perWgt": 3660,
    "xp": 687,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Hand Drill",
@@ -4347,8 +4070,7 @@
    "perVol": 49,
    "perWgt": 2460,
    "xp": 140,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Hard Drive",
@@ -4362,8 +4084,7 @@
    "perVol": 231,
    "perWgt": 11530,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Machine Parts",
@@ -4377,8 +4098,7 @@
    "perVol": 154,
    "perWgt": 3843,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Sabotaged MRE",
@@ -4392,8 +4112,7 @@
    "perVol": 154,
    "perWgt": 11530,
    "xp": 3,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Weapon Parts",
@@ -4407,8 +4126,7 @@
    "perVol": 154,
    "perWgt": 7687,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Hose",
@@ -4422,8 +4140,7 @@
    "perVol": 86,
    "perWgt": 5380,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Bandages",
@@ -4437,8 +4154,7 @@
    "perVol": 410,
    "perWgt": 20500,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Cyborg's Head",
@@ -4452,8 +4168,7 @@
    "perVol": 59,
    "perWgt": 1025,
    "xp": 238,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed AA12",
@@ -4467,8 +4182,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 774,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed AK",
@@ -4482,8 +4196,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 173,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed G36",
@@ -4497,8 +4210,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 184,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed M16",
@@ -4512,8 +4224,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 150,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed M4",
@@ -4527,8 +4238,7 @@
    "perVol": null,
    "perWgt": 623,
    "xp": 189,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed RPK",
@@ -4542,8 +4252,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 264,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed S12",
@@ -4557,8 +4266,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 282,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed SA58",
@@ -4572,8 +4280,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 165,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed SVD",
@@ -4587,8 +4294,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 171,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed TKB-0146",
@@ -4602,8 +4308,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 162,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed USAS-12",
@@ -4617,8 +4322,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 1233,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed Vepr-12",
@@ -4632,8 +4336,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 890,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed VKS Vykhlop",
@@ -4647,8 +4350,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 58,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled AA12",
@@ -4662,8 +4364,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 774,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled AK",
@@ -4677,8 +4378,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 173,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled M16",
@@ -4692,8 +4392,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 150,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled M4",
@@ -4707,8 +4406,7 @@
    "perVol": null,
    "perWgt": 623,
    "xp": 189,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled RPK",
@@ -4722,8 +4420,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 264,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled S12",
@@ -4737,8 +4434,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 282,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled Sniper Rifle",
@@ -4752,8 +4448,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 173,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled SVD",
@@ -4767,8 +4462,7 @@
    "perVol": null,
    "perWgt": 565,
    "xp": 171,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled USAS-12",
@@ -4782,8 +4476,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 1233,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled Vepr-12",
@@ -4797,8 +4490,7 @@
    "perVol": null,
    "perWgt": 466,
    "xp": 890,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Dossier",
@@ -4812,8 +4504,7 @@
    "perVol": 410,
    "perWgt": 6833,
    "xp": 141,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Ethyl Alcohol",
@@ -4827,8 +4518,7 @@
    "perVol": 68,
    "perWgt": 1577,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Fleece",
@@ -4842,8 +4532,7 @@
    "perVol": 137,
    "perWgt": 6833,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Goodies",
@@ -4857,8 +4546,7 @@
    "perVol": 205,
    "perWgt": 6833,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Mead",
@@ -4872,8 +4560,7 @@
    "perVol": 68,
    "perWgt": 1577,
    "xp": 100,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Measuring Tape",
@@ -4887,8 +4574,7 @@
    "perVol": 410,
    "perWgt": 20500,
    "xp": 40,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Turret Component",
@@ -4902,8 +4588,7 @@
    "perVol": 82,
    "perWgt": 2050,
    "xp": 398,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Zippo Lighter",
@@ -4917,8 +4602,7 @@
    "perVol": 410,
    "perWgt": 20500,
    "xp": 50,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "IED",
@@ -4932,8 +4616,7 @@
    "perVol": 34,
    "perWgt": 925,
    "xp": 199,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Ammo Feed Component",
@@ -4947,8 +4630,7 @@
    "perVol": 133,
    "perWgt": 4992,
    "xp": 195,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Basic Pliers",
@@ -4962,8 +4644,7 @@
    "perVol": 120,
    "perWgt": 8970,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Destroyed APC9 Pro",
@@ -4977,8 +4658,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 121,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed Kriss Vector 45",
@@ -4992,8 +4672,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 400,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed P90",
@@ -5007,8 +4686,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 187,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed PM-9",
@@ -5022,8 +4700,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 122,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed PP-19 Vityaz",
@@ -5037,8 +4714,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 139,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed PPSH-41",
@@ -5052,8 +4728,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 158,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed Spectre M4",
@@ -5067,8 +4742,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 330,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed Walther MPL",
@@ -5082,8 +4756,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 114,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled APC9 Pro",
@@ -5097,8 +4770,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 121,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled Kriss Vector 45",
@@ -5112,8 +4784,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 400,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled P90.",
@@ -5127,8 +4798,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 187,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Disabled PP-19 Vityaz",
@@ -5142,8 +4812,7 @@
    "perVol": null,
    "perWgt": 494,
    "xp": 139,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Lighter",
@@ -5157,8 +4826,7 @@
    "perVol": 359,
    "perWgt": 17940,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Metal Pipe",
@@ -5172,8 +4840,7 @@
    "perVol": 90,
    "perWgt": 1794,
    "xp": 4,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Pretzels",
@@ -5187,8 +4854,7 @@
    "perVol": 359,
    "perWgt": 5980,
    "xp": 6,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Relay",
@@ -5202,8 +4868,7 @@
    "perVol": 179,
    "perWgt": 8970,
    "xp": 20,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Transmitting Camera",
@@ -5217,8 +4882,7 @@
    "perVol": 359,
    "perWgt": 8970,
    "xp": 108,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Small First Aid Kit",
@@ -5232,8 +4896,7 @@
    "perVol": 323,
    "perWgt": 5380,
    "xp": 23,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Bar Supplies",
@@ -5247,8 +4910,7 @@
    "perVol": 20,
    "perWgt": 768,
    "xp": 12,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Bug Spray",
@@ -5262,8 +4924,7 @@
    "perVol": 154,
    "perWgt": 7685,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Camera",
@@ -5277,8 +4938,7 @@
    "perVol": 77,
    "perWgt": 5123,
    "xp": 100,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Cleaner",
@@ -5292,8 +4952,7 @@
    "perVol": 307,
    "perWgt": 5123,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Crates",
@@ -5307,8 +4966,7 @@
    "perVol": 31,
    "perWgt": 768,
    "xp": 418,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Fire Starter Kit",
@@ -5322,8 +4980,7 @@
    "perVol": 307,
    "perWgt": 15370,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Fuse",
@@ -5337,8 +4994,7 @@
    "perVol": 307,
    "perWgt": 15370,
    "xp": 4,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Glue",
@@ -5352,8 +5008,7 @@
    "perVol": 307,
    "perWgt": 7685,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Jumper Cable Kit",
@@ -5367,8 +5022,7 @@
    "perVol": 102,
    "perWgt": 3074,
    "xp": 114,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Logbook",
@@ -5382,8 +5036,7 @@
    "perVol": 307,
    "perWgt": 15370,
    "xp": 358,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Rechargeable Battery",
@@ -5397,8 +5050,7 @@
    "perVol": 154,
    "perWgt": 7685,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Sheet Metal",
@@ -5412,8 +5064,7 @@
    "perVol": 44,
    "perWgt": 1537,
    "xp": 30,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Toy Car",
@@ -5427,8 +5078,7 @@
    "perVol": 307,
    "perWgt": 15370,
    "xp": 12,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "USAS-12 Shotgun Handguard A",
@@ -5442,8 +5092,7 @@
    "perVol": 768,
    "perWgt": 5123,
    "xp": 10,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Computer Fan",
@@ -5457,8 +5106,7 @@
    "perVol": 287,
    "perWgt": 7175,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Diodegradable Multi-tool",
@@ -5472,8 +5120,7 @@
    "perVol": 287,
    "perWgt": 14350,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Screwdriver",
@@ -5487,8 +5134,7 @@
    "perVol": 144,
    "perWgt": 14350,
    "xp": 30,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Destroyed 87 Target Pistol",
@@ -5502,8 +5148,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 71,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed C96 Pistol",
@@ -5517,8 +5162,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 63,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed Glock 19 Pistol",
@@ -5532,8 +5176,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 81,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed M79 Pistol",
@@ -5547,8 +5190,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 727,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed R8 Pistol",
@@ -5562,8 +5204,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 72,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed SOG Pistol",
@@ -5577,8 +5218,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 96,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed USP Pistol",
@@ -5592,8 +5232,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 129,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Destroyed Viper Pistol",
@@ -5607,8 +5246,7 @@
    "perVol": null,
    "perWgt": 353,
    "xp": 89,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Plantable Bug",
@@ -5622,8 +5260,7 @@
    "perVol": 256,
    "perWgt": 6405,
    "xp": 71,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Pain Tolerance",
@@ -5637,8 +5274,7 @@
    "perVol": 152,
    "perWgt": 2207,
    "xp": 119,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Ribbed Tube",
@@ -5652,8 +5288,7 @@
    "perVol": 118,
    "perWgt": 5895,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Clamp",
@@ -5667,8 +5302,7 @@
    "perVol": 102,
    "perWgt": 5125,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Dogboro Cigarettes",
@@ -5682,8 +5316,7 @@
    "perVol": 205,
    "perWgt": 3417,
    "xp": 54,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Eurasian IFF Chip LVL1",
@@ -5697,8 +5330,7 @@
    "perVol": 205,
    "perWgt": 10250,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Europan IFF Chip LVL1",
@@ -5712,8 +5344,7 @@
    "perVol": 205,
    "perWgt": 10250,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Euruskan IFF Chip LVL1",
@@ -5727,8 +5358,7 @@
    "perVol": 205,
    "perWgt": 10250,
    "xp": 200,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Food Tin",
@@ -5742,8 +5372,7 @@
    "perVol": 68,
    "perWgt": 2050,
    "xp": 52,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Hammer",
@@ -5757,8 +5386,7 @@
    "perVol": 68,
    "perWgt": 3417,
    "xp": 40,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Metal Fragments",
@@ -5772,8 +5400,7 @@
    "perVol": 205,
    "perWgt": 10250,
    "xp": 4,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Metal Slats",
@@ -5787,8 +5414,7 @@
    "perVol": 29,
    "perWgt": 1025,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "U-STIK+ USB Drive",
@@ -5802,8 +5428,7 @@
    "perVol": 205,
    "perWgt": 10250,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Wooden Planks",
@@ -5817,8 +5442,7 @@
    "perVol": 20,
    "perWgt": 1025,
    "xp": 20,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Screws",
@@ -5832,8 +5456,7 @@
    "perVol": 184,
    "perWgt": 9220,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Wires",
@@ -5847,8 +5470,7 @@
    "perVol": 174,
    "perWgt": 4355,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Ball Bearings",
@@ -5862,8 +5484,7 @@
    "perVol": 154,
    "perWgt": 7690,
    "xp": 4,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Battery",
@@ -5877,8 +5498,7 @@
    "perVol": 154,
    "perWgt": 7690,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels"
+   "quest": false
   },
   {
    "name": "Potato Chips",
@@ -5892,8 +5512,7 @@
    "perVol": 77,
    "perWgt": 1538,
    "xp": 28,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Bolts",
@@ -5907,8 +5526,7 @@
    "perVol": 143,
    "perWgt": 7170,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "\"Teddy Bear\"",
@@ -5922,8 +5540,7 @@
    "perVol": 51,
    "perWgt": 1707,
    "xp": 226,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Matches",
@@ -5937,8 +5554,7 @@
    "perVol": 102,
    "perWgt": 5120,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Medical Supplies",
@@ -5952,8 +5568,7 @@
    "perVol": 34,
    "perWgt": 512,
    "xp": 226,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Memento",
@@ -5967,8 +5582,7 @@
    "perVol": 20,
    "perWgt": 1707,
    "xp": 226,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Picture",
@@ -5982,8 +5596,7 @@
    "perVol": 51,
    "perWgt": 5120,
    "xp": 2,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Sewers Technical Plans",
@@ -5997,8 +5610,7 @@
    "perVol": 20,
    "perWgt": 2560,
    "xp": 226,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Tissue Sample",
@@ -6012,8 +5624,7 @@
    "perVol": 102,
    "perWgt": 5120,
    "xp": 226,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Wetware System",
@@ -6027,8 +5638,7 @@
    "perVol": 34,
    "perWgt": 1707,
    "xp": 226,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Wooden Plank",
@@ -6042,8 +5652,7 @@
    "perVol": 20,
    "perWgt": 512,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Fertilizer",
@@ -6057,8 +5666,7 @@
    "perVol": 27,
    "perWgt": 410,
    "xp": 10,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Nuts",
@@ -6072,8 +5680,7 @@
    "perVol": 82,
    "perWgt": 4100,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "Rat King's Wake",
@@ -6087,8 +5694,7 @@
    "perVol": 82,
    "perWgt": 2050,
    "xp": 16,
-   "quest": true,
-   "loc": null
+   "quest": true
   },
   {
    "name": "Nails",
@@ -6102,8 +5708,7 @@
    "perVol": 61,
    "perWgt": 3070,
    "xp": 10,
-   "quest": false,
-   "loc": "Regions"
+   "quest": false
   },
   {
    "name": "\"Beef\" Flavor Packet",
@@ -6117,8 +5722,7 @@
    "perVol": 51,
    "perWgt": 2560,
    "xp": 10,
-   "quest": false,
-   "loc": "Tunnels & Regions"
+   "quest": false
   },
   {
    "name": "Experimental Rifle",
@@ -6132,8 +5736,7 @@
    "perVol": null,
    "perWgt": 0,
    "xp": 0,
-   "quest": false,
-   "loc": null
+   "quest": false
   },
   {
    "name": "Paper Scrap",
@@ -6147,8 +5750,7 @@
    "perVol": 0,
    "perWgt": 0,
    "xp": 0,
-   "quest": false,
-   "loc": null
+   "quest": false
   }
  ],
  "count": 398

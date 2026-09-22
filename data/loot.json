@@ -1,7 +1,7 @@
 {
- "source": "The Forever Winter shipping game files (build 24536482) — RandomContainerLootData + DT_GachaLootTable + BP_RareLootManager, decoded with CUE4Parse.",
+ "source": "The Forever Winter shipping game files (build 25071553) — RandomContainerLootData + DT_GachaLootTable + BP_RareLootManager, decoded with CUE4Parse.",
  "generated_note": "Source-first loot index. Rarity is each item's share of that source's loot pool by weight (relative scarcity within one open) — not a per-raid probability. Only named loot items are shown; ammo & weapon mods live on their own tabs.",
- "build": 24536482,
+ "build": 25071553,
  "kinds": [
   {
    "key": "container",
@@ -14,6 +14,10 @@
   {
    "key": "worldrare",
    "label": "World Rare-Loot"
+  },
+  {
+   "key": "maprare",
+   "label": "Map Rare-Loot"
   },
   {
    "key": "codex",
@@ -8592,416 +8596,723 @@
   },
   {
    "key": "worldrare",
-   "label": "World Rare-Loot (any container)",
+   "label": "World Rare-Loot (every map)",
    "kind": "worldrare",
    "tiered": false,
    "tiers": [],
-   "count": 45,
+   "count": 48,
    "items": [
     {
-     "name": "Quantum Hard Drive",
-     "cr": 45612,
-     "cat": "Electrical",
-     "tier": "jackpot",
-     "rarity": 4,
-     "rarityLabel": "Uncommon",
-     "share": 3.76
-    },
-    {
-     "name": "Thermite",
+     "name": "Anti-Vertex Bolt Cutters",
      "cr": 23575,
-     "cat": "Rare Loot",
+     "cat": "Power Tools",
      "tier": "prime",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 4.18
+     "share": 3.53
     },
     {
-     "name": "Toothpaste",
-     "cr": 12300,
-     "cat": "Rare Loot",
+     "name": "Heavy-Duty Trauma Kit",
+     "cr": 18450,
+     "cat": "Medical",
      "tier": "prime",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 4.1
+     "share": 3.83
     },
     {
-     "name": "Camera Lens",
-     "cr": 9225,
-     "cat": "Rare Loot",
+     "name": "Organoid Outlet",
+     "cr": 13837,
+     "cat": "Electrical",
+     "tier": "prime",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.58
+    },
+    {
+     "name": "Blood Packs",
+     "cr": 11275,
+     "cat": "Medical",
      "tier": "valuable",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 4.26
+     "share": 3.2
     },
     {
-     "name": "UV Light Bulb",
-     "cr": 6150,
-     "cat": "Lighting",
+     "name": "Concrete Mixer",
+     "cr": 11275,
+     "cat": "Manufacturing Components",
      "tier": "valuable",
      "rarity": 4,
      "rarityLabel": "Uncommon",
      "share": 3.77
     },
     {
-     "name": "Industrial Chemicals",
-     "cr": 4100,
-     "cat": "Rare Loot",
-     "tier": "good",
+     "name": "Intermediate Tool Set",
+     "cr": 10762,
+     "cat": "Power Tools",
+     "tier": "valuable",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.65
+    },
+    {
+     "name": "Sledgehammer",
+     "cr": 10762,
+     "cat": "Power Tools",
+     "tier": "valuable",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.81
+    },
+    {
+     "name": "Organoid Plug",
+     "cr": 9225,
+     "cat": "Manufacturing Components",
+     "tier": "valuable",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.8
+    },
+    {
+     "name": "Concrete Powder",
+     "cr": 8712,
+     "cat": "Manufacturing Components",
+     "tier": "valuable",
      "rarity": 4,
      "rarityLabel": "Uncommon",
      "share": 3.13
     },
     {
-     "name": "ES Lamp",
-     "cr": 3844,
-     "cat": "Lighting",
-     "tier": "good",
+     "name": "Bolt Cutters",
+     "cr": 6662,
+     "cat": "Power Tools",
+     "tier": "valuable",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 4.02
+     "share": 3.0
     },
     {
-     "name": "Pressure Gauge",
-     "cr": 3075,
-     "cat": "Rare Loot",
-     "tier": "good",
-     "rarity": 4,
-     "rarityLabel": "Uncommon",
-     "share": 4.24
-    },
-    {
-     "name": "Spark Plug",
-     "cr": 3075,
+     "name": "Military Cables",
+     "cr": 6662,
      "cat": "Electrical",
+     "tier": "valuable",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.53
+    },
+    {
+     "name": "Medical Alcohol",
+     "cr": 5637,
+     "cat": "Medical",
      "tier": "good",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 3.88
+     "share": 3.83
     },
     {
-     "name": "Survival Lighter",
-     "cr": 3075,
-     "cat": "Lighting",
+     "name": "Medical Tools",
+     "cr": 5637,
+     "cat": "Medical",
      "tier": "good",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 3.9
+     "share": 3.79
     },
     {
-     "name": "Light Bulb",
+     "name": "Assorted Medicine",
+     "cr": 4612,
+     "cat": "Medical",
+     "tier": "good",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.76
+    },
+    {
+     "name": "Sewing Kit",
+     "cr": 4612,
+     "cat": "Power Tools",
+     "tier": "good",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.78
+    },
+    {
+     "name": "Syringe",
      "cr": 2562,
-     "cat": "Lighting",
+     "cat": "Medical",
      "tier": "worth",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 3.61
+     "share": 3.76
     },
     {
-     "name": "Printing Resin",
-     "cr": 2562,
-     "cat": "Rare Loot",
+     "name": "Hand Drill",
+     "cr": 2460,
+     "cat": "Power Tools",
+     "tier": "worth",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.39
+    },
+    {
+     "name": "Bandages",
+     "cr": 2050,
+     "cat": "Medical",
+     "tier": "worth",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.83
+    },
+    {
+     "name": "Basic Pliers",
+     "cr": 1794,
+     "cat": "Power Tools",
+     "tier": "worth",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.73
+    },
+    {
+     "name": "Relay",
+     "cr": 1794,
+     "cat": "Electrical",
      "tier": "worth",
      "rarity": 4,
      "rarityLabel": "Uncommon",
      "share": 3.1
     },
     {
-     "name": "Goodies",
-     "cr": 2050,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 4,
-     "rarityLabel": "Uncommon",
-     "share": 3.06
-    },
-    {
-     "name": "Bug Spray",
-     "cr": 1537,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 4,
-     "rarityLabel": "Uncommon",
-     "share": 4.24
-    },
-    {
-     "name": "Camera",
-     "cr": 1537,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 4,
-     "rarityLabel": "Uncommon",
-     "share": 3.86
-    },
-    {
-     "name": "Clamp",
-     "cr": 1025,
+     "name": "Diodegradable Multi-tool",
+     "cr": 1435,
      "cat": "Power Tools",
      "tier": "cheap",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 4.21
+     "share": 3.83
     },
     {
-     "name": "Wooden Planks",
-     "cr": 1025,
-     "cat": "Rare Loot",
+     "name": "Screwdriver",
+     "cr": 1435,
+     "cat": "Power Tools",
      "tier": "cheap",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 4.18
+     "share": 3.83
     },
     {
-     "name": "Matches",
-     "cr": 512,
-     "cat": "Rare Loot",
+     "name": "Wires",
+     "cr": 871,
+     "cat": "Electrical",
      "tier": "cheap",
      "rarity": 4,
      "rarityLabel": "Uncommon",
-     "share": 3.72
+     "share": 3.43
     },
     {
-     "name": "Preserved Cryo Coffee",
-     "cr": 19475,
-     "cat": "Rare Loot",
-     "tier": "prime",
+     "name": "Nails",
+     "cr": 307,
+     "cat": "Fasteners",
+     "tier": "junk",
+     "rarity": 4,
+     "rarityLabel": "Uncommon",
+     "share": 3.24
+    },
+    {
+     "name": "Occulomide Auto-Surgeon",
+     "cr": 91225,
+     "cat": "Medical",
+     "tier": "jackpot",
      "rarity": 3,
      "rarityLabel": "Rare",
-     "share": 1.31
+     "share": 1.06
     },
     {
-     "name": "Industrial Black Light",
-     "cr": 15887,
-     "cat": "Lighting",
-     "tier": "prime",
+     "name": "Sentient Drill",
+     "cr": 84050,
+     "cat": "Power Tools",
+     "tier": "jackpot",
      "rarity": 3,
      "rarityLabel": "Rare",
-     "share": 1.6
+     "share": 2.76
     },
     {
-     "name": "Liquid Cooling Unit",
-     "cr": 12300,
-     "cat": "Maintenance Supplies",
-     "tier": "prime",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 1.27
-    },
-    {
-     "name": "Cordura",
-     "cr": 7175,
-     "cat": "Rare Loot",
-     "tier": "valuable",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 2.83
-    },
-    {
-     "name": "Thermometer",
-     "cr": 6662,
-     "cat": "Rare Loot",
-     "tier": "valuable",
+     "name": "Diagnostic Scanner",
+     "cr": 34850,
+     "cat": "Medical",
+     "tier": "jackpot",
      "rarity": 3,
      "rarityLabel": "Rare",
      "share": 2.08
     },
     {
-     "name": "Thermal Matches",
-     "cr": 5637,
-     "cat": "Rare Loot",
-     "tier": "good",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 1.28
-    },
-    {
-     "name": "Urea",
-     "cr": 3075,
-     "cat": "Rare Loot",
-     "tier": "good",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 1.86
-    },
-    {
-     "name": "Fleece",
-     "cr": 2050,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 1.71
-    },
-    {
-     "name": "Zippo Lighter",
-     "cr": 2050,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 1.71
-    },
-    {
-     "name": "Fire Starter Kit",
-     "cr": 1537,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 1.91
-    },
-    {
-     "name": "Sheet Metal",
-     "cr": 1537,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 2.99
-    },
-    {
-     "name": "Metal Slats",
-     "cr": 1025,
-     "cat": "Rare Loot",
-     "tier": "cheap",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 2.7
-    },
-    {
-     "name": "\"Beef\" Flavor Packet",
-     "cr": 256,
-     "cat": "Rare Loot",
-     "tier": "junk",
-     "rarity": 3,
-     "rarityLabel": "Rare",
-     "share": 2.77
-    },
-    {
-     "name": "Ventilation Regulator",
-     "cr": 34850,
-     "cat": "Electrical",
-     "tier": "jackpot",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.45
-    },
-    {
-     "name": "Soap",
-     "cr": 17425,
-     "cat": "Rare Loot",
-     "tier": "prime",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.71
-    },
-    {
-     "name": "Carbon Fiber",
-     "cr": 8200,
-     "cat": "Rare Loot",
-     "tier": "valuable",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.86
-    },
-    {
-     "name": "Survival Seeds",
+     "name": "Crowbar",
      "cr": 6662,
-     "cat": "Rare Loot",
+     "cat": "Power Tools",
      "tier": "valuable",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.53
+     "rarity": 3,
+     "rarityLabel": "Rare",
+     "share": 1.02
     },
     {
-     "name": "Weapon Parts",
-     "cr": 2306,
-     "cat": "Rare Loot",
-     "tier": "worth",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.79
+     "name": "Pipe Wrench",
+     "cr": 5637,
+     "cat": "Power Tools",
+     "tier": "good",
+     "rarity": 3,
+     "rarityLabel": "Rare",
+     "share": 1.57
     },
     {
-     "name": "Wooden Plank",
-     "cr": 512,
-     "cat": "Rare Loot",
-     "tier": "cheap",
-     "rarity": 2,
-     "rarityLabel": "Very Rare",
-     "share": 0.44
+     "name": "Advanced Pliers",
+     "cr": 4869,
+     "cat": "Power Tools",
+     "tier": "good",
+     "rarity": 3,
+     "rarityLabel": "Rare",
+     "share": 1.12
     },
     {
-     "name": "Toilet Paper",
-     "cr": 28700,
-     "cat": "Rare Loot",
-     "tier": "jackpot",
-     "rarity": 1,
-     "rarityLabel": "Ultra Rare",
-     "share": 0.16
-    },
-    {
-     "name": "Bulkhead Lights",
-     "cr": 18962,
-     "cat": "Lighting",
+     "name": "Cyborg Immunosuppressant",
+     "cr": 14350,
+     "cat": "Medical",
      "tier": "prime",
-     "rarity": 1,
-     "rarityLabel": "Ultra Rare",
-     "share": 0.15
-    },
-    {
-     "name": "Repair Dronelet",
-     "cr": 13325,
-     "cat": "Rare Loot",
-     "tier": "prime",
-     "rarity": 1,
-     "rarityLabel": "Ultra Rare",
-     "share": 0.06
+     "rarity": 2,
+     "rarityLabel": "Very Rare",
+     "share": 0.76
     },
     {
      "name": "Explosive Charge",
      "cr": 12812,
      "cat": "Rare Loot",
      "tier": "prime",
-     "rarity": 1,
-     "rarityLabel": "Ultra Rare",
-     "share": 0.06
+     "rarity": 2,
+     "rarityLabel": "Very Rare",
+     "share": 0.38
     },
     {
-     "name": "Deep Fried Coffee",
+     "name": "Electric Motor",
      "cr": 7175,
-     "cat": "Rare Loot",
+     "cat": "Electrical",
+     "tier": "valuable",
+     "rarity": 2,
+     "rarityLabel": "Very Rare",
+     "share": 0.62
+    },
+    {
+     "name": "Ratchet",
+     "cr": 3844,
+     "cat": "Power Tools",
+     "tier": "good",
+     "rarity": 2,
+     "rarityLabel": "Very Rare",
+     "share": 0.93
+    },
+    {
+     "name": "Screws",
+     "cr": 922,
+     "cat": "Fasteners",
+     "tier": "cheap",
+     "rarity": 2,
+     "rarityLabel": "Very Rare",
+     "share": 0.49
+    },
+    {
+     "name": "Construction Foam",
+     "cr": 38950,
+     "cat": "Manufacturing Components",
+     "tier": "jackpot",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.0
+    },
+    {
+     "name": "Zonophor Tablets",
+     "cr": 21525,
+     "cat": "Medical",
+     "tier": "prime",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.19
+    },
+    {
+     "name": "EDC Multi-tool",
+     "cr": 19987,
+     "cat": "Power Tools",
+     "tier": "prime",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.09
+    },
+    {
+     "name": "Rotary Hammer",
+     "cr": 13325,
+     "cat": "Power Tools",
+     "tier": "prime",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.01
+    },
+    {
+     "name": "Power Drill",
+     "cr": 7175,
+     "cat": "Power Tools",
      "tier": "valuable",
      "rarity": 1,
      "rarityLabel": "Ultra Rare",
-     "share": 0.26
+     "share": 0.0
     },
     {
-     "name": "Drywall",
-     "cr": 3075,
-     "cat": "Rare Loot",
+     "name": "Old Tool Set",
+     "cr": 5637,
+     "cat": "Power Tools",
      "tier": "good",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.22
+    },
+    {
+     "name": "Stethoscope",
+     "cr": 4612,
+     "cat": "Medical",
+     "tier": "good",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.01
+    },
+    {
+     "name": "Tourniquet",
+     "cr": 4100,
+     "cat": "Medical",
+     "tier": "good",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.0
+    },
+    {
+     "name": "Leather Hole Punch",
+     "cr": 3075,
+     "cat": "Power Tools",
+     "tier": "good",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.04
+    },
+    {
+     "name": "Machine Parts",
+     "cr": 2306,
+     "cat": "Manufacturing Components",
+     "tier": "worth",
      "rarity": 1,
      "rarityLabel": "Ultra Rare",
      "share": 0.2
     },
     {
-     "name": "Light Bulbs",
-     "cr": 2562,
-     "cat": "Lighting",
-     "tier": "worth",
+     "name": "Hammer",
+     "cr": 1025,
+     "cat": "Power Tools",
+     "tier": "cheap",
      "rarity": 1,
      "rarityLabel": "Ultra Rare",
-     "share": 0.12
+     "share": 0.0
     },
     {
-     "name": "Lighter",
-     "cr": 1794,
-     "cat": "Lighting",
-     "tier": "worth",
+     "name": "Bolts",
+     "cr": 717,
+     "cat": "Fasteners",
+     "tier": "cheap",
      "rarity": 1,
      "rarityLabel": "Ultra Rare",
-     "share": 0.01
+     "share": 0.2
+    },
+    {
+     "name": "Nuts",
+     "cr": 410,
+     "cat": "Fasteners",
+     "tier": "junk",
+     "rarity": 1,
+     "rarityLabel": "Ultra Rare",
+     "share": 0.1
+    }
+   ]
+  },
+  {
+   "key": "maprare-ashen-mesa",
+   "label": "Ashen Mesa",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 2,
+   "items": [
+    {
+     "name": "Water Map",
+     "cr": 4100,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 46.53
+    },
+    {
+     "name": "Picture",
+     "cr": 512,
+     "cat": "Quest Items",
+     "tier": "cheap",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 53.47
+    }
+   ]
+  },
+  {
+   "key": "maprare-babel",
+   "label": "Babel",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 2,
+   "items": [
+    {
+     "name": "Scavenger's Go-Bag",
+     "cr": 6662,
+     "cat": "Salvage",
+     "tier": "valuable",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    },
+    {
+     "name": "Medical Supplies",
+     "cr": 512,
+     "cat": "Quest Items",
+     "tier": "cheap",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    }
+   ]
+  },
+  {
+   "key": "maprare-downtown-lost-angels",
+   "label": "Downtown Lost Angels",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 1,
+   "items": [
+    {
+     "name": "Sewers Technical Plans",
+     "cr": 512,
+     "cat": "Quest Items",
+     "tier": "cheap",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 100.0
+    }
+   ]
+  },
+  {
+   "key": "maprare-elephant-mausoleum",
+   "label": "Elephant Mausoleum",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 2,
+   "items": [
+    {
+     "name": "Data Cache",
+     "cr": 4100,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    },
+    {
+     "name": "Precision Components",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 66.67
+    }
+   ]
+  },
+  {
+   "key": "maprare-every-region-map",
+   "label": "Every region map",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 1,
+   "items": [
+    {
+     "name": "Wetware System",
+     "cr": 512,
+     "cat": "Quest Items",
+     "tier": "cheap",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 100.0
+    }
+   ]
+  },
+  {
+   "key": "maprare-frozen-swamp",
+   "label": "Frozen Swamp",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 2,
+   "items": [
+    {
+     "name": "Convoy Schedule",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    },
+    {
+     "name": "Weapon Schematics",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    }
+   ]
+  },
+  {
+   "key": "maprare-scorched-enclave",
+   "label": "Scorched Enclave",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 2,
+   "items": [
+    {
+     "name": "Euruskan Plans",
+     "cr": 3075,
+     "cat": "Salvage",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    },
+    {
+     "name": "Weapon Tech",
+     "cr": 2562,
+     "cat": "Quest Items",
+     "tier": "worth",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    }
+   ]
+  },
+  {
+   "key": "maprare-scrapyard-nexus",
+   "label": "Scrapyard Nexus",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 3,
+   "items": [
+    {
+     "name": "Railgun Breech Component",
+     "cr": 14766,
+     "cat": "Ingredients",
+     "tier": "prime",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    },
+    {
+     "name": "Battle Plans",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    },
+    {
+     "name": "\"Teddy Bear\"",
+     "cr": 512,
+     "cat": "Quest Items",
+     "tier": "cheap",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    }
+   ]
+  },
+  {
+   "key": "maprare-stairway-gate",
+   "label": "Stairway Gate",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 3,
+   "items": [
+    {
+     "name": "Dog Tags",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    },
+    {
+     "name": "Family Photo",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    },
+    {
+     "name": "Personnel Data",
+     "cr": 3075,
+     "cat": "Quest Items",
+     "tier": "good",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 33.33
+    }
+   ]
+  },
+  {
+   "key": "maprare-underground-cemetery",
+   "label": "Underground Cemetery",
+   "kind": "maprare",
+   "tiered": false,
+   "tiers": [],
+   "count": 2,
+   "items": [
+    {
+     "name": "Comms Device",
+     "cr": 2562,
+     "cat": "Quest Items",
+     "tier": "worth",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
+    },
+    {
+     "name": "Logbook",
+     "cr": 1537,
+     "cat": "Quest Items",
+     "tier": "worth",
+     "rarity": 5,
+     "rarityLabel": "Common",
+     "share": 50.0
     }
    ]
   },
@@ -34384,6 +34695,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Pipe Wrench": [
@@ -34392,6 +34709,12 @@
     "label": "Civilian Crate",
     "kind": "container",
     "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 3
    },
    {
     "key": "dogcrate",
@@ -34476,6 +34799,12 @@
     "rarity": 4
    },
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -34515,6 +34844,12 @@
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
+    "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -34704,12 +35039,6 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
    }
   ],
   "Bug Spray": [
@@ -34717,12 +35046,6 @@
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
-    "rarity": 4
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -34737,12 +35060,6 @@
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
-    "rarity": 4
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -34772,12 +35089,6 @@
     "label": "Civilian Crate",
     "kind": "container",
     "rarity": 4
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
    },
    {
     "key": "dogcrate",
@@ -34820,6 +35131,12 @@
     "rarity": 4
    },
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -34831,6 +35148,12 @@
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
+    "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -34852,6 +35175,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "U-STIK+ USB Drive": [
@@ -35103,12 +35432,6 @@
     "key": "corpse-submachine-gunner-s-bag",
     "label": "Submachine Gunner's Bag",
     "kind": "corpse",
-    "rarity": 4
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -35432,6 +35755,12 @@
     "label": "Water Thief Skirmisher's Bag",
     "kind": "corpse",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Soap": [
@@ -35614,12 +35943,6 @@
     "label": "Water Thief Skirmisher's Bag",
     "kind": "corpse",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 2
    }
   ],
   "UMEGA Media Player": [
@@ -35648,6 +35971,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Stereo Box": [
@@ -35665,12 +35994,6 @@
    }
   ],
   "Toothpaste": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -35726,6 +36049,12 @@
   ],
   "Intermediate Tool Set": [
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
@@ -35739,6 +36068,12 @@
    }
   ],
   "Sledgehammer": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -35767,12 +36102,6 @@
    }
   ],
   "Camera Lens": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -35830,9 +36159,21 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Bolt Cutters": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -35854,6 +36195,12 @@
     "rarity": 3
    },
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 3
+   },
+   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -35861,6 +36208,12 @@
    }
   ],
   "Scavenger's Go-Bag": [
+   {
+    "key": "maprare-babel",
+    "label": "Babel",
+    "kind": "maprare",
+    "rarity": 5
+   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -35903,12 +36256,6 @@
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
-    "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 2
    }
   ],
@@ -36088,12 +36435,6 @@
     "rarity": 3
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -36105,6 +36446,12 @@
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
+    "rarity": 3
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 3
    },
    {
@@ -36129,6 +36476,12 @@
    }
   ],
   "Sewing Kit": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -36179,6 +36532,12 @@
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
+    "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 2
    }
   ],
@@ -36250,15 +36609,15 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Survival Lighter": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "corpse-brawler-s-bag-762",
     "label": "Brawler's Bag (762)",
@@ -36630,12 +36989,6 @@
     "rarity": 3
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -36672,6 +37025,12 @@
   ],
   "Sentient Drill": [
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 3
+   },
+   {
     "key": "ct-civilian",
     "label": "Civilian Crate",
     "kind": "container",
@@ -36685,12 +37044,6 @@
    }
   ],
   "Quantum Hard Drive": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -36884,12 +37237,6 @@
     "label": "Water Thief Skirmisher's Bag",
     "kind": "corpse",
     "rarity": 1
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
    }
   ],
   "Solar Battery": [
@@ -36907,6 +37254,12 @@
    }
   ],
   "Anti-Vertex Bolt Cutters": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-civilian",
     "label": "Civilian Crate",
@@ -36966,6 +37319,12 @@
     "label": "Medical Crate",
     "kind": "container",
     "rarity": 5
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
    },
    {
     "key": "dogcrate",
@@ -37182,6 +37541,12 @@
     "rarity": 5
    },
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -37194,6 +37559,12 @@
     "label": "Medical Crate",
     "kind": "container",
     "rarity": 5
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
    },
    {
     "key": "corpse-brawler-s-bag-762",
@@ -37382,6 +37753,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Adrenaline Stim": [
@@ -37800,6 +38177,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Syringe": [
@@ -37808,6 +38191,12 @@
     "label": "Medical Crate",
     "kind": "container",
     "rarity": 5
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
    },
    {
     "key": "dogcrate",
@@ -37869,6 +38258,12 @@
     "key": "corpse-submachine-gunner-s-bag",
     "label": "Submachine Gunner's Bag",
     "kind": "corpse",
+    "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -38448,6 +38843,12 @@
     "rarity": 4
    },
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
     "key": "corpse-brawler-s-bag-762",
     "label": "Brawler's Bag (762)",
     "kind": "corpse",
@@ -38630,12 +39031,6 @@
     "rarity": 4
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -38647,6 +39042,12 @@
     "key": "ct-medical",
     "label": "Medical Crate",
     "kind": "container",
+    "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -38826,6 +39227,12 @@
   ],
   "Occulomide Auto-Surgeon": [
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 3
+   },
+   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -38989,6 +39396,12 @@
    }
   ],
   "Diagnostic Scanner": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 3
+   },
    {
     "key": "corpse-cultist-grenadier-s-bag",
     "label": "Cultist Grenadier's Bag",
@@ -39400,6 +39813,12 @@
     "label": "Water Thief Skirmisher's Bag",
     "kind": "corpse",
     "rarity": 1
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Military Tape": [
@@ -39422,6 +39841,12 @@
     "label": "Military Crate",
     "kind": "container",
     "rarity": 5
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
    },
    {
     "key": "dogcrate",
@@ -39527,12 +39952,6 @@
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
-    "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 2
    }
   ],
@@ -40330,12 +40749,6 @@
   ],
   "Thermite": [
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
-   {
     "key": "ct-military",
     "label": "Military Crate",
     "kind": "container",
@@ -40626,6 +41039,12 @@
   ],
   "Railgun Breech Component": [
    {
+    "key": "maprare-scrapyard-nexus",
+    "label": "Scrapyard Nexus",
+    "kind": "maprare",
+    "rarity": 5
+   },
+   {
     "key": "mech-mech-rifle-debris",
     "label": "Mech Rifle Debris",
     "kind": "mech",
@@ -40680,12 +41099,6 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
    }
   ],
   "Railgun Body Component": [
@@ -42362,12 +42775,6 @@
     "rarity": 5
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -43400,12 +43807,6 @@
     "rarity": 4
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
-   {
     "key": "corpse-brawler-s-bag-762",
     "label": "Brawler's Bag (762)",
     "kind": "corpse",
@@ -43585,12 +43986,6 @@
     "key": "ct-provisions",
     "label": "Provisions Crate",
     "kind": "container",
-    "rarity": 3
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 3
    },
    {
@@ -44366,12 +44761,6 @@
     "label": "Water Thief Skirmisher's Bag",
     "kind": "corpse",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
    }
   ],
   "Water Canteen": [
@@ -44670,12 +45059,6 @@
     "rarity": 4
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -44687,12 +45070,6 @@
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
-    "rarity": 4
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -44708,12 +45085,6 @@
     "label": "Supplies Crate",
     "kind": "container",
     "rarity": 4
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
    },
    {
     "key": "dogcrate",
@@ -44770,6 +45141,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Hose": [
@@ -44847,6 +45224,12 @@
     "key": "rook-turret-debris",
     "label": "Turret Debris",
     "kind": "rook",
+    "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -45016,12 +45399,6 @@
     "rarity": 4
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -45087,6 +45464,12 @@
     "key": "rook-water-thief-drone-debris",
     "label": "Water Thief Drone Debris",
     "kind": "rook",
+    "rarity": 4
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
     "rarity": 4
    },
    {
@@ -45218,6 +45601,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Wooden Plank": [
@@ -45231,12 +45620,6 @@
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
-    "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 2
    }
   ],
@@ -45332,6 +45715,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Organoid Memory Board": [
@@ -45349,6 +45738,12 @@
    }
   ],
   "Organoid Outlet": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-supplies",
     "label": "Supplies Crate",
@@ -45435,12 +45830,6 @@
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
-    "rarity": 3
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 3
    },
    {
@@ -45562,6 +45951,12 @@
   ],
   "Organoid Plug": [
    {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
+   {
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
@@ -45575,6 +45970,12 @@
    }
   ],
   "Concrete Powder": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-supplies",
     "label": "Supplies Crate",
@@ -45600,12 +46001,6 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 2
    }
   ],
   "Cordura": [
@@ -45613,12 +46008,6 @@
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
-    "rarity": 3
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 3
    },
    {
@@ -45694,6 +46083,12 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 2
    }
   ],
   "Liquid Coolant": [
@@ -45739,12 +46134,6 @@
    }
   ],
   "UV Light Bulb": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-supplies",
     "label": "Supplies Crate",
@@ -45892,12 +46281,6 @@
   ],
   "Industrial Chemicals": [
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
-   {
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
@@ -45960,12 +46343,6 @@
   ],
   "ES Lamp": [
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
-   {
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
@@ -45990,12 +46367,6 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
    }
   ],
   "Processor Board": [
@@ -46068,12 +46439,6 @@
   ],
   "Light Bulb": [
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
-   {
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
@@ -46087,12 +46452,6 @@
    }
   ],
   "Printing Resin": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-supplies",
     "label": "Supplies Crate",
@@ -46114,12 +46473,6 @@
     "rarity": 3
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -46134,12 +46487,6 @@
     "rarity": 3
    },
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
-   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -46147,12 +46494,6 @@
    }
   ],
   "Clamp": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
-   },
    {
     "key": "ct-supplies",
     "label": "Supplies Crate",
@@ -46178,9 +46519,21 @@
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 2
    }
   ],
   "Nails": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "ct-supplies",
     "label": "Supplies Crate",
@@ -46234,6 +46587,12 @@
     "label": "Supplies Crate",
     "kind": "container",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 1
    }
   ],
   "Ventilation Regulator": [
@@ -46247,12 +46606,6 @@
     "key": "ct-supplies",
     "label": "Supplies Crate",
     "kind": "container",
-    "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
     "rarity": 2
    }
   ],
@@ -46268,21 +46621,9 @@
     "label": "Supplies Crate",
     "kind": "container",
     "rarity": 2
-   },
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
    }
   ],
   "Industrial Black Light": [
-   {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 3
-   },
    {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
@@ -46297,6 +46638,12 @@
    }
   ],
   "Concrete Mixer": [
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 4
+   },
    {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
@@ -46702,6 +47049,12 @@
     "label": "Eurasian Soldier's Bag (57)",
     "kind": "corpse",
     "rarity": 2
+   },
+   {
+    "key": "worldrare",
+    "label": "World Rare-Loot (every map)",
+    "kind": "worldrare",
+    "rarity": 2
    }
   ],
   "T-90 Suspension Component": [
@@ -46791,9 +47144,9 @@
    },
    {
     "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
+    "label": "World Rare-Loot (every map)",
     "kind": "worldrare",
-    "rarity": 1
+    "rarity": 2
    }
   ],
   "Water Thief's Mask \"Oni\"": [
@@ -47770,6 +48123,12 @@
   ],
   "Euruskan Plans": [
    {
+    "key": "maprare-scorched-enclave",
+    "label": "Scorched Enclave",
+    "kind": "maprare",
+    "rarity": 5
+   },
+   {
     "key": "dogcrate",
     "label": "Dog-Fetch Crate",
     "kind": "dogcrate",
@@ -48414,20 +48773,146 @@
     "rarity": 2
    }
   ],
-  "Wooden Planks": [
+  "Water Map": [
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 4
+    "key": "maprare-ashen-mesa",
+    "label": "Ashen Mesa",
+    "kind": "maprare",
+    "rarity": 5
+   },
+   {
+    "key": "corpse-riptider-s-bag",
+    "label": "Riptider's Bag",
+    "kind": "corpse",
+    "rarity": 5
    }
   ],
-  "Light Bulbs": [
+  "Picture": [
    {
-    "key": "worldrare",
-    "label": "World Rare-Loot (any container)",
-    "kind": "worldrare",
-    "rarity": 1
+    "key": "maprare-ashen-mesa",
+    "label": "Ashen Mesa",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Medical Supplies": [
+   {
+    "key": "maprare-babel",
+    "label": "Babel",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Sewers Technical Plans": [
+   {
+    "key": "maprare-downtown-lost-angels",
+    "label": "Downtown Lost Angels",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Data Cache": [
+   {
+    "key": "maprare-elephant-mausoleum",
+    "label": "Elephant Mausoleum",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Precision Components": [
+   {
+    "key": "maprare-elephant-mausoleum",
+    "label": "Elephant Mausoleum",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Wetware System": [
+   {
+    "key": "maprare-every-region-map",
+    "label": "Every region map",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Convoy Schedule": [
+   {
+    "key": "maprare-frozen-swamp",
+    "label": "Frozen Swamp",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Weapon Schematics": [
+   {
+    "key": "maprare-frozen-swamp",
+    "label": "Frozen Swamp",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Weapon Tech": [
+   {
+    "key": "maprare-scorched-enclave",
+    "label": "Scorched Enclave",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Battle Plans": [
+   {
+    "key": "maprare-scrapyard-nexus",
+    "label": "Scrapyard Nexus",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "\"Teddy Bear\"": [
+   {
+    "key": "maprare-scrapyard-nexus",
+    "label": "Scrapyard Nexus",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Dog Tags": [
+   {
+    "key": "maprare-stairway-gate",
+    "label": "Stairway Gate",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Family Photo": [
+   {
+    "key": "maprare-stairway-gate",
+    "label": "Stairway Gate",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Personnel Data": [
+   {
+    "key": "maprare-stairway-gate",
+    "label": "Stairway Gate",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Comms Device": [
+   {
+    "key": "maprare-underground-cemetery",
+    "label": "Underground Cemetery",
+    "kind": "maprare",
+    "rarity": 5
+   }
+  ],
+  "Logbook": [
+   {
+    "key": "maprare-underground-cemetery",
+    "label": "Underground Cemetery",
+    "kind": "maprare",
+    "rarity": 5
    }
   ],
   "Grabber Codex": [
@@ -50912,14 +51397,6 @@
     "rarity": 5
    }
   ],
-  "Water Map": [
-   {
-    "key": "corpse-riptider-s-bag",
-    "label": "Riptider's Bag",
-    "kind": "corpse",
-    "rarity": 5
-   }
-  ],
   "Prized Alcohol": [
    {
     "key": "corpse-thief-s-bag",
@@ -50929,5 +51406,5 @@
    }
   ]
  },
- "count": 75
+ "count": 85
 }

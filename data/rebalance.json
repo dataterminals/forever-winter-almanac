@@ -10,8 +10,8 @@
   "nexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/123",
   "originalNexus": 76,
   "originalNexusUrl": "https://www.nexusmods.com/theforeverwinter/mods/76",
-  "status": "2.1.0 built and verified for build 24536482 (2026-08-05), not yet uploaded to Nexus #123 — the page still carries 2.0.0, which is broken on the current build.",
-  "game": "24536482",
+  "status": "released as 2.2.0 on Nexus #123 for build 25071553 (built 2026-09-19, uploaded 2026-09-20). The page's previous file, 2.0.1, was the v2.1 build for 24536482, and it crashes the game on load on the current build.",
+  "game": "25071553",
   "pages": [
    "weapons",
    "ammo",

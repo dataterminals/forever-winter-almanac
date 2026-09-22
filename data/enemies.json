@@ -1,7 +1,7 @@
 {
- "source": "The Forever Winter shipping game files (build 24536482) — FWAIPawnDefinition enemy defs + BP_AI health components + weapon defs, decoded with CUE4Parse",
+ "source": "The Forever Winter shipping game files (build 25071553) — FWAIPawnDefinition enemy defs + BP_AI health components + weapon defs, decoded with CUE4Parse",
  "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units is read from the unit's blueprint health component. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
- "build": 24536482,
+ "build": 25071553,
  "codex": {
   "xp": 62500,
   "cr": 32800,
@@ -187,9 +187,11 @@
     "visionNear": 14,
     "visionFar": 80,
     "coneH": 176,
-    "hearing": 11.5,
-    "esp": null,
-    "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines. (The 'Deadly Sniper' variant shares this exact profile.)",
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines.",
     "profile": "Europa Sniper"
    }
   },
@@ -252,7 +254,9 @@
     "visionNear": 14,
     "visionFar": 40,
     "coneH": 134.5,
-    "hearing": 11.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
     "esp": "base",
     "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
     "profile": "Soldier (standard)"
@@ -465,9 +469,11 @@
     "visionNear": 10,
     "visionFar": 60,
     "coneH": 176,
-    "hearing": 40,
+    "visionPointBlank": 5,
+    "hearing": 20,
+    "hearingViolent": 40,
     "esp": "×2",
-    "notes": "Exceptional hearing (40 m) and a tall vertical cone; doubles its ESP radius. Built to hunt.",
+    "notes": "Exceptional hearing — 20 m, 40 m once you're violent — and a tall vertical cone; doubles its ESP radius. Built to hunt.",
     "profile": "Stalker"
    },
    "invincible": true,
@@ -582,7 +588,9 @@
     "visionNear": 30,
     "visionFar": 60,
     "coneH": 90,
-    "hearing": null,
+    "visionPointBlank": null,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
     "esp": null,
     "notes": "Narrow 90° cone but wide vertical arc — it looks down well.",
     "profile": "Drone"
@@ -642,7 +650,9 @@
     "visionNear": 14,
     "visionFar": 40,
     "coneH": 195,
+    "visionPointBlank": 5,
     "hearing": null,
+    "hearingViolent": null,
     "esp": "×4.5",
     "notes": "The ordinary mounted turret — not the Scav 360° one. A wide 195° arc to 40 m at a soldier's lock speed, plus a 4.5× ESP bubble that sees through walls up close. Come at it from behind, or from well past 40 m.",
     "profile": "Turret (emplaced)"
@@ -684,7 +694,9 @@
     "visionNear": 80,
     "visionFar": 108,
     "coneH": 90,
+    "visionPointBlank": null,
     "hearing": 5.75,
+    "hearingViolent": null,
     "esp": null,
     "notes": "Long range but very slow to lock (12–18 s) — you can cross gaps between its sweeps.",
     "profile": "Chopper"
@@ -748,7 +760,9 @@
     "visionNear": 14,
     "visionFar": 40,
     "coneH": 176,
-    "hearing": 11.5,
+    "visionPointBlank": null,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
     "esp": "base",
     "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer.",
     "profile": "Opal (Eurasia elite)"
@@ -810,12 +824,14 @@
    ],
    "hp": 37500.0,
    "senses": {
-    "visionNear": 10,
-    "visionFar": 108,
-    "coneH": 150,
+    "visionNear": 7.5,
+    "visionFar": 20,
+    "coneH": 120,
+    "visionPointBlank": 5,
     "hearing": null,
+    "hearingViolent": null,
     "esp": null,
-    "notes": "Wide arc, long range, slow build.",
+    "notes": "Short-sighted against you: 7.5 m near / 20 m far in a wide arc (the 108 m range in its file is for rival-faction targets), and slow to build (4–9 s).",
     "profile": "Tank"
    }
   },
@@ -857,12 +873,14 @@
    ],
    "hp": 37500.0,
    "senses": {
-    "visionNear": 10,
-    "visionFar": 108,
-    "coneH": 150,
+    "visionNear": 7.5,
+    "visionFar": 20,
+    "coneH": 120,
+    "visionPointBlank": 5,
     "hearing": null,
+    "hearingViolent": null,
     "esp": null,
-    "notes": "Wide arc, long range, slow build.",
+    "notes": "Short-sighted against you: 7.5 m near / 20 m far in a wide arc (the 108 m range in its file is for rival-faction targets), and slow to build (4–9 s).",
     "profile": "Tank"
    }
   },
@@ -981,12 +999,14 @@
     }
    ],
    "senses": {
-    "visionNear": 14,
-    "visionFar": 400,
-    "coneH": 176,
-    "hearing": 15,
+    "visionNear": 15,
+    "visionFar": 40,
+    "coneH": 120,
+    "visionPointBlank": 5,
+    "hearing": 7.5,
+    "hearingViolent": 15,
     "esp": "×3",
-    "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
+    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    }
   },
@@ -1107,12 +1127,14 @@
     }
    ],
    "senses": {
-    "visionNear": 14,
-    "visionFar": 400,
-    "coneH": 176,
-    "hearing": 15,
+    "visionNear": 15,
+    "visionFar": 40,
+    "coneH": 120,
+    "visionPointBlank": 5,
+    "hearing": 7.5,
+    "hearingViolent": 15,
     "esp": "×3",
-    "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
+    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    }
   },
@@ -1162,9 +1184,11 @@
     "visionNear": null,
     "visionFar": null,
     "coneH": null,
-    "hearing": 30,
+    "visionPointBlank": null,
+    "hearing": null,
+    "hearingViolent": 30,
     "esp": null,
-    "notes": "Runs on hearing — a 30 m listen radius with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a long, flat vision cone in the files, but it builds so slowly it never matters — the fight is entirely about noise.)",
+    "notes": "Runs on hearing — once you're violent she hears you out to 30 m, with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a vision cone in the files, but it builds so slowly it never matters — the fight is about noise.)",
     "profile": "BlindMother"
    },
    "invincible": true,
@@ -1365,12 +1389,14 @@
     }
    ],
    "senses": {
-    "visionNear": 14,
-    "visionFar": 400,
-    "coneH": 176,
-    "hearing": 15,
+    "visionNear": 15,
+    "visionFar": 40,
+    "coneH": 120,
+    "visionPointBlank": 5,
+    "hearing": 7.5,
+    "hearingViolent": 15,
     "esp": "×3",
-    "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
+    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    },
    "invincible": false,
@@ -1613,12 +1639,14 @@
     }
    ],
    "senses": {
-    "visionNear": 14,
-    "visionFar": 400,
-    "coneH": 176,
-    "hearing": 15,
+    "visionNear": 15,
+    "visionFar": 40,
+    "coneH": 120,
+    "visionPointBlank": 5,
+    "hearing": 7.5,
+    "hearingViolent": 15,
     "esp": "×3",
-    "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
+    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    },
    "invincible": false,
@@ -1692,7 +1720,9 @@
     "visionNear": 14,
     "visionFar": 40,
     "coneH": 176,
-    "hearing": 11.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
     "esp": null,
     "notes": "Soldier-range vision in a wide arc.",
     "profile": "Shield Guy"
@@ -1812,12 +1842,14 @@
     }
    ],
    "senses": {
-    "visionNear": 14,
-    "visionFar": 400,
-    "coneH": 176,
-    "hearing": 15,
+    "visionNear": 15,
+    "visionFar": 40,
+    "coneH": 120,
+    "visionPointBlank": 5,
+    "hearing": 7.5,
+    "hearingViolent": 15,
     "esp": "×3",
-    "notes": "Enormous 400 m vision, but slow to build detection (4–9 s) — you have a moment before it commits.",
+    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
     "profile": "Mech"
    },
    "invincible": true,
