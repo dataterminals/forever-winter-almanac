@@ -24,8 +24,8 @@
   {
    "key": "kills",
    "title": "Kills — the wreck is a container, and you have to open it",
-   "lead": "Killing a turret, drone, mech or soldier puts **nothing** in your inventory. It spawns a **searchable container** where the thing died — and if you walk away, you get zero, forever.",
-   "body": "Every AI unit carries a **Loot Object** (`BP_RandomLoot_*`), and destroying the unit spawns it as a container you must physically walk to and search. That container has its own name — the one you'll see on screen — and it is almost never the enemy's name: a Europan Turret leaves **Turret Debris**, an Exo leaves **Exo Debris**, a Pyro leaves **Pyro's Bag**. Those debris names are what this tab lists as sources, because that's the object you actually open. Two traps live here. **One:** *most* entity pools have a budget floor of **0** — a legitimate roll can leave the container empty, so most kills are not a guaranteed payout. (A handful do guarantee a minimum; the wreck table below says which.) **Two:** the caps are tight — a turret draws **at most 3** items from a 23-item pool, a Cyborg exactly **1** — so a headline pool share is spread across very few pulls. If you're farming one specific component, expect to open a lot of debris."
+   "lead": "Killing a turret, drone, mech or soldier puts **nothing** in your inventory. It spawns a **searchable container** where the thing died; nothing is looted until that container is searched.",
+   "body": "Every AI unit carries a **Loot Object** (`BP_RandomLoot_*`), and destroying the unit spawns it as a container you must physically walk to and search. That container has its own name — the one you'll see on screen — and it is almost never the enemy's name: a Europan Turret leaves **Turret Debris**, an Exo leaves **Exo Debris**, a Pyro leaves **Pyro's Bag**. Those debris names are what this tab lists as sources, because that's the object you actually open. Two limits apply. **One:** *most* entity pools have a budget floor of **0** — a legitimate roll can leave the container empty, so most kills are not a guaranteed payout. (A handful do guarantee a minimum; the wreck table below says which.) **Two:** the caps are tight — a turret draws **at most 3** items from a 23-item pool, a Cyborg exactly **1** — so a headline pool share is spread across very few pulls."
   },
   {
    "key": "placement",
@@ -43,7 +43,7 @@
    "key": "contents",
    "title": "Contents — re-rolled every single open",
    "lead": "What's actually inside is rolled fresh each time from that type's fixed pool. Two identical crates rarely hold the same thing.",
-   "body": "Each item's **pool share** (shown on every source below) is its weight within one draw — relative scarcity when you crack *this* crate, **not** a per-raid probability. Rarity is measured **per pool**: cheap filler can read *Ultra Rare* simply because it's an unlikely pull, and the same item reads differently under two crate types. Always read a rarity together with the crate it sits under."
+   "body": "Each item's **pool share** (shown on every source below) is its weight within one draw — relative scarcity when you crack *this* crate, **not** a per-raid probability. Rarity is measured **per pool**: cheap filler can read *Ultra Rare* simply because it's an unlikely pull, and the same item reads differently under two crate types."
   }
  ],
  "tierBudget": {
@@ -68,7 +68,7 @@
    "pool": 13,
    "file": "container",
    "source": "ct-alcohol",
-   "inside": "Pure drink for resale — vodka, gin, rum, absinthe, mead. Small pool, all sell fodder."
+   "inside": "Drink — vodka, gin, rum, absinthe, mead. A small pool, all resale items."
   },
   {
    "type": "Civil Goods Canister",
@@ -186,7 +186,7 @@
    "inside": "Weapon attachments — sights, lasers, flashlights, muzzle devices. Contents live on the Weapons/Attachments tabs."
   }
  ],
- "entityNote": "What each killed unit leaves behind, read from its Loot Object's `RandomLoot.RowName` + `ContainerDetails.ContainerName`. **Cap** = most items the wreck can hold. Note the game keeps *orphaned* pre-EconV2 loot rows in the same table — `RookLoot_Turret_Europa` still reads 48.85% Turret Component — but nothing references them; the live rows below are the ones the engine actually rolls. **11 of these 16 pools have a budget floor of 0**, so a legitimate roll can leave the container empty — most kills are not a guaranteed payout. The other 5 carry a **guaranteed minimum** (the Floor column), from 6,771 cr (Vehicle Debris (core)) up to **100,000 cr** (Cyborg Remains (Assault HK)) — those are always worth the walk.",
+ "entityNote": "What each killed unit leaves behind, read from its Loot Object's `RandomLoot.RowName` + `ContainerDetails.ContainerName`. **Cap** = most items the wreck can hold. Note the game keeps *orphaned* pre-EconV2 loot rows in the same table — `RookLoot_Turret_Europa` still reads 48.85% Turret Component — but nothing references them; the live rows below are the ones the engine actually rolls. **11 of these 16 pools have a budget floor of 0**, so a legitimate roll can leave the container empty — most kills are not a guaranteed payout. The other 5 carry a **guaranteed minimum** (the Floor column), from 6,771 cr (Vehicle Debris (core)) up to **100,000 cr** (Cyborg Remains (Assault HK)).",
  "entityDrops": [
   {
    "name": "Vehicle Debris (core)",
@@ -285,7 +285,7 @@
    "cap": 3,
    "pool": 24,
    "minValue": 0,
-   "note": "The flight controller is the prize; IFF chips ride along."
+   "note": "Carries the flight controller, plus IFF chips."
   },
   {
    "name": "Water Thief Drone Debris",
@@ -363,13 +363,13 @@
    "spawner": "HRF-05",
    "bp": "BP_CrateSpawner_ForQuests_HRF05",
    "chance": 0.3333,
-   "note": "Only one in three — expect to re-run the raid for it."
+   "note": "One in three."
   }
  ],
  "special": [
   {
    "name": "High-probability caches",
-   "body": "Hand-placed richer crates that skip the budget model for a **guaranteed-good** pull: **Medical Supplies** (always ~10.5k–14k cr), **Weapon Mods**, **Ammunition**, and an **AA-gun component** cache. Rare on the map, worth the detour."
+   "body": "Hand-placed richer crates that skip the budget model for a **guaranteed-good** pull: **Medical Supplies** (always ~10.5k–14k cr), **Weapon Mods**, **Ammunition**, and an **AA-gun component** cache. Rare on the map."
   },
   {
    "name": "Level ‘Supplies’ crates",
@@ -377,7 +377,7 @@
   },
   {
    "name": "Boss Codex drills",
-   "body": "A boss's **Codex** isn't a crate — you drill it out of the corpse (or grab a placed one), and each boss has its own `CodexLoot` pool. Putting the boss down is the hard part — see the **Enemies** tab for the stun-and-DetPack method.",
+   "body": "A boss's **Codex** isn't a crate — you drill it out of the corpse (or grab a placed one), and each boss has its own `CodexLoot` pool. See the **Enemies** tab for how each boss is killed.",
    "goto": "enemies"
   },
   {

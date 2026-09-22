@@ -30,7 +30,7 @@
       "Special Forces": "40 s"
     },
     "alertnessCooldown": "80 s",
-    "alertnessNote": "After an alert, the faction stays agitated for ~80 s before settling — disengaging and waiting works, but takes longer than most expect."
+    "alertnessNote": "After an alert, the faction stays agitated for ~80 s before settling."
   },
   "senses": [
     {
@@ -46,7 +46,7 @@
     {
       "name": "ESP",
       "code": "esp",
-      "desc": "A through-wall proximity sense — no line-of-sight needed. This is the real 'sixth sense'. Most units scale a base radius by a multiplier; turrets & Hunter-Killers are effectively omniscient at range."
+      "desc": "A through-wall proximity sense — no line-of-sight needed. Most units scale a base radius by a multiplier; turrets & Hunter-Killers are effectively omniscient at range."
     },
     {
       "name": "Damage",
@@ -281,13 +281,13 @@
       "factor": "Crouch",
       "acc": 2,
       "decay": 0.5,
-      "effect": "Detected 2× slower and forgotten 2× faster. The strongest stealth lever for vision — and crouch-moving is silent."
+      "effect": "Detected 2× slower and forgotten 2× faster: the largest stealth bonus in this table. Crouch-moving also emits no noise."
     },
     {
       "factor": "Shooting / “violent”",
       "acc": 0.5,
       "decay": 2,
-      "effect": "Detected twice as fast and remembered twice as long. Every shot makes you far easier to find."
+      "effect": "Detected twice as fast and remembered twice as long."
     },
     {
       "factor": "In a tunnel",
@@ -313,13 +313,13 @@
       "factor": "Holding a pistol",
       "acc": 1.2,
       "decay": 0.8,
-      "effect": "A drawn sidearm is worth exactly as much as a Stealth Rig — 1.2× slower to detect and forgotten faster. Applies to every vision sensor in the game (all 15 that carry a modifier table), from basic infantry to snipers, mechs and turrets. Costs you nothing and stacks with crouching."
+      "effect": "A drawn sidearm is worth exactly as much as a Stealth Rig — 1.2× slower to detect and forgotten faster. Applies to every vision sensor in the game (all 15 that carry a modifier table), from basic infantry to snipers, mechs and turrets. Stacks with crouching."
     },
     {
       "factor": "Gunhead (character)",
       "acc": 0.9,
       "decay": 1,
-      "effect": "Spotted fastest of the cast — the big, bulky build."
+      "effect": "Spotted fastest of the playable characters."
     },
     {
       "factor": "BagMan (character)",
@@ -345,7 +345,7 @@
         0.6667,
         0.8
       ],
-      "effect": "Starter characters are detected 1.25–1.5× slower — a hidden newbie buffer."
+      "effect": "Starter characters are detected 1.25–1.5× slower."
     }
   ],
   "noise": [
@@ -410,18 +410,18 @@
     "primary": 20,
     "secondary": 9,
     "waterThiefDegrees": 10,
-    "desc": "When one enemy detects you, allies within 20 m are alerted, and it chains up to 2 hops (each secondary hop reaches 9 m). Water Thieves are worse — up to 10 hops. This is why breaking one contact isn't enough once a squad is onto you."
+    "desc": "When one enemy detects you, allies within 20 m are alerted, and it chains up to 2 hops (each secondary hop reaches 9 m). Water Thieves chain up to 10 hops."
   },
   "hunterKillers": {
-    "intro": "Hunter-Killers aren't random and there's no hidden 'wanted level' — a spawn controller watches your raid activity and deploys them the moment you cross ANY one of these thresholds. It's an anti-greed / objective mechanic.",
+    "intro": "Hunter-Killers aren't random and there's no hidden 'wanted level' — a spawn controller watches your raid activity and deploys them the moment you cross ANY one of these thresholds.",
     "triggers": [
       {
         "label": "Open 30 loot containers",
-        "detail": "Pure looting greed. A heavier second wave triggers at 40."
+        "detail": "A second, heavier wave triggers at 40."
       },
       {
         "label": "Deal 55,000 total damage",
-        "detail": "Fighting/killing too much. Second wave at 75,000."
+        "detail": "Second wave at 75,000."
       },
       {
         "label": "Carry 4× of a quest item",
@@ -447,23 +447,23 @@
       },
       {
         "k": "Counters are collective",
-        "v": "the 30 crates / 55,000 damage are totalled across the whole raid team server-side, not per-player — one greedy squadmate can call them down on everyone"
+        "v": "the 30 crates / 55,000 damage are totalled across the whole raid team server-side, not per-player — one player's actions count for the whole team"
       },
       {
         "k": "Then",
-        "v": "keep coming every ~5 s — 'they will not stop coming'"
+        "v": "keep coming every ~5 s"
       },
       {
         "k": "Spawn point",
-        "v": "just out of your line of sight, danger-close"
+        "v": "just out of your line of sight, close by"
       },
       {
         "k": "The unit",
         "v": "Europa EOD Hunter-Killer — 360° vision, 0.1 s lock, ∞ ESP"
       }
     ],
-    "questNote": "This is the quest link: several quest objective items — and boss-codex scans — are themselves on the trigger list, so a quest that 'requires HKs' really means 'do the objective, then survive them.' To summon them on purpose, opening ~30 crates is the most controllable method.",
-    "escalation": "Once they're out, killing an Opal or Shield-Officer Hunter-Killer spawns more of that type — the 'kill one, more come' loop."
+    "questNote": "Several quest objective items — and boss-codex scans — are themselves on the trigger list.",
+    "escalation": "Once they're out, killing an Opal or Shield-Officer Hunter-Killer spawns more of that type."
   },
   "targetPriority": {
     "intro": "Detection decides whether an enemy knows you're there. This decides who it shoots once more than one target is in play — you, your squadmates, rival-faction NPCs, even other mechs. Every squad scores each candidate and fires on the highest, re-picking as the fight moves.",

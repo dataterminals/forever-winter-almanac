@@ -1,13 +1,13 @@
 {
  "source": "The Forever Winter shipping game files (build 25071553) — FWAIPawnDefinition enemy defs + BP_AI health components + weapon defs, decoded with CUE4Parse",
- "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units and senses both come from the blueprint its pawn definition names: HP from its health component (or the parent blueprint's, where it sets none of its own), senses the same way the Detection tab reads them. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
+ "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units and senses both come from the blueprint its pawn definition names: HP from its health component (or the parent blueprint's, where it sets none of its own), senses the same way the Detection tab reads them. The 10 bosses keep longer hand-written descriptions; every other unit is a datamined one-liner.",
  "build": 25071553,
  "codex": {
   "xp": 62500,
   "cr": 32800,
   "crBase": 64000,
   "drillSeconds": 60,
-  "note": "Most bosses drop a container on defeat; drill it (~60 s) for a guaranteed Codex — 62,500 XP and ~32,800 cr, used in max-rank Innards upgrades, the Cognition Cradle, and some quests. The billion-HP bosses must be DetPack-killed first (see each card's How-to-kill); MeatMan's codex is instead a placed lootable item."
+  "note": "Most bosses drop a container on defeat; drilling it (~60 s) gives a guaranteed Codex — 62,500 XP and ~32,800 cr, used in max-rank Innards upgrades, the Cognition Cradle, and some quests. The billion-HP bosses must be DetPack-killed first (see each card's How-to-kill); MeatMan's codex is instead a placed lootable item."
  },
  "staggerNote": "“Stagger” = burst this much damage into it within the window and it's stunned; only player damage counts. This is why a single railgun shot can freeze a target a whole magazine can't.",
  "detpackNote": "The billion-HP bosses can't be shot to death — datamined body HP (FWHealthComponent.DefaultHealth) is 1,000,000,000 (Toothy hides a 900M body under its armour). You stun one (burst its stagger threshold within the window — only your damage counts), then plant the Special Units DetPack while it's stunned; three planted charges fire a scripted kill (BP_BossC4_Planted \"Kill Victim\") that bypasses the HP pool, and drilling the corpse yields the Codex. Only Mother Courage also has the AntiBossExplode self-destruct sequence. Note: \"LARGE\"/plantable is item-description prose, not a per-boss tag, so which bosses accept the DetPack is inferred from their body HP + stagger.",
@@ -25,22 +25,22 @@
   {
    "id": "turrets",
    "name": "Turrets",
-   "blurb": "Fixed and deployable guns. They can't chase you — break line of sight and they're beaten."
+   "blurb": "Fixed and deployable guns; most can't move."
   },
   {
    "id": "aircraft",
    "name": "Aircraft",
-   "blurb": "Flying gunships. Heavy firepower, effectively unstaggerable — fight them from hard cover."
+   "blurb": "Flying gunships. Heavy firepower, effectively unstaggerable."
   },
   {
    "id": "vehicles",
    "name": "Vehicles",
-   "blurb": "Tanks and armoured vehicles. Cannon + coaxial MG, heavily armoured, worth big XP."
+   "blurb": "Tanks and armoured vehicles. Cannon + coaxial MG, heavily armoured, high kill XP."
   },
   {
    "id": "mechs",
    "name": "Mechs & Giants",
-   "blurb": "The walking war-machines and giant automatons — the apex threats, most with layered armour and instakill grabs."
+   "blurb": "The walking war-machines and giant automatons, most with layered armour and instakill grabs."
   }
  ],
  "units": [
@@ -142,7 +142,7 @@
    "faction": "Eurasia",
    "category": "infantry",
    "type": "Assassin",
-   "desc": "A light hunter that breaks off to chase YOU specifically. Fragile (~940 HP) but stagger-resistant, so it won't flinch when hit.",
+   "desc": "A light hunter that breaks off to pursue players. Fragile (~940 HP) but stagger-resistant, so it won't flinch when hit.",
    "variants": "Assassin quest",
    "location": "Hunts across the map",
    "internal": "AIDEF_Eurasia_Pursuer",
@@ -232,7 +232,7 @@
    "faction": "All factions",
    "category": "infantry",
    "type": "Marksman",
-   "desc": "A soldier that hangs back and reaches out: low HP, but the shot that finds you comes from off-screen. Its vision reaches twice as far as a grunt's.",
+   "desc": "A soldier that fires from long range: low HP, and its vision reaches twice as far as a grunt's.",
    "variants": "Overwatch (fixed vantage) / quest snipers",
    "location": "Long sightlines — rooftops & ridges",
    "internal": "AIDEF_Eurasia_Sniper",
@@ -277,7 +277,7 @@
    "faction": "Cult of the Leech",
    "category": "infantry",
    "type": "Fanatic",
-   "desc": "Cult of the Leech fanatics (~1,875 HP) — they come as riflemen, grenadiers and heavy-weapons variants, erratic and aggressive.",
+   "desc": "Cult of the Leech fanatics (~1,875 HP) — they come as riflemen, grenadiers and heavy-weapons variants.",
    "variants": "Soldier / Grenadier / Heavy Weapons / Pursuer",
    "location": "Cult ambushes",
    "internal": "AIDEF_Cultist_Soldier",
@@ -367,7 +367,7 @@
    "faction": "Water Thieves",
    "category": "infantry",
    "type": "Raider",
-   "desc": "Rival scavengers (~2,800 HP) raiding the same maps you are — skirmishers, looters and berzerkers, all after the same water you need.",
+   "desc": "Rival scavengers (~2,800 HP) raiding the same maps you are — skirmishers, looters and berzerkers.",
    "variants": "Skirmisher / Looter / Berzerker",
    "location": "Contested scav regions",
    "internal": "AIDEF_WaterThief_Skirmisher",
@@ -509,7 +509,7 @@
    "faction": "Eurasia",
    "category": "infantry",
    "type": "Gunner",
-   "desc": "A high-threat gunner with far more HP than a rifleman (~4,600) and an MG that pins you down. Can grab you if you drop below ~550 HP.",
+   "desc": "A high-threat gunner with far more HP than a rifleman (~4,600) and an MG. Can grab you if you drop below ~550 HP.",
    "variants": "MG34 gunner; heavy EOD",
    "location": "Frontline squads",
    "internal": "AIDEF_Eurasia_Heavy",
@@ -613,12 +613,12 @@
    "aka": "Stalker (internal)",
    "faction": "Euruska",
    "type": "Bio-mechanical stalker",
-   "desc": "A fast, bipedal-mechanical terror that stalks the map, then closes with leaps and a mauling melee. Its chip damage is trivial — the danger is the grab: get inside arm's reach and it plays a Smash sync-kill that ends the raid on the spot, even at near-full health. Its AI is internally the “Stalker” (the art and codex call it the Grabber), and Toothy borrows its ability set.",
+   "desc": "A fast, bipedal bio-mechanical unit that stalks the map, then closes in with leaps and melee attacks. Within arm's reach it can grab: a Smash sync-kill that ends the raid on the spot, even at near-full health. Its AI is internally the “Stalker” (the art and codex call it the Grabber), and Toothy borrows its ability set.",
    "location": "Most maps; hunts day and night",
    "weakpoint": null,
    "weaknesses": [
-    "Can't open doors or fit tight gaps — break line of sight behind a gate and it's stuck",
-    "Its own melee only does 600–900; the grab is the only thing that actually kills you",
+    "Can't open doors or fit through tight gaps",
+    "Its own melee only does 600–900; its lethal attack is the grab",
     "Can be stunned — a burst of 20,000 in 3 s (a railgun hit) staggers it"
    ],
    "internal": "AIDEF_Euruska_Stalker",
@@ -673,7 +673,7 @@
     "stunWindow": 3.0,
     "hasCodex": true,
     "codexDelivery": "drill",
-    "note": "Datamined 1e9 body HP on a single FWHealthComponent (no armour) — a stagger-then-DetPack kill, not a damage race."
+    "note": "1e9 body HP and no armour, so it dies to the stun-then-DetPack kill, not to damage."
    },
    "codexReward": {
     "name": "Grabber Codex",
@@ -690,7 +690,7 @@
    "faction": "Scavenger",
    "category": "drones",
    "type": "Support",
-   "desc": "A support drone that heals its owners (0 kill XP). No threat to you directly, but it keeps everything else alive.",
+   "desc": "A support drone that heals its owners (0 kill XP). It carries no weapon or melee attack of its own.",
    "variants": null,
    "location": "Escorting Scav squads",
    "internal": "AIDEF_Scav_HealDrone",
@@ -970,8 +970,8 @@
    "location": "Eurasian airspace; Hunter-Killer variant",
    "weakpoint": null,
    "weaknesses": [
-    "You will not stun it — 99,999 stagger is effectively immune",
-    "Flies predictable maneuver splines — lead its path",
+    "Stagger threshold 99,999 — effectively unstaggerable",
+    "Follows fixed maneuver splines",
     "Grab (Shoot sync-kill) only at ≤700 HP"
    ],
    "internal": "AIDEF_Eurasia_Opal",
@@ -1314,7 +1314,7 @@
    "faction": "Europa",
    "category": "mechs",
    "type": "Missile walker",
-   "desc": "A towering Europan walker on stilt legs — ~130,900 of layered armour, a minigun and four 40mm-HE missile launchers (150 damage each) plus a stomp. Grabs at ≤900 HP. Serious area denial.",
+   "desc": "A towering Europan walker on stilt legs — ~130,900 of layered armour, a minigun and four 40mm-HE missile launchers (150 damage each) plus a stomp. Grabs at ≤900 HP.",
    "variants": null,
    "location": "Europan set-piece encounters",
    "internal": "AIDEF_Europa_StiltWalker",
@@ -1452,8 +1452,8 @@
    "location": "Eurasian region maps",
    "weakpoint": null,
    "weaknesses": [
-    "Nearly blind — crouch-moving emits no noise event and her eyes are sluggish, so a slow crouched approach is very safe; just don't linger in front of her",
-    "Sprinting or shooting nearby is what brings the grab"
+    "Nearly blind — crouch-moving emits no noise event, and her vision is slow to register you",
+    "Sprinting or shooting nearby makes her hear you"
    ],
    "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
    "blueprint": "BP_AI_Eurasia_MotherCourage_BlindMother",
@@ -1520,11 +1520,11 @@
    "aka": null,
    "faction": "Euruska",
    "type": "Charging melee brute",
-   "desc": "A Euruskan melee brute running the Orga brain. Eight-hit combo (3,000 each) and a Stab sync-kill — but its signature is the dash: 800 damage over a 0.4–200 m range on a 6 s cooldown. It can cross almost the entire arena in one charge.",
+   "desc": "A Euruskan melee brute running the Orga brain. Eight-hit combo (3,000 each) and a Stab sync-kill — but its signature is the dash: 800 damage over a 4–200 m range on a 6 s cooldown. It can cross almost the entire arena in one charge.",
    "location": "Euruskan maps",
    "weakpoint": null,
    "weaknesses": [
-    "The 200 m dash is on a 6 s cooldown and commits — sidestep the tell",
+    "The 200 m dash has a 6 s cooldown",
     "Grab only at ≤700 HP",
     "Stagger window: 20,000 in 4 s"
    ],
@@ -1603,14 +1603,14 @@
    "aka": null,
    "faction": "Europa / Eurasia / Euruska",
    "type": "Battle mech",
-   "desc": "The workhorse bipedal war-mech, fielded by every faction. It grinds you down with a long rifle, dual quad-guns and two miniguns, plus an 8,000-damage ground-pound up close. Its armour is split into zones totalling roughly 451,000 HP.",
+   "desc": "The workhorse bipedal war-mech, fielded by every faction. It carries a long rifle, dual quad-guns and two miniguns, plus an 8,000-damage ground-pound up close. Its armour is split into zones totalling roughly 451,000 HP.",
    "location": "Region maps, all factions",
-   "weakpoint": "Aim the **exposed lower torso** — the waist/belly joint where the upper body pivots over the hips (the datamined `armor_vulnerable` zone, mesh `SM_Spine_jnt__EXO_TorsoPivotBottom`). It takes **full** damage, while the heavy chest & leg plating (200,000 HP) soaks 90%. The cockpit glass isn't it — that panel is just an info display.",
+   "weakpoint": "The **exposed lower torso** — the waist/belly joint where the upper body pivots over the hips (the datamined `armor_vulnerable` zone, mesh `SM_Spine_jnt__EXO_TorsoPivotBottom`) — takes **full** damage, while the heavy chest & leg plating (200,000 HP) soaks 90%. The cockpit glass isn't a weak point: that panel is just an info display.",
    "weaknesses": [
     "Weak spot: the exposed lower-torso / waist joint takes full damage; the plating soaks up to 90%",
-    "Its guns are destructible hardpoints — blow off the shoulder quad-guns and arm cannon to defang it",
+    "Its guns are destructible hardpoints (shoulder quad-guns, arm cannon)",
     "Stagger window: 20,000 in 4 s",
-    "Small arms barely scratch the plating — hit the weak spot, or bring anti-tank / railgun class"
+    "The heavy plating takes a tenth of each hit, the lighter plates a quarter or less"
    ],
    "internal": "AIDEF_Europa_MediumMech",
    "blueprint": "BP_Mech_MedMech",
@@ -1759,8 +1759,8 @@
    "location": "Eurasian region maps",
    "weakpoint": null,
    "weaknesses": [
-    "Slow — you can simply out-walk her",
-    "Stagger window: 30,000 in 4 s (your damage only) — you must stun her three times, once per DetPack plant",
+    "Slow: she moves slower than a walking player",
+    "Stagger window: 30,000 in 4 s (your damage only); each of the three DetPack plants needs its own stun",
     "Can't be gunned down (1e9 HP) — she's killed with the Special Units DetPack (see How to kill)"
    ],
    "internal": "AIDEF_Eurasia_MotherCourage",
@@ -1816,7 +1816,7 @@
     "stunWindow": 4.0,
     "hasCodex": true,
     "codexDelivery": "drill",
-    "note": "1e9 HP — gunfire can't touch her. Stun (30k in 4s, your damage only), plant 3 Special Units DetPacks while stunned → scripted kill (she also plays her AntiBossExplode self-destruct) → drill the corpse. Budget for three separate stuns."
+    "note": "1e9 HP — gunfire can't touch her. Stun (30k in 4s, your damage only), plant 3 Special Units DetPacks while stunned → scripted kill (she also plays her AntiBossExplode self-destruct) → drill the corpse."
    },
    "codexReward": {
     "name": "MotherCourage Codex",
@@ -1833,11 +1833,11 @@
    "aka": "Orga",
    "faction": "Euruska",
    "type": "Organic humanoid mech",
-   "desc": "A humanoid organic-mech. An eight-hit melee combo (3,000 each), an 800-damage dash gap-closer (0.4–10 m, 10 s cooldown), and a Stab sync-kill. The easiest of the big bosses to stagger, at 20,000.",
+   "desc": "A humanoid organic-mech. An eight-hit melee combo (3,000 each), an 800-damage dash gap-closer (4–10 m, 10 s cooldown), and a Stab sync-kill. The easiest of the big bosses to stagger, at 20,000.",
    "location": "Euruskan maps; obtainable in the Tunnels",
    "weakpoint": null,
    "weaknesses": [
-    "Grab only at ≤700 HP — stay above it",
+    "Grab only at ≤700 HP",
     "Lowest stagger threshold of the melee bosses — 20,000",
     "Dash telegraphs on a 10 s cooldown"
    ],
@@ -2047,8 +2047,8 @@
    "weakpoint": null,
    "weaknesses": [
     "Grab only at ≤700 HP",
-    "Repositions constantly — expect it to vanish and reappear",
-    "High stagger threshold — 40,000 needs a heavy single hit"
+    "Teleports between hiding spots",
+    "High stagger threshold — 40,000 in 4 s"
    ],
    "internal": "AIDEF_Euruska_ShieldOfficer",
    "blueprint": "BP_AI_Euruska_ShieldOfficer",
@@ -2108,7 +2108,7 @@
     "stunWindow": 4.0,
     "hasCodex": true,
     "codexDelivery": "drill",
-    "note": "1e9 HP; the tankiest stun of the humanoids (40k in 4s — needs a heavy single hit) → 3 DetPacks → drill the corpse."
+    "note": "1e9 HP; the tankiest stun of the humanoids (40k in 4s) → 3 DetPacks → drill the corpse."
    },
    "codexReward": {
     "name": "ShieldOfficer Codex",
@@ -2129,9 +2129,9 @@
    "location": "Ashen Mesa, Scorched Enclave",
    "weakpoint": "Built on the same Exo mech chassis, so the vulnerable zone is the exposed lower torso (the waist/pivot joint under the chest) — it takes full damage while the plating soaks up to 90%.",
    "weaknesses": [
-    "Grab only triggers at ≤700 HP — stay healthy and it can't bag you",
+    "Grab only triggers at ≤700 HP",
     "Stagger window: 30,000 in 4 s",
-    "You can't drain its 900M body — hit the exposed lower-torso zone to build stagger fast, then DetPack it"
+    "Its 900M body can't be shot down; it's killed with DetPacks after a stun"
    ],
    "internal": "AIDEF_Euruska_Toothy",
    "blueprint": "BP_Mech_Toothy",

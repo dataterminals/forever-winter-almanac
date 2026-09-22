@@ -56,8 +56,8 @@ const WSTAT_ROWS = [
 ];
 // stats the game computes on the fly (no stored field) — flagged with a * + hover note
 const WSTAT_NOTES = {
-  accuracy: "Not a stored value — the game derives it from the bullet-spread (dispersion) system. Higher = tighter grouping, and it's the handling stat worth chasing. The number shown is an aggregate the devs flag as WIP.",
-  stability: "Attachments still grant Stability, but as of build 24479102 nothing in the shipped data consumes it — the per-weapon curves that turned Stability into bullet spread were deleted. Treat it as unproven, not as a known gain.",
+  accuracy: "Not a stored value — the game derives it from the bullet-spread (dispersion) system. Higher = tighter grouping. The number shown is an aggregate the devs flag as WIP.",
+  stability: "Attachments still grant Stability, but nothing in the shipped data reads it any more — the per-weapon curves that turned Stability into bullet spread were deleted. What it does now is unproven.",
   recoil: "Not a stored value — a compound of hidden wrist + arm recoil shown as one number. Believed to drive camera shake only (it doesn't move your point of aim), and it's often wrong once the weapon is modified.",
 };
 
@@ -644,7 +644,7 @@ function weaponDetail(w) {
       const f = headshotShare(ws.damage, ws.pellets, hs.multi);
       html += `<p class="legend"><b>Headshot:</b> <b class="hs-${hs.band}">×${hs.multi}</b> <span style="color:var(--dim)">per-caliber (${esc(hs.label)})${hs.fallback ? ` &mdash; this round has no headshot bonus of its own, so it counts as ×${hs.multi}` : ""}${f ? ` &mdash; a head hit takes <b>${hsPct(f)}</b> of a standard infantry health bar${hsHits(f) === 1 ? ", so one drops it" : ` (${hsHits(f)} to drop one)`}` : ""}.</span> <button class="linklike" data-gohs>how headshots work &rarr;</button></p>`;
     }
-    html += `<p class="legend"><b>Accuracy</b> &amp; <b>Magazine</b> matter most. Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they really measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
+    html += `<p class="legend">Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
   }
   const wp = PARTS && PARTS.byWeaponLC && PARTS.byWeaponLC[w.name.toLowerCase()];
   if (wp) {
@@ -753,8 +753,8 @@ function attDetail(a) {
 /* ---------- muzzle guide tab ---------- */
 function renderMuzzles() {
   let html = `<div class="mz-intro callout">In-game, muzzle devices are just labelled <b>A&ndash;Q</b> (and suppressors <b>A&ndash;F</b>)
-    with no hint of what fits where. They actually come in <b>5 mount families</b>. A device only fits weapons in its family &mdash;
-    match the family, not the letter.</div><div class="mzgrid">`;
+    with no hint of what fits where. They actually come in <b>5 mount families</b>. A device only fits weapons in its family;
+    the letter doesn't say which family.</div><div class="mzgrid">`;
   SUBTYPE_ORDER.forEach((st) => {
     const s = idx.subtypes[st]; if (!s) return;
     if (state.q) {
@@ -780,14 +780,13 @@ function renderStats() {
   view.innerHTML = `
   <div class="guide">
     <div class="callout" style="margin-top:16px">
-      <b>The weapon card is misleading by design.</b> What it shows is an aggregated
-      display number, and several of those numbers don't change what they look like they
-      change. Here's what each stat <em>actually</em> does — and which ones to ignore.
+      <b>The weapon card shows aggregated display numbers.</b> Several of them don't
+      change what they look like they change. Here's what each stat <em>actually</em> does.
     </div>
 
     <div class="card" data-anchor="basics">
-      <div class="section" style="margin-top:0"><h3>The only two stats that visibly matter</h3></div>
-      <div class="gdef"><span class="term">Accuracy</span><span>How tightly your shots land. At ~90 accuracy a gun puts rounds dead-centre (hip-fire <em>or</em> aimed); lower accuracy widens a random spread cone. This is the single handling number worth chasing, and it's the one attachments meaningfully raise.</span></div>
+      <div class="section" style="margin-top:0"><h3>The two stats with a visible effect</h3></div>
+      <div class="gdef"><span class="term">Accuracy</span><span>How tightly your shots land. At ~90 accuracy a gun puts rounds dead-centre (hip-fire <em>or</em> aimed); lower accuracy widens a random spread cone.</span></div>
       <div class="gdef"><span class="term">Magazine capacity</span><span>Rounds per reload. Obvious, and real. Note: mag size is changed by <b>weapon parts</b> (different magazines), <b>not</b> by attachments.</span></div>
     </div>
 
@@ -945,7 +944,7 @@ function drawAmmo() {
     const shot = D.ammo.find((a) => a.key === "12g");
     const list = (xs) => xs.map((e) => esc(e.enemy)).join(", ").replace(/, ([^,]*)$/, " and $1");
     html += `<div class="card" id="ammo-headshots" data-anchor="headshots"><div class="section" style="margin-top:0"><h3>Headshot multipliers <span class="c">per caliber &middot; ${base}&times; baseline</span></h3></div>
-      <p class="gnote">The multiplier lives on the <b>ammo</b>, not the gun &mdash; but it isn't simply applied to your damage. On a head hit the game tops the hit up to <b>damage &times; this &times; the target's type factor &times; its max health &divide; ${hm.hpDivisor || "450"}</b>. The health cancels out: a head hit takes <b>damage &times; multiplier &divide; ${hm.hpDivisor || "450"}</b> of a standard infantry health bar however much health it has, which is why one well-placed high-caliber round drops even a heavy.</p>
+      <p class="gnote">The multiplier lives on the <b>ammo</b>, not the gun &mdash; but it isn't simply applied to your damage. On a head hit the game tops the hit up to <b>damage &times; this &times; the target's type factor &times; its max health &divide; ${hm.hpDivisor || "450"}</b>. The health cancels out: a head hit takes <b>damage &times; multiplier &divide; ${hm.hpDivisor || "450"}</b> of a standard infantry health bar however much health it has, which is why one high-caliber head hit drops even a heavy.</p>
       <div class="gtable-wrap"><table class="gtable"><thead><tr><th>Caliber</th><th class="num">Headshot</th><th class="num">A head hit takes</th><th>vs ${base}&times; baseline</th></tr></thead><tbody>${
         hsRows.map((a) => { const band = hsBand(a.headshot); return `<tr><td>${esc(a.name)}</td><td class="num ${band === "high" ? "ok" : band === "low" ? "bad" : ""}"${a.headshotFallback ? ` title="This round has no headshot bonus of its own, so it counts as ×${a.headshot}"` : ""}>&times;${a.headshot}</td><td class="num">${gunShare(a) || `<span style="color:var(--dim)">&mdash;</span>`}</td><td>${band === "high" ? "higher" : band === "low" ? "lower" : "baseline"}</td></tr>`; }).join("")
       }</tbody></table></div>
@@ -1068,9 +1067,8 @@ async function renderDetection() {
   };
 
   view.innerHTML = `<div class="guide">
-    <div class="callout" style="margin-top:16px"><b>Datamined from the game's own AI, not the forums.</b>
-      These are the real numbers behind how enemies detect you — sight, sound, and the through-wall "sixth sense".
-      Ranges are converted to metres.</div>
+    <div class="callout" style="margin-top:16px"><b>How enemies detect you:</b> sight, sound, and the through-wall ESP sense.
+      Ranges are in metres.</div>
 
     <div class="card" data-anchor="senses">
       <div class="section" style="margin-top:0"><h3>The six ways they sense you</h3></div>
@@ -1088,7 +1086,7 @@ async function renderDetection() {
     </div>
 
     ${D.hunterKillers ? `<div class="card" id="hunterkillers" data-anchor="hunter-killers">
-      <div class="section" style="margin-top:0"><h3>Hunter-Killers: how you summon them <span class="badge gold">datamined</span></h3></div>
+      <div class="section" style="margin-top:0"><h3>Hunter-Killers: what triggers them <span class="badge gold">datamined</span></h3></div>
       <p class="gnote">${esc(D.hunterKillers.intro)}</p>
       <div class="section"><h3 style="color:var(--rust)">Any one of these trips it</h3></div>
       ${D.hunterKillers.triggers.map((t) => `<div class="gdef"><span class="term">${esc(t.label)}</span><span>${esc(t.detail)}</span></div>`).join("")}
@@ -1251,12 +1249,12 @@ function unitCard(b) {
   if (b.codexKill) {
     const ck = b.codexKill;
     let how;
-    if (ck.method === "gunfire") how = "Finite HP — kill it with sustained anti-tank / heavy fire.";
-    else if (ck.method === "detpack") how = `Gunfire can't kill it. Stun it (**${bNum(ck.stunThreshold)}**${ck.stunWindow ? ` in ${ck.stunWindow}s` : ""}, your damage only) and plant **${ck.plants} Special Units DetPacks** while it's stunned — 3 plants trigger a scripted kill.`;
+    if (ck.method === "gunfire") how = "Finite HP — sustained anti-tank / heavy fire kills it.";
+    else if (ck.method === "detpack") how = `Gunfire can't kill it. **${ck.plants} Special Units DetPacks** planted while it's stunned (**${bNum(ck.stunThreshold)}**${ck.stunWindow ? ` in ${ck.stunWindow}s` : ""}, your damage only) trigger a scripted kill.`;
     else how = "Kill method unconfirmed in the datamine.";
     const codexBit = !ck.hasCodex ? " Drops no Codex of its own."
       : ck.codexDelivery === "placed" ? " Its Codex spawns as a lootable item nearby, not a corpse drill."
-      : " Drill the corpse for its Codex.";
+      : " Its Codex is drilled out of the corpse.";
     h += `<div class="callout" style="border-left-color:var(--gold)"><b>How to kill.</b> ${mdb(how + codexBit)}${ck.note ? ` <span class="dim">${mdb(ck.note)}</span>` : ""}</div>`;
   }
 
@@ -1283,8 +1281,8 @@ function drawEnemies() {
   const shown = D.units.filter((u) => (cat === "all" || u.category === cat) && enemyMatches(u));
 
   let html = `<div class="guide">` + datasetBar() + `
-    <div class="callout" style="margin-top:16px;border-left-color:var(--olive)"><b>Two mechanics decide most fights.</b>
-      <b>Stagger</b> &mdash; burst that much damage in and it's stunned (only <em>your</em> damage counts &mdash; one railgun shot can freeze what a magazine can't); the big machines are effectively <em>immune</em>. <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger at low health, so <em>staying healthy</em> is a defence.</div>`;
+    <div class="callout" style="margin-top:16px;border-left-color:var(--olive)"><b>Stagger and the grab.</b>
+      <b>Stagger</b> &mdash; a unit that takes that much damage within the window is stunned (only <em>your</em> damage counts &mdash; one railgun shot can stun what a magazine can't); the big machines are effectively <em>immune</em>. <b>The grab</b> &mdash; a sync-kill that ends the raid on the spot; most only trigger when your health is at or below the listed threshold.</div>`;
   (D._modNotes || []).forEach((mn) => { const m = modById(mn.mod); html += `<div class="callout" style="border-left-color:var(--rust)"><b>${esc(m ? m.meta.name : "Mod")}.</b> ${mdb(mn.note)}</div>`; });
 
   const chip = (id, label, n) => `<button class="chip ${cat === id ? "on" : ""}" data-enemycat="${esc(id)}">${esc(label)}${n != null ? ` <small>${n}</small>` : ""}</button>`;
@@ -1364,8 +1362,8 @@ function drawFactions() {
   else maps.forEach((m) => { html += `<div class="fac-map" data-anchor="map-${esc(slugify(m.id || m.name))}"><div class="fac-map-name">${esc(m.name)}</div>${facBar(m.control)}</div>`; });
   html += `<p class="gnote">Each army starts with a share of every surface map; whoever holds more fields more units there. These are the <b>default</b> weights &mdash; live control drifts as the war (and players) push it. Hubs (${(D.hubs || []).map((h) => esc(h.name)).join(", ")}) are Scavenger-held.</p></div>`;
 
-  html += `<div class="card" data-anchor="sabotage"><div class="section" style="margin-top:0"><h3>The sabotage playbook <span class="c">shift the war yourself</span></h3></div>
-    <p class="gnote">Each is a droppable objective on its map. Pull it off and it ripples to <em>other</em> maps &mdash; server-wide, for the listed real-world hours &mdash; changing who you'll face there.</p>`;
+  html += `<div class="card" data-anchor="sabotage"><div class="section" style="margin-top:0"><h3>Sabotage objectives <span class="c">and their cross-map effects</span></h3></div>
+    <p class="gnote">Each is a droppable objective on its map. Completing one shifts control on <em>other</em> maps &mdash; server-wide, for the listed real-world hours &mdash; which changes which army fields more units there.</p>`;
   D.actions.filter((a) => match(a.name) || match(a.where) || (a.desc && match(a.desc))).forEach((a) => { html += facActionCard(a); });
   html += `</div>`;
 
@@ -1414,8 +1412,8 @@ function drawEconomy() {
   let html = `<div class="guide eco">
     <div class="callout" style="margin-top:16px"><b>What your scavenging is worth.</b>
       Every lootable item you can sell, pulled <b>straight from the game's own data</b> and bucketed by
-      credit value. Values are the game's Rep&nbsp;2 / 100%-efficiency reference, so read them as
-      <em>relative</em> worth &mdash; your real payout shifts with vendor, reputation and faction. Tap
+      credit value. Values are the game's Rep&nbsp;2 / 100%-efficiency reference, so they show
+      <em>relative</em> worth &mdash; the real payout shifts with vendor, reputation and faction. Tap
       <b>drops</b> on a row for every crate, corpse and wreck that can give it.</div>`;
 
   // distribution strip
@@ -1430,8 +1428,7 @@ function drawEconomy() {
       <span class="eco-tmeta">${t.count} <small>&middot; ${ecoCompact(t.sumCr)} cr</small></span></button>`;
   });
   html += `</div>
-    <p class="gnote">How many sellable items land in each value band. Tap one to jump to it &mdash; a single
-    high-tier find can outweigh a full bin of junk.</p></div>`;
+    <p class="gnote">How many sellable items land in each value band. Tap one to jump to it.</p></div>`;
 
   // controls: mode toggle + category filter
   html += `<div class="eco-controls"><div class="eco-modes">
@@ -1495,9 +1492,8 @@ function ecoDensityTable(items, catCell, dens) {
     return (b.perVol || 0) - (a.perVol || 0);
   });
   return `<div class="section eco-sec" data-anchor="density"><h3>By space-efficiency <span class="c">${ranked.length} items &middot; credits per unit of bin volume</span></h3></div>
-    <p class="gnote">Rig space is the real constraint. When your small-item bins are nearly full, grab the <b>densest</b> loot first &mdash;
-    the top of this list is the most credits per cubic unit. Destroyed weapons and Large items use dedicated bins (no small-item volume),
-    so they sink to the bottom.</p>
+    <p class="gnote">Ranked by credits per cubic unit of small-item bin volume, highest first. Destroyed weapons and Large items use
+    dedicated bins (no small-item volume), so they sit at the bottom.</p>
     <div class="gtable-wrap"><table class="gtable eco-table">
       <thead><tr><th>Item</th><th>Tier</th><th>Category</th><th class="num">Value</th><th class="num">cr / cu</th><th class="num">cr / kg</th></tr></thead>
       <tbody>${ranked.map((it) => ecoRow(it, catCell, dens, true)).join("")}</tbody>
@@ -1662,7 +1658,7 @@ function drawLoot() {
   // The "How drops work" model leads the tab; hidden during a search so results stay focused.
   if (!q) html += dropModelPanel() +
     `<div class="section dm-sources-head" data-anchor="sources"><h3>Loot sources <span class="c">what drops from where, ranked by how common</span></h3></div>`;
-  html += `<p class="gnote">Rarity is <b>per pool</b>: cheap filler like Drywall can read <span style="color:var(--rust)">Ultra&nbsp;Rare</span> just because it's an unlikely pull &mdash; not because it's a prize. Search an item to see <b>every</b> source that drops it.</p>
+  html += `<p class="gnote">Rarity is <b>per pool</b>: cheap filler like Drywall can read <span style="color:var(--rust)">Ultra&nbsp;Rare</span> just because it's an unlikely pull, not because it's valuable. Search an item to see <b>every</b> source that drops it.</p>
     <div class="loot-legend"><span class="c">Rarity</span>${[5, 4, 3, 2, 1].map((r) => `<span class="loot-key"><span class="loot-dot" style="--rc:${RAR_COLOR[r]}"></span>${esc(D.rarityLabels[r])}</span>`).join("")}<span class="loot-key"><span class="loot-tdot gap"></span>not in tier</span></div>`;
 
   // kind filter chips

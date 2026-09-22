@@ -40,7 +40,7 @@
   {
    "key": "shotgun",
    "label": "Shotgun",
-   "note": "Buckshot for every shotgun. Heavy headshot penalty — aim centre-mass."
+   "note": "Buckshot for every shotgun, with a heavy headshot penalty."
   },
   {
    "key": "battle",
