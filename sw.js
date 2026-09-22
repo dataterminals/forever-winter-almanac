@@ -14,7 +14,7 @@ const VERSION = "fw-almanac-v30";
    of MB that people press "Save all maps offline" to get, and it has no reason
    to be thrown away because a stylesheet changed. Bumping VERSION still clears
    everything, imagery included. */
-const SHELL_REV = "aa6b447a";
+const SHELL_REV = "e94320d6";
 const SHELL = VERSION + "-shell-" + SHELL_REV;
 const IMG = VERSION + "-img";
 
@@ -25,6 +25,7 @@ const SHELL_ASSETS = [
   "data/attachments.json", "data/detection.json", "data/maps.json", "data/weapons.json", "data/parts.json",
   "data/economy.json", "data/enemies.json", "data/factions.json", "data/ammo.json", "data/loot.json",
   "data/drops-model.json", "data/crafting.json", "data/rebalance.json", "data/unkillables.json",
+  "data/changelog.json",
   "assets/vendor/leaflet.js", "assets/vendor/leaflet.css",
   "assets/vendor/images/marker-icon.png", "assets/vendor/images/marker-icon-2x.png",
   "assets/vendor/images/marker-shadow.png",

@@ -44,6 +44,8 @@ for the parts the wiki doesn't cover, straight from the shipping game files.
 - **Maps** — the full interactive atlas (Leaflet): 10 surface regions, 16 tunnels and
   12 aerial references, with toggleable marker layers, per-map search, background
   switches, popups with screenshots + wiki links, and a distance-measure tool.
+- **Changelog** — what changed on the site, newest first, in plain language for players:
+  dated entries, facts only, no commit hashes or build numbers.
 
 ## Features
 
@@ -198,6 +200,8 @@ data/drops-model.json               how drops work: kills leave a searchable con
 data/detection.json                 datamined FWAI awareness model. Ranges/modifiers/noise are derived;
                                     unit names and tactical notes are editorial — see its `provenance`
 data/maps.json                      map index; data/<map>.json are the per-map sources
+data/changelog.json                 the Changelog tab. Written by hand, the one file in data/ that no
+                                    tool generates: add a dated entry when a change reaches players
 assets/img/*                        bundled map tiles, marker icons, popup photos
 assets/vendor/                      Leaflet (vendored for offline use)
 tools/                              data fetchers + icon generators

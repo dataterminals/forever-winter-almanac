@@ -417,7 +417,16 @@ function wireChrome() {
     if (!e.target.closest(".layoutpick")) document.querySelectorAll(".layoutpick.open").forEach((p) => p.classList.remove("open"));
   });
 }
-function syncTabs() { document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b.dataset.tab === state.tab)); }
+function syncTabs() {
+  document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b.dataset.tab === state.tab));
+  // Where the strip scrolls, bring the active tab into it (a deep link to Changelog on a phone
+  // would otherwise open with its tab off the edge). scrollLeft, not scrollIntoView, so the page
+  // itself never moves.
+  const bar = $(".tabs"), a = bar && bar.querySelector(".tab.active");
+  if (!a || bar.scrollWidth <= bar.clientWidth) return;
+  if (a.offsetLeft < bar.scrollLeft) bar.scrollLeft = a.offsetLeft - 16;
+  else if (a.offsetLeft + a.offsetWidth > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = a.offsetLeft + a.offsetWidth - bar.clientWidth + 16;
+}
 function openDetail() { view.classList.add("detail-open"); render(); window.scrollTo({ top: 0 }); writeHash({ push: true }); }
 
 /* ---------- maps tab: lazy Leaflet + hand off to the FWMaps module ---------- */
@@ -522,6 +531,7 @@ function dispatch() {
   else if (state.tab === "factions") return renderFactions();
   else if (state.tab === "economy") return renderEconomy();
   else if (state.tab === "crafting") return renderCrafting();
+  else if (state.tab === "changelog") return renderChangelog();
   else return renderLoot();
 }
 // Search ignores spacing and punctuation, so the game's own naming can't hide an item:
@@ -1695,6 +1705,40 @@ function drawLoot() {
   view.innerHTML = html;
 }
 
+/* ---------- changelog tab ---------- */
+// The one dataset nothing generates: data/changelog.json is written by hand (see its note).
+let CHANGELOG = null;
+const CL_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+// "2026-09-22" -> "22 September 2026", by hand: new Date("2026-09-22") is UTC midnight, which
+// prints as the day before anywhere west of Greenwich.
+const clDate = (s) => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ""); return m ? `${+m[3]} ${CL_MONTHS[+m[2] - 1]} ${m[1]}` : String(s || ""); };
+
+async function renderChangelog() {
+  view.classList.remove("detail-open");
+  if (!CHANGELOG) {
+    view.innerHTML = `<div class="placeholder" style="margin-top:16px">Loading changelog&hellip;</div>`;
+    try { CHANGELOG = await (await fetch("data/changelog.json", { cache: "no-cache" })).json(); }
+    catch (e) { view.innerHTML = `<p class="empty">Could not load the changelog.<br><small>${esc(e.message)}</small></p>`; return; }
+    if (state.tab !== "changelog") return; // switched tabs while it loaded
+  }
+  drawChangelog();
+}
+
+function drawChangelog() {
+  // search narrows to the matching items; a date with none left drops out
+  const entries = (CHANGELOG.entries || [])
+    .map((e) => ({ date: e.date, items: (e.items || []).filter((it) => match(it)) }))
+    .filter((e) => e.items.length);
+  let html = `<div class="guide">
+    <div class="callout" style="margin-top:16px"><b>What's changed on the almanac,</b> newest first.</div>`;
+  if (!entries.length) html += `<p class="empty">${state.q ? `No changes match &ldquo;${esc(state.q)}&rdquo;.` : "No changes recorded yet."}</p>`;
+  entries.forEach((e) => {
+    html += `<div class="card" data-anchor="${esc(e.date)}"><div class="section" style="margin-top:0"><h3>${esc(clDate(e.date))}</h3></div>
+      <ul class="cl-items">${e.items.map((it) => `<li>${mdb(it)}</li>`).join("")}</ul></div>`;
+  });
+  view.innerHTML = html + `</div>`;
+}
+
 /* ---------- deep-link router (hash-based; static-host & offline safe) ----------
    URL shape:  #/<tab>[/<sub>][?q=&mode=&cat=&kind=&layers=&bg=]
    The "#/" prefix keeps us clear of the browser's native "scroll to #id" behaviour.
@@ -1702,7 +1746,7 @@ function drawLoot() {
    navigation mirrors state back into it (writeHash). Maps owns its own sub-route. */
 const TAB_SLUG = { loot: "drops" };   // internal tab key -> pretty URL slug
 const TAB_KEY = { drops: "loot", bosses: "enemies" };  // pretty URL slug -> internal tab key (bosses = legacy alias)
-const VALID_TABS = ["weapons", "attachments", "muzzles", "ammo", "crafting", "stats", "detection", "enemies", "factions", "economy", "loot", "maps"];
+const VALID_TABS = ["weapons", "attachments", "muzzles", "ammo", "crafting", "stats", "detection", "enemies", "factions", "economy", "loot", "maps", "changelog"];
 const tabToSlug = (t) => TAB_SLUG[t] || t;
 const slugToTab = (s) => TAB_KEY[s] || s;
 const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");

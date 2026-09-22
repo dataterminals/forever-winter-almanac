@@ -68,9 +68,12 @@ a { color: var(--gold); }
 }
 
 /* ---- tabs ---- */
+/* The strip scrolls inside itself once the tabs outgrow it, so the page never scrolls sideways.
+   Wide screens never reach that point and keep equal-width tabs; phones hide the scrollbar (below). */
 .tabs {
   display: flex; gap: 6px; max-width: var(--maxw); margin: 12px auto 0; padding: 0 16px;
   position: sticky; top: 0;
+  overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--line2) transparent;
 }
 .tab {
   flex: 1; background: var(--panel); color: var(--muted); border: 1px solid var(--line);
@@ -404,6 +407,8 @@ a { color: var(--gold); }
 .boss-zone small { color: var(--dim); }
 .boss-zone.crit { border-color: #6a3f28; color: var(--rust); }
 .boss-zone.crit b { color: var(--rust); }
+.cl-items { margin: 4px 0 0; padding-left: 20px; }
+.cl-items li { margin: 7px 0; font-size: 14px; line-height: 1.55; }
 .boss-weak { margin: 6px 0 0; padding-left: 20px; }
 .boss-weak li { margin: 5px 0; font-size: 13.5px; color: var(--text); line-height: 1.5; }
 .boss-codex { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line);

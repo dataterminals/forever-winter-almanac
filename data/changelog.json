@@ -1,0 +1,20 @@
+{
+  "note": "Hand-written, unlike the datamined sets beside it: no parser generates this file, and re-running the datamine leaves it alone. Each entry is a dated, player-facing summary of what changed on the site, newest first. Facts only: no commit hashes, build numbers or tips. Items take **bold** for tab names.",
+  "entries": [
+    {
+      "date": "2026-09-22",
+      "items": [
+        "Game data updated to the current game version (0.9.5.3).",
+        "**Ammo** and **Weapons**: headshots are now explained the way the game scores them. A head hit removes a share of the target's health bar (damage × caliber ÷ 450), and each round and weapon shows that share.",
+        "**Detection**: every range is now the one an enemy uses against players (several see rival factions from much farther away), and hearing adds the range at which an enemy hears a player who has been shooting. Noise radii updated: walking is now heard at 6 m, sprinting at 15 m.",
+        "**Enemies**: each card's senses and health are read from that enemy's own game data. This corrected several: the mechs and Opal no longer list ESP, and turrets now list hearing.",
+        "**Enemies**: the Blind Mother's card shows her short-range vision and how she is killed. Orgamech and MeatMan dash ranges corrected to start at 4 m, not 0.4 m.",
+        "**Enemies**: with the Unkillables toggle on, the tab says the mod doesn't work on the current game version yet, and links both the fix and the original mod.",
+        "**Economy**: the Tunnels/Regions tags are gone; they came from item tags the game doesn't use. Each item has a **drops** link to every crate, corpse and wreck that drops it.",
+        "**Drops**: World Rare-Loot lists what the game actually scatters into containers on every map, and Map Rare-Loot adds each map's own quest items.",
+        "Strategy tips removed across the site: pages state the mechanics and the numbers.",
+        "New **Changelog** tab. On mid-size screens the tab bar now scrolls on its own instead of making the whole page scroll sideways."
+      ]
+    }
+  ]
+}
