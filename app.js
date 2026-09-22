@@ -1172,7 +1172,6 @@ function unitCard(b) {
       ${b.aka ? `<span class="badge">${esc(b.aka)}</span>` : ""}
       ${(() => { const m = enemyMod(b.id); return m ? `<span class="badge rust" title="Changed by ${esc(m.meta.name)}">${esc(modBadge(m))}</span>` : ""; })()}
       ${b.threat ? `<button class="badge boss-threat" data-goai title="The enemy AI's internal target-priority tier for this unit — an input to how squads pick who to shoot, not a danger rating. Click for how it works.">AI priority: ${esc(b.threat)} <small>(internal)</small></button>` : ""}</div>`;
-  if (isBoss && b.blurb) h += `<p class="boss-blurb">${mdb(b.blurb)}</p>`;
   if (b.desc) h += `<p class="boss-desc">${mdb(b.desc)}</p>`;
   if (!isBoss) {
     const meta = [];
