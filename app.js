@@ -584,14 +584,18 @@ function ammoToCal(ammo) {
   if (ammo.includes("9x19") || ammo.includes("9mm")) return "919";
   return null;
 }
+// Band against the baseline, from the multiplier actually on screen. A mod overlay can move it
+// (Heavy Rifles sets 12.7 subsonic to x5) while ammo.json's `band` still describes vanilla, which
+// is how the table labelled a x5 round "baseline".
+const hsBand = (m) => { const b = (AMMO && AMMO.headshotBaseline) || 1.5; return m > b ? "high" : m < b ? "low" : "base"; };
 function headshotFor(ammo) {
   const key = ammoToCal(ammo);
   const a = key && AMMO && AMMO.byKey[key];
-  if (a && a.headshot != null) return { label: a.name, multi: a.headshot, band: a.band, fallback: !!a.headshotFallback };
+  if (a && a.headshot != null) return { label: a.name, multi: a.headshot, band: hsBand(a.headshot), fallback: !!a.headshotFallback };
   // Nitro Express has no ammo item, and no headshot row either, so the game scores it at the
   // same no-row fallback as .50 PST (ammo.json headshotModel.noRowMulti).
   const m = AMMO && AMMO.headshotModel;
-  if (!key && /nitro/i.test(ammo || "") && m) return { label: "Nitro Express", multi: m.noRowMulti, band: "low", fallback: true };
+  if (!key && /nitro/i.test(ammo || "") && m) return { label: "Nitro Express", multi: m.noRowMulti, band: hsBand(m.noRowMulti), fallback: true };
   return null;
 }
 // Share of a standard infantry health bar one head hit removes. The game tops a head hit up to
@@ -638,7 +642,7 @@ function weaponDetail(w) {
     const hs = ws.ammo ? headshotFor(ws.ammo) : null;
     if (hs) {
       const f = headshotShare(ws.damage, ws.pellets, hs.multi);
-      html += `<p class="legend"><b>Headshot:</b> <b class="hs-${hs.band}">×${hs.multi}</b> <span style="color:var(--dim)">per-caliber (${esc(hs.label)})${hs.fallback ? ` &mdash; this round has no headshot row, so the game scores it at ×${hs.multi}` : ""}${f ? ` &mdash; a head hit takes <b>${hsPct(f)}</b> of a standard infantry health bar${hsHits(f) === 1 ? ", so one drops it" : ` (${hsHits(f)} to drop one)`}` : ""}.</span> <button class="linklike" data-gohs>how headshots work &rarr;</button></p>`;
+      html += `<p class="legend"><b>Headshot:</b> <b class="hs-${hs.band}">×${hs.multi}</b> <span style="color:var(--dim)">per-caliber (${esc(hs.label)})${hs.fallback ? ` &mdash; this round has no headshot bonus of its own, so it counts as ×${hs.multi}` : ""}${f ? ` &mdash; a head hit takes <b>${hsPct(f)}</b> of a standard infantry health bar${hsHits(f) === 1 ? ", so one drops it" : ` (${hsHits(f)} to drop one)`}` : ""}.</span> <button class="linklike" data-gohs>how headshots work &rarr;</button></p>`;
     }
     html += `<p class="legend"><b>Accuracy</b> &amp; <b>Magazine</b> matter most. Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they really measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
   }
@@ -894,7 +898,7 @@ const ammoUnit = (u) => ` <small style="font-size:11px;color:var(--dim)">${u}</s
 function ammoCard(a, usedBy) {
   const cell = (k, v) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`;
   const grid = [
-    a.headshot != null ? `<div class="stat"><div class="k">Headshot</div><div class="v hs-${a.band}">&times;${a.headshot}</div></div>` : "",
+    a.headshot != null ? `<div class="stat"><div class="k">Headshot</div><div class="v hs-${hsBand(a.headshot)}">&times;${a.headshot}</div></div>` : "",
     a.value != null ? cell("Sell value", bNum(a.value) + ammoUnit("cr")) : "",
     a.xp != null ? cell("Extract XP", a.xp) : "",
     a.weight != null ? cell("Weight", a.weight + ammoUnit("kg")) : "",
@@ -945,7 +949,7 @@ function drawAmmo() {
     html += `<div class="card" id="ammo-headshots" data-anchor="headshots"><div class="section" style="margin-top:0"><h3>Headshot multipliers <span class="c">per caliber &middot; ${base}&times; baseline</span></h3></div>
       <p class="gnote">The multiplier lives on the <b>ammo</b>, not the gun &mdash; but it isn't simply applied to your damage. On a head hit the game tops the hit up to <b>damage &times; this &times; the target's type factor &times; its max health &divide; ${hm.hpDivisor || "450"}</b>. The health cancels out: a head hit takes <b>damage &times; multiplier &divide; ${hm.hpDivisor || "450"}</b> of a standard infantry health bar however much health it has, which is why one well-placed high-caliber round drops even a heavy.</p>
       <div class="gtable-wrap"><table class="gtable"><thead><tr><th>Caliber</th><th class="num">Headshot</th><th class="num">A head hit takes</th><th>vs ${base}&times; baseline</th></tr></thead><tbody>${
-        hsRows.map((a) => `<tr><td>${esc(a.name)}</td><td class="num ${a.band === "high" ? "ok" : a.band === "low" ? "bad" : ""}">&times;${a.headshot}${a.headshotFallback ? ` <small style="color:var(--dim)" title="No headshot row for this round — the game falls back to ×${a.headshot}">no row</small>` : ""}</td><td class="num">${gunShare(a) || `<span style="color:var(--dim)">&mdash;</span>`}</td><td>${a.band === "high" ? "<b>higher crit</b> &mdash; reward headshots" : a.band === "low" ? "lower" : "baseline"}</td></tr>`).join("")
+        hsRows.map((a) => { const band = hsBand(a.headshot); return `<tr><td>${esc(a.name)}</td><td class="num ${band === "high" ? "ok" : band === "low" ? "bad" : ""}"${a.headshotFallback ? ` title="This round has no headshot bonus of its own, so it counts as ×${a.headshot}"` : ""}>&times;${a.headshot}</td><td class="num">${gunShare(a) || `<span style="color:var(--dim)">&mdash;</span>`}</td><td>${band === "high" ? "<b>higher crit</b> &mdash; reward headshots" : band === "low" ? "lower" : "baseline"}</td></tr>`; }).join("")
       }</tbody></table></div>
       <p class="gnote"><b>A head hit takes</b> is the share of a standard infantry health bar one hit removes, across the guns that fire the round (100% or more = one shot drops it).${half.length ? ` ${list(half)} take ${half.every((e) => e.multi === half[0].multi) ? `&times;${half[0].multi} of it` : "less"}${none.length ? `, and ${list(none)} takes no headshot bonus at all` : ""}.` : ""} Gunhead's head-mounted guns never score one.${shot && shot.headshot ? ` Shotgun pellets are scored one at a time at &times;${shot.headshot}, so they only gain on targets with more than ${bNum(Math.round((hm.hpDivisor || 450) / shot.headshot))} health.` : ""}</p></div>`;
   }
