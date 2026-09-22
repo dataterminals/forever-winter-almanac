@@ -259,8 +259,13 @@ function datasetBar() {
   if (!rel.length) return "";
   return rel.map((m) => {
     const on = !!state.mods[m.meta.id], mt = m.meta;
+    const nexus = (url, id) => `<a href="${esc(url)}" target="_blank" rel="noopener">Nexus&nbsp;#${esc(id || "")}</a>`;
     const note = on
-      ? `Showing <b>${esc(mt.name)}</b>${mt.nexusUrl ? ` &middot; <a href="${esc(mt.nexusUrl)}" target="_blank" rel="noopener">Nexus&nbsp;#${esc(mt.nexus || "")}</a>` : ""}${mt.status ? ` &middot; <span class="ds-status">${esc(mt.status)}</span>` : ""}`
+      ? `Showing <b>${esc(mt.name)}</b>`
+        + (mt.nexusUrl ? ` &middot; ${nexus(mt.nexusUrl, mt.nexus)}` : "")
+        // a community fix links its own page first, and still credits the mod it repairs
+        + (mt.originalNexusUrl ? ` &middot; original mod ${nexus(mt.originalNexusUrl, mt.originalNexus)}${mt.author ? ` by ${esc(mt.author)}` : ""}` : "")
+        + (mt.status ? ` &middot; <span class="ds-status">${esc(mt.status)}</span>` : "")
       : `Vanilla, datamined. Toggle to overlay <b>${esc(mt.short)}</b>.`;
     return `<div class="ds-bar${on ? " on" : ""}">
       <div class="ds-modes" role="group" aria-label="${esc(mt.name)} dataset">
