@@ -2025,7 +2025,7 @@
     "stunWindow": null,
     "hasCodex": true,
     "codexDelivery": "drill",
-    "note": "Real, finite HP: 451k of armour over the Medium Mech's ~337,400 body pool, which it inherits — anti-tank fire kills it (easiest stun at 12k); drops its container + codex on death."
+    "note": "Real, finite HP: the same ~337,400 body pool as the Medium Mech, under the same 451k of armour — anti-tank fire kills it (easiest stun at 12k); drops its container + codex on death."
    },
    "codexReward": {
     "name": "RatKing Codex",
