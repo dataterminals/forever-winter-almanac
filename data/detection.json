@@ -16,7 +16,7 @@
       "hunterKillers",
       "targetPriority"
     ],
-    "curatedNote": "Unit names, classes and per-unit notes are editorial — the sensor assets carry no display names. The three curated sections have no source in these dumps: the global timings sit in the AI controller layer, the Hunter-Killer model comes from tools/parse_hunterkillers.py, and the target-priority weights are written up by hand."
+    "curatedNote": "Unit names, classes and per-unit notes are editorial — the sensor assets carry no display names. Which sensors a unit has is not: it is read from the blueprints the unit stands for. The three curated sections have no source in these dumps: the global timings sit in the AI controller layer, the Hunter-Killer model comes from tools/parse_hunterkillers.py, and the target-priority weights are written up by hand."
   },
   "globalModel": {
     "identifyTime": "0.5 s",
@@ -78,7 +78,7 @@
       "hearing": 5.75,
       "hearingViolent": 11.5,
       "esp": "base",
-      "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed."
+      "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed."
     },
     {
       "name": "Europa Sniper",
@@ -137,7 +137,7 @@
       "visionPointBlank": 5,
       "hearing": 7.5,
       "hearingViolent": 15,
-      "esp": "×3",
+      "esp": null,
       "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits."
     },
     {
@@ -165,8 +165,8 @@
       "accNear": 0.1,
       "accFar": 0.1,
       "visionPointBlank": 5,
-      "hearing": null,
-      "hearingViolent": null,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
       "esp": "∞",
       "notes": "360°, 200 m, instant. Stay behind hard cover."
     },
@@ -180,8 +180,8 @@
       "accNear": 1.2,
       "accFar": 2.75,
       "visionPointBlank": 5,
-      "hearing": null,
-      "hearingViolent": null,
+      "hearing": 5.75,
+      "hearingViolent": 11.5,
       "esp": "×4.5",
       "notes": "The ordinary mounted turret — not the Scav 360° one. A wide 195° arc to 40 m at a soldier's lock speed, plus a 4.5× ESP bubble that sees through walls up close. Come at it from behind, or from well past 40 m."
     },
@@ -272,7 +272,7 @@
       "visionPointBlank": null,
       "hearing": 5.75,
       "hearingViolent": 11.5,
-      "esp": "base",
+      "esp": null,
       "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer."
     }
   ],

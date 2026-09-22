@@ -1,6 +1,6 @@
 {
  "source": "The Forever Winter shipping game files (build 25071553) — FWAIPawnDefinition enemy defs + BP_AI health components + weapon defs, decoded with CUE4Parse",
- "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units is read from the unit's blueprint health component. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
+ "note": "Datamined straight from each unit's AI pawn definition: threat class, kill XP, the stagger/stun threshold, the grab (sync-kill) HP threshold & range, melee & dash damage, mounted weapons and (for mechs) layered armour zones. HP for the smaller units is read from the unit's blueprint health component, and senses from the blueprint its pawn definition names, the same way the Detection tab reads them. The 10 bosses keep hand-written tactics; every other unit is a datamined one-liner.",
  "build": 25071553,
  "codex": {
   "xp": 62500,
@@ -56,6 +56,7 @@
    "variants": "Overwatch / alcohol-quest",
    "location": "Europan facilities",
    "internal": "AIDEF_Europa_Egghead",
+   "blueprint": "BP_AI_Europa_Egghead",
    "tag": "Pawn.AI.Europa.Egghead",
    "threat": "Low",
    "role": "Rifleman",
@@ -70,7 +71,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 938.0
+   "hp": 938.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 80,
+    "coneH": 176,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines.",
+    "profile": "Europa Sniper",
+    "sensors": {
+     "vision": "Europa_Sniper",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -84,6 +101,7 @@
    "variants": null,
    "location": "Eurasian squads",
    "internal": "AIDEF_Eurasia_Scrambler",
+   "blueprint": "BP_AI_Eurasia_Scrambler",
    "tag": "Pawn.AI.Eurasia.Scrambler",
    "threat": "Low",
    "role": "Melee",
@@ -98,7 +116,23 @@
     "min": 133.0,
     "max": 133.0
    },
-   "hp": 1513.0
+   "hp": 1513.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -112,6 +146,7 @@
    "variants": "Assassin quest",
    "location": "Hunts across the map",
    "internal": "AIDEF_Eurasia_Pursuer",
+   "blueprint": "BP_AI_Eurasia_Pursuer",
    "tag": "Pawn.AI.Eurasia.Soldier.Shotgun",
    "threat": "Low",
    "role": "Rifleman",
@@ -126,7 +161,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 938.0
+   "hp": 938.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -140,6 +191,7 @@
    "variants": null,
    "location": "Europan patrols",
    "internal": "AIDEF_Europa_Signaler",
+   "blueprint": "BP_AI_Europa_Signaler",
    "tag": "Pawn.AI.Europa.Signaler",
    "threat": "Low",
    "role": "Rifleman",
@@ -154,7 +206,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 938.0
+   "hp": 938.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -168,6 +236,7 @@
    "variants": "Overwatch (fixed vantage) / quest snipers",
    "location": "Long sightlines — rooftops & ridges",
    "internal": "AIDEF_Eurasia_Sniper",
+   "blueprint": "BP_AI_Eurasia_Soldier_Sniper",
    "tag": "Pawn.AI.Eurasia.Soldier.Sniper",
    "threat": "Low",
    "role": "Rifleman",
@@ -192,7 +261,12 @@
     "hearingViolent": 11.5,
     "esp": "base",
     "notes": "Sees twice as far as a soldier in a near-180° arc — stay out of sightlines.",
-    "profile": "Europa Sniper"
+    "profile": "Europa Sniper",
+    "sensors": {
+     "vision": "Europa_Sniper",
+     "hearing": "Default",
+     "esp": "Default"
+    }
    }
   },
   {
@@ -207,6 +281,7 @@
    "variants": "Soldier / Grenadier / Heavy Weapons / Pursuer",
    "location": "Cult ambushes",
    "internal": "AIDEF_Cultist_Soldier",
+   "blueprint": "BP_AI_Cultist_Soldier",
    "tag": "Pawn.AI.Cultists.Soldier",
    "threat": "Low",
    "role": "Rifleman",
@@ -221,7 +296,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 1875.0
+   "hp": 1875.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -235,6 +326,7 @@
    "variants": "Europa / Eurasia / Euruska / Scav; sleeveless, VIP-guard & rider skins",
    "location": "Every faction, every region",
    "internal": "AIDEF_Europa_Soldier",
+   "blueprint": "BP_AI_Europa_Soldier",
    "tag": "Pawn.AI.Europa.Soldier",
    "threat": "Low",
    "role": "Rifleman",
@@ -258,8 +350,13 @@
     "hearing": 5.75,
     "hearingViolent": 11.5,
     "esp": "base",
-    "notes": "The baseline grunt. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
-    "profile": "Soldier (standard)"
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
    }
   },
   {
@@ -274,6 +371,7 @@
    "variants": "Skirmisher / Looter / Berzerker",
    "location": "Contested scav regions",
    "internal": "AIDEF_WaterThief_Skirmisher",
+   "blueprint": "BP_AI_WaterThief_Skirmisher",
    "tag": "Pawn.AI.WaterThief.Skirmisher",
    "threat": "Low",
    "role": "Rifleman",
@@ -288,7 +386,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 2813.0
+   "hp": 2813.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -302,6 +416,7 @@
    "variants": "A1 / A2 marks",
    "location": "Eurasian maps",
    "internal": "AIDEF_Eurasia_Cyborg",
+   "blueprint": "BP_AI_Eurasia_Cyborg",
    "tag": "Pawn.AI.Eurasia.Cyborg",
    "threat": "Low",
    "role": "Melee",
@@ -316,7 +431,23 @@
     "min": 250.0,
     "max": 250.0
    },
-   "hp": 2200.0
+   "hp": 2200.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -330,6 +461,7 @@
    "variants": "Jack / Pyro / Hunter-Killer / Officer",
    "location": "Europan strongholds",
    "internal": "AIDEF_Europa_EOD",
+   "blueprint": "BP_AI_Europa_EOD",
    "tag": "Pawn.AI.Europa.EOD",
    "threat": "High",
    "role": "Rifleman",
@@ -351,7 +483,23 @@
     "rangeM": 6.0,
     "vsPlayer": false
    },
-   "hp": 4625.0
+   "hp": 4625.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -365,6 +513,7 @@
    "variants": "MG34 gunner; heavy EOD",
    "location": "Frontline squads",
    "internal": "AIDEF_Eurasia_Heavy",
+   "blueprint": "BP_AI_Eurasia_Heavy",
    "tag": "Pawn.AI.Eurasia.Heavy",
    "threat": "High",
    "role": "Rifleman",
@@ -386,7 +535,23 @@
     "rangeM": 6.0,
     "vsPlayer": false
    },
-   "hp": 4625.0
+   "hp": 4625.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -400,6 +565,7 @@
    "variants": "Elite quest version resists stagger",
    "location": "Eurasian heavy squads",
    "internal": "AIDEF_Eurasia_Heavy_Brawler",
+   "blueprint": "BP_AI_Eurasia_Heavy_Brawler",
    "tag": "Pawn.AI.Eurasia.Brawler",
    "threat": "High",
    "role": "Melee",
@@ -421,7 +587,23 @@
     "rangeM": null,
     "vsPlayer": true
    },
-   "hp": 9250.0
+   "hp": 9250.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "boss",
@@ -441,6 +623,7 @@
     "Can be stunned — a burst of 20,000 in 3 s (a railgun hit) staggers it"
    ],
    "internal": "AIDEF_Euruska_Stalker",
+   "blueprint": "BP_AI_Euruska_Stalker",
    "tag": "Pawn.AI.Eurasia.Stalker",
    "threat": "Low",
    "role": null,
@@ -474,7 +657,12 @@
     "hearingViolent": 40,
     "esp": "×2",
     "notes": "Exceptional hearing — 20 m, 40 m once you're violent — and a tall vertical cone; doubles its ESP radius. Built to hunt.",
-    "profile": "Stalker"
+    "profile": "Stalker",
+    "sensors": {
+     "vision": "Stalker",
+     "hearing": "Stalker",
+     "esp": "Stalker"
+    }
    },
    "invincible": true,
    "realHp": 1000000000.0,
@@ -507,6 +695,7 @@
    "variants": null,
    "location": "Escorting Scav squads",
    "internal": "AIDEF_Scav_HealDrone",
+   "blueprint": "BP_AI_Scav_HealDrone",
    "tag": "Pawn.AI.Scav.HealDrone",
    "threat": "Low",
    "role": null,
@@ -523,7 +712,23 @@
     "rangeM": 6.0,
     "vsPlayer": false
    },
-   "hp": 1500.0
+   "hp": 1500.0,
+   "senses": {
+    "visionNear": 30,
+    "visionFar": 60,
+    "coneH": 90,
+    "visionPointBlank": null,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": null,
+    "notes": "Narrow 90° cone but wide vertical arc — it looks down well.",
+    "profile": "Drone",
+    "sensors": {
+     "vision": "Drones",
+     "hearing": "Default",
+     "esp": null
+    }
+   }
   },
   {
    "tier": "unit",
@@ -537,6 +742,7 @@
    "variants": null,
    "location": "Europan patrols",
    "internal": "AIDEF_QuadDrone",
+   "blueprint": "BP_AI_QuadDrone",
    "tag": "Pawn.AI.Europa.QuadDrone",
    "threat": "High",
    "role": null,
@@ -551,7 +757,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 100000.0
+   "hp": 100000.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -565,6 +787,7 @@
    "variants": "Eurasia / Europa / Euruska / Scav / Water-Thief",
    "location": "Everywhere; often the squad's spotter",
    "internal": "AIDEF_Eurasia_Drone",
+   "blueprint": "BP_AI_Eurasia_Drone",
    "tag": "Pawn.AI.Eurasia.Drone",
    "threat": "Low",
    "role": null,
@@ -593,7 +816,12 @@
     "hearingViolent": 11.5,
     "esp": null,
     "notes": "Narrow 90° cone but wide vertical arc — it looks down well.",
-    "profile": "Drone"
+    "profile": "Drone",
+    "sensors": {
+     "vision": "Drone_Eurasia",
+     "hearing": "Default",
+     "esp": null
+    }
    }
   },
   {
@@ -608,6 +836,7 @@
    "variants": "Pop-up",
    "location": "Europan defensive lines",
    "internal": "AIDEF_WalkingTurret",
+   "blueprint": "BP_AI_WalkingTurret",
    "tag": "Pawn.AI.Europa.WalkingTurret",
    "threat": "Low",
    "role": "Rifleman",
@@ -622,7 +851,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 9000.0
+   "hp": 9000.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -636,6 +881,7 @@
    "variants": "20mm (high-threat) / Scav / Water-Thief",
    "location": "Guarding chokepoints & objectives",
    "internal": "AIDEF_Europa_Turret",
+   "blueprint": "BP_AI_Europa_Turret",
    "tag": "Pawn.AI.Europa.Turret",
    "threat": "Low",
    "role": "Fixed emplacement",
@@ -651,11 +897,16 @@
     "visionFar": 40,
     "coneH": 195,
     "visionPointBlank": 5,
-    "hearing": null,
-    "hearingViolent": null,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
     "esp": "×4.5",
     "notes": "The ordinary mounted turret — not the Scav 360° one. A wide 195° arc to 40 m at a soldier's lock speed, plus a 4.5× ESP bubble that sees through walls up close. Come at it from behind, or from well past 40 m.",
-    "profile": "Turret (emplaced)"
+    "profile": "Turret (emplaced)",
+    "sensors": {
+     "vision": "Turret",
+     "hearing": "Default",
+     "esp": "Turrets"
+    }
    }
   },
   {
@@ -670,6 +921,7 @@
    "variants": "Hunter-Killer / gunship / rise-from-below",
    "location": "Eurasian airspace",
    "internal": "AIDEF_Eurasia_Chopper",
+   "blueprint": "BP_AI_Eurasia_Chopper",
    "tag": "Pawn.AI.Eurasia.Chopper",
    "threat": "High",
    "role": null,
@@ -699,7 +951,12 @@
     "hearingViolent": null,
     "esp": null,
     "notes": "Long range but very slow to lock (12–18 s) — you can cross gaps between its sweeps.",
-    "profile": "Chopper"
+    "profile": "Chopper",
+    "sensors": {
+     "vision": "Chopper",
+     "hearing": "Chopper",
+     "esp": null
+    }
    }
   },
   {
@@ -720,6 +977,7 @@
     "Grab (Shoot sync-kill) only at ≤700 HP"
    ],
    "internal": "AIDEF_Eurasia_Opal",
+   "blueprint": "BP_AI_Eurasia_Opal",
    "tag": "Pawn.AI.Eurasia.Opal",
    "threat": "High",
    "role": null,
@@ -763,9 +1021,14 @@
     "visionPointBlank": null,
     "hearing": 5.75,
     "hearingViolent": 11.5,
-    "esp": "base",
+    "esp": null,
     "notes": "A named Eurasia elite in a near-180° arc. Only 40 m range, but she locks almost as fast at the edge as up close (1.5 s far vs a grunt's 2.75) — there's no safe lingering distance. Killing her spawns an Opal Hunter-Killer.",
-    "profile": "Opal (Eurasia elite)"
+    "profile": "Opal (Eurasia elite)",
+    "sensors": {
+     "vision": "Opal",
+     "hearing": "Default",
+     "esp": null
+    }
    },
    "invincible": true,
    "realHp": 1000000000.0,
@@ -798,6 +1061,7 @@
    "variants": "Quest body-boss",
    "location": "Europan armoured columns",
    "internal": "AIDEF_Europa_Merkava",
+   "blueprint": "BP_AI_Europa_Merkava",
    "tag": "Pawn.AI.Europa.Merkava",
    "threat": "High",
    "role": "Vehicle",
@@ -832,7 +1096,12 @@
     "hearingViolent": null,
     "esp": null,
     "notes": "Short-sighted against you: 7.5 m near / 20 m far in a wide arc (the 108 m range in its file is for rival-faction targets), and slow to build (4–9 s).",
-    "profile": "Tank"
+    "profile": "Tank",
+    "sensors": {
+     "vision": "Tank",
+     "hearing": null,
+     "esp": null
+    }
    }
   },
   {
@@ -847,6 +1116,7 @@
    "variants": null,
    "location": "Euruskan armoured columns",
    "internal": "AIDEF_Euruska_T90",
+   "blueprint": "BP_AI_Euruska_T90",
    "tag": "Pawn.AI.Euruska.T90",
    "threat": "High",
    "role": "Vehicle",
@@ -881,7 +1151,12 @@
     "hearingViolent": null,
     "esp": null,
     "notes": "Short-sighted against you: 7.5 m near / 20 m far in a wide arc (the 108 m range in its file is for rival-faction targets), and slow to build (4–9 s).",
-    "profile": "Tank"
+    "profile": "Tank",
+    "sensors": {
+     "vision": "Tank",
+     "hearing": null,
+     "esp": null
+    }
    }
   },
   {
@@ -896,6 +1171,7 @@
    "variants": null,
    "location": "Europan patrols",
    "internal": "AIDEF_Tripod",
+   "blueprint": "BP_AI_Tripod",
    "tag": "Pawn.AI.Europa.Tripod",
    "threat": "High",
    "role": null,
@@ -910,7 +1186,23 @@
     "min": 333.0,
     "max": 333.0
    },
-   "hp": 100000.0
+   "hp": 100000.0,
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "base",
+    "notes": "The baseline profile. In-front and within 40 m is the danger zone; 14 m is near-guaranteed.",
+    "profile": "Soldier (standard)",
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "Default"
+    }
+   }
   },
   {
    "tier": "unit",
@@ -924,6 +1216,7 @@
    "variants": "Red Baron / Jolly Rodger / Downtown (named)",
    "location": "Europan heavy encounters",
    "internal": "AIDEF_Europa_Exo",
+   "blueprint": "BP_Mech_Exo_V2",
    "tag": "Pawn.AI.Europa.Exo",
    "threat": "Low",
    "role": null,
@@ -999,15 +1292,20 @@
     }
    ],
    "senses": {
-    "visionNear": 15,
+    "visionNear": 14,
     "visionFar": 40,
-    "coneH": 120,
+    "coneH": 134.5,
     "visionPointBlank": 5,
-    "hearing": 7.5,
-    "hearingViolent": 15,
-    "esp": "×3",
-    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
-    "profile": "Mech"
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": null,
+    "notes": null,
+    "profile": null,
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": null
+    }
    }
   },
   {
@@ -1022,6 +1320,7 @@
    "variants": null,
    "location": "Europan set-piece encounters",
    "internal": "AIDEF_Europa_StiltWalker",
+   "blueprint": "BP_Mech_StiltWalker",
    "tag": "Pawn.AI.Europa.StiltWalker",
    "threat": "Low",
    "role": null,
@@ -1131,11 +1430,16 @@
     "visionFar": 40,
     "coneH": 120,
     "visionPointBlank": 5,
-    "hearing": 7.5,
-    "hearingViolent": 15,
-    "esp": "×3",
-    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
-    "profile": "Mech"
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": null,
+    "notes": null,
+    "profile": null,
+    "sensors": {
+     "vision": "Mech",
+     "hearing": "Default",
+     "esp": null
+    }
    }
   },
   {
@@ -1155,6 +1459,7 @@
     "Sprinting or shooting nearby is what brings the grab"
    ],
    "internal": "AIDEF_Eurasia_MotherCourage_BlindMother",
+   "blueprint": "BP_AI_Eurasia_MotherCourage_BlindMother",
    "tag": "Pawn.AI.Eurasia.BlindMother",
    "threat": "High",
    "role": null,
@@ -1188,8 +1493,14 @@
     "hearing": null,
     "hearingViolent": 30,
     "esp": null,
+    "visionHidden": "accumulates far too slowly to matter; the fight is decided by hearing",
     "notes": "Runs on hearing — once you're violent she hears you out to 30 m, with an instant lock. Move slow and quiet; do not sprint near her. (She does carry a vision cone in the files, but it builds so slowly it never matters — the fight is about noise.)",
-    "profile": "BlindMother"
+    "profile": "BlindMother",
+    "sensors": {
+     "vision": "BlindMother",
+     "hearing": "BlindMother",
+     "esp": null
+    }
    },
    "invincible": true,
    "realHp": 1000000000.0,
@@ -1222,6 +1533,7 @@
     "Stagger window: 20,000 in 4 s"
    ],
    "internal": "AIDEF_Euruska_MeatMan",
+   "blueprint": "BP_AI_Euruska_MeatMan",
    "tag": "Pawn.AI.Euruska.MeatMan",
    "threat": "High",
    "role": null,
@@ -1252,6 +1564,22 @@
     "cooldown": 6.0
    },
    "hpNote": "invincible",
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": "∞",
+    "notes": null,
+    "profile": null,
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": "HunterKiller"
+    }
+   },
    "invincible": true,
    "realHp": 1000000000.0,
    "antiBossExplode": false,
@@ -1290,6 +1618,7 @@
     "Small arms barely scratch the plating — hit the weak spot, or bring anti-tank / railgun class"
    ],
    "internal": "AIDEF_Europa_MediumMech",
+   "blueprint": "BP_Mech_MedMech",
    "tag": "Pawn.AI.Europa.MediumMech",
    "threat": "High",
    "role": null,
@@ -1395,9 +1724,14 @@
     "visionPointBlank": 5,
     "hearing": 7.5,
     "hearingViolent": 15,
-    "esp": "×3",
+    "esp": null,
     "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
-    "profile": "Mech"
+    "profile": "Mech",
+    "sensors": {
+     "vision": "Mech",
+     "hearing": "Mech",
+     "esp": null
+    }
    },
    "invincible": false,
    "realHp": 451000.0,
@@ -1436,6 +1770,7 @@
     "Can't be gunned down (1e9 HP) — she's killed with the Special Units DetPack (see How to kill)"
    ],
    "internal": "AIDEF_Eurasia_MotherCourage",
+   "blueprint": "BP_AI_Eurasia_MotherCourage",
    "tag": "Pawn.AI.Eurasia.MotherCourage",
    "threat": "High",
    "role": null,
@@ -1461,6 +1796,22 @@
     "vsPlayer": true
    },
    "hpNote": "invincible",
+   "senses": {
+    "visionNear": 15,
+    "visionFar": 40,
+    "coneH": 120,
+    "visionPointBlank": 5,
+    "hearing": 7.5,
+    "hearingViolent": 15,
+    "esp": null,
+    "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
+    "profile": "Mech",
+    "sensors": {
+     "vision": "Mech",
+     "hearing": "Mech",
+     "esp": null
+    }
+   },
    "invincible": true,
    "realHp": 1000000000.0,
    "antiBossExplode": true,
@@ -1498,6 +1849,7 @@
     "Dash telegraphs on a 10 s cooldown"
    ],
    "internal": "AIDEF_Euruska_OrgaMech",
+   "blueprint": "BP_AI_Euruska_OrgaMech",
    "tag": "Pawn.AI.Europa.OrgaMech",
    "threat": "High",
    "role": null,
@@ -1528,6 +1880,22 @@
     "cooldown": 10.0
    },
    "hpNote": "invincible",
+   "senses": {
+    "visionNear": 14,
+    "visionFar": 40,
+    "coneH": 134.5,
+    "visionPointBlank": 5,
+    "hearing": 5.75,
+    "hearingViolent": 11.5,
+    "esp": null,
+    "notes": null,
+    "profile": null,
+    "sensors": {
+     "vision": "Default",
+     "hearing": "Default",
+     "esp": null
+    }
+   },
    "invincible": true,
    "realHp": 1000000000.0,
    "antiBossExplode": false,
@@ -1564,6 +1932,7 @@
     "Drops its container (and the codex) on death"
    ],
    "internal": "AIDEF_Mech_Scav_RatKing",
+   "blueprint": "BP_Mech_Scav_RatKing",
    "tag": "Pawn.AI.Scav.Mech.RatKing",
    "threat": "High",
    "role": null,
@@ -1645,9 +2014,14 @@
     "visionPointBlank": 5,
     "hearing": 7.5,
     "hearingViolent": 15,
-    "esp": "×3",
+    "esp": null,
     "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
-    "profile": "Mech"
+    "profile": "Mech",
+    "sensors": {
+     "vision": "Mech",
+     "hearing": "Mech",
+     "esp": null
+    }
    },
    "invincible": false,
    "realHp": 451000.0,
@@ -1686,6 +2060,7 @@
     "High stagger threshold — 40,000 needs a heavy single hit"
    ],
    "internal": "AIDEF_Euruska_ShieldOfficer",
+   "blueprint": "BP_AI_Euruska_ShieldOfficer",
    "tag": "Pawn.AI.Euruska.ShieldOfficer",
    "threat": "High",
    "role": null,
@@ -1725,7 +2100,12 @@
     "hearingViolent": 11.5,
     "esp": null,
     "notes": "Soldier-range vision in a wide arc.",
-    "profile": "Shield Guy"
+    "profile": "Shield Guy",
+    "sensors": {
+     "vision": "ShieldGuy",
+     "hearing": "Default",
+     "esp": null
+    }
    },
    "invincible": true,
    "realHp": 1000000000.0,
@@ -1764,6 +2144,7 @@
     "You can't drain its 900M body — hit the exposed lower-torso zone to build stagger fast, then DetPack it"
    ],
    "internal": "AIDEF_Euruska_Toothy",
+   "blueprint": "BP_Mech_Toothy",
    "tag": "Pawn.AI.Euruska.Toothy",
    "threat": "High",
    "role": null,
@@ -1848,9 +2229,14 @@
     "visionPointBlank": 5,
     "hearing": 7.5,
     "hearingViolent": 15,
-    "esp": "×3",
+    "esp": null,
     "notes": "Short-sighted against you: 15 m near / 40 m far (the 400 m far range in its file is for rival-faction targets), and slow to build detection (4–9 s) — you have a moment before it commits.",
-    "profile": "Mech"
+    "profile": "Mech",
+    "sensors": {
+     "vision": "Mech",
+     "hearing": "Mech",
+     "esp": null
+    }
    },
    "invincible": true,
    "realHp": 900000000.0,
