@@ -2,6 +2,12 @@
   "note": "Hand-written, unlike the datamined sets beside it: no parser generates this file, and re-running the datamine leaves it alone. Each entry is a dated, player-facing summary of what changed on the site, newest first. Facts only: no commit hashes, build numbers or tips. Items take **bold** for tab names.",
   "entries": [
     {
+      "date": "2026-10-12",
+      "items": [
+        "**Weapons**: the CLAW, XM25, Painless, Surplus Rifle and Surplus Shotgun now have pages. The list was built from attachment pages, so weapons with no attachments listed were left out. The CLAW, XM25 and both surplus guns also appear on **Ammo** under the rounds they fire."
+      ]
+    },
+    {
       "date": "2026-09-22",
       "items": [
         "Game data updated to the current game version (0.9.5.3).",

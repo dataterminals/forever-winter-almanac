@@ -80,6 +80,7 @@ async function init() {
     WEAPONS_BUILD = wj.build;
     WEAPONS = {};
     for (const nm in wj.weapons) WEAPONS[nm.toLowerCase()] = wj.weapons[nm];
+    addBareWeapons(wj.weapons);
   } catch (e) { WEAPONS = {}; }
   try {
     PARTS = await (await fetch("data/parts.json", { cache: "no-cache" })).json();
@@ -107,6 +108,21 @@ async function init() {
   window.addEventListener("hashchange", () => { if (!routing) applyRoute(); });
   applyRoute(); // hydrate initial state from the URL (deep-link) or default to Weapons
   registerSW();
+}
+
+// DATA.weapons is inverted from the wiki's attachment pages, so a gun that no
+// attachment page names (CLAW, XM25, Painless, both surplus guns) had no row at
+// all. weapons.json is the whole roster: each gun missing here gets an empty
+// entry, and with it a page, a deep link and its place on the Ammo tab.
+function addBareWeapons(roster) {
+  const have = new Set(DATA.weapons.map((w) => w.name.toLowerCase()));
+  const norm = (c) => c.toLowerCase().replace(/s$/, ""); // "Heavy Machinegun" -> "Heavy Machineguns"
+  for (const nm in roster) {
+    if (have.has(nm.toLowerCase())) continue;
+    const raw = String(roster[nm].class || "Other").split(",")[0].trim(); // "Rifles, Surplus weapons"
+    const cls = DATA.classOrder.find((c) => norm(c) === norm(raw)) || raw;
+    DATA.weapons.push({ name: nm, class: cls, byCategory: {}, needsPart: {}, total: 0 });
+  }
 }
 
 function buildIndex() {

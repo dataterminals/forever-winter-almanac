@@ -9,7 +9,7 @@ a single tabbed companion. Data comes from the
 [official wiki](https://theforeverwinter.wiki.gg) (CC BY-NC-SA / CC BY-SA), and,
 for the parts the wiki doesn't cover, straight from the shipping game files.
 
-**39 maps · 46 weapons · 268 parts · 67 attachments · 5 muzzle mount families · 26 ammo types · 398 sellable loot items · the full detection model.**
+**39 maps · 51 weapons · 268 parts · 67 attachments · 5 muzzle mount families · 26 ammo types · 398 sellable loot items · the full detection model.**
 
 ## The tabs
 
