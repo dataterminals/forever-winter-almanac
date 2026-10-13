@@ -14,6 +14,7 @@ const SUBTYPE_ORDER = ["ATTMD1", "ATTMD2", "ATTMD3", "ATTMD4", "ATTMD5"];
 let DATA = null;      // active attachments dataset (data/attachments.json)
 let WEAPONS = null;   // active per-weapon stats (data/weapons.json), keyed by lowercased name
 let WEAPONS_BUILD = null; // that dataset's own build stamp, for the Weapons legend
+let SHOTGUN_RANGE = null; // weapons.json shotgunRange: the bonus every enemy adds to a shotgun hit, by distance
 
 // The Stats tab is a static guide — it has no `const D = <dataset>` of its own, so it
 // used to hardcode build numbers in prose and went two builds stale. weapons.json is
@@ -78,6 +79,7 @@ async function init() {
     // Keep the dataset's own build stamp — the Weapons legend used to hardcode it,
     // so a regeneration restamped the data and left the page claiming the old build.
     WEAPONS_BUILD = wj.build;
+    SHOTGUN_RANGE = wj.shotgunRange || null;
     WEAPONS = {};
     for (const nm in wj.weapons) WEAPONS[nm.toLowerCase()] = wj.weapons[nm];
     addBareWeapons(wj.weapons);
@@ -633,6 +635,27 @@ function headshotShare(damage, pellets, multi) {
   if (!div || !damage || multi == null || (pellets || 1) !== 1) return null;
   return (damage * multi) / div;
 }
+// Shotguns: every enemy adds a bonus to a shotgun hit that shrinks with distance
+// (weapons.json shotgunRange, read from the enemy-side damage component). The stops
+// quoted on cards: where the bonus is full, every 5 m in between, and where it's gone.
+function shotgunStops() {
+  const r = SHOTGUN_RANGE;
+  if (!r || !r.byMetre) return [];
+  const near = r.fullWithinM, far = r.goneAtM;
+  return r.byMetre.filter((b) => b.m === near || b.m === far || (b.m > near && b.m < far && b.m % 5 === 0));
+}
+const sgWhere = (b, i, all) => (i === 0 ? `within ${b.m} m` : i === all.length - 1 ? `from ${b.m} m` : `at ${b.m} m`);
+// The Stats tab's entry for the shotgun range bonus, built from the same model as the cards.
+function shotgunRangeDef() {
+  const r = SHOTGUN_RANGE, stops = shotgunStops();
+  if (!r || !stops.length) return "";
+  const table = stops.map((b, i) => `${sgWhere(b, i, stops)} <b>&times;${b.x}</b>`).join(" &middot; ");
+  const sur = WEAPONS && WEAPONS["surplus shotgun"];
+  const eg = sur && sur.pellets && sur.damagePerShot
+    ? ` The listed damage is the long-range figure: the Surplus Shotgun's ${sur.damage} &times; ${sur.pellets} = ${sur.damagePerShot} is <b>${Math.round(sur.damagePerShot * r.peak).toLocaleString()}</b> within ${r.fullWithinM} m.`
+    : "";
+  return `<div class="gdef"><span class="term">Shotguns: bonus damage up close</span><span>Every enemy &mdash; infantry, vehicles, mechs and bosses &mdash; takes extra damage from a shotgun hit, scaled by how far the gun is from it. The game adds the bonus as a second hit, so the target takes the hit's damage times: ${table}.${eg} Distance is measured along the ground unless the gun and the target are 3.5 m or more apart in height.</span></div>`;
+}
 const hsPct = (f) => `${Math.round(f * 100)}%`;
 const hsHits = (f) => Math.ceil(1 / f - 1e-9);
 
@@ -669,6 +692,11 @@ function weaponDetail(w) {
     if (hs) {
       const f = headshotShare(ws.damage, ws.pellets, hs.multi);
       html += `<p class="legend"><b>Headshot:</b> <b class="hs-${hs.band}">×${hs.multi}</b> <span style="color:var(--dim)">per-caliber (${esc(hs.label)})${hs.fallback ? ` &mdash; this round has no headshot bonus of its own, so it counts as ×${hs.multi}` : ""}${f ? ` &mdash; a head hit takes <b>${hsPct(f)}</b> of a standard infantry health bar${hsHits(f) === 1 ? ", so one drops it" : ` (${hsHits(f)} to drop one)`}` : ""}.</span> <button class="linklike" data-gohs>how headshots work &rarr;</button></p>`;
+    }
+    if (ws.pellets && ws.damagePerShot && SHOTGUN_RANGE) {
+      const stops = shotgunStops();
+      const by = stops.map((b, i) => `${sgWhere(b, i, stops)} <b>${Math.round(ws.damagePerShot * b.x).toLocaleString()}</b>`).join(" &middot; ");
+      html += `<p class="legend"><b>Range bonus:</b> enemies take extra damage from shotgun hits up close, so a full spread does ${by} <span style="color:var(--dim)">(&times;${SHOTGUN_RANGE.peak} &rarr; &times;1)</span>.</p>`;
     }
     html += `<p class="legend">Stats marked <span class="req">*</span> are display aggregates the game computes &mdash; hover them for what they measure (or see the <b>Stats</b> tab).${ws.internal ? ` <span style="color:var(--dim)">&middot; id ${esc(ws.internal)}</span>` : ""}</p>`;
   }
@@ -850,7 +878,8 @@ function renderStats() {
     <div class="card" data-anchor="damage">
       <div class="section" style="margin-top:0"><h3>Damage (the hidden part)</h3></div>
       <div class="gdef"><span class="term">Base damage</span><span>Tied to the weapon (balanced around caliber/type), <b>not</b> to which ammo you load. Every damage number on this site is now read from the weapon's own game asset, so it matches the live build rather than the wiki.</span></div>
-      <div class="gdef"><span class="term">Shotguns: the number is <em>per pellet</em></span><span>This is the one stat that means something different from what you'd assume, and it's why community shotgun figures look ~200× off. The game stores <code>WeaponDamage</code> per <b>pellet</b> and fires <code>NumberOfBuckshots</code> = <b>20</b> of them — on all six shotguns; every other gun in the game fires 1. So the S12's 15 is <b>15 × 20 = 300</b> into a target that catches the whole spread, and the CLAW's 6.6 is <b>132</b>. Weapon cards here show all three numbers. Range matters too: <code>FC_ShotgunDamage_Falloff_All</code> is one of the few surviving global curves, so pellets lose damage with distance.</span></div>
+      <div class="gdef"><span class="term">Shotguns: the number is <em>per pellet</em></span><span>This is the one stat that means something different from what you'd assume, and it's why community shotgun figures look ~200× off. The game stores <code>WeaponDamage</code> per <b>pellet</b> and fires <code>NumberOfBuckshots</code> = <b>20</b> of them — on all six shotguns; every other gun in the game fires 1. So the S12's 15 is <b>15 × 20 = 300</b> into a target that catches the whole spread, and the CLAW's 6.6 is <b>132</b>. Weapon cards here show all three numbers.</span></div>
+      ${shotgunRangeDef()}
       <div class="gdef"><span class="term">Critical / headshot damage</span><span>A per-<b>caliber</b> multiplier that lives on your <b>ammo</b>, not the gun &mdash; most rounds sit at the <b>1.5×</b> baseline, a few big single-shot calibers <b>triple</b> it and <b>shotguns are penalised</b>. It isn't applied to your damage directly: the game tops a head hit up in proportion to the target's <b>max health</b>, so a headshot removes a fixed share of the health bar &mdash; <b>damage &times; caliber &divide; ${(AMMO && AMMO.headshotModel && AMMO.headshotModel.hpDivisor) || 450}</b> &mdash; however tough the target is. Cyborg-types halve that, and Stalkers take no headshot bonus at all. <button class="linklike" data-gohs>See the per-caliber table on the <b>Ammo</b> tab &rarr;</button></span></div>
     </div>
     </div>

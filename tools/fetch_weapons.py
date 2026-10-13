@@ -19,13 +19,17 @@ value. `NumberOfBuckshots` is 20 on all six shotguns and 1 on everything else,
 so we emit the per-pellet `damage` the game stores, plus `pellets` and the
 derived `damagePerShot`, and let the app show all three.
 
+Even the spread total is only the floor. Every enemy adds a close-range bonus to
+shotgun hits — x10 within 5 m, fading to nothing at 28 m — so `shotgunRange`
+carries that model too (see shotgun_range()).
+
 Needs the (private) datamine repo as a sibling checkout, or FWDATA_ROOT set.
 Without it this script REFUSES to write, rather than quietly regenerating the
 wiki-only file this change exists to replace.
 
     python tools/fetch_weapons.py
 """
-import json, re, os, sys, urllib.request, urllib.parse
+import json, math, re, os, sys, urllib.request, urllib.parse
 
 API = "https://theforeverwinter.wiki.gg/api.php"
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "weapons.json")
@@ -200,6 +204,122 @@ def load_datamine():
     return GAME_BUILD, out
 
 
+# ---- the shotgun range bonus --------------------------------------------------
+# The stored damage isn't what a shotgun does up close. Every enemy carries
+# BPC_IncomingDamageMod (BP_AI_CharacterBase, BP_AI_TankBase, BP_AI_TurretBase and
+# BP_MechBase all call it from ReceiveAnyDamage). Its "Damaging Impact" bytecode,
+# decoded at 25071553 with CUE4Parse ReadScriptData, does this on every hit (bytecode
+# is not in the tracked dumps, so the shape of the rule is carried by hand here):
+#
+#   if "Use Shotgun Impact?" and the damage causer is a BP_ShotgunWeaponBase(_AI) gun,
+#   and the hit isn't the bonus itself (damage type BP_ShotgunDamage_FW):
+#       d = distance to the gun; horizontal unless the two are 3.5 m+ apart vertically
+#       t = clamp((d - "RANGE: Point Blank") / ("RANGE: Max" - "RANGE: Point Blank"), 0, 1)
+#       ApplyDamage(max(damage * "Damage Curve"(t) - damage, 0))  as BP_ShotgunDamage_FW
+#
+# so the target takes damage * curve in total. The ranges, the switch and the curve
+# are all read from the tracked dumps below.
+SHOTGUN_COMPONENT = "BPC_IncomingDamageMod"
+SHOTGUN_INSTANCE = "BPC_ShotgunImpact_GEN_VARIABLE"
+SHOTGUN_KNOBS = ("Use Shotgun Impact?", "RANGE: Point Blank", "RANGE: Max", "Damage Curve")
+
+
+def _bezier(p0, p1, p2, p3, s):
+    u = 1.0 - s
+    return u * u * u * p0 + 3 * u * u * s * p1 + 3 * u * s * s * p2 + s * s * s * p3
+
+
+def curve_value(keys, x):
+    """FRichCurve::Eval for a CurveFloat's keys (constant extrapolation past the ends)."""
+    if x <= keys[0]["Time"]:
+        return keys[0]["Value"]
+    if x >= keys[-1]["Time"]:
+        return keys[-1]["Value"]
+    k1, k2 = next((a, b) for a, b in zip(keys, keys[1:]) if a["Time"] <= x <= b["Time"])
+    dt = k2["Time"] - k1["Time"]
+    alpha = (x - k1["Time"]) / dt
+    mode = k1.get("InterpMode", "RCIM_Cubic")
+    if mode == "RCIM_Constant":
+        return k1["Value"]
+    if mode == "RCIM_Linear":
+        return k1["Value"] + alpha * (k2["Value"] - k1["Value"])
+    leave_w = k1.get("TangentWeightMode") in ("RCTWM_WeightedLeave", "RCTWM_WeightedBoth")
+    arrive_w = k2.get("TangentWeightMode") in ("RCTWM_WeightedArrive", "RCTWM_WeightedBoth")
+    if not leave_w and not arrive_w:
+        p1 = k1["Value"] + k1.get("LeaveTangent", 0.0) * dt / 3
+        p2 = k2["Value"] - k2.get("ArriveTangent", 0.0) * dt / 3
+        return _bezier(k1["Value"], p1, p2, k2["Value"], alpha)
+    # Weighted tangents: a 2-D Bezier, solved for the parameter whose x is `alpha`.
+    def handle(tangent, weight, weighted):
+        a = math.atan(tangent)
+        w = weight if weighted else math.hypot(dt, tangent * dt) / 3
+        return math.cos(a) * w, math.sin(a) * w
+    lx, ly = handle(k1.get("LeaveTangent", 0.0), k1.get("LeaveTangentWeight", 0.0), leave_w)
+    ax, ay = handle(k2.get("ArriveTangent", 0.0), k2.get("ArriveTangentWeight", 0.0), arrive_w)
+    x1, x2 = lx / dt, 1.0 - ax / dt
+    lo, hi = 0.0, 1.0
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if _bezier(0.0, x1, x2, 1.0, mid) < alpha:
+            lo = mid
+        else:
+            hi = mid
+    return _bezier(k1["Value"], k1["Value"] + ly, k2["Value"] - ay, k2["Value"], (lo + hi) / 2)
+
+
+def shotgun_range(root):
+    """-> the shotgunRange block: where the close-range bonus starts and ends, and its size per metre."""
+    from fwdata.paths import find_dumps     # noqa: E402
+    dumps = os.path.join(root, "datamine", "dumps")
+
+    def load(stem):
+        hits = find_dumps(stem, "weapons", exact=True)
+        if not hits:
+            raise SystemExit(f"missing dump: {stem}")
+        return json.load(open(hits[0], encoding="utf-8"))
+
+    comp = load(SHOTGUN_COMPONENT)
+    cdo = next(e.get("Properties") or {} for e in comp
+               if e.get("Name") == f"Default__{SHOTGUN_COMPONENT}_C")
+    if cdo.get("Use Shotgun Impact?") is not True:
+        raise SystemExit(f"ABORT: {SHOTGUN_COMPONENT} no longer defaults 'Use Shotgun Impact?' on. "
+                         "Re-read its Damaging Impact bytecode before publishing a shotgun bonus.")
+    near, far = cdo["RANGE: Point Blank"], cdo["RANGE: Max"]
+    ref = (cdo["Damage Curve"].get("ExternalCurve") or {}).get("ObjectName", "")
+    m = re.fullmatch(r"CurveFloat'([^']+)'", ref)
+    if not m:
+        raise SystemExit(f"ABORT: {SHOTGUN_COMPONENT}'s Damage Curve isn't an external CurveFloat ({ref!r})")
+    keys = load(m.group(1))[0]["Properties"]["FloatCurve"]["Keys"]
+
+    # The rule above is the component's default. An enemy that overrides any of its
+    # knobs gets a different bonus, and the site would state one number for all.
+    for sub in ("enemies", "bosses"):
+        for fn in sorted(os.listdir(os.path.join(dumps, sub))):
+            if not fn.endswith(".json"):
+                continue
+            for e in json.load(open(os.path.join(dumps, sub, fn), encoding="utf-8")):
+                if e.get("Name") != SHOTGUN_INSTANCE:
+                    continue
+                bent = sorted(set(e.get("Properties") or {}) & set(SHOTGUN_KNOBS))
+                if bent:
+                    raise SystemExit(f"ABORT: {fn[:-5]} overrides {', '.join(bent)} on its shotgun "
+                                     "bonus. Give it its own row before publishing one range for all.")
+
+    def mult(cm):
+        t = min(max((cm - near) / (far - near), 0.0), 1.0)
+        return round(curve_value(keys, t), 2)
+    near_m, far_m = near / 100, far / 100
+    return {
+        "fullWithinM": near_m,
+        "goneAtM": far_m,
+        "peak": mult(near),
+        "byMetre": [{"m": d, "x": mult(d * 100)}
+                    for d in range(int(near_m), int(math.ceil(far_m)) + 1)],
+        "provenance": (f"{SHOTGUN_COMPONENT}'s Damaging Impact bytecode at build 25071553 (the rule); "
+                       f"its defaults and {m.group(1)} from the tracked dumps (the numbers)."),
+    }
+
+
 def dm_lookup(dm, code):
     """Join a wiki internal code to a datamine asset name.
 
@@ -218,6 +338,8 @@ def dm_lookup(dm, code):
 def main():
     build, dm = load_datamine()
     print(f"Datamine build {build} — {len(dm)} player weapon definitions")
+    sg = shotgun_range(os.path.abspath(FWDATA_ROOT))
+    print(f"Shotgun range bonus: x{sg['peak']} within {sg['fullWithinM']:g} m, gone at {sg['goneAtM']:g} m")
 
     print("Enumerating Category:Weapons …")
     titles = list_weapon_pages()
@@ -269,9 +391,12 @@ def main():
                  "game files and are authoritative. Accuracy, recoil and stability are not "
                  "stored fields — they are the wiki's transcription of the in-game aggregate, "
                  "which the devs flag as WIP. Shotgun `damage` is PER PELLET, as the game "
-                 "stores it; `pellets` and `damagePerShot` give the whole-spread total."),
+                 "stores it; `pellets` and `damagePerShot` give the whole-spread total. "
+                 "`shotgunRange` is the bonus every enemy adds to a shotgun hit by distance: "
+                 "the target takes the hit's damage times `x`."),
         "build": build,
         "provenance": {"datamined": DATAMINED, "wiki": WIKI_ONLY},
+        "shotgunRange": sg,
         "weapons": weapons,
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

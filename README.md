@@ -29,7 +29,8 @@ for the parts the wiki doesn't cover, straight from the shipping game files.
   scored: a share of the target's **health bar** (damage × caliber ÷ 450), not a flat
   multiple of damage — read from the enemy blueprint's own code.
 - **Stats** — what each weapon/attachment stat *actually* does, including why shotgun
-  damage reads ~200× low everywhere else (it's stored per pellet), and the evidence that
+  damage reads ~200× low everywhere else (it's stored per pellet), the close-range bonus
+  every enemy adds to a shotgun hit (×10 within 5 m, gone by 28 m), and the evidence that
   the **Stability system was removed from the build** — attachments still grant the stat,
   but the per-weapon curves that consumed it are gone.
 - **Detection** — the datamined **FWAI awareness system**: per-enemy vision / hearing
@@ -151,6 +152,13 @@ causes:
   wiki quotes a whole-spread total. `weapons.json` now carries `damage` (per pellet),
   `pellets`, and the derived `damagePerShot`.
 
+The spread total is still only the long-range floor. Every enemy carries a damage
+component (`BPC_IncomingDamageMod`) that adds a second hit to any shotgun hit, scaled by
+distance along `FC_ShotgunDamage_Falloff_All`: ×10 within 5 m, ×1 from 28 m. The Stats
+tab used to read that curve as pellets *losing* damage with distance; it is a bonus on
+top of the stored number. `weapons.json`'s `shotgunRange` carries the model, with the
+ranges and curve read from the dumps and the rule from the component's bytecode.
+
 Damage, rate of fire, magazine, weight, value, XP and calibre now come from the game
 files. Accuracy, recoil and stability stay wiki-sourced because they are **not stored
 fields** — they're the in-game display aggregates, which the devs flag as WIP.
@@ -187,7 +195,8 @@ maps.js · maps.css                  the Maps tab (Leaflet atlas, lazy-loaded, s
 sw.js · manifest.webmanifest        PWA / offline (shell precached, imagery runtime-cached)
 data/attachments.json               weapon ↔ attachment dataset (wiki)
 data/weapons.json                   per-weapon stats (datamined; wiki for the display-only stats).
-                                    Shotgun `damage` is PER PELLET — see `pellets`/`damagePerShot`
+                                    Shotgun `damage` is PER PELLET — see `pellets`/`damagePerShot`;
+                                    `shotgunRange` is the close-range bonus enemies add to it
 data/parts.json                     structural parts per weapon, by slot + unlock level (wiki)
 data/ammo.json                      every ammo type: headshot ×, value/XP, weight/volume (datamined from game files)
 data/economy.json                   raiding-loot value tiers + density (datamined from game files)
